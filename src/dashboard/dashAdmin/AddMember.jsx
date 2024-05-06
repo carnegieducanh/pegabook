@@ -1,0 +1,251 @@
+import { useEffect, useState } from "react";
+import { Button, Label, TextInput, Textarea } from "flowbite-react";
+import "react-datepicker/dist/react-datepicker.css";
+
+import ImageUpload from "../../components/ImageUpload";
+import { useNavigate } from "react-router-dom";
+
+const AddMember = () => {
+    const [memberID, setMemberID] = useState("");
+    const [password, setPassword] = useState("");
+    const [memberData, setMemberData] = useState([]);
+
+    const [commentDefault, setCommentDefault] = useState(
+        "Hi, have a nice day everyone!"
+    );
+
+    const handleCommentChange = (event) => {
+        const newComment = event.target.value;
+        setCommentDefault(newComment);
+    };
+
+    const [avatar, setAvatar] = useState(""); // State để lưu trữ URL của hình ảnh
+
+    // Hàm callback để cập nhật memberAvatar
+    const handleAvatarChange = (avatarUrl) => {
+        setAvatar(avatarUrl);
+    };
+
+    useEffect(() => {
+        // Auto-fill password when Member ID changes
+        setPassword(memberID);
+    }, [memberID]);
+
+    const handleMemberIDChange = (event) => {
+        const newMemberID = event.target.value.toUpperCase();
+        // const uppercaseValue = newMemberID.toUpperCase();
+        setMemberID(newMemberID);
+    };
+
+    const handlePasswordChange = (event) => {
+        const newPassword = event.target.value;
+        setPassword(newPassword);
+    };
+
+    useEffect(() => {
+        fetch("https://pega-book-server.onrender.com/all-members")
+            .then((res) => res.json())
+            .then((data) => {
+                setMemberData(data);
+            });
+    }, []);
+
+    // Trạng thái lỗi cho memberID
+    const [memberIDError, setMemberIDError] = useState(false);
+
+    // Chuyển đến trang khác
+    const navigate = useNavigate();
+
+    // handle member submission
+    const handleMemberSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+
+        const memberName = form.memberName.value;
+        const workPlace = form.workPlace.value;
+        const memberID = form.memberID.value;
+        const password = form.password.value;
+        const comment = form.comment.value;
+        const review = form.review.value;
+
+        // Kiểm tra trùng lặp memberID
+        if (memberData.some((member) => member.memberID === memberID)) {
+            alert("Đã tồn tại member ID");
+            return;
+        }
+
+        // Kiểm tra độ dài của memberID
+        if (memberID.length !== 11) {
+            setMemberIDError(true); // Đặt trạng thái lỗi thành true
+            return;
+        }
+
+        // Nếu đến đây, có nghĩa là memberID hợp lệ, đặt trạng thái lỗi thành false
+        setMemberIDError(false);
+
+        const memberObj = {
+            memberName,
+            memberAvatar: avatar,
+            workPlace,
+            memberID,
+            password,
+            comment,
+            review,
+        };
+        console.log(memberObj);
+
+        fetch("https://pega-book-server.onrender.com/add-member", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(memberObj),
+        })
+            .then((res) => res.json())
+            .then(() => {
+                // console.log(data);
+                alert("Member added successfully!!!");
+
+                // Chuyển đến trang khác
+                navigate("/admin/dashboard/manage-members");
+            });
+    };
+
+    return (
+        <div className="px-4 my-12 w-full">
+            <h2 className="mb-8 text-3xl font-bold">Add Member</h2>
+
+            <form
+                onSubmit={handleMemberSubmit}
+                className="flex  flex-col flex-wrap gap-4"
+            >
+                {/* first row */}
+                <ImageUpload onAvatarChange={handleAvatarChange} />
+
+                <div className="flex flex-col mx-auto w-full lg:w-1/2 gap-4">
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="memberName" value="Member Name" />
+                        </div>
+                        <TextInput
+                            id="memberName"
+                            name="memberName"
+                            type="text"
+                            placeholder="Member name"
+                            required
+                        />
+                    </div>
+
+                    {/* 2nd row */}
+                    <div className="flex flex-col md:flex-row gap-4">
+                        {/* Member ID */}
+                        <div className="w-full lg:w-1/2">
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="memberID"
+                                    value="Member ID (PEGA...) Nhập đủ 9 chữ số"
+                                />
+                            </div>
+                            <TextInput
+                                id="memberID"
+                                name="memberID"
+                                type="text"
+                                placeholder="Ex: PEGA2000000"
+                                required
+                                value={memberID} // Gán giá trị của state vào input
+                                onChange={handleMemberIDChange}
+                            />
+                            {memberIDError && (
+                                <p className="text-red-700 font-semibold">
+                                    Member ID must be 9 characters long!!!.
+                                </p>
+                            )}
+                        </div>
+
+                        <div className="w-full lg:w-1/2">
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="workPlace"
+                                    value="Pegabook tầng 5/ tầng 4/ Office"
+                                />
+                            </div>
+                            <TextInput
+                                id="workPlace"
+                                name="workPlace"
+                                type="text"
+                                placeholder="Pegabook tầng 5/ tầng 4/ Office"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    {/* review */}
+                    <div className="hidden">
+                        <div className="mb-2 block">
+                            <Label htmlFor="review" value="Review" />
+                        </div>
+                        <Textarea
+                            id="review"
+                            name="review"
+                            placeholder="Write your review..."
+                            // required
+                            className="w-full"
+                            rows={5}
+                        />
+                    </div>
+
+                    {/* Comment */}
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="comment" value="Comment default" />
+                        </div>
+                        <Textarea
+                            id="comment"
+                            name="comment"
+                            className="w-full"
+                            rows={3}
+                            value={commentDefault}
+                            onChange={handleCommentChange}
+                            required
+                        />
+                    </div>
+
+                    {/* 5nd row */}
+                    <div>
+                        <h2 className="mt-2 text-xl font-bold">
+                            Create a login User (automatically)
+                        </h2>
+                        {/* Member User */}
+                        <div className="flex gap-8">
+                            <div className="w-1/2">
+                                <div className="mb-2 block">
+                                    <Label
+                                        htmlFor="password"
+                                        value="Password"
+                                    />
+                                </div>
+                                <TextInput
+                                    id="password"
+                                    name="password"
+                                    type="text"
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={handlePasswordChange}
+                                    readOnly
+                                    required
+                                />
+                            </div>
+                            <div className="w-1/2"></div>
+                        </div>
+                    </div>
+
+                    <Button type="submit" className="mt-5">
+                        Add this Member
+                    </Button>
+                </div>
+            </form>
+        </div>
+    );
+};
+
+export default AddMember;

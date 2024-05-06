@@ -1,0 +1,261 @@
+import { createBrowserRouter } from "react-router-dom";
+import App from "../App";
+import Home from "../home/Home";
+import SingleBook from "../YourBooks/SingleBook";
+import OurBooks from "../YourBooks/OurBooks";
+import Members from "../YourMembers/Members";
+import Sharers from "../YourMembers/Sharers";
+import SingleMember from "../YourMembers/SingleMember";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Dashboard from "../dashboard/dashAdmin/Dashboard";
+import DashboardLayout from "../dashboard/dashAdmin/DashboardLayout";
+import ManageBooks from "../dashboard/dashAdmin/ManageBooks";
+import CreateSharer from "../dashboard/dashAdmin/CreateSharer";
+import AddMember from "../dashboard/dashAdmin/AddMember";
+import EditMember from "../dashboard/dashAdmin/EditMember";
+import ManageMembers from "../dashboard/dashAdmin/ManageMembers";
+import DashSharerLayout from "../dashboard/dashSharer/DashSharerLayout";
+import DashSharer from "../dashboard/dashSharer/DashSharer";
+import YourBooks from "../dashboard/dashSharer/YourBooks";
+import UploadBook from "../dashboard/dashSharer/UploadBook";
+import YourProfile from "../dashboard/dashSharer/YourProfile";
+import YourPassword from "../dashboard/dashSharer/YourPassword";
+import YourEditBooks from "../dashboard/dashSharer/YourEditBooks";
+import Signup from "../components/Signup";
+import Login from "../components/Login";
+import LoginSharer from "../components/LoginSharer";
+import LoginBorrower from "../components/LoginBorrower";
+import Logout from "../components/Logout";
+import BorrowedBooks from "../dashboard/dashBorrower/BorrowedBooks";
+import BorrowerProfile from "../dashboard/dashBorrower/BorrowerProfile";
+import DashBorrowerLayout from "../dashboard/dashBorrower/DashBorrowerLayout";
+import AddBorrower from "../dashboard/dashSharer/AddBorrower";
+import SingleYourBook from "../dashboard/dashSharer/SingleYourBook";
+import RemoveBorrower from "../dashboard/dashSharer/RemoveBorrower";
+import ManageBorrower from "../dashboard/dashSharer/ManageBorrower";
+import ReturnBook from "../dashboard/dashBorrower/ReturnBook";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <App />,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "/our-books",
+                element: <OurBooks />,
+            },
+            {
+                path: "/members",
+                element: <Members />,
+            },
+            {
+                path: "/sharers",
+                element: <Sharers />,
+            },
+            {
+                path: "/book/:id",
+                element: <SingleBook />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/book/${params.id}`
+                    ),
+            },
+            {
+                path: "/member/:id",
+                element: <SingleMember />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+        ],
+    },
+    {
+        path: "/admin/dashboard",
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: "/admin/dashboard",
+                element: (
+                    <PrivateRoute>
+                        <Dashboard />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/admin/dashboard/main",
+                element: <Dashboard />,
+            },
+
+            {
+                path: "/admin/dashboard/manage",
+                element: <ManageBooks />,
+            },
+            {
+                path: "/admin/dashboard/add-member",
+                element: <AddMember />,
+            },
+            {
+                path: "/admin/dashboard/create-sharer",
+                element: <CreateSharer />,
+            },
+            {
+                path: "/admin/dashboard/manage-members",
+                element: <ManageMembers />,
+            },
+            {
+                path: "/admin/dashboard/edit-members/:id",
+                element: <EditMember />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+        ],
+    },
+    {
+        path: "/sharer/dashboard",
+        element: <DashSharerLayout />,
+        children: [
+            {
+                path: "/sharer/dashboard/:id",
+                element: <DashSharer />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+            {
+                path: "/sharer/dashboard/add-borrower/:id",
+                element: <AddBorrower />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/book/${params.id}`
+                    ),
+            },
+            {
+                path: "/sharer/dashboard/remove-borrower/:id",
+                element: <RemoveBorrower />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/book/${params.id}`
+                    ),
+            },
+            {
+                path: "/sharer/dashboard/upload/:id",
+                element: <UploadBook />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+            {
+                path: "/sharer/dashboard/manage/:id",
+                element: <YourBooks />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+            {
+                path: "/sharer/dashboard/manage/borrower/:id",
+                element: <ManageBorrower />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+
+            {
+                path: "/sharer/dashboard/profile/:id",
+                element: <YourProfile />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+            {
+                path: "/sharer/dashboard/changePassword/:id",
+                element: <YourPassword />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+
+            {
+                path: "/sharer/dashboard/book/:id",
+                element: <SingleYourBook />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/book/${params.id}`
+                    ),
+            },
+            {
+                path: "/sharer/dashboard/edit-books/:id",
+                element: <YourEditBooks />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/book/${params.id}`
+                    ),
+            },
+        ],
+    },
+    {
+        path: "/borrower/dashboard",
+        element: <DashBorrowerLayout />,
+        children: [
+            {
+                path: "/borrower/dashboard/:id",
+                element: <BorrowedBooks />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+            {
+                path: "/borrower/dashboard/return-book/:id",
+                element: <ReturnBook />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/book/${params.id}`
+                    ),
+            },
+
+            {
+                path: "/borrower/dashboard/profile/:id",
+                element: <BorrowerProfile />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+        ],
+    },
+    {
+        path: "sign-up",
+        element: <Signup />,
+    },
+    {
+        path: "login",
+        element: <Login />,
+    },
+    {
+        path: "login-sharer",
+        element: <LoginSharer />,
+    },
+    {
+        path: "login-borrower",
+        element: <LoginBorrower />,
+    },
+    {
+        path: "logout",
+        element: <Logout />,
+    },
+]);
+
+export default router;
