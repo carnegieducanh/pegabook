@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Checkbox, Label, Modal, TextInput } from "flowbite-react";
+import { useState } from "react";
+import { Label, Modal } from "flowbite-react";
+import { Link } from "react-router-dom";
 
-const LoginMember = ({}) => {
+const LoginMember = ({ _id }) => {
     const [openModal, setOpenModal] = useState(false);
     const [error, setError] = useState("");
 
@@ -64,7 +65,9 @@ const LoginMember = ({}) => {
                 className="bg-[#ccc] pt-60 md:pt-10"
             >
                 <div className="bg-[#F4F1EA] rounded-md my-auto">
-                    <Modal.Header onClick={() => window.location.reload()} />
+                    <Link to={"/"}>
+                        <Modal.Header />
+                    </Link>
                     <Modal.Body>
                         <form onSubmit={handleLogin}>
                             <div className="space-y-6 ">

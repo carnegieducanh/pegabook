@@ -45,7 +45,8 @@ const Footer = () => {
                         </div> */}
                     </div>
                     {/* Links */}
-                    <div className="grid sm:grid-cols-4 col-span-3 md:px-10">
+
+                    <div className="hidden md:grid sm:grid-cols-4 col-span-3 md:px-10 ">
                         <div className="">
                             <div className="py-8 px-4 ">
                                 <h1 className="sm:text-xl sm:text-left text-justify mb-3">
@@ -100,6 +101,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+
                 <div>
                     <div className="text-center py-10 border-t-2 border-gray-300/50">
                         @Copyright 2024 All rights reserved || Made with ❤️ by

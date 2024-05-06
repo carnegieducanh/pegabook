@@ -55,7 +55,7 @@ const SingleBook = () => {
             .then((res) => res.json())
             .then((data) => {
                 setMemberData(data);
-                console.log("All Books:", data);
+                // console.log("All Books:", data);
             });
     }, []);
 
@@ -64,7 +64,7 @@ const SingleBook = () => {
             .then((res) => res.json())
             .then((data) => {
                 setAllBooksData(data);
-                console.log("All Books:", data);
+                // console.log("All Books:", data);
             });
     }, []);
 
@@ -152,7 +152,7 @@ const SingleBook = () => {
                             className="w-48 h-72 lg:h-72 lg:w-48 transform hover:scale-105 duration-300 shadow-xl rounded-tr-xl rounded-br-xl object-cover shrink-0"
                         />
                         <div onClick={handleLoginClick} className="mb-5">
-                            <LoginMember />
+                            <LoginMember _id={_id} />
                         </div>
                     </div>
 

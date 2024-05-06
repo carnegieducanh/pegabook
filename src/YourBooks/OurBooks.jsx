@@ -66,7 +66,7 @@ const OurBooks = () => {
                 </h2>
                 <div className="grid justify-between gap-x-8 my-12 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
                     {currentBooks.map((book) => (
-                        <Link to={`/book/${book._id}`}>
+                        <Link to={`/book/${book._id}`} key={book._id}>
                             <div className="flex gap-4 py-6">
                                 <img
                                     src={book.imageUrl}
