@@ -1,5 +1,3 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -55,7 +53,7 @@ const OtherBookCards = ({ headline, books }) => {
                             <Link to={`/book/${book._id}`}>
                                 <div
                                     data-aos="zoom-in"
-                                    className=" bg-white dark:bg-gray-800 group flex flex-col justify-between gap-4 lg:w-52 h-[400px] lg:[700px]"
+                                    className=" bg-white dark:bg-gray-800 group flex flex-col justify-between gap-4 lg:w-52 h-[400px] lg:h-full "
                                 >
                                     <div className="mt-1 text-left mx-auto flex flex-col justify-between gap-1 lg:w-52">
                                         <p className="block text-center text-gray-500 text-sm line-clamp-2">
