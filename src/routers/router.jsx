@@ -34,6 +34,7 @@ import SingleYourBook from "../dashboard/dashSharer/SingleYourBook";
 import RemoveBorrower from "../dashboard/dashSharer/RemoveBorrower";
 import ManageBorrower from "../dashboard/dashSharer/ManageBorrower";
 import ReturnBook from "../dashboard/dashBorrower/ReturnBook";
+import Gratitude from "../components/Gratitude";
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
             {
                 path: "/sharers",
                 element: <Sharers />,
+            },
+            {
+                path: "/gratitude",
+                element: <Gratitude />,
             },
             {
                 path: "/book/:id",
