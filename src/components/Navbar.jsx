@@ -88,7 +88,7 @@ const Navbar = () => {
                         </h2>
                         {/* <FaBlog className="inline-block" /> */}
                         <p className="pt-2 text-[#5a5a5a]">
-                            Viet Nam Team Book Library
+                            Viet Nam Team with ❤️
                         </p>
                     </Link>
 

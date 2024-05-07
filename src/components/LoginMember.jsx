@@ -79,7 +79,7 @@ const LoginMember = ({ _id }) => {
                                     <div className="mb-2 block">
                                         <Label
                                             htmlFor="password"
-                                            value="Mật khẩu của bạn"
+                                            value="Mã số thành viên của bạn"
                                         />
                                     </div>
                                     <input

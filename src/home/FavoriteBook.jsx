@@ -76,7 +76,7 @@ const FavoriteBook = () => {
                                 </div>
                             ))}
 
-                        <Avatar.Counter total={99} href="#" />
+                        <Avatar.Counter total={9} href="#" />
                     </Avatar.Group>
                 </div>
 
