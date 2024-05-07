@@ -19,7 +19,6 @@ const ManageMembers = () => {
             .then((res) => res.json())
             .then((data) => {
                 setAllMembers(data);
-                console.log("All Members:", data);
             });
     }, []);
 

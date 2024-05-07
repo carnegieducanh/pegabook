@@ -26,7 +26,6 @@ const DashBorrowerSidebar = () => {
             .then((res) => res.json())
             .then((data) => {
                 setBorrower(data);
-                console.log(data);
             });
     }, []);
     return (

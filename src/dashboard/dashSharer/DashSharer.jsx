@@ -35,7 +35,7 @@ const DashSharer = () => {
 
     // Lọc ra các cuốn sách có người mượn
     const borrowers = yourBooks.filter((book) => book.borrowedBy);
-    console.log("Total Borrower:", borrowers);
+    // console.log("Total Borrower:", borrowers);
 
     // Lọc ra các thành viên có borrowerID giống với borrowerID của các cuốn sách trong yourBooks từ API https://pega-book-server.onrender.com/all-members
     const matchedMembers = borrower.filter((member) =>

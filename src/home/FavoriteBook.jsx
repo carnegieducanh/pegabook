@@ -27,7 +27,7 @@ const FavoriteBook = () => {
             });
     }, []);
 
-    console.log(allMembers);
+    // console.log(allMembers);
 
     return (
         <div className="px-4 lg:px-24 my-20 flex flex-col lg:flex-row justify-between items-center gap-12">

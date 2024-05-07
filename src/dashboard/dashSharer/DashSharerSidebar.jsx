@@ -31,7 +31,6 @@ const DashSharerSidebar = () => {
             .then((res) => res.json())
             .then((data) => {
                 setSharer(data);
-                console.log(data);
             });
     }, []);
     return (

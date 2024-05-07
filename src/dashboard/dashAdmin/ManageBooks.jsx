@@ -19,14 +19,14 @@ const ManageBooks = () => {
             .then((res) => res.json())
             .then((books) => {
                 setAllBooks(books);
-                console.log("All Books:", books);
+                // console.log("All Books:", books);
             });
 
         fetch("https://pega-book-server.onrender.com/all-members")
             .then((res) => res.json())
             .then((members) => {
                 setAllMembers(members);
-                console.log("All members:", members);
+                // console.log("All members:", members);
             });
     }, []);
 
@@ -51,7 +51,7 @@ const ManageBooks = () => {
     const indexOfLastBook = currentPage * booksPerPage;
     const indexOfFirstBook = indexOfLastBook - booksPerPage;
     const currentBooks = matchedBooks.slice(indexOfFirstBook, indexOfLastBook);
-    console.log(currentBooks);
+    // console.log(currentBooks);
 
     // delete a book
     const handleDelete = (id) => {

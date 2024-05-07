@@ -203,15 +203,15 @@ const Dashboard = () => {
                                 View all
                             </Link>
                         </div>
-                        <div className="mb-4 flex gap-5 w-full">
+                        <div className="mb-4 flex gap-5 w-full justify-between">
                             <p className="text-md leading-none text-gray-500 dark:text-white w-2/4">
                                 BOOK NAME
                             </p>
-                            <p className="text-md leading-none text-gray-500 dark:text-white w-1/4">
-                                SHARED BY
+                            <p className="text-md leading-none text-gray-500 dark:text-white w-1/4 hidden md:block">
+                                CATEGORY
                             </p>
                             <p className="text-md leading-none text-gray-500 dark:text-white w-1/4">
-                                CATEGORY
+                                SHARED BY
                             </p>
                         </div>
                         <div>
@@ -219,7 +219,7 @@ const Dashboard = () => {
                                 <div key={index}>
                                     <div className="flow-root">
                                         <div className="divide-y divide-gray-200 dark:divide-gray-700">
-                                            <div className="py-3 sm:py-4 flex items-center">
+                                            <div className="py-3 sm:py-4 flex items-center justify-between">
                                                 <div className="flex space-x-4 w-2/4 items-center">
                                                     <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-12 h-16">
                                                         <img
@@ -243,13 +243,12 @@ const Dashboard = () => {
                                                         </p>
                                                     </div>
                                                 </div>
-
-                                                <div className="w-1/4 text-base font-semibold text-gray-900 dark:text-white">
-                                                    {matchedBook.memberName}
+                                                <div className="w-1/4 text-base font-semibold text-gray-900 dark:text-white hidden md:block">
+                                                    {matchedBook.category}
                                                 </div>
 
-                                                <div className="w-1/4 text-base font-semibold text-gray-900 dark:text-white">
-                                                    {matchedBook.category}
+                                                <div className="md:w-1/4 text-base font-semibold text-gray-900 dark:text-white">
+                                                    {matchedBook.memberName}
                                                 </div>
                                             </div>
                                         </div>

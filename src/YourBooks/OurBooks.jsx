@@ -21,7 +21,7 @@ const OurBooks = () => {
             .then((res) => res.json())
             .then((members) => {
                 setAllMembers(members);
-                console.log("All members:", members);
+                // console.log("All members:", members);
             });
     }, []);
 
