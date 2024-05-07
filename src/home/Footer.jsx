@@ -18,7 +18,7 @@ const FooterLinks = [
     },
     {
         link: "Lời cảm ơn",
-        path: "/Comments",
+        path: "/gratitude",
     },
 ];
 const Footer = () => {
