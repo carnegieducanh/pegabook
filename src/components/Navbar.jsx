@@ -207,7 +207,7 @@ const Navbar = () => {
 
                 {/* ===== navItems for sm devices ====== */}
                 <div
-                    className={`space-y-4 px-4 mt-[70px] py-7 bg-[#f4f1ea] ${
+                    className={`space-y-4 px-4 mt-[68px] py-7 bg-[#f4f1ea] ${
                         isMenuOpen
                             ? "block fixed top-0 right-0 left-0"
                             : "hidden"
