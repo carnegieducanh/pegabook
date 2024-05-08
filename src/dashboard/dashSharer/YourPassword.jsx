@@ -4,7 +4,7 @@ import { Button, Label, TextInput } from "flowbite-react";
 
 function YourPassword() {
     const { id } = useParams();
-    const { _id, memberAvatar, memberID, sharerPassword } = useLoaderData();
+    const { _id, memberAvatar, memberID, password } = useLoaderData();
 
     //   ===========================================
 
@@ -17,10 +17,10 @@ function YourPassword() {
 
         const form = event.target;
 
-        const sharerPassword = form.newPassword.value;
+        const password = form.newPassword.value;
 
         const updateMemberObj = {
-            sharerPassword,
+            password,
         };
 
         // update data to database
@@ -37,7 +37,7 @@ function YourPassword() {
                 alert("Member updated successfully!!!");
 
                 // Chuyển đến trang khác
-                navigate(`/sharer/dashboard/${_id}`);
+                navigate(`/member/dashboard/${_id}`);
             });
     };
     return (
@@ -85,10 +85,10 @@ function YourPassword() {
                             />
                         </div>
                         <TextInput
-                            id="sharerPassword"
-                            name="sharerPassword"
+                            id="password"
+                            name="password"
                             type="text"
-                            defaultValue={sharerPassword}
+                            defaultValue={password}
                             readOnly
                             required
                         />

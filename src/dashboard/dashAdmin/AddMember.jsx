@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const AddMember = () => {
     const [memberID, setMemberID] = useState("");
-    const [password, setPassword] = useState("");
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("ilovepj");
     const [memberData, setMemberData] = useState([]);
 
     const [commentDefault, setCommentDefault] = useState(
@@ -28,7 +29,7 @@ const AddMember = () => {
 
     useEffect(() => {
         // Auto-fill password when Member ID changes
-        setPassword(memberID);
+        setUserName(memberID);
     }, [memberID]);
 
     const handleMemberIDChange = (event) => {
@@ -38,8 +39,8 @@ const AddMember = () => {
     };
 
     const handlePasswordChange = (event) => {
-        const newPassword = event.target.value;
-        setPassword(newPassword);
+        const newUser = event.target.value;
+        setPassword(newUser);
     };
 
     useEffect(() => {
@@ -63,6 +64,7 @@ const AddMember = () => {
 
         const memberName = form.memberName.value;
         const workPlace = form.workPlace.value;
+        const userName = form.userName.value;
         const memberID = form.memberID.value;
         const password = form.password.value;
         const comment = form.comment.value;
@@ -88,6 +90,7 @@ const AddMember = () => {
             memberAvatar: avatar,
             workPlace,
             memberID,
+            userName,
             password,
             comment,
             review,
@@ -203,7 +206,7 @@ const AddMember = () => {
                             id="comment"
                             name="comment"
                             className="w-full"
-                            rows={3}
+                            rows={2}
                             value={commentDefault}
                             onChange={handleCommentChange}
                             required
@@ -217,6 +220,23 @@ const AddMember = () => {
                         </h2>
                         {/* Member User */}
                         <div className="flex gap-8">
+                            <div className="w-1/2">
+                                <div className="mb-2 block">
+                                    <Label
+                                        htmlFor="userName"
+                                        value="User name"
+                                    />
+                                </div>
+                                <TextInput
+                                    id="userName"
+                                    name="userName"
+                                    type="text"
+                                    placeholder="User name"
+                                    value={userName}
+                                    readOnly
+                                    required
+                                />
+                            </div>
                             <div className="w-1/2">
                                 <div className="mb-2 block">
                                     <Label
@@ -235,7 +255,6 @@ const AddMember = () => {
                                     required
                                 />
                             </div>
-                            <div className="w-1/2"></div>
                         </div>
                     </div>
 

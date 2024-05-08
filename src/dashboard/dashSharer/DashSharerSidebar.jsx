@@ -5,6 +5,7 @@ import { FaBook } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { TbPasswordUser } from "react-icons/tb";
 import { FaBookReader } from "react-icons/fa";
+import { FaAddressBook } from "react-icons/fa6";
 import {
     HiArrowSmRight,
     HiChartPie,
@@ -15,11 +16,11 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 
-const DashSharerSidebar = () => {
+const DashMemberSidebar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const { id } = useParams();
-    const [sharer, setSharer] = useState({});
+    const [member, setMember] = useState({});
 
     // toggle menu
     const toggleMenu = () => {
@@ -30,7 +31,7 @@ const DashSharerSidebar = () => {
         fetch(`https://pega-book-server.onrender.com/member/${id}`)
             .then((res) => res.json())
             .then((data) => {
-                setSharer(data);
+                setMember(data);
             });
     }, []);
     return (
@@ -39,12 +40,12 @@ const DashSharerSidebar = () => {
                 <Sidebar.Logo className="-pl-3">
                     <div className="flex gap-2">
                         <img
-                            src={sharer.memberAvatar}
+                            src={member.memberAvatar}
                             alt=""
                             className="w-8 h-8 rounded-full object-cover shrink-0"
                         />
 
-                        <p>{sharer.memberName}</p>
+                        <p>{member.memberName}</p>
                     </div>
                 </Sidebar.Logo>
                 <div className="lg:hidden">
@@ -64,33 +65,40 @@ const DashSharerSidebar = () => {
             {/* === Desktop Menu  === */}
             <Sidebar.Items className="hidden lg:block">
                 <Sidebar.ItemGroup>
-                    <Link to={`/sharer/dashboard/${sharer._id}`}>
+                    <Link to={`/member/dashboard/${member._id}`}>
                         <Sidebar.Item icon={HiChartPie}>Thống kê</Sidebar.Item>
                     </Link>
 
+                    <Link to={`/member/dashboard/upload/${member._id}`}>
+                        <Sidebar.Item icon={HiOutlineCloudUpload}>
+                            Thêm sách mới
+                        </Sidebar.Item>
+                    </Link>
+
+                    <Link to={`/member/dashboard/manage/${member._id}`}>
+                        <Sidebar.Item icon={FaAddressBook}>
+                            Sách của bạn
+                        </Sidebar.Item>
+                    </Link>
+
                     <Link
-                        to={`/sharer/dashboard/manage/borrower/${sharer._id}`}
+                        to={`/member/dashboard/manage/borrower/${member._id}`}
                     >
                         <Sidebar.Item icon={FaBookReader}>
                             Người mượn sách
                         </Sidebar.Item>
                     </Link>
 
-                    <Link to={`/sharer/dashboard/upload/${sharer._id}`}>
-                        <Sidebar.Item icon={HiOutlineCloudUpload}>
-                            Thêm sách mới
-                        </Sidebar.Item>
+                    <Link to={`/member/dashboard/borrowed-book/${member._id}`}>
+                        <Sidebar.Item icon={FaBook}>Trả sách</Sidebar.Item>
                     </Link>
-                    <Link to={`/sharer/dashboard/manage/${sharer._id}`}>
-                        <Sidebar.Item icon={FaBook}>Sách của bạn</Sidebar.Item>
-                    </Link>
-                    <Link to={`/sharer/dashboard/profile/${sharer._id}`}>
+                    <Link to={`/member/dashboard/profile/${member._id}`}>
                         <Sidebar.Item icon={CgProfile}>
                             Hồ sơ cá nhân
                         </Sidebar.Item>
                     </Link>
 
-                    <Link to={`/sharer/dashboard/changePassword/${sharer._id}`}>
+                    <Link to={`/member/dashboard/changePassword/${member._id}`}>
                         <Sidebar.Item icon={TbPasswordUser}>
                             Đổi mật khẩu
                         </Sidebar.Item>
@@ -113,38 +121,43 @@ const DashSharerSidebar = () => {
             <div className={`${isMenuOpen ? "block z-50" : "hidden"}`}>
                 <Sidebar.Items>
                     <Sidebar.ItemGroup>
-                        <Link to={`/sharer/dashboard/${sharer._id}`}>
+                        <Link to={`/member/dashboard/${member._id}`}>
                             <Sidebar.Item icon={HiChartPie}>
                                 Thống kê
                             </Sidebar.Item>
                         </Link>
 
+                        <Link to={`/member/dashboard/upload/${member._id}`}>
+                            <Sidebar.Item icon={HiOutlineCloudUpload}>
+                                Thêm sách mới
+                            </Sidebar.Item>
+                        </Link>
+                        <Link to={`/member/dashboard/manage/${member._id}`}>
+                            <Sidebar.Item icon={FaAddressBook}>
+                                Sách của bạn
+                            </Sidebar.Item>
+                        </Link>
                         <Link
-                            to={`/sharer/dashboard/manage/borrower/${sharer._id}`}
+                            to={`/member/dashboard/manage/borrower/${member._id}`}
                         >
                             <Sidebar.Item icon={FaBookReader}>
                                 Người mượn sách
                             </Sidebar.Item>
                         </Link>
 
-                        <Link to={`/sharer/dashboard/upload/${sharer._id}`}>
-                            <Sidebar.Item icon={HiOutlineCloudUpload}>
-                                Thêm sách mới
-                            </Sidebar.Item>
+                        <Link
+                            to={`/member/dashboard/borrowed-book/${member._id}`}
+                        >
+                            <Sidebar.Item icon={FaBook}>Trả sách</Sidebar.Item>
                         </Link>
-                        <Link to={`/sharer/dashboard/manage/${sharer._id}`}>
-                            <Sidebar.Item icon={FaBook}>
-                                Sách của bạn
-                            </Sidebar.Item>
-                        </Link>
-                        <Link to={`/sharer/dashboard/profile/${sharer._id}`}>
+                        <Link to={`/member/dashboard/profile/${member._id}`}>
                             <Sidebar.Item icon={CgProfile}>
                                 Hồ sơ cá nhân
                             </Sidebar.Item>
                         </Link>
 
                         <Link
-                            to={`/sharer/dashboard/changePassword/${sharer._id}`}
+                            to={`/member/dashboard/changePassword/${member._id}`}
                         >
                             <Sidebar.Item icon={TbPasswordUser}>
                                 Đổi mật khẩu
@@ -167,4 +180,4 @@ const DashSharerSidebar = () => {
         </Sidebar>
     );
 };
-export default DashSharerSidebar;
+export default DashMemberSidebar;

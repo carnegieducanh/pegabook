@@ -95,7 +95,7 @@ const ManageBorrower = () => {
                                             (book, index) => (
                                                 <Link
                                                     key={index}
-                                                    to={`/sharer/dashboard/book/${book.bookId}`}
+                                                    to={`/member/dashboard/book/${book.bookId}`}
                                                 >
                                                     <img
                                                         src={book.imageUrl}

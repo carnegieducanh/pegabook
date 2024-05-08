@@ -58,7 +58,7 @@ const YourProfile = () => {
                 alert("Member updated successfully!!!");
 
                 // Chuyển đến trang khác
-                navigate(`/sharer/dashboard/${_id}`);
+                navigate(`/member/dashboard/${_id}`);
             });
     };
     return (

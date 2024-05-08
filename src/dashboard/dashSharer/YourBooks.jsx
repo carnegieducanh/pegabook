@@ -61,7 +61,7 @@ const YourBooks = () => {
                     {currentBooks &&
                         currentBooks.map((book) => (
                             <Link
-                                to={`/sharer/dashboard/book/${book._id}`}
+                                to={`/member/dashboard/book/${book._id}`}
                                 key={book._id}
                             >
                                 <div className="flex flex-col group justify-between gap-4 py-6">
@@ -89,7 +89,7 @@ const YourBooks = () => {
                                             <p className="text-sm line-clamp-2">
                                                 {book.status}
                                             </p>
-                                            <p className="text-sm font-semibold line-clamp-1">
+                                            <p className="text-sm font-semibold text-pink-800 line-clamp-1">
                                                 {book.borrowedBy}
                                             </p>
                                         </div>

@@ -90,7 +90,7 @@ function RemoveBorrower() {
                 alert("Book updated successfully!!!");
 
                 // Chuyển đến trang khác
-                navigate(`/sharer/dashboard/manage/${sharedBy_id}`);
+                navigate(`/member/dashboard/manage/${sharedBy_id}`);
             });
     };
     return (

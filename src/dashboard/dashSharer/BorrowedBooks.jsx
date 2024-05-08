@@ -53,7 +53,7 @@ const BorrowedBooks = () => {
                     {currentBooks &&
                         currentBooks.map((book) => (
                             <Link
-                                to={`/borrower/dashboard/return-book/${book._id}`}
+                                to={`/member/dashboard/return-book/${book._id}`}
                                 key={book._id}
                             >
                                 <div className="flex flex-col justify-between gap-4 py-6">

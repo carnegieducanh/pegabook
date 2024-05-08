@@ -130,7 +130,7 @@ const SingleYourBook = () => {
                     alert("Book is deleted successfully!");
 
                     // Chuyển đến trang khác
-                    navigate(`/sharer/dashboard/manage/${sharedBy_id}`);
+                    navigate(`/member/dashboard/manage/${sharedBy_id}`);
                 });
         }
     };
@@ -211,7 +211,7 @@ const SingleYourBook = () => {
                             <Button className="w-48">
                                 <Link
                                     className="font-semibold my-auto flex items-center"
-                                    to={`/sharer/dashboard/add-borrower/${_id}`}
+                                    to={`/member/dashboard/add-borrower/${_id}`}
                                 >
                                     <IoPersonAdd />
                                     <div className="px-2">Add borrower</div>
@@ -220,7 +220,7 @@ const SingleYourBook = () => {
                             <Button className="w-48">
                                 <Link
                                     className="font-semibold my-auto flex items-center"
-                                    to={`/sharer/dashboard/edit-books/${_id}`}
+                                    to={`/member/dashboard/edit-books/${_id}`}
                                 >
                                     <GrEdit />
                                     <div className="px-2">Edit book</div>
@@ -232,7 +232,7 @@ const SingleYourBook = () => {
                             <Button className="bg-red-800 w-48">
                                 <Link
                                     className="font-semibold my-auto flex items-center"
-                                    to={`/sharer/dashboard/remove-borrower/${_id}`}
+                                    to={`/member/dashboard/remove-borrower/${_id}`}
                                 >
                                     <IoPersonRemoveOutline />
                                     <div className="px-2">Remove borrower</div>

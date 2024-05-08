@@ -19,6 +19,7 @@ const EditMember = () => {
         workPlace,
         memberID,
         email,
+        userName,
         password,
         comment,
     } = useLoaderData();
@@ -35,6 +36,7 @@ const EditMember = () => {
         const memberID = form.memberID.value;
         const workPlace = form.workPlace.value;
         const email = form.email.value;
+        const userName = form.userName.value;
         const password = form.password.value;
         const comment = form.comment.value;
 
@@ -44,6 +46,7 @@ const EditMember = () => {
             workPlace,
             memberID,
             email,
+            userName,
             password,
             comment,
         };
@@ -156,13 +159,27 @@ const EditMember = () => {
                         defaultValue={comment}
                         required
                         className="w-full"
-                        rows={3}
+                        rows={2}
                     />
                 </div>
 
                 {/* Member User */}
                 <h2 className="mt-4 text-xl font-bold">Info user account</h2>
                 <div className="flex gap-8">
+                    <div className="w-1/2">
+                        <div className="mb-2 block">
+                            <Label htmlFor="userName" value="User name" />
+                        </div>
+                        <TextInput
+                            id="userName"
+                            name="userName"
+                            type="text"
+                            placeholder="User name"
+                            defaultValue={userName}
+                            // readOnly
+                            required
+                        />
+                    </div>
                     <div className="w-1/2">
                         <div className="mb-2 block">
                             <Label htmlFor="password" value="Password" />
@@ -173,11 +190,10 @@ const EditMember = () => {
                             type="text"
                             placeholder="Password"
                             defaultValue={password}
-                            readOnly
+                            // readOnly
                             required
                         />
                     </div>
-                    <div className="w-1/2"></div>
                 </div>
 
                 <Button type="submit" className="mt-5">

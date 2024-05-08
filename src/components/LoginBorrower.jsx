@@ -31,9 +31,9 @@ const LoginBorrower = ({}) => {
     };
 
     // Hàm xử lý sự kiện thay đổi ô password
-    const handlePasswordChange = (event) => {
-        event.target.value = event.target.value.toUpperCase(); // Chuyển đổi thành chữ hoa
-    };
+    // const handlePasswordChange = (event) => {
+    //     event.target.value = event.target.value.toUpperCase(); // Chuyển đổi thành chữ hoa
+    // };
 
     return (
         <div className="bg-[#e5e7eb] min-h-screen flex flex-col justify-between">
@@ -73,7 +73,7 @@ const LoginBorrower = ({}) => {
                                 name="password"
                                 type="password"
                                 required
-                                onChange={handlePasswordChange} // Gọi hàm xử lý sự kiện thay đổi password
+                                // onChange={handlePasswordChange}
                             />
                         </div>
 

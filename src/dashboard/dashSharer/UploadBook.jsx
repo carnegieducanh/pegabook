@@ -81,7 +81,7 @@ const UploadBook = () => {
                 // console.log(data);
                 alert("Book uploaded successfully!!!");
                 // Chuyển đến trang khác
-                navigate(`/sharer/dashboard/manage/${id}`);
+                navigate(`/member/dashboard/manage/${id}`);
                 // form.reset();
                 // Reset giá trị của trường Status thành "Có thể mượn"
                 // setStatus("Có thể mượn");

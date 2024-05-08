@@ -44,8 +44,8 @@ const Navbar = () => {
     ];
 
     const navSignIn = [
-        { link: "Chia sẻ sách", path: "/login-sharer" },
-        { link: "Trả sách ", path: "/login-borrower" },
+        { link: "Thành viên", path: "/login-member" },
+        // { link: "Trả sách ", path: "/login-borrower" },
         { link: "Admin", path: "/admin/dashboard" },
     ];
 
@@ -131,7 +131,7 @@ const Navbar = () => {
                     {/* btn for large devices */}
                     {isUserLoggedIn && (
                         <>
-                            <div className="group relative cursor-pointer">
+                            <div className="group relative cursor-pointer hidden md:block">
                                 <div className="text-lg text-black cursor-pointer hover:text-[#a69060] flex items-center justify-between gap-2">
                                     <FaUser />
                                     Join{" "}
@@ -222,25 +222,50 @@ const Navbar = () => {
                             {link}
                         </Link>
                     ))}
-                    <div className="group relative cursor-pointer">
-                        <div className="text-lg text-black cursor-pointer hover:text-[#a69060] flex items-center justify-start gap-2">
-                            Cộng đồng{" "}
-                            <span>
-                                <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
-                            </span>
+                    <div className="flex justify-between">
+                        <div className="group relative cursor-pointer">
+                            <div className="text-lg text-black cursor-pointer hover:text-[#a69060] flex items-center justify-start gap-2">
+                                Cộng đồng{" "}
+                                <span>
+                                    <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
+                                </span>
+                            </div>
+                            <div className="absolute z-[9999] hidden w-[150px] rounded-md bg-white p-2 text-black group-hover:block shadow-md">
+                                <ul className="space-y-3">
+                                    {DropdownLinks.map(({ link, path }) => (
+                                        <Link
+                                            key={path}
+                                            to={path}
+                                            className="block text-lg text-black cursor-pointer hover:text-[#a69060] hover:underline"
+                                        >
+                                            {link}
+                                        </Link>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
-                        <div className="absolute z-[9999] hidden w-[150px] rounded-md bg-white p-2 text-black group-hover:block shadow-mdv">
-                            <ul className="space-y-3">
-                                {DropdownLinks.map(({ link, path }) => (
-                                    <Link
-                                        key={path}
-                                        to={path}
-                                        className="block text-lg text-black cursor-pointer hover:text-[#a69060] hover:underline"
-                                    >
-                                        {link}
-                                    </Link>
-                                ))}
-                            </ul>
+                        <div className="group relative cursor-pointer">
+                            <div className="text-lg text-black cursor-pointer hover:text-[#a69060] flex items-center justify-start gap-2">
+                                <FaUser />
+                                Join{" "}
+                                <span>
+                                    <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
+                                </span>
+                            </div>
+                            <div className="absolute -right-4 lg:left-0 z-[9999] hidden w-[150px] rounded-md bg-white p-2 text-black group-hover:block shadow-mdv">
+                                {/* Sign in / Join */}
+                                <ul className="space-y-3 ">
+                                    {navSignIn.map(({ link, path }) => (
+                                        <Link
+                                            key={path}
+                                            to={path}
+                                            className="block text-lg text-black cursor-pointer hover:text-[#a69060] hover:underline "
+                                        >
+                                            {link}
+                                        </Link>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

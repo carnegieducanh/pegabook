@@ -84,7 +84,7 @@ const DashSharer = () => {
                                 Borrowers
                             </h5>
                             <Link
-                                to={`/sharer/dashboard/manage/borrower/${_id}`}
+                                to={`/member/dashboard/manage/borrower/${_id}`}
                                 className="text-sm font-medium text-cyan-600 hover:underline dark:text-cyan-500"
                             >
                                 View all
@@ -144,7 +144,7 @@ const DashSharer = () => {
                                 Latest Books
                             </h5>
                             <Link
-                                to={`/sharer/dashboard/manage/${_id}`}
+                                to={`/member/dashboard/manage/${_id}`}
                                 className="text-sm font-medium text-cyan-600 hover:underline dark:text-cyan-500"
                             >
                                 View all

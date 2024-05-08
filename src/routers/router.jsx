@@ -23,17 +23,17 @@ import YourPassword from "../dashboard/dashSharer/YourPassword";
 import YourEditBooks from "../dashboard/dashSharer/YourEditBooks";
 import Signup from "../components/Signup";
 import Login from "../components/Login";
-import LoginSharer from "../components/LoginSharer";
+import LoginSharer from "../components/LoginMember";
 import LoginBorrower from "../components/LoginBorrower";
 import Logout from "../components/Logout";
-import BorrowedBooks from "../dashboard/dashBorrower/BorrowedBooks";
+import BorrowedBooks from "../dashboard/dashSharer/BorrowedBooks";
 import BorrowerProfile from "../dashboard/dashBorrower/BorrowerProfile";
 import DashBorrowerLayout from "../dashboard/dashBorrower/DashBorrowerLayout";
 import AddBorrower from "../dashboard/dashSharer/AddBorrower";
 import SingleYourBook from "../dashboard/dashSharer/SingleYourBook";
 import RemoveBorrower from "../dashboard/dashSharer/RemoveBorrower";
 import ManageBorrower from "../dashboard/dashSharer/ManageBorrower";
-import ReturnBook from "../dashboard/dashBorrower/ReturnBook";
+import ReturnBook from "../dashboard/dashSharer/ReturnBook";
 import Gratitude from "../components/Gratitude";
 
 const router = createBrowserRouter([
@@ -123,11 +123,11 @@ const router = createBrowserRouter([
         ],
     },
     {
-        path: "/sharer/dashboard",
+        path: "/member/dashboard",
         element: <DashSharerLayout />,
         children: [
             {
-                path: "/sharer/dashboard/:id",
+                path: "/member/dashboard/:id",
                 element: <DashSharer />,
                 loader: ({ params }) =>
                     fetch(
@@ -135,7 +135,7 @@ const router = createBrowserRouter([
                     ),
             },
             {
-                path: "/sharer/dashboard/add-borrower/:id",
+                path: "/member/dashboard/add-borrower/:id",
                 element: <AddBorrower />,
                 loader: ({ params }) =>
                     fetch(
@@ -143,7 +143,7 @@ const router = createBrowserRouter([
                     ),
             },
             {
-                path: "/sharer/dashboard/remove-borrower/:id",
+                path: "/member/dashboard/remove-borrower/:id",
                 element: <RemoveBorrower />,
                 loader: ({ params }) =>
                     fetch(
@@ -151,7 +151,7 @@ const router = createBrowserRouter([
                     ),
             },
             {
-                path: "/sharer/dashboard/upload/:id",
+                path: "/member/dashboard/upload/:id",
                 element: <UploadBook />,
                 loader: ({ params }) =>
                     fetch(
@@ -159,7 +159,7 @@ const router = createBrowserRouter([
                     ),
             },
             {
-                path: "/sharer/dashboard/manage/:id",
+                path: "/member/dashboard/manage/:id",
                 element: <YourBooks />,
                 loader: ({ params }) =>
                     fetch(
@@ -167,8 +167,16 @@ const router = createBrowserRouter([
                     ),
             },
             {
-                path: "/sharer/dashboard/manage/borrower/:id",
+                path: "/member/dashboard/manage/borrower/:id",
                 element: <ManageBorrower />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+            {
+                path: "/member/dashboard/borrowed-book/:id",
+                element: <BorrowedBooks />,
                 loader: ({ params }) =>
                     fetch(
                         `https://pega-book-server.onrender.com/member/${params.id}`
@@ -176,7 +184,16 @@ const router = createBrowserRouter([
             },
 
             {
-                path: "/sharer/dashboard/profile/:id",
+                path: "/member/dashboard/return-book/:id",
+                element: <ReturnBook />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/book/${params.id}`
+                    ),
+            },
+
+            {
+                path: "/member/dashboard/profile/:id",
                 element: <YourProfile />,
                 loader: ({ params }) =>
                     fetch(
@@ -184,7 +201,7 @@ const router = createBrowserRouter([
                     ),
             },
             {
-                path: "/sharer/dashboard/changePassword/:id",
+                path: "/member/dashboard/changePassword/:id",
                 element: <YourPassword />,
                 loader: ({ params }) =>
                     fetch(
@@ -193,7 +210,7 @@ const router = createBrowserRouter([
             },
 
             {
-                path: "/sharer/dashboard/book/:id",
+                path: "/member/dashboard/book/:id",
                 element: <SingleYourBook />,
                 loader: ({ params }) =>
                     fetch(
@@ -201,7 +218,7 @@ const router = createBrowserRouter([
                     ),
             },
             {
-                path: "/sharer/dashboard/edit-books/:id",
+                path: "/member/dashboard/edit-books/:id",
                 element: <YourEditBooks />,
                 loader: ({ params }) =>
                     fetch(
@@ -214,22 +231,22 @@ const router = createBrowserRouter([
         path: "/borrower/dashboard",
         element: <DashBorrowerLayout />,
         children: [
-            {
-                path: "/borrower/dashboard/:id",
-                element: <BorrowedBooks />,
-                loader: ({ params }) =>
-                    fetch(
-                        `https://pega-book-server.onrender.com/member/${params.id}`
-                    ),
-            },
-            {
-                path: "/borrower/dashboard/return-book/:id",
-                element: <ReturnBook />,
-                loader: ({ params }) =>
-                    fetch(
-                        `https://pega-book-server.onrender.com/book/${params.id}`
-                    ),
-            },
+            // {
+            //     path: "/borrower/dashboard/:id",
+            //     element: <BorrowedBooks />,
+            //     loader: ({ params }) =>
+            //         fetch(
+            //             `https://pega-book-server.onrender.com/member/${params.id}`
+            //         ),
+            // },
+            // {
+            //     path: "/borrower/dashboard/return-book/:id",
+            //     element: <ReturnBook />,
+            //     loader: ({ params }) =>
+            //         fetch(
+            //             `https://pega-book-server.onrender.com/book/${params.id}`
+            //         ),
+            // },
 
             {
                 path: "/borrower/dashboard/profile/:id",
@@ -250,7 +267,7 @@ const router = createBrowserRouter([
         element: <Login />,
     },
     {
-        path: "login-sharer",
+        path: "login-member",
         element: <LoginSharer />,
     },
     {

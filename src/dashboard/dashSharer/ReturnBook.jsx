@@ -119,7 +119,7 @@ const ReturnBook = () => {
         }
     }, [memberData, allBookData]);
 
-    console.log(borrowedBy_id);
+    // console.log(borrowedBy_id);
 
     // Chuyển đến trang khác
     const navigate = useNavigate();
@@ -129,7 +129,7 @@ const ReturnBook = () => {
         event.preventDefault();
         alert("Message sent successfully.");
         // Chuyển đến trang khác
-        navigate(`/borrower/dashboard/${borrowedBy_id}`);
+        navigate(`/member/dashboard/${borrowedBy_id}`);
 
         emailjs.sendForm(
             "service_iu86g7t",

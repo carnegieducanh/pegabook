@@ -88,7 +88,7 @@ const DashSearchBook = ({ memberBooks }) => {
                                 key={book._id}
                                 onClick={() => handleBookSelect(book)}
                             >
-                                <Link to={`/sharer/dashboard/book/${book._id}`}>
+                                <Link to={`/member/dashboard/book/${book._id}`}>
                                     <div className="flex gap-7 h-20 py-2 px-5 hover:bg-[#dadada] cursor-pointer">
                                         <img
                                             src={book.imageUrl}
