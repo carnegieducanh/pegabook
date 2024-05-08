@@ -154,7 +154,7 @@ const DashSharer = () => {
                             <p className="text-md leading-none text-gray-500 dark:text-white ">
                                 BOOK NAME
                             </p>
-                            <p className="text-md leading-none text-gray-500 dark:text-white">
+                            <p className="text-md leading-none text-gray-500 dark:text-white hidden md:block">
                                 CATEGORY
                             </p>
                             <p className="text-md leading-none text-gray-500 dark:text-white">
@@ -190,19 +190,21 @@ const DashSharer = () => {
                                                         </div>
                                                     </div>
                                                     <div className="w-1/3">
-                                                        <p className="text-center">
+                                                        <p className="text-center hidden md:block">
                                                             {book.category}
                                                         </p>
                                                     </div>
                                                     <div className="w-1/3">
                                                         <div className="flex flex-col items-end text-base text-gray-900 dark:text-white">
-                                                            <p>{book.status}</p>
+                                                            <p className="text-right">
+                                                                {book.status}
+                                                            </p>
                                                             <p className="font-semibold">
                                                                 {
                                                                     book.borrowedBy
                                                                 }
                                                             </p>
-                                                            <div className="flex gap-1">
+                                                            <div className="flex gap-1 text-right">
                                                                 <p>
                                                                     {
                                                                         book.borrowedDate
