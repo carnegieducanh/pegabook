@@ -67,7 +67,7 @@ const LoginBorrower = ({ _id }) => {
                 size="sm"
                 onClose={onCloseModal}
                 popup
-                className="bg-[#ccc] pt-32 md:pt-10"
+                className="bg-[#ccc] pt-24 md:pt-10"
             >
                 <div className="bg-[#F4F1EA] rounded-md my-auto">
                     {/* <Link to={"/"}>
