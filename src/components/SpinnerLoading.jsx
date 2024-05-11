@@ -1,4 +1,4 @@
-import { Button, Spinner } from "flowbite-react";
+import { Spinner } from "flowbite-react";
 
 export function SpinnerLoading() {
     return (

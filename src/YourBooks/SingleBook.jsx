@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { HiMiniCheckBadge } from "react-icons/hi2";
 import { Button, Label, Rating, TextInput, Textarea } from "flowbite-react";
-import LoginMember from "../components/LoginToBorrow";
+import LoginBorrower from "../components/LoginBorrower";
 import { Datepicker } from "flowbite-react";
 import { BsFillSendFill } from "react-icons/bs";
 import emailjs from "@emailjs/browser";
@@ -152,7 +152,7 @@ const SingleBook = () => {
                             className="w-48 h-72 lg:h-72 lg:w-48 transform hover:scale-105 duration-300 shadow-xl rounded-tr-xl rounded-br-xl object-cover shrink-0"
                         />
                         <div onClick={handleLoginClick} className="mb-5">
-                            <LoginMember _id={_id} />
+                            <LoginBorrower _id={_id} />
                         </div>
                     </div>
 
