@@ -67,7 +67,7 @@ const LoginMember = ({ _id }) => {
                 size="sm"
                 onClose={onCloseModal}
                 popup
-                className="bg-[#ccc] pt-60 md:pt-10"
+                className="bg-[#ccc] pt-30 md:pt-10"
             >
                 <div className="bg-[#F4F1EA] rounded-md my-auto">
                     {/* <Link to={"/"}>
@@ -80,7 +80,10 @@ const LoginMember = ({ _id }) => {
                         <form onSubmit={handleLogin}>
                             <div className="space-y-6 ">
                                 <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                                    Đăng nhập vào nền tảng của chúng tôi
+                                    Đăng nhập vào nền tảng của{" "}
+                                    <span className="text-[#a69060] text-xl font-medium">
+                                        Pegabook
+                                    </span>{" "}
                                 </h3>
                                 <div>
                                     <div className="mb-2 block">

@@ -33,7 +33,11 @@ const Footer = () => {
                         </h1>
                         <p>
                             Tận Hưởng Niềm Đam Mê Đọc Sách <br />
-                            Cùng Chúng Tôi.
+                            Cùng{" "}
+                            <span className="text-[#a69060] text-xl font-medium">
+                                Pegabook
+                            </span>{" "}
+                            .
                         </p>
                         <br />
                         <div className="flex items-center gap-3 text-sm">
@@ -83,7 +87,10 @@ const Footer = () => {
                         <div className="">
                             <div className="py-8 px-4 ">
                                 <h1 className="sm:text-xl sm:text-left text-justify mb-3">
-                                    Kết nối chúng tôi
+                                    Kết nối{" "}
+                                    <span className="text-[#a69060] text-xl font-medium">
+                                        Pegabook
+                                    </span>{" "}
                                 </h1>
                                 {/* Social Handle */}
                                 <div className="flex items-center gap-3 mt-6">

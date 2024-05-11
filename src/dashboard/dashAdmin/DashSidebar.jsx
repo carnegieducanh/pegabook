@@ -10,8 +10,16 @@ import userImg from "../../assets/awardbooks.png";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../dashSharer/DashSelected.css";
 
 const DashSidebar = () => {
+    const [selectedItem, setSelectedItem] = useState(null); // State để lưu trạng thái của Sidebar.Item được chọn
+
+    // Function để cập nhật phần tử được chọn khi một Link được click
+    const handleItemClick = (item) => {
+        setSelectedItem(item);
+    };
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // toggle menu
@@ -46,10 +54,24 @@ const DashSidebar = () => {
             <Sidebar.Items className="hidden lg:block">
                 <Sidebar.ItemGroup>
                     <Link to={"/admin/dashboard/main"}>
-                        <Sidebar.Item icon={HiChartPie}>Dashboard</Sidebar.Item>
+                        <Sidebar.Item
+                            icon={HiChartPie}
+                            className={
+                                selectedItem === "main" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("main")}
+                        >
+                            Dashboard
+                        </Sidebar.Item>
                     </Link>
                     <Link to={"/admin/dashboard/add-member"}>
-                        <Sidebar.Item icon={IoMdPersonAdd}>
+                        <Sidebar.Item
+                            icon={IoMdPersonAdd}
+                            className={
+                                selectedItem === "add-member" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("add-member")}
+                        >
                             Add Member
                         </Sidebar.Item>
                     </Link>
@@ -61,17 +83,39 @@ const DashSidebar = () => {
                     </Link> */}
 
                     <Link to={"/admin/dashboard/manage-members"}>
-                        <Sidebar.Item icon={FaBookOpenReader}>
+                        <Sidebar.Item
+                            icon={FaBookOpenReader}
+                            className={
+                                selectedItem === "manage-members"
+                                    ? "selected"
+                                    : ""
+                            }
+                            onClick={() => handleItemClick("manage-members")}
+                        >
                             Manage Members
                         </Sidebar.Item>
                     </Link>
 
                     <Link to={"/admin/dashboard/manage"}>
-                        <Sidebar.Item icon={FaBook}>Manage Books</Sidebar.Item>
+                        <Sidebar.Item
+                            icon={FaBook}
+                            className={
+                                selectedItem === "manage" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("manage")}
+                        >
+                            Manage Books
+                        </Sidebar.Item>
                     </Link>
 
                     <Link to={"/logout"}>
-                        <Sidebar.Item icon={HiArrowSmRight}>
+                        <Sidebar.Item
+                            icon={HiArrowSmRight}
+                            className={
+                                selectedItem === "logout" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("logout")}
+                        >
                             Log Out
                         </Sidebar.Item>
                     </Link>

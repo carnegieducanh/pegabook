@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import bookPic from "../assets/awardbooks.png";
+import promoBannerPic from "../assets/Promo Banner Pic.jpg";
 
 const PromoBanner = () => {
     return (
@@ -11,10 +11,13 @@ const PromoBanner = () => {
                         Sự Thuận Tiện và Linh Hoạt
                     </h2>
                     <p className="mb-10 text-lg md:w-5/6">
-                        Bạn có thể truy cập Thư viện Sách Phi lợi nhuận của
-                        chúng tôi bất cứ nơi nào có kết nối internet. Không chỉ
-                        có thể mượn sách trực tuyến, mà còn có thể đặt lịch
-                        trước và chọn địa điểm thuận tiện để nhận sách.
+                        Bạn có thể truy cập Thư viện Sách Phi lợi nhuận của{" "}
+                        <span className="text-[#a69060] text-xl font-medium">
+                            Pegabook
+                        </span>{" "}
+                        bất cứ nơi nào có kết nối internet. Không chỉ có thể
+                        mượn sách trực tuyến, mà còn có thể đặt lịch trước và
+                        chọn địa điểm thuận tiện để nhận sách.
                     </p>
                     <Link to="/our-books">
                         <button className="block bg-[#a69060] text-white font-semibold px-5 py-2 rounded hover:bg-black transition-all duration-300">
@@ -23,8 +26,8 @@ const PromoBanner = () => {
                     </Link>
                 </div>
 
-                <div>
-                    <img src={bookPic} alt="" className="w-96" />
+                <div className="md:w-1/2 ">
+                    <img src={promoBannerPic} alt="" className="rounded-md" />
                 </div>
             </div>
         </div>

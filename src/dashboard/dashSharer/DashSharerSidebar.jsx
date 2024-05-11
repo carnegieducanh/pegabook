@@ -15,8 +15,16 @@ import {
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
+import "../dashSharer/DashSelected.css";
 
 const DashMemberSidebar = () => {
+    const [selectedItem, setSelectedItem] = useState(null); // State để lưu trạng thái của Sidebar.Item được chọn
+
+    // Function để cập nhật phần tử được chọn khi một Link được click
+    const handleItemClick = (item) => {
+        setSelectedItem(item);
+    };
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const { id } = useParams();
@@ -66,17 +74,37 @@ const DashMemberSidebar = () => {
             <Sidebar.Items className="hidden lg:block">
                 <Sidebar.ItemGroup>
                     <Link to={`/member/dashboard/${member._id}`}>
-                        <Sidebar.Item icon={HiChartPie}>Thống kê</Sidebar.Item>
+                        <Sidebar.Item
+                            icon={HiChartPie} // Kiểm tra nếu phần tử này được chọn thì thêm lớp CSS 'selected'
+                            className={
+                                selectedItem === "dashboard" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("dashboard")}
+                        >
+                            Thống kê
+                        </Sidebar.Item>
                     </Link>
 
                     <Link to={`/member/dashboard/upload/${member._id}`}>
-                        <Sidebar.Item icon={HiOutlineCloudUpload}>
+                        <Sidebar.Item
+                            icon={HiOutlineCloudUpload}
+                            className={
+                                selectedItem === "upload" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("upload")}
+                        >
                             Thêm sách mới
                         </Sidebar.Item>
                     </Link>
 
                     <Link to={`/member/dashboard/manage/${member._id}`}>
-                        <Sidebar.Item icon={FaAddressBook}>
+                        <Sidebar.Item
+                            icon={FaAddressBook}
+                            className={
+                                selectedItem === "manage" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("manage")}
+                        >
                             Sách của bạn
                         </Sidebar.Item>
                     </Link>
@@ -84,28 +112,64 @@ const DashMemberSidebar = () => {
                     <Link
                         to={`/member/dashboard/manage/borrower/${member._id}`}
                     >
-                        <Sidebar.Item icon={FaBookReader}>
-                            Người mượn sách
+                        <Sidebar.Item
+                            icon={FaBookReader}
+                            className={
+                                selectedItem === "borrower" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("borrower")}
+                        >
+                            Sách cho mượn
                         </Sidebar.Item>
                     </Link>
 
                     <Link to={`/member/dashboard/borrowed-book/${member._id}`}>
-                        <Sidebar.Item icon={FaBook}>Trả sách</Sidebar.Item>
+                        <Sidebar.Item
+                            icon={FaBook}
+                            className={
+                                selectedItem === "borrowed-book"
+                                    ? "selected"
+                                    : ""
+                            }
+                            onClick={() => handleItemClick("borrowed-book")}
+                        >
+                            Trả sách
+                        </Sidebar.Item>
                     </Link>
                     <Link to={`/member/dashboard/profile/${member._id}`}>
-                        <Sidebar.Item icon={CgProfile}>
+                        <Sidebar.Item
+                            icon={CgProfile}
+                            className={
+                                selectedItem === "profile" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("profile")}
+                        >
                             Hồ sơ cá nhân
                         </Sidebar.Item>
                     </Link>
 
                     <Link to={`/member/dashboard/changePassword/${member._id}`}>
-                        <Sidebar.Item icon={TbPasswordUser}>
+                        <Sidebar.Item
+                            icon={TbPasswordUser}
+                            className={
+                                selectedItem === "changePassword"
+                                    ? "selected"
+                                    : ""
+                            }
+                            onClick={() => handleItemClick("changePassword")}
+                        >
                             Đổi mật khẩu
                         </Sidebar.Item>
                     </Link>
 
                     <Link to={"/logout"}>
-                        <Sidebar.Item icon={HiArrowSmRight}>
+                        <Sidebar.Item
+                            icon={HiArrowSmRight}
+                            className={
+                                selectedItem === "logout" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("logout")}
+                        >
                             Đăng xuất
                         </Sidebar.Item>
                     </Link>
@@ -141,7 +205,7 @@ const DashMemberSidebar = () => {
                             to={`/member/dashboard/manage/borrower/${member._id}`}
                         >
                             <Sidebar.Item icon={FaBookReader}>
-                                Người mượn sách
+                                Sách cho mượn
                             </Sidebar.Item>
                         </Link>
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PaginationButtons from "../components/PaginationBtns";
 import ImageBanner from "../components/ImageBanner";
+import SpinnerLoading from "../components/SpinnerLoading";
 
 const Members = () => {
     const [allMembers, setAllMembers] = useState([]);
@@ -71,34 +72,38 @@ const Members = () => {
             <div className="py-10 px-4 lg:px-36 bg-[#fffffff2]">
                 <h2 className="text-3xl text-left">Về thành viên</h2>
                 <p className="text-sm text-left pl-2 pt-4">FEATURED MEMBERS</p>
-                <div className="grid justify-between gap-x-8 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-                    {currentMembers &&
-                        currentMembers.map((member, index) => (
-                            <div key={index}>
-                                <div className="flex items-center gap-4 pt-6">
-                                    <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-16 h-16 rounded-full">
-                                        <img
-                                            src={member.memberAvatar}
-                                            alt=""
-                                            className="block w-16 h-16 rounded-full object-cover shrink-0"
-                                        />
+                {currentMembers.length > 0 ? (
+                    <div className="grid justify-between gap-x-8 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+                        {currentMembers &&
+                            currentMembers.map((member, index) => (
+                                <div key={index}>
+                                    <div className="flex items-center gap-4 pt-6">
+                                        <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-16 h-16 rounded-full">
+                                            <img
+                                                src={member.memberAvatar}
+                                                alt=""
+                                                className="block w-16 h-16 rounded-full object-cover shrink-0"
+                                            />
+                                        </div>
+                                        <div className="">
+                                            <h2 className="text-sm font-bold tracking-tight text-gray-900 dark:text-white">
+                                                <div className="line-clamp-2">
+                                                    <p>{member.memberName}</p>
+                                                </div>
+                                            </h2>
+                                            <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
+                                                {member.workPlace}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div className="">
-                                        <h2 className="text-sm font-bold tracking-tight text-gray-900 dark:text-white">
-                                            <div className="line-clamp-2">
-                                                <p>{member.memberName}</p>
-                                            </div>
-                                        </h2>
-                                        <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
-                                            {member.workPlace}
-                                        </p>
-                                    </div>
+                                    <hr className="inline-block my-2 w-full" />
+                                    <p className="w-full">{member.comment}</p>
                                 </div>
-                                <hr className="inline-block my-2 w-full" />
-                                <p className="w-full">{member.comment}</p>
-                            </div>
-                        ))}
-                </div>
+                            ))}
+                    </div>
+                ) : (
+                    <SpinnerLoading />
+                )}
 
                 <PaginationButtons
                     booksPerPage={membersPerPage}

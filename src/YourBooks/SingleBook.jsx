@@ -128,8 +128,8 @@ const SingleBook = () => {
     const sendEmail = (event) => {
         event.preventDefault();
         alert("Message sent successfully.");
-        // window.location.reload(); // Reload lại trang
-        navigate("/our-books");
+        window.location.reload(); // Reload lại trang
+        // navigate("/our-books");
 
         emailjs.sendForm(
             "service_iu86g7t",

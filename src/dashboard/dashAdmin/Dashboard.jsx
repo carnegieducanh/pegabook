@@ -210,7 +210,7 @@ const Dashboard = () => {
                             <p className="text-md leading-none text-gray-500 dark:text-white w-1/4 hidden md:block">
                                 CATEGORY
                             </p>
-                            <p className="text-md leading-none text-gray-500 dark:text-white w-1/4">
+                            <p className="text-md text-right leading-none text-gray-500 dark:text-white w-1/4">
                                 SHARED BY
                             </p>
                         </div>
@@ -247,7 +247,7 @@ const Dashboard = () => {
                                                     {matchedBook.category}
                                                 </div>
 
-                                                <div className="md:w-1/4 text-base font-semibold text-gray-900 dark:text-white">
+                                                <div className="md:w-1/4 text-base text-right font-semibold text-gray-900 dark:text-white">
                                                     {matchedBook.memberName}
                                                 </div>
                                             </div>

@@ -27,8 +27,6 @@ import LoginSharer from "../components/LoginMember";
 import LoginBorrower from "../components/LoginBorrower";
 import Logout from "../components/Logout";
 import BorrowedBooks from "../dashboard/dashSharer/BorrowedBooks";
-import BorrowerProfile from "../dashboard/dashBorrower/BorrowerProfile";
-import DashBorrowerLayout from "../dashboard/dashBorrower/DashBorrowerLayout";
 import AddBorrower from "../dashboard/dashSharer/AddBorrower";
 import SingleYourBook from "../dashboard/dashSharer/SingleYourBook";
 import RemoveBorrower from "../dashboard/dashSharer/RemoveBorrower";
@@ -227,37 +225,7 @@ const router = createBrowserRouter([
             },
         ],
     },
-    {
-        path: "/borrower/dashboard",
-        element: <DashBorrowerLayout />,
-        children: [
-            // {
-            //     path: "/borrower/dashboard/:id",
-            //     element: <BorrowedBooks />,
-            //     loader: ({ params }) =>
-            //         fetch(
-            //             `https://pega-book-server.onrender.com/member/${params.id}`
-            //         ),
-            // },
-            // {
-            //     path: "/borrower/dashboard/return-book/:id",
-            //     element: <ReturnBook />,
-            //     loader: ({ params }) =>
-            //         fetch(
-            //             `https://pega-book-server.onrender.com/book/${params.id}`
-            //         ),
-            // },
 
-            {
-                path: "/borrower/dashboard/profile/:id",
-                element: <BorrowerProfile />,
-                loader: ({ params }) =>
-                    fetch(
-                        `https://pega-book-server.onrender.com/member/${params.id}`
-                    ),
-            },
-        ],
-    },
     {
         path: "sign-up",
         element: <Signup />,

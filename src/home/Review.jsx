@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 const Review = () => {
@@ -58,12 +58,19 @@ const Review = () => {
                         </p>
                         <h1 className="text-3xl font-bold">Reviews</h1>
                         <p className="text-lg text-gray-700">
-                            Hãy trở thành thành viên của chúng tôi ngay hôm nay
-                            để trải nghiệm thế giới của tri thức và sự đam mê
-                            đọc sách. Đăng ký là hoàn toàn miễn phí, và chúng
-                            tôi mong đợi sự tham gia tích cực của bạn để chúng
-                            ta có thể cùng nhau xây dựng một cộng đồng đọc sách
-                            phong phú và mang tính cộng đồng.
+                            Hãy trở thành thành viên của{" "}
+                            <span className="text-[#a69060] text-xl font-medium">
+                                Pegabook
+                            </span>{" "}
+                            ngay hôm nay để trải nghiệm thế giới của tri thức và
+                            sự đam mê đọc sách. Đăng ký là hoàn toàn miễn phí,
+                            và{" "}
+                            <span className="text-[#a69060] text-xl font-medium">
+                                Pegabook
+                            </span>{" "}
+                            mong đợi sự tham gia tích cực của bạn để chúng ta có
+                            thể cùng nhau xây dựng một cộng đồng đọc sách phong
+                            phú và mang tính cộng đồng.
                         </p>
                     </div>
                     <div
@@ -75,11 +82,11 @@ const Review = () => {
                             {membersData &&
                                 membersData.map((member) => {
                                     return (
-                                        <div className="my-6 w-96">
-                                            <div
-                                                key={member._id}
-                                                className=" flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl bg-gray-100 dark:bg-gray-800 relative h-56"
-                                            >
+                                        <div
+                                            className="my-6 w-96"
+                                            key={member._id}
+                                        >
+                                            <div className=" flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl bg-gray-100 dark:bg-gray-800 relative h-56">
                                                 <div>
                                                     <img
                                                         className="rounded-full w-20 h-20 object-cover"

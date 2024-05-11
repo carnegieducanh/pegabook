@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import FavoriteBookImg from "../assets/favoritebook.jpg";
 import { Link } from "react-router-dom";
 import { Avatar } from "flowbite-react";
+import SpinnerLoading from "../components/SpinnerLoading";
 
 const FavoriteBook = () => {
     const [allMembers, setAllMembers] = useState([]);
@@ -41,10 +42,16 @@ const FavoriteBook = () => {
                     <span className="text-[#a69060]">và Phong Phú!</span>
                 </h2>
                 <p className="mb-10 text-lg md:w-5/6">
-                    Chúng tôi tự hào về sự đa dạng của bộ sưu tập sách của mình,
-                    bao gồm cả các tác phẩm văn hóa, nghệ thuật, khoa học, và
-                    nhiều lĩnh vực khác. Điều này giúp chúng tôi tạo ra một môi
-                    trường đọc sách đa chiều và thú vị.
+                    <span className="text-[#a69060] text-xl font-medium">
+                        Pegabook
+                    </span>{" "}
+                    tự hào về sự đa dạng của bộ sưu tập sách của mình, bao gồm
+                    cả các tác phẩm văn hóa, nghệ thuật, khoa học, và nhiều lĩnh
+                    vực khác. Điều này giúp{" "}
+                    <span className="text-[#a69060] text-xl font-medium">
+                        Pegabook
+                    </span>{" "}
+                    tạo ra một môi trường đọc sách đa chiều và thú vị.
                 </p>
                 {/* stats */}
                 <div className="flex flex-row justify-between gap-6 md:w-3/4 my-14">
@@ -64,20 +71,24 @@ const FavoriteBook = () => {
                     </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                    <Avatar.Group>
-                        {latestMembers &&
-                            latestMembers.map((member, index) => (
-                                <div key={index}>
-                                    <Avatar
-                                        img={member.memberAvatar}
-                                        rounded
-                                        stacked
-                                    />
-                                </div>
-                            ))}
+                    {latestMembers.length > 0 ? (
+                        <Avatar.Group>
+                            {latestMembers &&
+                                latestMembers.map((member, index) => (
+                                    <div key={index}>
+                                        <Avatar
+                                            img={member.memberAvatar}
+                                            rounded
+                                            stacked
+                                        />
+                                    </div>
+                                ))}
 
-                        <Avatar.Counter total={9} href="#" />
-                    </Avatar.Group>
+                            <Avatar.Counter total={9} href="#" />
+                        </Avatar.Group>
+                    ) : (
+                        <SpinnerLoading />
+                    )}
                 </div>
 
                 <Link to="/our-books">

@@ -57,7 +57,7 @@ const ManageBorrower = () => {
             })),
     }));
 
-    console.log("số lượng trùng nhau:", memberBorrowed);
+    // console.log("số lượng trùng nhau:", memberBorrowed);
 
     return (
         <div className="px-4 py-12 w-full">
