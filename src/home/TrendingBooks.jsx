@@ -10,7 +10,7 @@ import { FaStar } from "react-icons/fa";
 
 // import required modules
 import { Pagination } from "swiper/modules";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SpinnerLoading from "../components/SpinnerLoading";
 
 const TrendingBooks = ({ headline }) => {
@@ -53,8 +53,7 @@ const TrendingBooks = ({ headline }) => {
                     }
                 });
             });
-
-            // setMemberName(memberNamesMap);
+            setMemberName(memberNamesMap); // Cập nhật memberName
         }
     }, [membersData, booksData]);
 

@@ -42,9 +42,7 @@ const Login = () => {
                         PEGABOOK
                     </h2>
                     {/* <FaBlog className="inline-block" /> */}
-                    <p className="pt-2 text-[#5a5a5a]">
-                        Viet Nam Team Book Library
-                    </p>
+                    <p className="pt-2 text-[#5a5a5a]">Viet Nam Team with ❤️</p>
                 </Link>
             </div>
             <div className="h-screen bg-[#F4F1EA] py-6 flex flex-col justify-center sm:py-12">

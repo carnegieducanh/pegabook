@@ -193,7 +193,7 @@ const SingleBook = () => {
                                 <div className="flex gap-8">
                                     {/* Datepicker 1 */}
                                     <div className="w-1/2">
-                                        <div className="mb-2 block">
+                                        <div className="mb-2 block whitespace-nowrap">
                                             <Label
                                                 htmlFor="borrowedDate"
                                                 value="Ngày bạn muốn mượn"
@@ -207,7 +207,7 @@ const SingleBook = () => {
 
                                     {/* Datepicker 2 */}
                                     <div className="w-1/2">
-                                        <div className="mb-2 block">
+                                        <div className="mb-2 block whitespace-nowrap">
                                             <Label
                                                 htmlFor="returnDate"
                                                 value="Ngày bạn dự định trả"

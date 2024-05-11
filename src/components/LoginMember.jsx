@@ -47,9 +47,7 @@ const LoginMember = ({}) => {
                         PEGABOOK
                     </h2>
 
-                    <p className="pt-2 text-[#5a5a5a]">
-                        Viet Nam Team Book Library
-                    </p>
+                    <p className="pt-2 text-[#5a5a5a]">Viet Nam Team with ❤️</p>
                 </Link>
             </div>
 

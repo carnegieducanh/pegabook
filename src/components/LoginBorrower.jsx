@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Checkbox, Label, Modal } from "flowbite-react";
-import { Link } from "react-router-dom";
 
 const LoginBorrower = ({ _id }) => {
     const [openModal, setOpenModal] = useState(false);
@@ -11,21 +10,16 @@ const LoginBorrower = ({ _id }) => {
         const form = event.target;
 
         const userName = form.userName.value;
-        const password = form.password.value;
 
         fetch("https://pega-book-server.onrender.com/all-members")
             .then((res) => res.json())
             .then((data) => {
                 const userMember = data.find(
-                    (user) =>
-                        user.userName === userName && user.password === password
+                    (user) => user.userName === userName
                 );
                 if (userMember) {
                     // Kiểm tra nếu password trùng với memberID
-                    if (
-                        userName === userMember.memberID &&
-                        password === userMember.password
-                    ) {
+                    if (userName === userMember.memberID) {
                         document.getElementById("memberName").value =
                             userMember.memberName;
                         document.getElementById("memberID").value =
@@ -36,7 +30,7 @@ const LoginBorrower = ({ _id }) => {
                     alert("Bạn đã đăng nhập thành công");
                     onCloseModal(); // Đóng modal sau khi alert hiển thị
                 } else {
-                    setError("Mật khẩu không chính xác");
+                    setError("user name không chính xác");
                 }
             })
             .catch((error) => {
@@ -67,20 +61,16 @@ const LoginBorrower = ({ _id }) => {
                 size="sm"
                 onClose={onCloseModal}
                 popup
-                className="bg-[#ccc] pt-24 md:pt-10"
+                className="bg-[#ccc] pt-60 md:pt-10"
             >
                 <div className="bg-[#F4F1EA] rounded-md my-auto">
-                    {/* <Link to={"/"}>
-                        <Modal.Header />
-                    </Link> */}
-
                     <Modal.Header onClick={() => window.location.reload()} />
 
                     <Modal.Body>
                         <form onSubmit={handleLogin}>
-                            <div className="space-y-6 ">
+                            <div className="">
                                 <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                                    Đăng nhập vào nền tảng của{" "}
+                                    Đăng nhập vào{" "}
                                     <span className="text-[#a69060] text-xl font-medium">
                                         Pegabook
                                     </span>{" "}
@@ -96,12 +86,12 @@ const LoginBorrower = ({ _id }) => {
                                         id="userName"
                                         name="userName"
                                         type="text"
-                                        placeholder="user name"
+                                        placeholder="PEGA2000000"
                                         required
-                                        onChange={handleUserNameChange} // Gọi hàm xử lý sự kiện thay đổi password
+                                        onChange={handleUserNameChange}
                                     />
                                 </div>
-                                <div>
+                                {/* <div>
                                     <div className="mb-2 block">
                                         <Label
                                             htmlFor="password"
@@ -149,7 +139,7 @@ const LoginBorrower = ({ _id }) => {
                                     >
                                         Tạo tài khoản
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                         </form>
                     </Modal.Body>
