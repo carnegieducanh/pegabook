@@ -61,7 +61,7 @@ const ManageBorrower = () => {
 
     return (
         <div className="px-4 py-12 w-full">
-            <h2 className="mb-8 text-3xl font-bold">Người mượn sách</h2>
+            <h2 className="mb-8 text-3xl font-bold">Sách bạn đang cho mượn</h2>
             <div className="grid justify-between gap-x-8 lg:grid-cols-3 md:grid-cols-2 ">
                 {memberBorrowed &&
                     memberBorrowed.map((member, index) => (
@@ -84,8 +84,8 @@ const ManageBorrower = () => {
                                         {member.workPlace}
                                     </p>
                                     <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
-                                        Đang mượn: {member.borrowedCount} cuốn
-                                        sách
+                                        Đang mượn của bạn:{" "}
+                                        {member.borrowedCount} cuốn sách
                                     </p>
 
                                     <hr className="inline-block my-2 w-full" />

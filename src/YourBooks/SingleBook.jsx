@@ -122,21 +122,29 @@ const SingleBook = () => {
         }
     }, [memberData, allBookData]);
 
-    const navigate = useNavigate();
-
     // ********** Send Email **********
-    const sendEmail = (event) => {
-        event.preventDefault();
-        alert("Message sent successfully.");
-        window.location.reload(); // Reload lại trang
-        // navigate("/our-books");
 
-        emailjs.sendForm(
-            "service_iu86g7t",
-            "template_md4bn27",
-            event.target,
-            "62seVVbY10pzmV4fj"
+    const sendEmail = (event) => {
+        // Ngăn chặn hành động mặc định của form
+        event.preventDefault();
+
+        // Sử dụng window.confirm để hiển thị thông báo
+        const isConfirmed = window.confirm(
+            "Are you sure you want to send this mail?"
         );
+
+        // Kiểm tra xem người dùng đã xác nhận hay không
+        if (isConfirmed) {
+            emailjs.sendForm(
+                "service_iu86g7t",
+                "template_md4bn27",
+                event.target, // Sử dụng event.target để truyền form vào hàm sendForm
+                "62seVVbY10pzmV4fj"
+            );
+
+            alert("Message sent successfully.");
+            window.location.reload(); // Reload lại trang
+        }
     };
 
     return (

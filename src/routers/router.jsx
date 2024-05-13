@@ -10,7 +10,6 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Dashboard from "../dashboard/dashAdmin/Dashboard";
 import DashboardLayout from "../dashboard/dashAdmin/DashboardLayout";
 import ManageBooks from "../dashboard/dashAdmin/ManageBooks";
-import CreateSharer from "../dashboard/dashAdmin/CreateSharer";
 import AddMember from "../dashboard/dashAdmin/AddMember";
 import EditMember from "../dashboard/dashAdmin/EditMember";
 import ManageMembers from "../dashboard/dashAdmin/ManageMembers";
@@ -102,10 +101,7 @@ const router = createBrowserRouter([
                 path: "/admin/dashboard/add-member",
                 element: <AddMember />,
             },
-            {
-                path: "/admin/dashboard/create-sharer",
-                element: <CreateSharer />,
-            },
+
             {
                 path: "/admin/dashboard/manage-members",
                 element: <ManageMembers />,

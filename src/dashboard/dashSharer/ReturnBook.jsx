@@ -127,16 +127,25 @@ const ReturnBook = () => {
     // ********** Send Email **********
     const sendEmail = (event) => {
         event.preventDefault();
-        alert("Message sent successfully.");
-        // Chuyển đến trang khác
-        navigate(`/member/dashboard/${borrowedBy_id}`);
 
-        emailjs.sendForm(
-            "service_iu86g7t",
-            "template_yq1oasc",
-            event.target,
-            "62seVVbY10pzmV4fj"
+        // Sử dụng window.confirm để hiển thị thông báo
+        const isConfirmed = window.confirm(
+            "Are you sure you want to send this mail?"
         );
+
+        // Kiểm tra xem người dùng đã xác nhận hay không
+        if (isConfirmed) {
+            emailjs.sendForm(
+                "service_iu86g7t",
+                "template_yq1oasc",
+                event.target,
+                "62seVVbY10pzmV4fj"
+            );
+
+            alert("Message sent successfully.");
+            // Chuyển đến trang khác
+            navigate(`/member/dashboard/${borrowedBy_id}`);
+        }
     };
 
     return (

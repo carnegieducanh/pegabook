@@ -148,12 +148,6 @@ const DashSidebar = () => {
                             </Sidebar.Item>
                         </Link>
 
-                        <Link to={"/admin/dashboard/create-sharer"}>
-                            <Sidebar.Item icon={FaUserCircle}>
-                                Create a Sharer
-                            </Sidebar.Item>
-                        </Link>
-
                         <Link to={"/admin/dashboard/manage-members"}>
                             <Sidebar.Item icon={FaBookOpenReader}>
                                 Manage Members

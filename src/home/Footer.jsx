@@ -37,7 +37,6 @@ const Footer = () => {
                             <span className="text-[#a69060] text-xl font-medium">
                                 Pegabook
                             </span>{" "}
-                            .
                         </p>
                         <br />
                         <div className="flex items-center gap-3 text-sm">

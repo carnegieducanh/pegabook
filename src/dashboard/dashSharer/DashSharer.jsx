@@ -46,9 +46,9 @@ const DashSharer = () => {
     return (
         <div className="w-full">
             {/* Total Data */}
-            <div className="px-4 mx-auto my-20 grid grid-cols-2 gap-4 h-40 w-full lg:w-1/2">
+            <div className="px-4 mx-auto my-10 grid md:grid-cols-3 grid-cols-1 gap-4 w-full">
                 {/* <Card href="#" className="invisible"></Card> */}
-                <Card href="#" className="">
+                <Card href="#!" className="">
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
                         <ImBooks className="h-7 w-7 m-auto" />
                     </div>
@@ -56,11 +56,11 @@ const DashSharer = () => {
                         {yourBooks.length}
                     </h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Total your book
+                        Tổng số sách bạn có
                     </p>
                 </Card>
 
-                <Card href="#" className="">
+                <Card href="#!" className="">
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
                         <FaBookReader className="h-7 w-7 m-auto" />
                     </div>
@@ -68,10 +68,20 @@ const DashSharer = () => {
                         {borrowers.length}
                     </h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Total books lent
+                        Sách bạn đang cho mượn
                     </p>
                 </Card>
-                {/* <Card href="#" className="invisible"></Card> */}
+                <Card href="#!" className="">
+                    <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+                        <FaBookReader className="h-7 w-7 m-auto" />
+                    </div>
+                    <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        {borrowers.length}
+                    </h2>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                        Sách bạn đang mượn
+                    </p>
+                </Card>
             </div>
 
             {/* Total People & Books */}
@@ -81,7 +91,7 @@ const DashSharer = () => {
                     <Card className="">
                         <div className="mb-4 flex items-center justify-between">
                             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
-                                Borrowers
+                                Người mượn sách
                             </h5>
                             <Link
                                 to={`/member/dashboard/manage/borrower/${_id}`}
@@ -141,7 +151,7 @@ const DashSharer = () => {
                     <Card>
                         <div className="mb-4 flex items-center justify-between">
                             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
-                                Latest Books
+                                Sách của bạn
                             </h5>
                             <Link
                                 to={`/member/dashboard/manage/${_id}`}
@@ -151,13 +161,13 @@ const DashSharer = () => {
                             </Link>
                         </div>
                         <div className="mb-4 flex gap-5 items-center justify-between">
-                            <p className="text-md leading-none text-gray-500 dark:text-white ">
+                            <p className="text-md leading-none text-gray-500 dark:text-white w-2/4">
                                 BOOK NAME
                             </p>
-                            <p className="text-md leading-none text-gray-500 dark:text-white hidden md:block">
+                            <p className="text-md leading-none text-gray-500 dark:text-white hidden md:block w-1/4">
                                 CATEGORY
                             </p>
-                            <p className="text-md leading-none text-gray-500 dark:text-white">
+                            <p className="text-md leading-none text-gray-500 dark:text-white text-right w-1/4">
                                 STATUS
                             </p>
                         </div>
@@ -168,7 +178,7 @@ const DashSharer = () => {
                                         <div className="flow-root">
                                             <div className="divide-y divide-gray-200 dark:divide-gray-700">
                                                 <div className="py-3 sm:py-4 flex items-center justify-center">
-                                                    <div className="flex space-x-4 text-left w-1/3">
+                                                    <div className="flex space-x-4 w-2/4 items-center">
                                                         <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-12 h-16">
                                                             <img
                                                                 src={
@@ -178,7 +188,7 @@ const DashSharer = () => {
                                                                 className="block w-12 h-16 object-cover shrink-0"
                                                             />
                                                         </div>
-                                                        <div className="min-w-0 flex-1">
+                                                        <div className="flex-1">
                                                             <p className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2">
                                                                 {book.bookTitle}
                                                             </p>
@@ -194,12 +204,12 @@ const DashSharer = () => {
                                                             {book.category}
                                                         </p>
                                                     </div>
-                                                    <div className="w-1/3">
+                                                    <div className="w-2/3 md:w-1/3">
                                                         <div className="flex flex-col items-end text-base text-gray-900 dark:text-white">
                                                             <p className="text-right">
                                                                 {book.status}
                                                             </p>
-                                                            <p className="font-semibold">
+                                                            <p className="font-semibold text-right">
                                                                 {
                                                                     book.borrowedBy
                                                                 }
