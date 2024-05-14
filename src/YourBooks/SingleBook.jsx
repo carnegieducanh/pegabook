@@ -143,7 +143,7 @@ const SingleBook = () => {
             );
 
             alert("Message sent successfully.");
-            window.location.reload(); // Reload lại trang
+            // window.location.reload();
         }
     };
 

@@ -8,7 +8,8 @@ const PromoBanner = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-12">
                 <div className="md:w-1/2">
                     <h2 className="text-4xl font-bold mb-6 leading-snug">
-                        Sự Thuận Tiện và Linh Hoạt
+                        Sự <span className="text-[#a69060]">Thuận Tiện</span> và{" "}
+                        Linh Hoạt
                     </h2>
                     <p className="mb-10 text-lg md:w-5/6">
                         Bạn có thể truy cập Thư viện Sách Phi lợi nhuận của{" "}

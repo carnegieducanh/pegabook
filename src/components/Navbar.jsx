@@ -225,7 +225,7 @@ const Navbar = () => {
                     <div className="flex justify-between">
                         <div className="group relative cursor-pointer">
                             <div className="text-lg text-black cursor-pointer hover:text-[#a69060] flex items-center justify-start gap-2">
-                                Cộng đồng{" "}
+                                CỘNG ĐỒNG{" "}
                                 <span>
                                     <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
                                 </span>
@@ -252,7 +252,7 @@ const Navbar = () => {
                                     <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
                                 </span>
                             </div>
-                            <div className="absolute -right-4 lg:left-0 z-[9999] hidden w-[150px] rounded-md bg-white p-2 text-black group-hover:block shadow-mdv">
+                            <div className="absolute -right-4 lg:left-0 z-[9999] hidden w-[150px] rounded-md bg-white p-2 text-black group-hover:block shadow-md">
                                 {/* Sign in / Join */}
                                 <ul className="space-y-3 ">
                                     {navSignIn.map(({ link, path }) => (

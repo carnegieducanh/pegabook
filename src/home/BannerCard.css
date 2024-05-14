@@ -1,18 +1,17 @@
 :root {
-  --swiper-theme-color: #dadada
+    --swiper-theme-color: #dadada;
 }
 
 /* .swiper-pagination-bullet {
   display: none !important;
 } */
 
-
 .banner .swiper {
     width: 240px;
     height: 320px;
-  }
-  
- .banner .swiper-slide {
+}
+
+.banner .swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,36 +19,32 @@
     font-size: 22px;
     font-weight: bold;
     color: #fff;
-  }
-  
- .banner .swiper-slide:nth-child(1n) {
+}
+
+.banner .swiper-slide:nth-child(1n) {
     background-image: url("../assets/banner-books/book1.png");
-  }
-  
-  .banner .swiper-slide:nth-child(2n) {
+}
+
+.banner .swiper-slide:nth-child(2n) {
     background-image: url("../assets/banner-books/book2.jpg");
-  }
-  
- .banner .swiper-slide:nth-child(3n) {
+}
+
+.banner .swiper-slide:nth-child(3n) {
     background-image: url("../assets/banner-books/book3.jpg");
-  }
-  
- .banner .swiper-slide:nth-child(4n) {
+}
+
+.banner .swiper-slide:nth-child(4n) {
     background-image: url("../assets/banner-books/book4.png");
-  }
-  
- .banner .swiper-slide:nth-child(5n) {
+}
+
+.banner .swiper-slide:nth-child(5n) {
     background-image: url("../assets/banner-books/book5.jpg");
-  }
-  
- .banner .swiper-slide:nth-child(6n) {
-  background-image: url("../assets/banner-books/book6.jpg");
-  }
-  
- .banner .swiper-slide:nth-child(7n) {
-  background-image: url("../assets/banner-books/book7.jpg");
-  }
-  
- 
-  
- 
+}
+
+.banner .swiper-slide:nth-child(6n) {
+    background-image: url("../assets/banner-books/book6.jpg");
+}
+
+.banner .swiper-slide:nth-child(7n) {
+    background-image: url("../assets/banner-books/book7.jpg");
+}
