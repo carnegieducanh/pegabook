@@ -10,21 +10,16 @@ const LoginBorrower = ({ _id }) => {
         const form = event.target;
 
         const userName = form.userName.value;
-        const password = form.password.value;
 
         fetch("https://pega-book-server.onrender.com/all-members")
             .then((res) => res.json())
             .then((data) => {
                 const userMember = data.find(
-                    (user) =>
-                        user.userName === userName && user.password === password
+                    (user) => user.userName === userName
                 );
                 if (userMember) {
                     // Kiểm tra nếu password trùng với memberID
-                    if (
-                        userName === userMember.memberID &&
-                        password === userMember.password
-                    ) {
+                    if (userName === userMember.memberID) {
                         document.getElementById("memberName").value =
                             userMember.memberName;
                         document.getElementById("memberID").value =
@@ -35,7 +30,7 @@ const LoginBorrower = ({ _id }) => {
                     alert("Bạn đã đăng nhập thành công");
                     onCloseModal(); // Đóng modal sau khi alert hiển thị
                 } else {
-                    setError("User name hoặc mật khẩu không chính xác");
+                    setError("user name không chính xác");
                 }
             })
             .catch((error) => {
@@ -73,7 +68,7 @@ const LoginBorrower = ({ _id }) => {
 
                     <Modal.Body>
                         <form onSubmit={handleLogin}>
-                            <div className="space-y-6">
+                            <div className="space-y-4">
                                 <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                                     Đăng nhập vào{" "}
                                     <span className="text-[#a69060] text-xl font-medium">
@@ -96,7 +91,7 @@ const LoginBorrower = ({ _id }) => {
                                         onChange={handleUserNameChange}
                                     />
                                 </div>
-                                <div>
+                                {/* <div>
                                     <div className="mb-2 block">
                                         <Label
                                             htmlFor="password"
@@ -110,7 +105,7 @@ const LoginBorrower = ({ _id }) => {
                                         placeholder="password"
                                         required
                                     />
-                                </div>
+                                </div> */}
 
                                 {error && (
                                     <p className="text-red-600 text-base">
@@ -130,13 +125,13 @@ const LoginBorrower = ({ _id }) => {
                                     >
                                         Quên mật khẩu?
                                     </a>
-                                </div> */}
-                                <div className="w-full hidden">
+                                </div>
+                                <div className="w-full">
                                     <button className="bg-cyan-700 text-white rounded-md px-6 py-2">
                                         Đăng nhập vào tài khoản của bạn
                                     </button>
                                 </div>
-                                {/* <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
+                                <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
                                     Chưa đăng ký?&nbsp;
                                     <a
                                         href="#"
