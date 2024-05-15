@@ -42,7 +42,7 @@ const Sharers = () => {
                         members.forEach((member) => {
                             // Tìm các cuốn sách của thành viên hiện tại
                             const matchedBooks = books.filter(
-                                (book) => book.memberID === member.memberID
+                                (book) => book.sharerID === member.memberID
                             );
 
                             // Thêm thông tin của thành viên và số lượng sách đã chia sẻ vào mảng matchedMembersData

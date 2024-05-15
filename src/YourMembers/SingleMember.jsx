@@ -48,7 +48,7 @@ const SingleMember = () => {
 
     // Lọc ra các cuốn sách có memberID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
 
-    const memberBooks = allBooks.filter((book) => book.memberID === memberID);
+    const memberBooks = allBooks.filter((book) => book.sharerID === memberID);
     // console.log(memberBooks);
 
     const indexOfLastBook = currentPage * booksPerPage;

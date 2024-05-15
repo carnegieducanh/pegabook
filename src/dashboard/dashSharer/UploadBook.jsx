@@ -8,14 +8,12 @@ const UploadBook = () => {
 
     const [bookImage, setBookImage] = useState(""); // State để lưu trữ URL của hình ảnh
 
-    console.log(bookImage);
-
     // Hàm callback để cập nhật memberAvatar
     const handleBookImageChange = (imgUrl) => {
         setBookImage(imgUrl);
     };
 
-    const { memberID, _id, imageUrl } = useLoaderData();
+    const { memberID, _id } = useLoaderData();
 
     const bookCategories = [
         "Tiểu sử - Hồi ký",
@@ -62,10 +60,9 @@ const UploadBook = () => {
             category,
             bookDescription,
             status: status, // Thêm trường status vào object bookObj
-            memberID,
+            sharerID: memberID,
             sharedBy_id,
         };
-        console.log(bookObj);
 
         // send data to database
 

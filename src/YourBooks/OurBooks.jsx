@@ -30,7 +30,7 @@ const OurBooks = () => {
 
     allBooks.forEach((book) => {
         const matchingMember = allMembers.find(
-            (member) => member.memberID === book.memberID
+            (member) => member.memberID === book.sharerID
         );
 
         if (matchingMember) {

@@ -24,7 +24,7 @@ const ManageBorrower = () => {
     }, []);
 
     // Lọc ra các cuốn sách đang chia sẻ
-    const yourBooks = allBookData.filter((book) => book.memberID === memberID);
+    const yourBooks = allBookData.filter((book) => book.sharerID === memberID);
 
     // Lọc ra các cuốn sách có người mượn
     const borrowedBooks = yourBooks.filter((book) => book.borrowerID);

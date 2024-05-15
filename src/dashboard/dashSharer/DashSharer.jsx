@@ -30,7 +30,7 @@ const DashSharer = () => {
     }, []);
 
     // Lọc ra các cuốn sách có memberID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
-    const yourBooks = showBooks.filter((book) => book.memberID === memberID);
+    const yourBooks = showBooks.filter((book) => book.sharerID === memberID);
     const lastFiveBooks = yourBooks.slice(-5).reverse();
 
     // Lọc ra các cuốn sách có người mượn

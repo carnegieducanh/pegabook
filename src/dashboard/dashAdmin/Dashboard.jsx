@@ -41,7 +41,7 @@ const Dashboard = () => {
                         // Tìm mảng của memberID giống với memberID trong all-books
                         const relevantMembers = members.filter((member) =>
                             books.some(
-                                (book) => book.memberID === member.memberID
+                                (book) => book.sharerID === member.memberID
                             )
                         );
 
@@ -56,7 +56,7 @@ const Dashboard = () => {
 
     allBooks.forEach((book) => {
         const matchingMember = allMembers.find(
-            (member) => member.memberID === book.memberID
+            (member) => member.memberID === book.sharerID
         );
         if (matchingMember) {
             matchedBooks.push({

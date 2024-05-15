@@ -77,7 +77,7 @@ const ReturnBook = () => {
             let borrowerWorkPlace = [];
 
             allBookData.forEach((book) => {
-                if (memberID === book.memberID) {
+                if (memberID === book.sharerID) {
                     totalCount++;
                 }
             });

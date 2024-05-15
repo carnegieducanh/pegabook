@@ -20,7 +20,7 @@ const SingleBook = () => {
     const [sharerWorkPlace, setSharerWorkPlace] = useState();
     const [sharerEmail, setSharerEmail] = useState();
     const [borrower, setBorrower] = useState();
-    const [borrowerAvatar, setBorrowerAvatar] = useState();
+    // const [borrowerAvatar, setBorrowerAvatar] = useState();
     const [borrowerWorkPlace, setBorrowerWorkPlace] = useState();
 
     const [showMemberInfo, setShowMemberInfo] = useState(false);
@@ -78,11 +78,11 @@ const SingleBook = () => {
             let sharerWorkPlace = [];
             let sharerEmail = [];
             let borrowerName = [];
-            let borrowerAvatar = [];
+            // let borrowerAvatar = [];
             let borrowerWorkPlace = [];
 
             allBookData.forEach((book) => {
-                if (memberID === book.memberID) {
+                if (memberID === book.sharerID) {
                     totalCount++;
                 }
             });
@@ -102,7 +102,7 @@ const SingleBook = () => {
             memberData.forEach((borrower) => {
                 if (borrowerID === borrower.memberID) {
                     borrowerName = borrower.memberName;
-                    borrowerAvatar = borrower.memberAvatar;
+                    // borrowerAvatar = borrower.memberAvatar;
                     borrowerWorkPlace = borrower.workPlace;
                     return; // Thêm break để dừng vòng lặp sau khi tìm thấy
                 }
@@ -117,7 +117,7 @@ const SingleBook = () => {
             setSharerWorkPlace(sharerWorkPlace);
             setSharerEmail(sharerEmail);
             setBorrower(borrowerName);
-            setBorrowerAvatar(borrowerAvatar);
+            // setBorrowerAvatar(borrowerAvatar);
             setBorrowerWorkPlace(borrowerWorkPlace);
         }
     }, [memberData, allBookData]);

@@ -72,7 +72,7 @@ const SingleYourBook = () => {
             let borrowerWorkPlace = [];
 
             allBookData.forEach((book) => {
-                if (memberID === book.memberID) {
+                if (memberID === book.sharerID) {
                     totalCount++;
                 }
             });
@@ -208,36 +208,36 @@ const SingleYourBook = () => {
 
                     <div className="flex gap-2 md:gap-10 mt-5 text-lg">
                         <div className="flex flex-col gap-10">
-                            <Button className="w-48">
-                                <Link
-                                    className="font-semibold my-auto flex items-center"
-                                    to={`/member/dashboard/add-borrower/${_id}`}
-                                >
+                            <Link
+                                className="font-semibold my-auto flex items-center"
+                                to={`/member/dashboard/add-borrower/${_id}`}
+                            >
+                                <Button className="w-48">
                                     <IoPersonAdd />
                                     <div className="px-2">Add borrower</div>
-                                </Link>
-                            </Button>
-                            <Button className="w-48">
-                                <Link
-                                    className="font-semibold my-auto flex items-center"
-                                    to={`/member/dashboard/edit-books/${_id}`}
-                                >
+                                </Button>
+                            </Link>
+                            <Link
+                                className="font-semibold my-auto flex items-center"
+                                to={`/member/dashboard/edit-books/${_id}`}
+                            >
+                                <Button className="w-48">
                                     <GrEdit />
                                     <div className="px-2">Edit book</div>
-                                </Link>
-                            </Button>
+                                </Button>
+                            </Link>
                         </div>
 
                         <div className="flex flex-col gap-10">
-                            <Button className="bg-red-800 w-48">
-                                <Link
-                                    className="font-semibold my-auto flex items-center"
-                                    to={`/member/dashboard/remove-borrower/${_id}`}
-                                >
+                            <Link
+                                className="font-semibold my-auto flex items-center"
+                                to={`/member/dashboard/remove-borrower/${_id}`}
+                            >
+                                <Button className="bg-red-800 w-48">
                                     <IoPersonRemoveOutline />
                                     <div className="px-2">Remove borrower</div>
-                                </Link>
-                            </Button>
+                                </Button>
+                            </Link>
 
                             <Button
                                 onClick={() => handleDelete(_id)}

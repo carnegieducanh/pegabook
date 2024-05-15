@@ -34,7 +34,7 @@ const ManageBooks = () => {
 
     allBooks.forEach((book) => {
         const matchingMember = allMembers.find(
-            (member) => member.memberID === book.memberID
+            (member) => member.memberID === book.sharerID
         );
         if (matchingMember) {
             matchedBooks.push({
