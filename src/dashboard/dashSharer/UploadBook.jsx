@@ -86,7 +86,7 @@ const UploadBook = () => {
     };
     return (
         <div className="px-4 my-12 w-full">
-            <h2 className="mb-8 text-3xl font-bold">Upload A New Book</h2>
+            <h2 className="mb-8 text-3xl font-bold">Thêm sách mới</h2>
 
             <form
                 onSubmit={handleBookSubmit}

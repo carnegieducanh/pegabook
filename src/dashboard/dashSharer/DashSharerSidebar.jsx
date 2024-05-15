@@ -44,20 +44,21 @@ const DashMemberSidebar = () => {
     }, []);
     return (
         <Sidebar className="w-full lg:w-1/5">
-            <div className="flex w-full justify-between">
+            <div className="flex w-full justify-between items-center my-3">
                 <Link to={`/member/dashboard/${member._id}`}>
-                    <Sidebar.Logo className="-pl-3">
-                        <div className="flex gap-2">
+                    <Sidebar.Logo className="-pl-3 my-auto">
+                        <div className="flex gap-2 items-center">
                             <img
                                 src={member.memberAvatar}
                                 alt=""
-                                className="w-8 h-8 rounded-full object-cover shrink-0"
+                                className="w-12 h-12 rounded-full object-cover shrink-0"
                             />
 
                             <p>{member.memberName}</p>
                         </div>
                     </Sidebar.Logo>
                 </Link>
+
                 <div className="lg:hidden">
                     <button
                         onClick={toggleMenu}
@@ -138,6 +139,8 @@ const DashMemberSidebar = () => {
                             Trả sách
                         </Sidebar.Item>
                     </Link>
+                </Sidebar.ItemGroup>
+                <Sidebar.ItemGroup>
                     <Link to={`/member/dashboard/profile/${member._id}`}>
                         <Sidebar.Item
                             icon={CgProfile}
@@ -175,11 +178,9 @@ const DashMemberSidebar = () => {
                             Đăng xuất
                         </Sidebar.Item>
                     </Link>
-                </Sidebar.ItemGroup>
-                <Sidebar.ItemGroup>
-                    <Sidebar.Item href="#" icon={BiBuoy}>
+                    {/* <Sidebar.Item href="#" icon={BiBuoy}>
                         Help
-                    </Sidebar.Item>
+                    </Sidebar.Item> */}
                 </Sidebar.ItemGroup>
             </Sidebar.Items>
 
@@ -216,6 +217,8 @@ const DashMemberSidebar = () => {
                         >
                             <Sidebar.Item icon={FaBook}>Trả sách</Sidebar.Item>
                         </Link>
+                    </Sidebar.ItemGroup>
+                    <Sidebar.ItemGroup>
                         <Link to={`/member/dashboard/profile/${member._id}`}>
                             <Sidebar.Item icon={CgProfile}>
                                 Hồ sơ cá nhân
@@ -235,11 +238,9 @@ const DashMemberSidebar = () => {
                                 Đăng xuất
                             </Sidebar.Item>
                         </Link>
-                    </Sidebar.ItemGroup>
-                    <Sidebar.ItemGroup>
-                        <Sidebar.Item href="#" icon={BiBuoy}>
+                        {/* <Sidebar.Item href="#" icon={BiBuoy}>
                             Help
-                        </Sidebar.Item>
+                        </Sidebar.Item> */}
                     </Sidebar.ItemGroup>
                 </Sidebar.Items>
             </div>

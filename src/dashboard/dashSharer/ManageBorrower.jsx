@@ -61,7 +61,7 @@ const ManageBorrower = () => {
 
     return (
         <div className="px-4 py-12 w-full">
-            <h2 className="mb-8 text-3xl font-bold">Sách bạn đang cho mượn</h2>
+            <h2 className="mb-8 text-3xl font-bold">Sách bạn cho mượn</h2>
             <div className="grid justify-between gap-x-8 lg:grid-cols-3 md:grid-cols-2 ">
                 {memberBorrowed &&
                     memberBorrowed.map((member, index) => (

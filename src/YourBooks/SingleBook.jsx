@@ -36,7 +36,7 @@ const SingleBook = () => {
         authorName,
         bookDescription,
         category,
-        memberID,
+        sharerID,
         status,
         borrowerID,
         bookedTime,
@@ -82,13 +82,13 @@ const SingleBook = () => {
             let borrowerWorkPlace = [];
 
             allBookData.forEach((book) => {
-                if (memberID === book.sharerID) {
+                if (sharerID === book.sharerID) {
                     totalCount++;
                 }
             });
 
             memberData.forEach((member) => {
-                if (memberID === member.memberID) {
+                if (sharerID === member.memberID) {
                     sharedByCurrent = member.memberName;
                     sharedBy_id = member._id;
                     sharerAvatar = member.memberAvatar;
