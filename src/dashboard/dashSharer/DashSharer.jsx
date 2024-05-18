@@ -7,6 +7,7 @@ import { FaBookReader } from "react-icons/fa";
 
 const DashSharer = () => {
     const [borrower, setBorrower] = useState([]);
+    const [allBooks, setAllBooks] = useState([]);
 
     const [showBooks, setShowBooks] = useState([]);
 
@@ -26,29 +27,37 @@ const DashSharer = () => {
             .then((res) => res.json())
             .then((data) => {
                 setShowBooks(data);
+                setAllBooks(data);
             });
     }, []);
 
-    // Lọc ra các cuốn sách có memberID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
+    // Lọc ra các cuốn sách có sharerID trùng với memberID thành viên
     const yourBooks = showBooks.filter((book) => book.sharerID === memberID);
     const lastFiveBooks = yourBooks.slice(-5).reverse();
 
     // Lọc ra các cuốn sách có người mượn
     const borrowers = yourBooks.filter((book) => book.borrowedBy);
-    // console.log("Total Borrower:", borrowers);
 
-    // Lọc ra các thành viên có borrowerID giống với borrowerID của các cuốn sách trong yourBooks từ API https://pega-book-server.onrender.com/all-members
+    // Lọc ra các thành viên có memberID giống với borrowerID của các cuốn sách
     const matchedMembers = borrower.filter((member) =>
         yourBooks.some((book) => book.borrowerID === member.memberID)
     );
+    // console.log(matchedMembers);
+
     const lastFiveMembers = matchedMembers.slice(-5).reverse();
+
+    // Lọc ra các cuốn sách có borrowerID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
+
+    const yourBorrowedBooks = allBooks.filter(
+        (book) => book.borrowerID === memberID
+    );
 
     return (
         <div className="w-full">
             {/* Total Data */}
-            <div className="px-4 mx-auto my-10 grid md:grid-cols-3 grid-cols-1 gap-4 w-full">
+            <div className="px-4 my-12 grid grid-cols-2 lg:grid-cols-4 gap-4 h-40">
                 {/* <Card href="#" className="invisible"></Card> */}
-                <Card href="#!" className="">
+                <Card href={`/member/dashboard/manage/${_id}`} className="">
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
                         <ImBooks className="h-7 w-7 m-auto" />
                     </div>
@@ -60,7 +69,25 @@ const DashSharer = () => {
                     </p>
                 </Card>
 
-                <Card href="#!" className="">
+                <Card
+                    href={`/member/dashboard/borrowed-book/${_id}`}
+                    className=""
+                >
+                    <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+                        <FaBookReader className="h-7 w-7 m-auto" />
+                    </div>
+                    <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        {yourBorrowedBooks.length}
+                    </h2>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                        Sách bạn đang mượn
+                    </p>
+                </Card>
+
+                <Card
+                    href={`/member/dashboard/manage/borrower/${_id}`}
+                    className=""
+                >
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
                         <FaBookReader className="h-7 w-7 m-auto" />
                     </div>
@@ -71,23 +98,27 @@ const DashSharer = () => {
                         Sách bạn đang cho mượn
                     </p>
                 </Card>
-                <Card href="#!" className="">
+
+                <Card
+                    href={`/member/dashboard/manage/borrower/${_id}`}
+                    className=""
+                >
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
                         <FaBookReader className="h-7 w-7 m-auto" />
                     </div>
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        {borrowers.length}
+                        {matchedMembers.length}
                     </h2>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Sách bạn đang mượn
+                    <p className="font-normal text-gray-700 dark:text-gray-400 ">
+                        Số người mượn sách bạn
                     </p>
                 </Card>
             </div>
 
             {/* Total People & Books */}
-            <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col gap-6 lg:flex-row mt-[300px] lg:mt-0">
                 {/* People */}
-                <div className="px-4 mb-12 w-full lg:w-1/3">
+                <div className="px-4 w-full lg:w-1/3">
                     <Card className="">
                         <div className="mb-4 flex items-center justify-between">
                             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
@@ -147,7 +178,7 @@ const DashSharer = () => {
                 </div>
 
                 {/* Books */}
-                <div className="px-4 mb-12 w-full lg:w-2/3">
+                <div className="px-4 w-full lg:w-2/3">
                     <Card>
                         <div className="mb-4 flex items-center justify-between">
                             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
@@ -178,7 +209,7 @@ const DashSharer = () => {
                                         <div className="flow-root">
                                             <div className="divide-y divide-gray-200 dark:divide-gray-700">
                                                 <div className="py-3 sm:py-4 flex items-center justify-center">
-                                                    <div className="flex space-x-4 w-2/4 items-center">
+                                                    <div className="flex gap-4 w-full md:w-2/4 items-center">
                                                         <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-12 h-16">
                                                             <img
                                                                 src={
@@ -214,7 +245,7 @@ const DashSharer = () => {
                                                                     book.borrowedBy
                                                                 }
                                                             </p>
-                                                            <div className="flex gap-1 text-right">
+                                                            <div className="flex gap-1 text-right whitespace-nowrap">
                                                                 <p>
                                                                     {
                                                                         book.borrowedDate

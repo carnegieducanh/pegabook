@@ -136,7 +136,7 @@ const SingleYourBook = () => {
     };
 
     return (
-        <div className="min-h-screen px-4 my-12 ">
+        <div className="min-h-screen px-4 my-12 w-full">
             <h2 className="mb-4 text-3xl font-bold">Sách của bạn</h2>
             <div className="py-5 lg:px-10 h-full flex flex-col lg:flex-row">
                 <div className="w-full lg:w-1/5 flex lg:flex-col flex-row gap-8 lg:gap-0 mb-5">
@@ -212,18 +212,21 @@ const SingleYourBook = () => {
                                 className="font-semibold my-auto flex items-center"
                                 to={`/member/dashboard/add-borrower/${_id}`}
                             >
-                                <Button className="w-48">
+                                <Button className="w-48 bg-[#F4F1EA] text-black hover:text-white">
                                     <IoPersonAdd />
-                                    <div className="px-2">Add borrower</div>
+                                    <div className="px-2">Thêm người mượn</div>
                                 </Button>
                             </Link>
+
                             <Link
                                 className="font-semibold my-auto flex items-center"
                                 to={`/member/dashboard/edit-books/${_id}`}
                             >
-                                <Button className="w-48">
+                                <Button className="w-48 bg-[#F4F1EA] text-black hover:text-white">
                                     <GrEdit />
-                                    <div className="px-2">Edit book</div>
+                                    <div className="px-2">
+                                        Sửa nội dung sách
+                                    </div>
                                 </Button>
                             </Link>
                         </div>
@@ -233,18 +236,18 @@ const SingleYourBook = () => {
                                 className="font-semibold my-auto flex items-center"
                                 to={`/member/dashboard/remove-borrower/${_id}`}
                             >
-                                <Button className="bg-red-800 w-48">
+                                <Button className="bg-[#f0f2f5] hover:text-white text-black w-48">
                                     <IoPersonRemoveOutline />
-                                    <div className="px-2">Remove borrower</div>
+                                    <div className="px-2">Xóa người mượn</div>
                                 </Button>
                             </Link>
 
                             <Button
                                 onClick={() => handleDelete(_id)}
-                                className="font-semibold my-auto flex items-center bg-red-800 w-48"
+                                className="font-semibold my-auto flex items-center bg-[#f0f2f5] hover:text-white text-black w-48"
                             >
                                 <RiDeleteBin6Line />
-                                <div className="px-2">Delete book</div>
+                                <div className="px-2">Xóa sách</div>
                             </Button>
                         </div>
                     </div>

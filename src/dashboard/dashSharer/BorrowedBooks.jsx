@@ -33,7 +33,7 @@ const BorrowedBooks = () => {
             });
     }, []);
 
-    // Lọc ra các cuốn sách có memberID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
+    // Lọc ra các cuốn sách có borrowerID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
 
     const memberBooks = allBooks.filter((book) => book.borrowerID === memberID);
 

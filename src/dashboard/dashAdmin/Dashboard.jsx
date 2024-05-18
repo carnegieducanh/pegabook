@@ -83,7 +83,7 @@ const Dashboard = () => {
                         {totalBooks} {/* Display total number of books */}
                     </h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Total Book
+                        Total Books
                     </p>
                 </Card>
                 <Card href="#" className="">
@@ -94,7 +94,7 @@ const Dashboard = () => {
                         {totalMembers}
                     </h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Total Member
+                        Total Members
                     </p>
                 </Card>
                 <Card href="#" className="">
@@ -106,7 +106,7 @@ const Dashboard = () => {
                         {/* Display total number of unique sharers */}
                     </h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Total Sharer
+                        Total Sharers
                     </p>
                 </Card>
 
