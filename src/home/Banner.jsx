@@ -15,7 +15,7 @@ const Banner = () => {
                         </span>
                     </h2>
                     <p className="md:w-4/5 text-lg">
-                        Chào đón các thành viên Việt Nam của{" "}
+                        Chào mừng các thành viên Việt Nam của{" "}
                         <span className="text-[#a69060] text-xl font-medium">
                             Pegabook
                         </span>{" "}
