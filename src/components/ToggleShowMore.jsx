@@ -7,16 +7,17 @@ function ToggleShowMore({ text }) {
     const toggleShowFullText = () => {
         setShowFullText(!showFullText);
     };
+
     return (
-        <div>
+        <div className="relative">
             {showFullText ? (
                 <div>
                     {text}
                     <a
-                        className="flex items-center gap-1 hover:underline cursor-pointer font-semibold"
+                        className="flex items-center gap-1 cursor-pointer font-semibold text-[#02598b] hover:underline mt-2"
                         onClick={toggleShowFullText}
                     >
-                        Show less
+                        Thu gọn
                         <IoIosArrowUp />
                     </a>
                 </div>
@@ -26,10 +27,10 @@ function ToggleShowMore({ text }) {
                         <div>
                             {text.slice(0, 300)}...
                             <a
-                                className="flex items-center gap-1 hover:underline cursor-pointer font-semibold"
+                                className="flex items-center gap-1 cursor-pointer font-semibold text-[#02598b] hover:underline mt-2"
                                 onClick={toggleShowFullText}
                             >
-                                Show more
+                                Xem thêm
                                 <IoIosArrowDown />
                             </a>
                         </div>
@@ -37,6 +38,9 @@ function ToggleShowMore({ text }) {
                         <div>{text}</div>
                     )}
                 </div>
+            )}
+            {!showFullText && (
+                <div className="bg-gradient-to-b from-transparent to-white pt-10 w-full absolute bottom-8"></div>
             )}
         </div>
     );
