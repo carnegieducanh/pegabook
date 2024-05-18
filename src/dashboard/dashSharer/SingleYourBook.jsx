@@ -161,7 +161,7 @@ const SingleYourBook = () => {
                         </div>
                         <div className="text-gray-500 text-left">
                             <p className="text-black text-lg">{bookedTime}</p>
-                            <div className="flex gap-2">
+                            <div className="flex flex-col md:flex-row md:gap-2 md:whitespace-nowrap">
                                 <p>{borrowedDate}</p>
                                 {"-"}
                                 <p>{returnDate}</p>

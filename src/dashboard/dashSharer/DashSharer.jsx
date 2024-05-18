@@ -4,6 +4,8 @@ import { Card } from "flowbite-react";
 import { ImBooks } from "react-icons/im";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaBookReader } from "react-icons/fa";
+import { MdPeopleAlt } from "react-icons/md";
+import { BiSolidBookHeart } from "react-icons/bi";
 
 const DashSharer = () => {
     const [borrower, setBorrower] = useState([]);
@@ -89,13 +91,13 @@ const DashSharer = () => {
                     className=""
                 >
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
-                        <FaBookReader className="h-7 w-7 m-auto" />
+                        <BiSolidBookHeart className="h-7 w-7 m-auto" />
                     </div>
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {borrowers.length}
                     </h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Sách bạn đang cho mượn
+                        Sách bạn cho mượn
                     </p>
                 </Card>
 
@@ -104,7 +106,7 @@ const DashSharer = () => {
                     className=""
                 >
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
-                        <FaBookReader className="h-7 w-7 m-auto" />
+                        <MdPeopleAlt className="h-7 w-7 m-auto" />
                     </div>
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {matchedMembers.length}

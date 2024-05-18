@@ -41,14 +41,14 @@ const TrendingBooks = ({ headline }) => {
     useEffect(() => {
         if (membersData && booksData) {
             const api1BooksIDs = new Set(
-                booksData.map((item) => item.memberID)
+                booksData.map((item) => item.sharerID)
             );
 
             let memberNamesMap = {};
-            api1BooksIDs.forEach((memberID) => {
+            api1BooksIDs.forEach((sharerID) => {
                 membersData.forEach((member) => {
-                    if (memberID === member.memberID) {
-                        memberNamesMap[memberID] = member.memberName;
+                    if (sharerID === member.memberID) {
+                        memberNamesMap[sharerID] = member.memberName;
                         return;
                     }
                 });

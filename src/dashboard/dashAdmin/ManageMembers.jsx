@@ -8,6 +8,7 @@ import DashSearchMember from "./DashSearchMember";
 
 const ManageMembers = () => {
     const [allMembers, setAllMembers] = useState([]);
+    const [allBooks, setAllBooks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const membersPerPage = 10;
     const paginate = (pageNumber) => {
@@ -22,6 +23,14 @@ const ManageMembers = () => {
             });
     }, []);
 
+    useEffect(() => {
+        fetch("https://pega-book-server.onrender.com/all-books")
+            .then((res) => res.json())
+            .then((books) => {
+                setAllBooks(books);
+            });
+    }, []);
+
     const indexOfLastMember = currentPage * membersPerPage;
     const indexOfFirstMember = indexOfLastMember - membersPerPage;
     const currentMember = allMembers.slice(
@@ -30,22 +39,40 @@ const ManageMembers = () => {
     );
 
     // delete a member
-    const handleDelete = (id) => {
-        // Sử dụng window.confirm để hiển thị thông báo
+    const handleDelete = (id, memberID) => {
         const isConfirmed = window.confirm(
             "Are you sure you want to delete this Member?"
         );
 
-        // Kiểm tra xem người dùng đã xác nhận hay không
         if (isConfirmed) {
-            fetch(`https://pega-book-server.onrender.com/member/${id}`, {
-                method: "DELETE",
-            })
-                .then((res) => res.json())
-                .then(() => {
-                    alert("Member is deleted successfully!");
-                    location.reload();
-                });
+            // Lọc các sách có liên quan đến thành viên cần xóa
+            const matchedBooks = allBooks.filter(
+                (book) => book.sharerID === memberID
+            );
+
+            // Xóa tất cả các sách có liên quan
+            Promise.all(
+                matchedBooks.map((book) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/book/${book._id}`,
+                        {
+                            method: "DELETE",
+                        }
+                    ).then((res) => res.json())
+                )
+            ).then(() => {
+                // Sau khi xóa các sách liên quan, xóa thành viên
+                fetch(`https://pega-book-server.onrender.com/member/${id}`, {
+                    method: "DELETE",
+                })
+                    .then((res) => res.json())
+                    .then(() => {
+                        alert(
+                            "Member and their books are deleted successfully!"
+                        );
+                        location.reload();
+                    });
+            });
         }
     };
 
@@ -75,7 +102,7 @@ const ManageMembers = () => {
                                 {index + 1}
                             </Table.Cell>
                             <Table.Cell className="w-20">
-                                <div className="border border-solid border-opacity-10  shadow-md hover:shadow-lg w-12 h-12 rounded-full">
+                                <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-12 h-12 rounded-full">
                                     <img
                                         src={member.memberAvatar}
                                         alt=""
@@ -89,7 +116,7 @@ const ManageMembers = () => {
                             <Table.Cell>{member.workPlace}</Table.Cell>
                             <Table.Cell>{member.memberID}</Table.Cell>
                             <Table.Cell>
-                                <div className="mx-auto my-auto flex ">
+                                <div className="mx-auto my-auto flex">
                                     <Link
                                         className="bg-cyan-700 px-4 py-1 font-semibold text-white rounded-sm mr-5"
                                         to={`/admin/dashboard/edit-members/${member._id}`}
@@ -97,7 +124,12 @@ const ManageMembers = () => {
                                         <GrEdit />
                                     </Link>
                                     <button
-                                        onClick={() => handleDelete(member._id)}
+                                        onClick={() =>
+                                            handleDelete(
+                                                member._id,
+                                                member.memberID
+                                            )
+                                        }
                                         className="bg-red-600 px-4 py-1 font-semibold text-white rounded-sm"
                                     >
                                         <RiDeleteBinLine />

@@ -207,7 +207,7 @@ const Navbar = () => {
 
                 {/* ===== navItems for sm devices ====== */}
                 <div
-                    className={`space-y-4 px-4 mt-[68px] py-7 bg-[#f4f1ea] ${
+                    className={`space-y-4 px-4 mt-[65px] py-7 bg-[#f4f1ea] ${
                         isMenuOpen
                             ? "block fixed top-0 right-0 left-0"
                             : "hidden"
@@ -224,7 +224,7 @@ const Navbar = () => {
                     ))}
                     <div className="flex justify-between">
                         <div className="group relative cursor-pointer">
-                            <div className="text-lg text-black cursor-pointer hover:text-[#a69060] flex items-center justify-start gap-2">
+                            <div className="text-md text-black cursor-pointer hover:text-[#a69060] flex items-center justify-start gap-2">
                                 CỘNG ĐỒNG{" "}
                                 <span>
                                     <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
