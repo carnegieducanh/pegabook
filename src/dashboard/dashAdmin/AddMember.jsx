@@ -169,14 +169,14 @@ const AddMember = () => {
                             <div className="mb-2 block">
                                 <Label
                                     htmlFor="workPlace"
-                                    value="Pegabook tầng 5/ tầng 4/ Office"
+                                    value="Pegabook 5/ 4/ Office"
                                 />
                             </div>
                             <TextInput
                                 id="workPlace"
                                 name="workPlace"
                                 type="text"
-                                placeholder="Pegabook tầng 5/ tầng 4/ Office"
+                                placeholder="Pegabook 5/ 4/ Office"
                                 required
                             />
                         </div>

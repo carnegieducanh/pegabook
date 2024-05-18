@@ -152,7 +152,7 @@ const ReturnBook = () => {
         <div className="px-4 my-12 w-full">
             <h2 className="mb-8 text-3xl font-bold">Đăng ký trả sách</h2>
             <div className="my-12 h-full flex flex-col lg:flex-row gap-10">
-                <div className="flex flex-row lg:flex-col gap-10 text-left w-full lg:w-[20%]">
+                <div className="flex flex-row lg:flex-col gap-3 text-left w-full lg:w-[20%]">
                     <img
                         src={imageUrl}
                         alt=""
@@ -175,7 +175,7 @@ const ReturnBook = () => {
                         </div>
                         <div className="text-gray-500 text-left">
                             <p className="text-black text-lg">{bookedTime}</p>
-                            <div className="flex gap-2">
+                            <div className="flex gap-2 whitespace-nowrap">
                                 <p>{borrowedDate}</p>
                                 {"-"}
                                 <p>{returnDate}</p>

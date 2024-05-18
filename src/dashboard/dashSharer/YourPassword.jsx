@@ -42,7 +42,7 @@ function YourPassword() {
     };
     return (
         <div className="px-4 my-12 w-full">
-            <h2 className="mb-8 text-3xl font-bold">Change your password</h2>
+            <h2 className="mb-8 text-3xl font-bold">Đổi mật khẩu</h2>
 
             <form
                 onSubmit={handleUpdateMember}

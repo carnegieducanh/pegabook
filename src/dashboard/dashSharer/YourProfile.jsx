@@ -63,7 +63,7 @@ const YourProfile = () => {
     };
     return (
         <div className="px-4 my-12 w-full">
-            <h2 className="mb-8 text-3xl font-bold">Edit your profile</h2>
+            <h2 className="mb-8 text-3xl font-bold">Sửa thông tin cá nhân</h2>
 
             <form
                 onSubmit={handleUpdateMember}

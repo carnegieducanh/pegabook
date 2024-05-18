@@ -79,7 +79,7 @@ const YourEditBooks = () => {
     };
     return (
         <div className="px-4 my-12">
-            <h2 className="mb-8 text-3xl font-bold">Edit this book</h2>
+            <h2 className="mb-8 text-3xl font-bold">Sửa nội dung sách</h2>
 
             <form onSubmit={handleUpdate} className="flex  flex-col">
                 {/* first row */}

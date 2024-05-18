@@ -13,7 +13,7 @@ const UploadBook = () => {
         setBookImage(imgUrl);
     };
 
-    const { memberID, _id } = useLoaderData();
+    const { memberID, _id, email } = useLoaderData();
 
     const bookCategories = [
         "Tiểu sử - Hồi ký",
@@ -65,7 +65,6 @@ const UploadBook = () => {
         };
 
         // send data to database
-
         fetch("https://pega-book-server.onrender.com/upload-book", {
             method: "POST",
             headers: {
@@ -75,14 +74,25 @@ const UploadBook = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data);
                 alert("Book uploaded successfully!!!");
                 // Chuyển đến trang khác
                 navigate(`/member/dashboard/manage/${id}`);
-                // form.reset();
-                // Reset giá trị của trường Status thành "Có thể mượn"
-                // setStatus("Có thể mượn");
             });
+
+        const email = form.email.value;
+
+        const updateMemberObj = {
+            email,
+        };
+
+        // update data to database
+        fetch(`https://pega-book-server.onrender.com/member/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updateMemberObj),
+        }).then((res) => res.json());
     };
     return (
         <div className="px-4 my-12 w-full">
@@ -187,9 +197,22 @@ const UploadBook = () => {
                         rows={6}
                     />
                 </div>
-                {/* Status */}
-                <div className="flex gap-8">
-                    <div className="lg:w-1/2"></div>
+
+                <div className="w-full lg:w-1/2">
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="email"
+                            value="Thêm hoặc xác nhận lại Email của bạn (Để nhận yêu cầu mượn sách từ thành viên)"
+                        />
+                    </div>
+                    <TextInput
+                        id="email"
+                        name="email"
+                        type="text"
+                        placeholder="Email"
+                        defaultValue={email}
+                        required
+                    />
                 </div>
 
                 <Button type="submit" className="mt-5">
