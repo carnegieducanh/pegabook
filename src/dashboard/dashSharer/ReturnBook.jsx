@@ -20,8 +20,8 @@ const ReturnBook = () => {
     const [borrower, setBorrower] = useState();
     const [borrowerAvatar, setBorrowerAvatar] = useState();
     const [borrowedBy_id, setBorrowedBy_id] = useState();
-
     const [borrowerWorkPlace, setBorrowerWorkPlace] = useState();
+    const [currentViews, setCurrentViews] = useState(0); // Thêm state cho views
 
     const {
         _id,
@@ -36,11 +36,12 @@ const ReturnBook = () => {
         bookedTime,
         borrowedDate,
         returnDate,
+        views,
     } = useLoaderData();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-
+        setCurrentViews(views); // Khởi tạo giá trị views từ dữ liệu tải về
         return () => {};
     }, [_id]); // Thay đổi _id để trigger useEffect khi có sự thay đổi
 
@@ -119,33 +120,54 @@ const ReturnBook = () => {
         }
     }, [memberData, allBookData]);
 
-    // console.log(borrowedBy_id);
-
     // Chuyển đến trang khác
     const navigate = useNavigate();
 
     // ********** Send Email **********
     const sendEmail = (event) => {
         event.preventDefault();
+        const form = event.target;
 
-        // Sử dụng window.confirm để hiển thị thông báo
-        const isConfirmed = window.confirm(
-            "Are you sure you want to send this mail?"
-        );
+        const updatedViews = currentViews + 1; // Tăng giá trị của views lên 1
+        setCurrentViews(updatedViews); // Cập nhật state của views
 
-        // Kiểm tra xem người dùng đã xác nhận hay không
-        if (isConfirmed) {
-            emailjs.sendForm(
-                "service_iu86g7t",
-                "template_yq1oasc",
-                event.target,
-                "62seVVbY10pzmV4fj"
-            );
+        const updateBookObj = {
+            views: updatedViews,
+        };
 
-            alert("Message sent successfully.");
-            // Chuyển đến trang khác
-            navigate(`/member/dashboard/${borrowedBy_id}`);
-        }
+        fetch(`https://pega-book-server.onrender.com/book/${_id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updateBookObj),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                const isConfirmed = window.confirm(
+                    "Are you sure you want to send this mail?"
+                );
+
+                if (isConfirmed) {
+                    emailjs
+                        .sendForm // "service_iu86g7t",
+                        // "template_yq1oasc",
+                        // event.target,
+                        // "62seVVbY10pzmV4fj"
+                        ()
+                        .then(
+                            (result) => {
+                                alert("Message sent successfully.");
+                                // navigate(`/member/dashboard/${borrowedBy_id}`);
+                            },
+                            (error) => {
+                                alert(
+                                    "Failed to send message, please try again."
+                                );
+                            }
+                        );
+                }
+            });
     };
 
     return (
@@ -340,6 +362,28 @@ const ReturnBook = () => {
                                     />
                                 </div>
                             </div>
+
+                            {/* <div className="flex gap-8">
+                                <div className="w-1/2">
+                                    <div className="mb-2 block">
+                                        <Label
+                                            htmlFor="views"
+                                            value="Lượt views"
+                                        />
+                                    </div>
+                                    <TextInput
+                                        id="views"
+                                        name="views"
+                                        type="text"
+                                        placeholder="views"
+                                        defaultValue={views}
+                                        required
+                                        readOnly
+                                    />
+                                </div>
+
+                                <div className="w-1/2"></div>
+                            </div> */}
 
                             <Button type="submit" className="mb-5 bg-[#a69060]">
                                 <div className="flex items-center gap-2 ">

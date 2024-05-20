@@ -40,7 +40,7 @@ const Navbar = () => {
     // navItems here
     const navItems = [
         { link: "Trang chủ", path: "/" },
-        { link: "Thư viện sách", path: "/our-books" },
+        { link: "Thư viện sách", path: "/all-books" },
     ];
 
     const navSignIn = [

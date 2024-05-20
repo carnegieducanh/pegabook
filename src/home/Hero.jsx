@@ -83,7 +83,7 @@ const Hero = ({}) => {
                                 {description}
                             </p>
                             <div>
-                                <Link to="/our-books" className="block">
+                                <Link to="/all-books" className="block">
                                     <button className="sm:mx-0 mt-12 block bg-[#a69060] text-white font-semibold px-5 py-2 rounded hover:bg-black transition-all duration-300 ">
                                         Khám phá thêm
                                     </button>

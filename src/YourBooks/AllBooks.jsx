@@ -3,10 +3,11 @@ import PaginationButtons from "../components/PaginationBtns";
 import { Link } from "react-router-dom";
 import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
+import ViewsBook from "../YourBooks/ViewsBook";
 
-const OurBooks = () => {
-    const [allBooks, setAllBooks] = useState([]);
-    const [allMembers, setAllMembers] = useState([]);
+const AllBooks = () => {
+    const [booksData, setBooksData] = useState([]);
+    const [membersData, setMembersData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const booksPerPage = 12;
     const paginate = (pageNumber) => {
@@ -16,20 +17,19 @@ const OurBooks = () => {
     useEffect(() => {
         fetch("https://pega-book-server.onrender.com/all-books")
             .then((res) => res.json())
-            .then((books) => setAllBooks(books));
+            .then((books) => setBooksData(books));
 
         fetch("https://pega-book-server.onrender.com/all-members")
             .then((res) => res.json())
             .then((members) => {
-                setAllMembers(members);
-                // console.log("All members:", members);
+                setMembersData(members);
             });
     }, []);
 
     const matchedBooks = [];
 
-    allBooks.forEach((book) => {
-        const matchingMember = allMembers.find(
+    booksData.forEach((book) => {
+        const matchingMember = membersData.find(
             (member) => member.memberID === book.sharerID
         );
 
@@ -49,8 +49,6 @@ const OurBooks = () => {
     useEffect(() => {
         // Cuộn lên trên khi component được render
         window.scrollTo(0, 0);
-
-        // Cleanup effect để tránh việc thực hiện multiple subscriptions nếu có sự thay đổi trong component
         return () => {};
     });
 
@@ -61,6 +59,8 @@ const OurBooks = () => {
     return (
         <div className="flex flex-col min-h-screen">
             <ImageBanner />
+
+            <ViewsBook headline="Xem nhiều nhất" />
 
             <div className="my-10 px-4 lg:px-24 bg-[#fffffff2]">
                 <h2 className="text-5xl font-bold text-center">
@@ -116,4 +116,4 @@ const OurBooks = () => {
         </div>
     );
 };
-export default OurBooks;
+export default AllBooks;

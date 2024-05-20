@@ -5,9 +5,10 @@ import BookUpload from "../../components/BookUpload";
 
 const YourEditBooks = () => {
     const { id } = useParams();
-    console.log(id);
 
     const [bookImage, setBookImage] = useState(""); // State để lưu trữ URL của hình ảnh
+
+    // const [currentViews, setCurrentViews] = useState(0); // Thêm state cho views
 
     // Hàm callback để cập nhật memberAvatar
     const handleBookImageChange = (imgUrl) => {
@@ -58,6 +59,7 @@ const YourEditBooks = () => {
             imageUrl: bookImage || imageUrl,
             category,
             bookDescription,
+            // views: currentViews,
         };
 
         // update book data

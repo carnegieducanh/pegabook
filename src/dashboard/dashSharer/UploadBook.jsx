@@ -8,6 +8,8 @@ const UploadBook = () => {
 
     const [bookImage, setBookImage] = useState(""); // State để lưu trữ URL của hình ảnh
 
+    const [currentViews, setCurrentViews] = useState(0); // Thêm state cho views
+
     // Hàm callback để cập nhật memberAvatar
     const handleBookImageChange = (imgUrl) => {
         setBookImage(imgUrl);
@@ -62,6 +64,7 @@ const UploadBook = () => {
             status: status, // Thêm trường status vào object bookObj
             sharerID: memberID,
             sharedBy_id,
+            views: currentViews,
         };
 
         // send data to database

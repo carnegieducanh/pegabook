@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../home/Home";
 import SingleBook from "../YourBooks/SingleBook";
-import OurBooks from "../YourBooks/OurBooks";
+import AllBooks from "../YourBooks/AllBooks";
 import Members from "../YourMembers/Members";
 import Sharers from "../YourMembers/Sharers";
 import SingleMember from "../YourMembers/SingleMember";
@@ -43,8 +43,8 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/our-books",
-                element: <OurBooks />,
+                path: "/all-books",
+                element: <AllBooks />,
             },
             {
                 path: "/members",

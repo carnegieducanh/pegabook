@@ -13,7 +13,7 @@ import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 import SpinnerLoading from "../components/SpinnerLoading";
 
-const TrendingBooks = ({ headline }) => {
+const ViewsBook = ({ headline }) => {
     const [membersData, setMembersData] = useState(null);
     const [booksData, setBooksData] = useState([]);
     const [memberName, setMemberName] = useState({});
@@ -27,7 +27,11 @@ const TrendingBooks = ({ headline }) => {
     useEffect(() => {
         fetch("https://pega-book-server.onrender.com/all-books")
             .then((res) => res.json())
-            .then((data) => setBooksData(data.slice(-9).reverse()));
+            // .then((data) => setBooksData(data.slice(-7).reverse()));
+            .then((data) => {
+                const sortedBooks = data.sort((a, b) => b.views - a.views);
+                setBooksData(sortedBooks.slice(0, 7)); // Lấy 7 sách có lượt views cao nhất
+            });
     }, []);
 
     useEffect(() => {
@@ -51,20 +55,10 @@ const TrendingBooks = ({ headline }) => {
 
     return (
         <div className="py-4 px-4 lg:px-24 text-center">
-            <p className="text-xl  text-[#a69060]">Trending Books</p>
+            <p className="text-xl  text-[#a69060]"></p>
             <h2 className="text-5xl text-center font-bold text-black my-2">
                 {headline}
             </h2>
-            <p className=" text-gray-700 text-lg">
-                Với hệ thống đăng ký đơn giản, các bạn có thể mượn sách miễn phí
-                trong thời gian xác định. Từ các tiểu thuyết nổi tiếng đến sách
-                chuyên ngành,{" "}
-                <span className="text-[#a69060] text-xl font-medium">
-                    Pegabook
-                </span>{" "}
-                đảm bảo có một bộ sưu tập đa dạng để đáp ứng nhu cầu đọc sách
-                của mọi người.
-            </p>
 
             {/* {card} */}
             <div className="mt-12 ">
@@ -116,6 +110,7 @@ const TrendingBooks = ({ headline }) => {
                                                 <p className="text-[#a69060] text-sm line-clamp-1">
                                                     {book.authorName}
                                                 </p>
+
                                                 <div className="flex gap-1">
                                                     <FaStar className="text-yellow-500" />
                                                     <FaStar className="text-yellow-500" />
@@ -128,6 +123,9 @@ const TrendingBooks = ({ headline }) => {
                                                 </p>
                                                 <p className="text-[#a69060] text-sm font-semibold -mt-1">
                                                     {memberName[book.sharerID]}
+                                                </p>
+                                                <p className="text-gray-500 text-sm">
+                                                    {book.views} lượt xem
                                                 </p>
                                             </div>
                                         </div>
@@ -146,4 +144,4 @@ const TrendingBooks = ({ headline }) => {
     );
 };
 
-export default TrendingBooks;
+export default ViewsBook;

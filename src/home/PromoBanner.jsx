@@ -20,7 +20,7 @@ const PromoBanner = () => {
                         mượn sách trực tuyến, mà còn có thể đặt lịch trước và
                         chọn địa điểm thuận tiện để nhận sách.
                     </p>
-                    <Link to="/our-books">
+                    <Link to="/all-books">
                         <button className="block bg-[#a69060] text-white font-semibold px-5 py-2 rounded hover:bg-black transition-all duration-300">
                             Khám phá thêm
                         </button>
