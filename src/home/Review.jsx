@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
+import SpinnerLoading from "../components/SpinnerLoading";
 
 const Review = () => {
-    const [membersData, setMembersData] = useState(null);
+    const [membersData, setMembersData] = useState([]);
 
     useEffect(() => {
         fetch("https://pega-book-server.onrender.com/all-members")
@@ -78,43 +79,51 @@ const Review = () => {
                         data-aos-duration="300"
                         className=" grid grid-cols-1 mx-auto gap-6"
                     >
-                        <Slider {...settings}>
-                            {membersData &&
-                                membersData.map((member) => {
-                                    return (
-                                        <div
-                                            className="my-6 w-96"
-                                            key={member._id}
-                                        >
-                                            <div className=" flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl bg-gray-100 dark:bg-gray-800 relative h-56">
-                                                <div>
-                                                    <img
-                                                        className="rounded-full w-20 h-20 object-cover"
-                                                        src={
-                                                            member.memberAvatar
-                                                        }
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className="flex items-center gap-4">
+                        {membersData.length > 0 ? (
+                            <Slider {...settings}>
+                                {membersData &&
+                                    membersData.map((member) => {
+                                        return (
+                                            <div
+                                                className="my-6 w-96"
+                                                key={member._id}
+                                            >
+                                                <div className=" flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl bg-gray-100 dark:bg-gray-800 relative h-56">
                                                     <div>
-                                                        <p className="text-gray-500 line-clamp-2">
-                                                            {member.comment}
-                                                        </p>
-                                                        <h1 className="text-xl font-bold text-black/80 dark:text-light">
-                                                            {member.memberName}
-                                                        </h1>
+                                                        <img
+                                                            className="rounded-full w-20 h-20 object-cover"
+                                                            src={
+                                                                member.memberAvatar
+                                                            }
+                                                            alt=""
+                                                        />
                                                     </div>
-                                                </div>
+                                                    <div className="flex items-center gap-4">
+                                                        <div>
+                                                            <p className="text-gray-500 line-clamp-2">
+                                                                {member.comment}
+                                                            </p>
+                                                            <h1 className="text-xl font-bold text-black/80 dark:text-light">
+                                                                {
+                                                                    member.memberName
+                                                                }
+                                                            </h1>
+                                                        </div>
+                                                    </div>
 
-                                                <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">
-                                                    ,,
-                                                </p>
+                                                    <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">
+                                                        ,,
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    );
-                                })}
-                        </Slider>
+                                        );
+                                    })}
+                            </Slider>
+                        ) : (
+                            <div className="flex justify-center items-center w-full h-full">
+                                <SpinnerLoading />
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

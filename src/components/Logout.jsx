@@ -31,10 +31,8 @@ const Logout = () => {
                     <h2 className="text-[#a69060] text-4xl font-semibold">
                         PEGABOOK
                     </h2>
-                    {/* <FaBlog className="inline-block" /> */}
-                    <p className="pt-2 text-[#5a5a5a]">
-                        Viet Nam Team Book Library
-                    </p>
+
+                    <p className="pt-2 text-[#5a5a5a]">Viet Nam Team with ❤️</p>
                 </Link>
             </div>
             <div className="h-screen bg-[#F4F1EA] flex items-center justify-center">
