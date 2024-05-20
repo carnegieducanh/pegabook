@@ -42,6 +42,7 @@ const SingleBook = () => {
         bookedTime,
         borrowedDate,
         returnDate,
+        views,
     } = useLoaderData();
 
     useEffect(() => {
@@ -394,7 +395,7 @@ const SingleBook = () => {
                                 href="#"
                                 className="text-md font-medium text-gray-900 underline hover:no-underline dark:text-white"
                             >
-                                100+ reviews
+                                {views}+ views
                             </a>
                         </Rating>
                     </div>
