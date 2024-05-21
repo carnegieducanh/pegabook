@@ -440,7 +440,7 @@ const SingleBook = () => {
                                 </p>
                                 <p className="text-gray-500 flex gap-2">
                                     <span>Đã chia sẻ:</span>
-                                    {count} books
+                                    {count} cuốn sách
                                 </p>
                             </div>
                         </Link>

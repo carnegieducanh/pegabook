@@ -220,7 +220,7 @@ const Dashboard = () => {
                                     <div className="flow-root">
                                         <div className="divide-y divide-gray-200 dark:divide-gray-700">
                                             <div className="py-3 sm:py-4 flex items-center justify-between">
-                                                <div className="flex space-x-4 w-2/4 items-center">
+                                                <div className="flex space-x-4 w-2/3 md:w-2/4 items-center">
                                                     <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-12 h-16">
                                                         <img
                                                             src={

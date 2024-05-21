@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button, Label, TextInput } from "flowbite-react";
-import userAvatar from "../../assets/user avatar.png";
+import userAvatar from "../../assets/user avatar.jpg";
 import SearchMembers from "../../components/SearchMembers";
 import { Datepicker } from "flowbite-react";
 

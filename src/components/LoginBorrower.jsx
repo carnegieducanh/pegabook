@@ -53,7 +53,7 @@ const LoginBorrower = ({ _id }) => {
                 className="bg-[#a69060] text-white text-lg hover:scale-105 duration-300 py-1 px-6 rounded-full mt-3 mx-auto w-48"
                 onClick={() => setOpenModal(true)}
             >
-                Đặt mượn
+                Mượn sách
             </button>
 
             <Modal

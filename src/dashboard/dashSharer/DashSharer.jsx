@@ -44,7 +44,6 @@ const DashSharer = () => {
     const matchedMembers = borrower.filter((member) =>
         yourBooks.some((book) => book.borrowerID === member.memberID)
     );
-    // console.log(matchedMembers);
 
     const lastFiveMembers = matchedMembers.slice(-5).reverse();
 
@@ -247,7 +246,7 @@ const DashSharer = () => {
                                                                     book.borrowedBy
                                                                 }
                                                             </p>
-                                                            <div className="flex gap-1 text-right whitespace-nowrap">
+                                                            <div className="hidden md:flex gap-1 text-right whitespace-nowrap">
                                                                 <p>
                                                                     {
                                                                         book.borrowedDate

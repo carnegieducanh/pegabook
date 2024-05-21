@@ -6,7 +6,7 @@ import {
     uploadBytesResumable,
 } from "firebase/storage";
 import app from "../firebase/firebase.config";
-import userAvatar from "../assets/user avatar.png";
+import userAvatar from "../assets/user avatar.jpg";
 
 const ImageUpload = ({ onAvatarChange, memberAvatar }) => {
     const fileRef = useRef(null);

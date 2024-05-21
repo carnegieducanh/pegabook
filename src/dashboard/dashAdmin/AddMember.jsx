@@ -146,14 +146,14 @@ const AddMember = () => {
                             <div className="mb-2 block">
                                 <Label
                                     htmlFor="memberID"
-                                    value="Member ID (PEGA...) Nhập đủ 9 chữ số"
+                                    value="Member ID (bắt đầu bằng PEGA)"
                                 />
                             </div>
                             <TextInput
                                 id="memberID"
                                 name="memberID"
                                 type="text"
-                                placeholder="Ex: PEGA2000000"
+                                placeholder="PEGA2000000"
                                 required
                                 value={memberID} // Gán giá trị của state vào input
                                 onChange={handleMemberIDChange}
