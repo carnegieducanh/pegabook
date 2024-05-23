@@ -150,11 +150,12 @@ const ReturnBook = () => {
 
                 if (isConfirmed) {
                     emailjs
-                        .sendForm // "service_iu86g7t",
-                        // "template_yq1oasc",
-                        // event.target,
-                        // "62seVVbY10pzmV4fj"
-                        ()
+                        .sendForm(
+                            "service_fsg25n8",
+                            "template_aawv0y3",
+                            event.target, // Sử dụng event.target để truyền form vào hàm sendForm
+                            "NbXcMWTgvO9EetTrb"
+                        )
                         .then(
                             (result) => {
                                 alert("Message sent successfully.");

@@ -137,7 +137,7 @@ const SingleBook = () => {
         // Kiểm tra xem người dùng đã xác nhận hay không
         if (isConfirmed) {
             emailjs.sendForm(
-                "service_iu86g7t",
+                "service_fl9nzck",
                 "template_md4bn27",
                 event.target, // Sử dụng event.target để truyền form vào hàm sendForm
                 "62seVVbY10pzmV4fj"
