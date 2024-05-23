@@ -90,13 +90,15 @@ const SingleMember = () => {
                 <hr className="block my-2 w-full lg:w-1/3" />
                 <div className="text-lg">
                     <p className="w-full">
-                        <span className="underline font-semibold">Review:</span>
+                        <span className="underline font-semibold italic">
+                            Vài nét về bản thân:
+                        </span>
                         <br />
                         <ToggleShowMore text={review} />
                     </p>
                     <p className="w-full mt-5">
-                        <span className="underline font-semibold">
-                            Comment:
+                        <span className="underline font-semibold italic">
+                            Cảm nghĩ:
                         </span>
                         <br />
                         {comment}

@@ -81,8 +81,10 @@ const ImageUpload = ({ onAvatarChange, memberAvatar }) => {
                     />
 
                     <p className="whitespace-nowrap">
-                        Drag 'n' drop an image here, <br />
-                        or click to select one
+                        {/* Drag 'n' drop an image here, <br />
+                        or click to select one */}
+                        Kéo và thả hình ảnh vào đây, <br /> hoặc nhấp để chọn
+                        một hình ảnh
                     </p>
 
                     <p className="text-sm self-center">

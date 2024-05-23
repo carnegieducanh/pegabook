@@ -170,7 +170,7 @@ const YourEditBooks = () => {
                 </div>
 
                 <Button type="submit" className="mt-10">
-                    Upload Book
+                    Hoàn tất
                 </Button>
             </form>
         </div>

@@ -95,7 +95,7 @@ function RemoveBorrower() {
     };
     return (
         <div className="px-4 my-12 w-full">
-            <h2 className="mb-8 text-3xl font-bold">Remove borrower</h2>
+            <h2 className="mb-8 text-3xl font-bold">Hủy người mượn</h2>
 
             <form
                 onSubmit={handleUpdate}
@@ -196,7 +196,7 @@ function RemoveBorrower() {
                     </div>
 
                     <Button type="submit" className="mt-5">
-                        Remove this borrower
+                        Hủy người mượn này
                     </Button>
                 </div>
             </form>

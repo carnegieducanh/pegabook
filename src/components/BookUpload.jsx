@@ -73,12 +73,14 @@ const BookUpload = ({ onBookImageChange, imageUrl }) => {
                     <img
                         src={formData.profilePicture || imageUrl || dropFile}
                         alt=""
-                        className="h-52 w-36 object-cover   focus:shadow-xl shrink-0 rounded-tr-lg rounded-br-lg mx-auto"
+                        className="h-52 w-36 object-cover focus:shadow-xl shrink-0 rounded-tr-lg rounded-br-lg mx-auto"
                         onClick={() => fileRef.current.click()}
                     />
 
                     <p className="text-center mt-2">
-                        Drag 'n' drop an image here, or click to select one
+                        {/* Drag 'n' drop an image here, or click to select one */}
+                        Kéo và thả hình ảnh vào đây hoặc nhấp để chọn một hình
+                        ảnh
                     </p>
 
                     <p className="text-center">

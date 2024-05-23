@@ -241,7 +241,7 @@ const SingleYourBook = () => {
                             >
                                 <Button className="bg-[#f0f2f5] hover:text-white text-black w-48">
                                     <IoPersonRemoveOutline />
-                                    <div className="px-2">Xóa người mượn</div>
+                                    <div className="px-2">Hủy người mượn</div>
                                 </Button>
                             </Link>
 

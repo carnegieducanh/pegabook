@@ -143,12 +143,12 @@ const YourProfile = () => {
                 {/* review */}
                 <div>
                     <div className="mb-2 block">
-                        <Label htmlFor="review" value="Review" />
+                        <Label htmlFor="review" value="Vài nét về bản thân" />
                     </div>
                     <Textarea
                         id="review"
                         name="review"
-                        placeholder="Write your review..."
+                        placeholder="Hãy viết vài điều về bản thân bạn..."
                         defaultValue={review}
                         // required
                         className="w-full"
@@ -159,12 +159,12 @@ const YourProfile = () => {
                 {/* comment */}
                 <div>
                     <div className="mb-2 block">
-                        <Label htmlFor="comment" value="Comment" />
+                        <Label htmlFor="comment" value="Cảm nghĩ..." />
                     </div>
                     <Textarea
                         id="comment"
                         name="comment"
-                        placeholder="Write your comment..."
+                        placeholder="Hãy viết cảm nghĩ của bạn"
                         defaultValue={comment}
                         required
                         className="w-full"
@@ -173,7 +173,7 @@ const YourProfile = () => {
                 </div>
 
                 <Button type="submit" className="mt-5">
-                    Update
+                    Cập nhật thông tin
                 </Button>
             </form>
         </div>

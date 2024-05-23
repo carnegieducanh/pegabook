@@ -68,7 +68,7 @@ function AddBorrower() {
     };
     return (
         <div className="px-4 my-12 w-full ">
-            <h2 className="mb-8 text-3xl font-bold">Add borrower</h2>
+            <h2 className="mb-8 text-3xl font-bold">Thêm người mượn</h2>
 
             <form
                 onSubmit={handleUpdate}
@@ -146,7 +146,7 @@ function AddBorrower() {
                     </div>
 
                     <Button type="submit" className="mt-5 mx-auto w-full">
-                        Add this account
+                        Thêm người mượn này
                     </Button>
                 </div>
                 <div className="gap-4 hidden">

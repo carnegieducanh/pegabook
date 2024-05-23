@@ -54,9 +54,9 @@ const ViewsBook = ({ headline }) => {
     }, [membersData, booksData]);
 
     return (
-        <div className="py-4 px-4 lg:px-24 text-center">
+        <div className="py-8 px-4 lg:px-24 text-center">
             <p className="text-xl  text-[#a69060]"></p>
-            <h2 className="text-5xl text-center font-bold text-black my-2">
+            <h2 className="text-4xl text-left font-bold text-black my-2">
                 {headline}
             </h2>
 

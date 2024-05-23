@@ -8,7 +8,8 @@ const FavoriteBook = () => {
     const [allMembers, setAllMembers] = useState([]);
     const [latestMembers, setLatestMembers] = useState([]);
     const [totalMembers, setTotalMembers] = useState(0);
-    const [totalBooks, setTotalBooks] = useState(0); // State to hold total
+    const [totalBooks, setTotalBooks] = useState(0); // State to hold total number of books
+    const [totalViews, setTotalViews] = useState(0); // State to hold total number of views
 
     useEffect(() => {
         fetch("https://pega-book-server.onrender.com/all-members")
@@ -24,11 +25,17 @@ const FavoriteBook = () => {
                     .then((books) => {
                         // setAllBooks(books);
                         setTotalBooks(books.length);
+
+                        // Ensure views are numbers and calculate total views
+                        const totalBookViews = books.reduce((sum, book) => {
+                            const views = parseInt(book.views, 10);
+                            return sum + (isNaN(views) ? 0 : views);
+                        }, 0);
+
+                        setTotalViews(totalBookViews);
                     });
             });
     }, []);
-
-    // console.log(allMembers);
 
     return (
         <div className="px-4 lg:px-24 my-20 flex flex-col lg:flex-row justify-between items-center gap-12">
@@ -66,8 +73,8 @@ const FavoriteBook = () => {
                     </div>
 
                     <div>
-                        <h3 className="text-3xl font-bold">1200+</h3>
-                        <p className="text-base">Views</p>
+                        <h3 className="text-3xl font-bold">{totalViews}+</h3>
+                        <p className="text-base">Lượt xem</p>
                     </div>
                 </div>
                 <div className="flex flex-wrap gap-2">

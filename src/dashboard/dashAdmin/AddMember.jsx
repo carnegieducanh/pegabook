@@ -12,7 +12,7 @@ const AddMember = () => {
     const [memberData, setMemberData] = useState([]);
 
     const [commentDefault, setCommentDefault] = useState(
-        "Hi, have a nice day everyone!"
+        "Sách là ngọn đèn chiếu sáng cho tâm trí, là ngọn lửa truyền cảm hứng cho trí tuệ.!"
     );
 
     const handleCommentChange = (event) => {
@@ -95,7 +95,6 @@ const AddMember = () => {
             comment,
             review,
         };
-        console.log(memberObj);
 
         fetch("https://pega-book-server.onrender.com/add-member", {
             method: "POST",

@@ -25,18 +25,18 @@ const Footer = () => {
     return (
         <div className="px-4 lg:px-24 bg-[#F4F1EA] dark:bg-gray-950">
             <section className="container">
-                <div className="flex py-5">
+                <div className="flex flex-col md:flex-row py-5">
                     {/* company Details */}
                     <div className="py-6">
                         <h1 className="text-[#a69060] text-4xl font-semibold mb-5">
                             PEGABOOK
                         </h1>
                         <p>
-                            Tận Hưởng Niềm Đam Mê Đọc Sách <br />
-                            Cùng{" "}
+                            Tận Hưởng Niềm Đam Mê Đọc Sách
+                            {/* Cùng{" "}
                             <span className="text-[#a69060] text-xl font-medium">
                                 Pegabook
-                            </span>{" "}
+                            </span>{" "} */}
                         </p>
                     </div>
                     {/* Links */}
@@ -100,6 +100,34 @@ const Footer = () => {
                                     <FaLocationArrow />
                                     <p>PEGABOOK JAPAN INC.</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="md:hidden">
+                        <div className="py-8">
+                            <h1 className="sm:text-xl sm:text-left text-justify mb-3">
+                                Kết nối{" "}
+                                <span className="text-[#a69060] text-xl font-medium">
+                                    Pegabook
+                                </span>{" "}
+                            </h1>
+                            {/* Social Handle */}
+                            <div className="flex items-center gap-3 mt-6">
+                                <a href="#">
+                                    <FaInstagram className="text-3xl" />
+                                </a>
+                                <a href="#">
+                                    <FaFacebook className="text-3xl" />
+                                </a>
+                                <a href="#">
+                                    <FaLinkedin className="text-3xl" />
+                                </a>
+                            </div>
+                            <br />
+                            <div className="flex items-center gap-3 text-sm">
+                                <FaLocationArrow />
+                                <p>PEGABOOK JAPAN INC.</p>
                             </div>
                         </div>
                     </div>
