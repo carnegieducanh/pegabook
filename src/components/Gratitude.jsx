@@ -12,6 +12,13 @@ const Gratitude = () => {
     );
 
     useEffect(() => {
+        // Cuộn lên trên khi component được render
+        window.scrollTo(0, 0);
+
+        return () => {};
+    });
+
+    useEffect(() => {
         fetch("https://pega-book-server.onrender.com/all-members")
             .then((res) => res.json())
             .then((members) => {
@@ -53,9 +60,9 @@ const Gratitude = () => {
                         Pegabook xin bày tỏ sự trân trọng biết ơn đến tất cả các
                         thành viên vì những đóng góp to lớn trong việc xây dựng
                         và phát triển thư viện sách chia sẻ kiến thức này. Sự
-                        nhiệt tình và sáng tạo của các bạn đã biến Pegabook từ
-                        những ý tưởng trở thành hiện thực, tạo nên một thư viện
-                        sách như ngày hôm nay.
+                        nhiệt tình và sáng tạo của các thành viên đã biến
+                        Pegabook từ những ý tưởng trở thành hiện thực, tạo nên
+                        một thư viện sách như ngày hôm nay.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
                         <p className="mb-3 text-gray-700 dark:text-gray-400">
@@ -98,10 +105,10 @@ const Gratitude = () => {
                     </div>
                     <p className="mb-3 text-gray-700 dark:text-gray-400">
                         Pegabook một lần nữa xin gửi lời cảm ơn chân thành đến
-                        tất cả các bạn vì những nỗ lực và đóng góp quý báu. Sự
-                        chung tay của các bạn đã tạo nên một thư viện sách phong
-                        phú và hữu ích, mang lại lợi ích lớn lao cho toàn thể
-                        team Việt Nam tại công ty.
+                        tất cả các thành viên vì những nỗ lực và đóng góp quý
+                        báu. Sự chung tay của các bạn đã tạo nên một thư viện
+                        sách phong phú và hữu ích, mang lại lợi ích lớn lao cho
+                        toàn thể team Việt Nam tại công ty.
                     </p>
                 </div>
                 <figcaption className="mt-6 flex space-x-3 text-lg">

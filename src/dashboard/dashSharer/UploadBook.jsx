@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Label, TextInput, Textarea } from "flowbite-react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import BookUpload from "../../components/BookUpload";
+import bookCategories from "../../components/BookCategories"; // Import bookCategories
 
 const UploadBook = () => {
     const { id } = useParams();
@@ -17,18 +18,18 @@ const UploadBook = () => {
 
     const { memberID, _id, email } = useLoaderData();
 
-    const bookCategories = [
-        "Tiểu sử - Hồi ký",
-        "Tiểu thuyết",
-        "Phát triển bản thân",
-        "Chữa lành",
-        "Lịch sử",
-        "Du lịch",
-        "Nghệ thuật và Thiết kế",
-        "Kinh doanh",
-        "Tôn giáo",
-        "Hư cấu",
-    ];
+    // const bookCategories = [
+    //     "Tiểu sử - Hồi ký",
+    //     "Tiểu thuyết",
+    //     "Phát triển bản thân",
+    //     "Chữa lành",
+    //     "Lịch sử",
+    //     "Du lịch",
+    //     "Nghệ thuật và Thiết kế",
+    //     "Kinh doanh",
+    //     "Tôn giáo",
+    //     "Hư cấu",
+    // ];
 
     const [status, setStatus] = useState("Có thể mượn");
 

@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button, Label, TextInput, Textarea } from "flowbite-react";
 import BookUpload from "../../components/BookUpload";
+import bookCategories from "../../components/BookCategories"; // Import bookCategories
 
 const YourEditBooks = () => {
     const { id } = useParams();
 
     const [bookImage, setBookImage] = useState(""); // State để lưu trữ URL của hình ảnh
-
-    // const [currentViews, setCurrentViews] = useState(0); // Thêm state cho views
 
     // Hàm callback để cập nhật memberAvatar
     const handleBookImageChange = (imgUrl) => {
@@ -17,19 +16,6 @@ const YourEditBooks = () => {
 
     const { bookTitle, authorName, imageUrl, bookDescription, sharedBy_id } =
         useLoaderData();
-
-    const bookCategories = [
-        "Tiểu sử - Hồi ký",
-        "Tiểu thuyết",
-        "Phát triển bản thân",
-        "Chữa lành",
-        "Lịch sử",
-        "Du lịch",
-        "Nghệ thuật và Thiết kế",
-        "Kinh doanh",
-        "Tôn giáo",
-        "Hư cấu",
-    ];
 
     const [selectedBookCategory, setSelectedBookCategory] = useState(
         bookCategories[0]
