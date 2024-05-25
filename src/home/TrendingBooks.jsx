@@ -52,7 +52,7 @@ const TrendingBooks = ({ headline }) => {
     return (
         <div className="py-4 px-4 lg:px-24 text-center">
             <p className="text-xl  text-[#a69060]">Trending Books</p>
-            <h2 className="text-5xl text-center font-bold font-title text-black my-2">
+            <h2 className="text-5xl text-center font-bold font-title leading-snug text-black my-2">
                 {headline}
             </h2>
             <p className=" text-gray-700 text-lg">

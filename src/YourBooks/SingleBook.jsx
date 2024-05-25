@@ -154,14 +154,14 @@ const SingleBook = () => {
             <ImageBanner />
 
             <div className="py-10 px-8 lg:px-40 h-full flex flex-col md:flex-row gap-10 ">
-                <div className="lg:w-[30%] lg:pl-12 flex md:flex-col gap-3 md:gap-0 text-left ">
+                <div className="lg:pl-12 flex md:flex-col gap-3 md:gap-0 text-left ">
                     <div>
                         <img
                             src={imageUrl}
                             alt=""
-                            className="w-48 h-72 lg:h-72 lg:w-48 transform hover:scale-105 duration-300 shadow-xl rounded-tr-xl rounded-br-xl object-cover shrink-0"
+                            className="w-48 h-72 transform hover:scale-105 duration-300 shadow-xl rounded-tr-xl rounded-br-xl object-cover shrink-0"
                         />
-                        <div onClick={handleLoginClick} className="mb-5">
+                        <div onClick={handleLoginClick} className="mb-5 w-48">
                             <LoginBorrower _id={_id} />
                         </div>
                     </div>

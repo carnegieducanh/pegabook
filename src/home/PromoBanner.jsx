@@ -21,7 +21,7 @@ const PromoBanner = () => {
                         chọn địa điểm thuận tiện để nhận sách.
                     </p>
                     <Link to="/all-books">
-                        <button className="block bg-[#a69060] text-white font-semibold px-5 py-2 rounded hover:bg-black transition-all duration-300">
+                        <button className="block bg-[#a69060] text-white text-lg px-5 py-2 rounded hover:bg-black transition-all duration-300">
                             Khám phá thêm
                         </button>
                     </Link>

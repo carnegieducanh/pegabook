@@ -2,8 +2,8 @@ import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 
 import { IoMdPersonAdd } from "react-icons/io";
-import { FaBookOpenReader } from "react-icons/fa6";
-import { FaBook, FaUserCircle } from "react-icons/fa";
+import { FaBookOpenReader, FaRegAddressBook } from "react-icons/fa6";
+import { FaBook } from "react-icons/fa";
 import { HiArrowSmRight, HiChartPie, HiViewBoards } from "react-icons/hi";
 
 import userImg from "../../assets/awardbooks.png";
@@ -76,12 +76,6 @@ const DashSidebar = () => {
                         </Sidebar.Item>
                     </Link>
 
-                    {/* <Link to={"/admin/dashboard/create-sharer"}>
-                        <Sidebar.Item icon={FaUserCircle}>
-                            Create a Sharer
-                        </Sidebar.Item>
-                    </Link> */}
-
                     <Link to={"/admin/dashboard/manage-members"}>
                         <Sidebar.Item
                             icon={FaBookOpenReader}
@@ -93,6 +87,20 @@ const DashSidebar = () => {
                             onClick={() => handleItemClick("manage-members")}
                         >
                             Manage Members
+                        </Sidebar.Item>
+                    </Link>
+
+                    <Link to={"/admin/dashboard/manage-borrower"}>
+                        <Sidebar.Item
+                            icon={FaRegAddressBook}
+                            className={
+                                selectedItem === "manage-borrower"
+                                    ? "selected"
+                                    : ""
+                            }
+                            onClick={() => handleItemClick("manage-borrower")}
+                        >
+                            Manage Borrower
                         </Sidebar.Item>
                     </Link>
 

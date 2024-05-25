@@ -112,34 +112,6 @@ const LoginBorrower = ({ _id }) => {
                                         {error}
                                     </p>
                                 )}
-                                {/* <div className="flex justify-between">
-                                    <div className="flex items-center gap-2">
-                                        <Checkbox id="remember" />
-                                        <Label htmlFor="remember">
-                                            Ghi nhớ đăng nhập
-                                        </Label>
-                                    </div>
-                                    <a
-                                        href="#"
-                                        className="text-sm text-cyan-700 hover:underline dark:text-cyan-500"
-                                    >
-                                        Quên mật khẩu?
-                                    </a>
-                                </div>
-                                <div className="w-full">
-                                    <button className="bg-cyan-700 text-white rounded-md px-6 py-2">
-                                        Đăng nhập vào tài khoản của bạn
-                                    </button>
-                                </div>
-                                <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
-                                    Chưa đăng ký?&nbsp;
-                                    <a
-                                        href="#"
-                                        className="text-cyan-700 hover:underline dark:text-cyan-500"
-                                    >
-                                        Tạo tài khoản
-                                    </a>
-                                </div> */}
                             </div>
                         </form>
                     </Modal.Body>

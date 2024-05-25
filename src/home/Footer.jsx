@@ -28,7 +28,7 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row py-5">
                     {/* company Details */}
                     <div className="py-6">
-                        <h1 className="text-[#a69060] text-4xl font-semibold font-title mb-5">
+                        <h1 className="text-[#a69060] text-4xl font-medium mb-5">
                             PEGABOOK
                         </h1>
                         <p>

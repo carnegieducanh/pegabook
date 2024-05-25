@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 
 import { Link, useLoaderData } from "react-router-dom";
 
-const ManageBorrower = () => {
+const ManageBorrowers = () => {
     const [borrower, setBorrower] = useState([]);
 
     const [allBookData, setAllBooksData] = useState([]);
 
-    const { memberID } = useLoaderData();
+    // const { memberID } = useLoaderData();
 
     useEffect(() => {
         fetch("https://pega-book-server.onrender.com/all-members")
@@ -24,14 +24,14 @@ const ManageBorrower = () => {
     }, []);
 
     // Lọc ra các cuốn sách đang chia sẻ
-    const yourBooks = allBookData.filter((book) => book.sharerID === memberID);
+    // const yourBooks = allBookData.filter((book) => book.sharerID === memberID);
 
     // Lọc ra các cuốn sách có người mượn
-    const borrowedBooks = yourBooks.filter((book) => book.borrowerID);
+    const borrowedBooks = allBookData.filter((book) => book.borrowerID);
 
     // Lọc ra các người mượn
     const borrowers = borrower.filter((member) =>
-        yourBooks.some((book) => book.borrowerID === member.memberID)
+        allBookData.some((book) => book.borrowerID === member.memberID)
     );
 
     // Gom nhóm borrowedBooks theo borrowerID và đếm số lượng phần tử trong mỗi nhóm
@@ -59,7 +59,7 @@ const ManageBorrower = () => {
 
     return (
         <div className="px-4 py-12 w-full">
-            <h2 className="mb-8 text-3xl font-bold">Sách bạn cho mượn</h2>
+            <h2 className="mb-8 text-3xl font-bold">Thành viên đang mượn</h2>
             <div className="grid justify-between gap-x-8 lg:grid-cols-3 md:grid-cols-2 ">
                 {memberBorrowed &&
                     memberBorrowed.map((member, index) => (
@@ -82,8 +82,8 @@ const ManageBorrower = () => {
                                         {member.workPlace}
                                     </p>
                                     <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
-                                        Đang mượn của bạn:{" "}
-                                        {member.borrowedCount} cuốn sách
+                                        Đang mượn: {member.borrowedCount} cuốn
+                                        sách
                                     </p>
 
                                     <hr className="inline-block my-2 w-full" />
@@ -93,7 +93,7 @@ const ManageBorrower = () => {
                                             (book, index) => (
                                                 <Link
                                                     key={index}
-                                                    to={`/member/dashboard/book/${book.bookId}`}
+                                                    // to={`/member/dashboard/book/${book.bookId}`}
                                                 >
                                                     <img
                                                         src={book.imageUrl}
@@ -113,4 +113,4 @@ const ManageBorrower = () => {
     );
 };
 
-export default ManageBorrower;
+export default ManageBorrowers;

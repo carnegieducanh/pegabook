@@ -46,8 +46,6 @@ const Dashboard = () => {
                         );
 
                         setTotalSharers(relevantMembers.length);
-
-                        // console.log("Relevant Members:", relevantMembers);
                     });
             });
     }, []);
@@ -227,7 +225,7 @@ const Dashboard = () => {
                                                                 matchedBook.imageUrl
                                                             }
                                                             alt=""
-                                                            className="block w-12 h-16 object-cover shrink-0"
+                                                            className="block w-12 h-16 object-cover rounded-sm shrink-0"
                                                         />
                                                     </div>
                                                     <div className="flex-1">

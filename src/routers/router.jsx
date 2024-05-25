@@ -32,6 +32,7 @@ import RemoveBorrower from "../dashboard/dashSharer/RemoveBorrower";
 import ManageBorrower from "../dashboard/dashSharer/ManageBorrower";
 import ReturnBook from "../dashboard/dashSharer/ReturnBook";
 import Gratitude from "../components/Gratitude";
+import ManageBorrowers from "../dashboard/dashAdmin/ManageBorrowers";
 
 const router = createBrowserRouter([
     {
@@ -106,6 +107,12 @@ const router = createBrowserRouter([
                 path: "/admin/dashboard/manage-members",
                 element: <ManageMembers />,
             },
+
+            {
+                path: "/admin/dashboard/manage-borrower",
+                element: <ManageBorrowers />,
+            },
+
             {
                 path: "/admin/dashboard/edit-members/:id",
                 element: <EditMember />,

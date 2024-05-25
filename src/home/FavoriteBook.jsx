@@ -99,7 +99,7 @@ const FavoriteBook = () => {
                 </div>
 
                 <Link to="/Members">
-                    <button className="mt-12 block bg-[#a69060] text-white font-semibold px-5 py-2 rounded hover:bg-black transition-all duration-300">
+                    <button className="mt-12 block bg-[#a69060] text-white text-lg px-5 py-2 rounded hover:bg-black transition-all duration-300">
                         Khám phá thêm
                     </button>
                 </Link>

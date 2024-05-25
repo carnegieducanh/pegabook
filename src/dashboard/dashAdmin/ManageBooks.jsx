@@ -80,7 +80,7 @@ const ManageBooks = () => {
             </h2>
 
             {/* table for book data */}
-            <Table className="lg:w-[1100px]">
+            <Table className="w-full">
                 <Table.Head>
                     <Table.HeadCell>No.</Table.HeadCell>
                     <Table.HeadCell>Book Name</Table.HeadCell>
@@ -106,7 +106,7 @@ const ManageBooks = () => {
                                 <img
                                     src={book.imageUrl}
                                     alt=""
-                                    className="h-14 w-10 rounded-sm"
+                                    className="h-14 w-10 rounded-sm shrink-0"
                                 />
                             </Table.Cell>
                             <Table.Cell>{book.authorName}</Table.Cell>
