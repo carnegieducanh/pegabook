@@ -56,7 +56,7 @@ const ViewsBook = ({ headline }) => {
     return (
         <div className="py-8 px-4 lg:px-24 text-center">
             <p className="text-xl  text-[#a69060]"></p>
-            <h2 className="text-4xl text-left font-bold text-black my-2">
+            <h2 className="text-4xl text-left font-bold font-title text-black my-2">
                 {headline}
             </h2>
 
@@ -70,16 +70,28 @@ const ViewsBook = ({ headline }) => {
                             clickable: true,
                         }}
                         breakpoints={{
-                            640: {
+                            400: {
                                 slidesPerView: 2,
                                 spaceBetween: 20,
                             },
+                            576: {
+                                slidesPerView: 3,
+                                spaceBetween: 20,
+                            },
                             768: {
-                                slidesPerView: 4,
+                                slidesPerView: 3,
                                 spaceBetween: 40,
                             },
-                            1024: {
+                            992: {
+                                slidesPerView: 4,
+                                spaceBetween: 50,
+                            },
+                            1200: {
                                 slidesPerView: 5,
+                                spaceBetween: 50,
+                            },
+                            1500: {
+                                slidesPerView: 6,
                                 spaceBetween: 50,
                             },
                         }}
