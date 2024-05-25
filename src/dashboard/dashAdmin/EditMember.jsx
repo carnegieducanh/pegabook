@@ -70,7 +70,9 @@ const EditMember = () => {
     };
     return (
         <div className="px-4 my-12 w-full">
-            <h2 className="mb-8 text-3xl font-bold">Edit the member data</h2>
+            <h2 className="mb-8 text-3xl font-bold font-title">
+                Edit the member data
+            </h2>
 
             <form
                 onSubmit={handleUpdateMember}

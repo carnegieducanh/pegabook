@@ -57,7 +57,9 @@ const Review = () => {
                         <p className="text-lg text-[#a69060]">
                             Tận Hưởng Niềm Đam Mê
                         </p>
-                        <h1 className="text-3xl font-bold">Reviews</h1>
+                        <h1 className="text-3xl font-bold font-title">
+                            Reviews
+                        </h1>
                         <p className="text-lg text-gray-700">
                             Hãy trở thành thành viên của{" "}
                             <span className="text-[#a69060] text-xl font-medium">

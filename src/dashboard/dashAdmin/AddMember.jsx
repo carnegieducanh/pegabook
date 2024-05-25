@@ -115,7 +115,7 @@ const AddMember = () => {
 
     return (
         <div className="px-4 my-12 w-full">
-            <h2 className="mb-8 text-3xl font-bold">Add Member</h2>
+            <h2 className="mb-8 text-3xl font-bold font-title">Add Member</h2>
 
             <form
                 onSubmit={handleMemberSubmit}
@@ -214,7 +214,7 @@ const AddMember = () => {
 
                     {/* 5nd row */}
                     <div>
-                        <h2 className="mt-2 text-xl font-bold">
+                        <h2 className="mt-2 text-xl font-bold font-title">
                             Create a login User (automatically)
                         </h2>
                         {/* Member User */}

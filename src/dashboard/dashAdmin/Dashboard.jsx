@@ -79,7 +79,7 @@ const Dashboard = () => {
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
                         <ImBooks className="h-7 w-7 m-auto" />
                     </div>
-                    <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h2 className="text-2xl font-bold font-title tracking-tight text-gray-900 dark:text-white">
                         {totalBooks} {/* Display total number of books */}
                     </h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
@@ -90,7 +90,7 @@ const Dashboard = () => {
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
                         <MdPeopleAlt className="h-7 w-7 m-auto" />
                     </div>
-                    <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h2 className="text-2xl font-bold font-title tracking-tight text-gray-900 dark:text-white">
                         {totalMembers}
                     </h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
@@ -101,7 +101,7 @@ const Dashboard = () => {
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
                         <BsFillPersonLinesFill className="h-7 w-7 m-auto" />
                     </div>
-                    <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h2 className="text-2xl font-bold font-title tracking-tight text-gray-900 dark:text-white">
                         {totalSharers}
                         {/* Display total number of unique sharers */}
                     </h2>
@@ -114,7 +114,7 @@ const Dashboard = () => {
                     <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
                         <FaBookReader className="h-7 w-7 m-auto" />
                     </div>
-                    <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h2 className="text-2xl font-bold font-title tracking-tight text-gray-900 dark:text-white">
                         {totalBorrower}
                     </h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400">

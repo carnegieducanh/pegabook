@@ -375,7 +375,9 @@ const SingleBook = () => {
                     )}
 
                     {/* about Author */}
-                    <h2 className="text-4xl font-medium">{bookTitle}</h2>
+                    <h2 className="text-4xl font-medium font-title">
+                        {bookTitle}
+                    </h2>
                     <div className="flex text-center gap-2">
                         <p className="text-xl">{authorName}</p>
                         <HiMiniCheckBadge className="text-[#825445] text-2xl my-auto" />

@@ -44,7 +44,7 @@ const FavoriteBook = () => {
             </div>
 
             <div className="md:w-10/12 lg:w-1/2 space-y-6">
-                <h2 className="text-5xl font-bold my-5 md:w-3/4 leading-snug">
+                <h2 className="text-5xl font-bold font-title my-5 md:w-3/4 leading-snug">
                     Sự Đa Dạng{" "}
                     <span className="text-[#a69060]">và Phong Phú!</span>
                 </h2>

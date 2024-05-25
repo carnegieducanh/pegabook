@@ -7,7 +7,7 @@ const Banner = () => {
             <div className="flex w-full flex-col md:flex-row justify-between items-center gap-12 py-28 md:py-40">
                 {/* left side */}
                 <div className="md:w-1/2 space-y-8 h-full">
-                    <h2 className="text-4xl font-bold leading-snug text-black">
+                    <h2 className="text-4xl font-bold font-title leading-snug text-black">
                         Thư viện Sách Phi lợi nhuận - Nguồn tri thức miễn phí
                         cho những người đặc biệt, những tâm hồn sáng tạo{" "}
                         <span className="text-[#a69060]">

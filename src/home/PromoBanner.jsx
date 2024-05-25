@@ -7,7 +7,7 @@ const PromoBanner = () => {
         <div className="mt-16 py-12 bg-gray-100 px-4 lg:px-24">
             <div className="flex flex-col md:flex-row justify-between items-center gap-12">
                 <div className="md:w-1/2">
-                    <h2 className="text-4xl font-bold mb-6 leading-snug">
+                    <h2 className="text-4xl font-bold font-title mb-6 leading-snug">
                         Sự <span className="text-[#a69060]">Thuận Tiện</span> và{" "}
                         Linh Hoạt
                     </h2>

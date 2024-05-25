@@ -83,7 +83,7 @@ const Navbar = () => {
                     {/* logo */}
                     <Link to="/">
                         {/* <img src={navLogo} alt="" /> */}
-                        <h2 className="text-[#a69060] text-4xl font-semibold">
+                        <h2 className="text-[#a69060] text-4xl font-semibold font-title">
                             PEGABOOK
                         </h2>
                         {/* <FaBlog className="inline-block" /> */}

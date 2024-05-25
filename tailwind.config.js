@@ -6,7 +6,21 @@ export default {
         "node_modules/flowbite-react/lib/esm/**/*.js",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: [
+                    "Roboto",
+                    "Merriweather",
+                    "serif",
+                    "Segoe UI Historic",
+                    "Segoe UI",
+                    "Helvetica",
+                    "Arial",
+                    "sans-serif",
+                ], // đặt font mặc định cho các phần tử sans
+                title: ["Noto Serif", "serif", "Poppins", "sans-serif"],
+            },
+        },
     },
     plugins: [require("flowbite/plugin")],
 };

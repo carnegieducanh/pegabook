@@ -53,7 +53,9 @@ const Gratitude = () => {
             <ImageBanner />
 
             <div className="py-10 px-4 lg:px-36 bg-[#fffffff2]">
-                <h2 className="text-4xl font-bold text-left">Lời cảm ơn</h2>
+                <h2 className="text-4xl font-bold text-left font-title">
+                    Lời cảm ơn
+                </h2>
 
                 <div className="my-12 text-lg">
                     <p className="mb-3 text-gray-700 dark:text-gray-400">
