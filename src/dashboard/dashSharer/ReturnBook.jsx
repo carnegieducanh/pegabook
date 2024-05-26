@@ -362,28 +362,6 @@ const ReturnBook = () => {
                                 </div>
                             </div>
 
-                            {/* <div className="flex gap-8">
-                                <div className="w-1/2">
-                                    <div className="mb-2 block">
-                                        <Label
-                                            htmlFor="views"
-                                            value="Lượt views"
-                                        />
-                                    </div>
-                                    <TextInput
-                                        id="views"
-                                        name="views"
-                                        type="text"
-                                        placeholder="views"
-                                        defaultValue={views}
-                                        required
-                                        readOnly
-                                    />
-                                </div>
-
-                                <div className="w-1/2"></div>
-                            </div> */}
-
                             <Button type="submit" className="mb-5 bg-[#a69060]">
                                 <div className="flex items-center gap-2 ">
                                     <p>Đăng ký trả sách</p>
@@ -414,7 +392,7 @@ const ReturnBook = () => {
                                 href="#"
                                 className="text-md font-medium text-gray-900 underline hover:no-underline dark:text-white"
                             >
-                                100+ reviews
+                                {views}+ lượt xem
                             </a>
                         </Rating>
                     </div>
