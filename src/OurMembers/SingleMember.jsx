@@ -83,26 +83,26 @@ const SingleMember = () => {
                             {workPlace}
                         </p>
                         <p className="font-normal text-gray-700 dark:text-gray-400">
-                            Đã chia sẻ: {currentBooks.length} cuốn sách
+                            Đã chia sẻ: {memberBooks.length} cuốn sách
                         </p>
                     </div>
                 </div>
                 <hr className="block my-2 w-full lg:w-1/3" />
                 <div className="text-lg">
-                    <p className="w-full">
+                    <div className="w-full">
                         <span className="underline font-semibold italic">
                             Vài nét về bản thân:
                         </span>
                         <br />
                         <ToggleShowMore text={review} />
-                    </p>
-                    <p className="w-full mt-5">
+                    </div>
+                    <div className="w-full mt-5">
                         <span className="underline font-semibold italic">
                             Cảm nghĩ:
                         </span>
                         <br />
                         {comment}
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="px-4 lg:px-24">
@@ -111,7 +111,7 @@ const SingleMember = () => {
                     <div className="grid justify-between gap-x-8 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
                         {currentBooks &&
                             currentBooks.map((book) => (
-                                <Link to={`/book/${book._id}`}>
+                                <Link to={`/book/${book._id}`} key={book._id}>
                                     <div className="flex flex-col group justify-between gap-4 py-6">
                                         <div
                                             data-aos="zoom-in"
@@ -150,8 +150,9 @@ const SingleMember = () => {
 
                 <PaginationButtons
                     booksPerPage={booksPerPage}
-                    totalBooks={currentBooks ? currentBooks.length : 0}
+                    totalBooks={memberBooks.length}
                     paginate={paginate}
+                    currentPage={currentPage}
                 />
             </div>
         </div>

@@ -144,7 +144,7 @@ const SingleYourBook = () => {
                     <img
                         src={imageUrl}
                         alt=""
-                        className="h-72 w-48 transform hover:scale-105 duration-300 shadow-xl rounded-tr-xl rounded-br-xl"
+                        className="h-72 w-48 transform hover:scale-105 duration-300 shadow-xl rounded-tr-xl rounded-br-xl object-cover shrink-0"
                     />
 
                     {/* Status */}

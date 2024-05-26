@@ -9,7 +9,7 @@ function ToggleShowMore({ text }) {
     };
 
     return (
-        <div className="relative">
+        <div className="relative whitespace-pre-line">
             {showFullText ? (
                 <div>
                     {text}
