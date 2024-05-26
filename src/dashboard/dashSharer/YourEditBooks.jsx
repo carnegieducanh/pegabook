@@ -22,7 +22,6 @@ const YourEditBooks = () => {
     );
 
     const handleChangeSelectedValue = (event) => {
-        console.log(event.target.value);
         setSelectedBookCategory(event.target.value);
     };
 
@@ -75,7 +74,10 @@ const YourEditBooks = () => {
                     <div className="flex flex-col lg:w-1/2 gap-4">
                         <div className="">
                             <div className="mb-2 block">
-                                <Label htmlFor="bookTitle" value="Book Title" />
+                                <Label
+                                    htmlFor="bookTitle"
+                                    value="Tên cuốn sách"
+                                />
                             </div>
                             <TextInput
                                 id="bookTitle"
@@ -91,7 +93,7 @@ const YourEditBooks = () => {
                             <div className="mb-2 block">
                                 <Label
                                     htmlFor="authorName"
-                                    value="Author Name"
+                                    value="Tên tác giả"
                                 />
                             </div>
                             <TextInput
@@ -141,13 +143,13 @@ const YourEditBooks = () => {
                     <div className="mb-2 block">
                         <Label
                             htmlFor="bookDescription"
-                            value="Book Description"
+                            value="Nội dung cuốn sách"
                         />
                     </div>
                     <Textarea
                         id="bookDescription"
                         name="bookDescription"
-                        placeholder="Write your book description..."
+                        placeholder="Tóm tắt nội dung sách của bạn..."
                         defaultValue={bookDescription}
                         required
                         className="w-full"

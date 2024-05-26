@@ -50,7 +50,6 @@ const SearchYourBook = () => {
     };
 
     const handleMemberSelect = (member) => {
-        console.log("Clicked on member:", member);
         setSelectedMember(member);
         setInputEntered(true);
         setShowResults(true);

@@ -3,7 +3,7 @@ import PaginationButtons from "../components/PaginationBtns";
 import { Link } from "react-router-dom";
 import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
-import ViewsBook from "../YourBooks/ViewsBook";
+import ViewsBook from "../OurBooks/ViewsBook";
 
 const AllBooks = () => {
     const [booksData, setBooksData] = useState([]);
@@ -17,7 +17,7 @@ const AllBooks = () => {
     useEffect(() => {
         fetch("https://pega-book-server.onrender.com/all-books")
             .then((res) => res.json())
-            .then((books) => setBooksData(books));
+            .then((books) => setBooksData(books.reverse()));
 
         fetch("https://pega-book-server.onrender.com/all-members")
             .then((res) => res.json())

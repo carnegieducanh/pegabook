@@ -30,7 +30,7 @@ const ReturnBook = () => {
         authorName,
         bookDescription,
         category,
-        memberID,
+        sharerID,
         status,
         borrowerID,
         bookedTime,
@@ -50,7 +50,6 @@ const ReturnBook = () => {
             .then((res) => res.json())
             .then((data) => {
                 setMemberData(data);
-                console.log("All Books:", data);
             });
     }, []);
 
@@ -59,7 +58,6 @@ const ReturnBook = () => {
             .then((res) => res.json())
             .then((data) => {
                 setAllBooksData(data);
-                console.log("All Books:", data);
             });
     }, []);
 
@@ -78,13 +76,13 @@ const ReturnBook = () => {
             let borrowerWorkPlace = [];
 
             allBookData.forEach((book) => {
-                if (memberID === book.sharerID) {
+                if (sharerID === book.sharerID) {
                     totalCount++;
                 }
             });
 
             memberData.forEach((member) => {
-                if (memberID === member.memberID) {
+                if (sharerID === member.memberID) {
                     sharedByCurrent = member.memberName;
                     sharedBy_id = member._id;
                     sharerAvatar = member.memberAvatar;

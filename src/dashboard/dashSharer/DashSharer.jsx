@@ -241,7 +241,7 @@ const DashSharer = () => {
                                                             <p className="text-right">
                                                                 {book.status}
                                                             </p>
-                                                            <p className="font-semibold text-right">
+                                                            <p className="font-semibold text-pink-800 text-right">
                                                                 {
                                                                     book.borrowedBy
                                                                 }

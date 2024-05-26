@@ -53,7 +53,6 @@ const SearchBooks = () => {
     };
 
     const handleBookSelect = (book) => {
-        console.log("Clicked on Book:", book);
         setSelectedBook(book);
         setInputEntered(true);
         setShowResults(true);

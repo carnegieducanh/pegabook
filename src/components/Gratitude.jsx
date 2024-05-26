@@ -59,26 +59,36 @@ const Gratitude = () => {
 
                 <div className="my-12 text-lg">
                     <p className="mb-3 text-gray-700 dark:text-gray-400">
-                        Pegabook xin bày tỏ sự trân trọng biết ơn đến tất cả các
-                        thành viên vì những đóng góp to lớn trong việc xây dựng
-                        và phát triển thư viện sách chia sẻ kiến thức này. Sự
-                        nhiệt tình và sáng tạo của các thành viên đã biến
-                        Pegabook từ những ý tưởng trở thành hiện thực, tạo nên
-                        một thư viện sách như ngày hôm nay.
+                        Team Pegabook xin bày tỏ sự trân trọng biết ơn đến tất
+                        cả các thành viên vì những đóng góp to lớn trong việc
+                        xây dựng và phát triển thư viện sách chia sẻ kiến thức
+                        này. Sự nhiệt tình và sáng tạo của các bạn đã biến
+                        Pegabook từ những ý tưởng mơ hồ trở thành hiện thực, tạo
+                        nên một thư viện sách như ngày hôm nay.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
                         <p className="mb-3 text-gray-700 dark:text-gray-400">
-                            Pegabook không chỉ là nơi tập hợp các cuốn sách quý
-                            báu mà còn mang lại nhiều giá trị tích cực cho team
-                            Việt Nam. Thư viện mở ra cơ hội tiếp cận tri thức
-                            rộng lớn cho mọi người, từ các bạn du học sinh,
-                            người đi làm đến các chuyên gia, nhà nghiên cứu.
-                            Khuyến khích tinh thần học hỏi, sáng tạo và tự phát
-                            triển, giúp mọi người nâng cao kỹ năng và mở rộng
-                            tầm nhìn. Hơn nữa, thư viện còn là một không gian
-                            gặp gỡ, trao đổi và gắn kết team Việt Nam - các
-                            thành viên đang làm việc cùng nhau tại công ty, thúc
-                            đẩy sự chia sẻ và đoàn kết.
+                            Xin cảm ơn những thành viên tuyệt vời trong team
+                            Pegabook. <br />
+                            Cảm ơn Nga Nguyễn đã giúp các thành viên trong team
+                            được kết nối, chia sẻ mọi ý tưởng tuyệt vời cùng
+                            nhau. Sự có mặt của em đối với dự án thư viện sách
+                            này là một điều không thể thay thế, giống như cây
+                            cầu giúp mọi thành viên team Việt Nam đến với mảnh
+                            đất của trí tuệ, sự thông thái, tình yêu và những
+                            giá trị của cuộc sống. Em là nguồn cổ vũ tinh thần
+                            và sự hỗ trợ tuyệt vời của Pegabook.
+                            <br /> <br />
+                            Cảm ơn Hà Vũ là người đã truyền cảm hứng cho team
+                            Pegabook - nơi giúp cho rất nhiều bạn trẻ ở công ty
+                            tiếp cận tri thức từ những cuốn sách hay. Vì "Tri
+                            thức thay đổi vận mệnh, giáo dục quyết định nhân
+                            sinh". Không chỉ vậy, Hà còn là thành viên hoạt động
+                            tích cực trong mảng giáo dục của công ty, nguồn năng
+                            lượng tích cực từ Hà chính là động lực to lớn trên
+                            hành trình tạo nên dự án Pegabook như ngày hôm nay.
+                            Biết ơn sự hiện diện, nguồn năng lượng, sự động viên
+                            và quan tâm sâu sắc của Hà dành cho dự án.
                         </p>
 
                         <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-gray-800">
@@ -106,14 +116,31 @@ const Gratitude = () => {
                         </Blockquote>
                     </div>
                     <p className="mb-3 text-gray-700 dark:text-gray-400">
-                        Pegabook một lần nữa xin gửi lời cảm ơn chân thành đến
-                        tất cả các thành viên vì những nỗ lực và đóng góp quý
-                        báu. Sự chung tay của các bạn đã tạo nên một thư viện
-                        sách phong phú và hữu ích, mang lại lợi ích lớn lao cho
-                        toàn thể team Việt Nam tại công ty.
+                        Cảm ơn em út Trang Nguyễn trong team Pegabook. Nhờ sự
+                        thông minh và khả năng phán đoán, đặt câu hỏi, nhìn nhận
+                        chi tiết mọi khía cạnh, em chính là người đã giúp dự án
+                        Pegabook cải thiện được rất nhiều điều tuyệt vời. Biết
+                        ơn những ý tưởng thật xuất sắc từ em. Mong em tiếp tục
+                        đồng hành cùng team Pegabook với những dự án vì cộng
+                        đồng và các bạn Việt Nam làm việc ở công ty. <br />{" "}
+                        <br />
+                        Cảm ơn anh Đan là người đã chia sẻ những kiến thức
+                        chuyên môn của mình đến dự án lẫn cả trong công việc.
+                        Nhờ có anh luôn ủng hộ và động viên, đã nhen nhóm nên
+                        một ngọn lửa khát khao để cho team Pegabook xây dựng dự
+                        án này. Anh chính là người thầy đã dẫn đường cho team
+                        Pegabook tạo nên một thư viện sách như ngày hôm nay.
+                        Thay mặt team Pegabook xin được bày tỏ lòng biết ơn sâu
+                        sắc đến anh. <br /> <br />
+                        Và cuối cùng, xin được cảm ơn các bạn trẻ trong team
+                        Việt Nam: Hoàng, Trâm, Duy, Ánh.... Nhờ tình yêu và sự
+                        ham đọc sách, ham học hỏi của các bạn đã hình thành nên
+                        ý tưởng tạo nên thư viện sách này. Các bạn chính là
+                        nguồn năng lượng trẻ trung tươi mới mang đến nhiều ý
+                        tưởng sáng tạo trong công việc và cuộc sống.
                     </p>
                 </div>
-                <figcaption className="mt-6 flex space-x-3 text-lg">
+                <figcaption className="flex space-x-3 text-lg">
                     {/* <Avatar
                         rounded
                         size="xs"
@@ -125,7 +152,7 @@ const Gratitude = () => {
                             Người đại diện
                         </cite>
                         <cite className="pl-3 text-gray-700 dark:text-gray-400">
-                            thành viên Pegabook
+                            thành viên team Pegabook
                         </cite>
                     </div>
                 </figcaption>

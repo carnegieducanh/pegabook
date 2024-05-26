@@ -8,6 +8,8 @@ import { BsFillSendFill } from "react-icons/bs";
 import emailjs from "@emailjs/browser";
 import ToggleShowMore from "../components/ToggleShowMore";
 import ImageBanner from "../components/ImageBanner";
+import { RiMailSendLine } from "react-icons/ri";
+import { RiMessage3Line } from "react-icons/ri";
 
 const SingleBook = () => {
     const [memberData, setMemberData] = useState(null);
@@ -193,7 +195,34 @@ const SingleBook = () => {
                 <div className="flex flex-col gap-2 lg:w-[110%]">
                     {showMemberInfo && (
                         <div>
-                            {/* ======= Member Info Begin ======= */}
+                            {/* ======= ĐĂNG KÝ MƯỢN SÁCH ======= */}
+                            <div className="mb-5 flex flex-col gap-2">
+                                <div className="flex gap-2">
+                                    <RiMailSendLine />
+                                    <h2 className="text-2xl text-pink-800 font-medium font-title">
+                                        Bạn có tin nhắn từ đội ngũ Pegabook!
+                                    </h2>
+                                </div>
+                                <div className="px-4 flex flex-col gap-2">
+                                    <div className="flex gap-2">
+                                        <RiMessage3Line />
+                                        <p className="text-md ">
+                                            Để đảm bảo bạn có thể hoàn thành
+                                            việc đọc hiệu quả, bạn chỉ nên mượn
+                                            tối đa 2 cuốn sách cho mỗi lần.
+                                        </p>
+                                    </div>
+
+                                    <div className="flex gap-2">
+                                        <RiMessage3Line />
+                                        <p className="text-md ">
+                                            Mỗi cuốn sách giống như một người
+                                            bạn thông thái, hãy trân trọng và
+                                            giữ gìn cẩn thận nhé.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
                             {/* FORM Begin */}
                             <form
@@ -241,7 +270,7 @@ const SingleBook = () => {
                                     <Textarea
                                         id="comment"
                                         name="comment"
-                                        placeholder="Viết lời nhắn của bạn đến Pega Book hoặc người chia sẻ sách..."
+                                        placeholder="Viết lời nhắn của bạn đến Pegabook hoặc người chia sẻ sách..."
                                         required
                                         className="w-full"
                                         rows={2}
@@ -397,7 +426,7 @@ const SingleBook = () => {
                                 href="#"
                                 className="text-md font-medium text-gray-900 underline hover:no-underline dark:text-white"
                             >
-                                {views}+ views
+                                {views}+ lượt xem
                             </a>
                         </Rating>
                     </div>

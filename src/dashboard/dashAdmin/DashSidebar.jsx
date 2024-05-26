@@ -162,6 +162,12 @@ const DashSidebar = () => {
                             </Sidebar.Item>
                         </Link>
 
+                        <Link to={"/admin/dashboard/manage-borrower"}>
+                            <Sidebar.Item icon={FaRegAddressBook}>
+                                Manage Borrower
+                            </Sidebar.Item>
+                        </Link>
+
                         <Link to={"/admin/dashboard/manage"}>
                             <Sidebar.Item icon={FaBook}>
                                 Manage Books

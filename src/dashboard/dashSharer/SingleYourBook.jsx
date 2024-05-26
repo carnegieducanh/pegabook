@@ -47,7 +47,6 @@ const SingleYourBook = () => {
             .then((res) => res.json())
             .then((data) => {
                 setMemberData(data);
-                console.log("All Books:", data);
             });
     }, []);
 
@@ -56,7 +55,6 @@ const SingleYourBook = () => {
             .then((res) => res.json())
             .then((data) => {
                 setAllBooksData(data);
-                console.log("All Books:", data);
             });
     }, []);
 

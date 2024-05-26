@@ -138,7 +138,7 @@ const TrendingBooks = ({ headline }) => {
                                                 <p className="text-sm line-clamp-1">
                                                     Chia sẻ bởi
                                                 </p>
-                                                <p className="text-[#a69060] text-sm font-semibold -mt-1">
+                                                <p className="text-[#a69060] text-md -mt-1">
                                                     {memberName[book.sharerID]}
                                                 </p>
                                             </div>

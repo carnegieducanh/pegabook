@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../home/Home";
-import SingleBook from "../YourBooks/SingleBook";
-import AllBooks from "../YourBooks/AllBooks";
-import Members from "../YourMembers/Members";
-import Sharers from "../YourMembers/Sharers";
-import SingleMember from "../YourMembers/SingleMember";
+import SingleBook from "../OurBooks/SingleBook";
+import AllBooks from "../OurBooks/AllBooks";
+import Members from "../OurMembers/Members";
+import Sharers from "../OurMembers/Sharers";
+import SingleMember from "../OurMembers/SingleMember";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Dashboard from "../dashboard/dashAdmin/Dashboard";
 import DashboardLayout from "../dashboard/dashAdmin/DashboardLayout";

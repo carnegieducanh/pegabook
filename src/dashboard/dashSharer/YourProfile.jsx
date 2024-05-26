@@ -78,7 +78,7 @@ const YourProfile = () => {
                 <div className="flex flex-col lg:flex-row gap-4">
                     <div className="w-full lg:w-1/2">
                         <div className="mb-2 block">
-                            <Label htmlFor="memberName" value="Member Name" />
+                            <Label htmlFor="memberName" value="Tên của bạn" />
                         </div>
                         <TextInput
                             id="memberName"
@@ -159,7 +159,7 @@ const YourProfile = () => {
                 {/* comment */}
                 <div>
                     <div className="mb-2 block">
-                        <Label htmlFor="comment" value="Cảm nghĩ..." />
+                        <Label htmlFor="comment" value="Cảm nghĩ của bạn..." />
                     </div>
                     <Textarea
                         id="comment"

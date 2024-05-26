@@ -44,7 +44,7 @@ const DashMemberSidebar = () => {
     }, []);
     return (
         <Sidebar className="w-full lg:w-1/5">
-            <div className="flex w-full justify-between items-center my-3">
+            <div className="flex w-full justify-between items-center my-3 py-auto">
                 <Link to={`/member/dashboard/${member._id}`}>
                     <Sidebar.Logo className="-pl-3 my-auto">
                         <div className="flex gap-2 items-center">

@@ -46,7 +46,7 @@ const BorrowedBooks = () => {
 
     return (
         <div className="px-4 my-12 w-full">
-            <h2 className="mb-4 text-3xl font-bold">Trả sách bạn mượn</h2>
+            <h2 className="mb-4 text-3xl font-bold">Trả sách bạn đang mượn</h2>
             <p className="px-4 underline">Chọn 1 cuốn sách bạn muốn trả</p>
             <div className=" lg:px-10 bg-[#fffffff2]">
                 <div className="grid justify-between gap-x-8 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">

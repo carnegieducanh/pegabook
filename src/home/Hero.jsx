@@ -65,7 +65,7 @@ const Hero = ({}) => {
                                 data-aos="zoom-out"
                                 data-aos-duration="500"
                                 data-aos-once="true"
-                                className="text-5xl sm:text-6xl font-bold"
+                                className="text-5xl sm:text-6xl font-bold font-title"
                             >
                                 {title}
                                 <div>

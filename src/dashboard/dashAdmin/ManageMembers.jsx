@@ -19,7 +19,7 @@ const ManageMembers = () => {
         fetch("https://pega-book-server.onrender.com/all-members")
             .then((res) => res.json())
             .then((data) => {
-                setAllMembers(data);
+                setAllMembers(data.reverse());
             });
     }, []);
 

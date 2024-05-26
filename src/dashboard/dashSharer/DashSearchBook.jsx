@@ -20,7 +20,7 @@ const DashSearchBook = ({ memberBooks }) => {
             });
     }, []);
 
-    console.log(memberBooks);
+    // console.log(memberBooks);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -53,7 +53,7 @@ const DashSearchBook = ({ memberBooks }) => {
     };
 
     const handleBookSelect = (book) => {
-        console.log("Clicked on Book:", book);
+        // console.log("Clicked on Book:", book);
         setSelectedBook(book);
         setInputEntered(true);
         setShowResults(true);

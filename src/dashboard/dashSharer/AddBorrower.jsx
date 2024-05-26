@@ -10,7 +10,6 @@ function AddBorrower() {
     const [bookedTime, setBookedTime] = useState("Thời gian mượn");
 
     const { id } = useParams();
-    console.log(id);
 
     const { sharedBy_id } = useLoaderData();
 
@@ -103,7 +102,10 @@ function AddBorrower() {
 
                     <div>
                         <div className="mb-2 block ">
-                            <Label htmlFor="memberName" value="Member name" />
+                            <Label
+                                htmlFor="memberName"
+                                value="Tên thành viên"
+                            />
                         </div>
                         <div>
                             <SearchMembers />
@@ -127,7 +129,7 @@ function AddBorrower() {
                             <div className="mb-2 block">
                                 <Label
                                     htmlFor="borrowedDate"
-                                    value="Borrowed Date"
+                                    value="Ngày dự kiến mượn"
                                 />
                             </div>
                             <Datepicker id="borrowedDate" name="borrowedDate" />
@@ -138,7 +140,7 @@ function AddBorrower() {
                             <div className="mb-2 block">
                                 <Label
                                     htmlFor="returnDate"
-                                    value="Return Date"
+                                    value="Ngày dự kiến trả"
                                 />
                             </div>
                             <Datepicker id="returnDate" name="returnDate" />

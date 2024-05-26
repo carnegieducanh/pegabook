@@ -1,6 +1,7 @@
 const bookCategories = [
     "Tiểu sử - Hồi ký",
     "Tiểu thuyết",
+    "Tâm lý học",
     "Phát triển bản thân",
     "Chữa lành",
     "Hư cấu",
@@ -8,7 +9,7 @@ const bookCategories = [
     "Khoa học",
     "Du lịch",
     "Nghệ thuật và Thiết kế",
-    "Kinh doanh",
+    "Đầu tư - Kinh doanh",
     "Tôn giáo",
 ];
 

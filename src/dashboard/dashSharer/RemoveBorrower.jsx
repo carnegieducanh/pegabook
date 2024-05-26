@@ -14,7 +14,6 @@ function RemoveBorrower() {
     // const [borrowerWorkPlace, setBorrowerWorkPlace] = useState();
 
     const { id } = useParams();
-    console.log(id);
 
     const { sharedBy_id, borrowerID, bookTitle, borrowedDate, returnDate } =
         useLoaderData();
@@ -28,7 +27,6 @@ function RemoveBorrower() {
             .then((res) => res.json())
             .then((data) => {
                 setMemberData(data);
-                console.log("All Books:", data);
             });
     }, []);
 
@@ -116,7 +114,7 @@ function RemoveBorrower() {
                 <div className="flex flex-col mx-auto gap-8 w-full lg:w-1/2">
                     <div className="">
                         <div className="mb-2 block">
-                            <Label htmlFor="userName" value="User name" />
+                            <Label htmlFor="userName" value="Tên người mượn" />
                         </div>
                         <TextInput
                             id="userName"
@@ -132,7 +130,10 @@ function RemoveBorrower() {
                     <div className="flex gap-4">
                         <div className="w-1/2">
                             <div className="mb-2 block">
-                                <Label htmlFor="bookTitle" value="Book Title" />
+                                <Label
+                                    htmlFor="bookTitle"
+                                    value="Tên cuốn sách"
+                                />
                             </div>
                             <TextInput
                                 id="bookTitle"
@@ -163,7 +164,7 @@ function RemoveBorrower() {
                             <div className="mb-2 block">
                                 <Label
                                     htmlFor="borrowedDate"
-                                    value="Borrowed Date"
+                                    value="Ngày mượn"
                                 />
                             </div>
                             <TextInput
@@ -178,10 +179,7 @@ function RemoveBorrower() {
 
                         <div className="w-1/2">
                             <div className="mb-2 block">
-                                <Label
-                                    htmlFor="returnDate"
-                                    value="Return Date"
-                                />
+                                <Label htmlFor="returnDate" value="Ngày trả" />
                             </div>
                             <TextInput
                                 id="returnDate"
