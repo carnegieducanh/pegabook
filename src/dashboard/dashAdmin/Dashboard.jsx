@@ -205,10 +205,10 @@ const Dashboard = () => {
                             <p className="text-md leading-none text-gray-500 dark:text-white w-2/4">
                                 BOOK NAME
                             </p>
-                            <p className="text-md leading-none text-gray-500 dark:text-white w-1/4 hidden md:block">
+                            <p className="text-md leading-none text-gray-500 dark:text-white md:w-1/4 hidden md:block">
                                 CATEGORY
                             </p>
-                            <p className="text-md text-right leading-none text-gray-500 dark:text-white w-1/4">
+                            <p className="text-md text-right leading-none text-gray-500 dark:text-white md:w-1/4">
                                 SHARED BY
                             </p>
                         </div>
@@ -219,13 +219,13 @@ const Dashboard = () => {
                                         <div className="divide-y divide-gray-200 dark:divide-gray-700">
                                             <div className="py-3 sm:py-4 flex items-center justify-between">
                                                 <div className="flex space-x-4 w-2/3 md:w-2/4 items-center">
-                                                    <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-12 h-16">
+                                                    <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-12 h-16 shrink-0">
                                                         <img
                                                             src={
                                                                 matchedBook.imageUrl
                                                             }
                                                             alt=""
-                                                            className="block w-12 h-16 object-cover rounded-sm shrink-0"
+                                                            className="block w-12 h-16 object-cover rounded-sm "
                                                         />
                                                     </div>
                                                     <div className="flex-1">
@@ -234,7 +234,7 @@ const Dashboard = () => {
                                                                 matchedBook.bookTitle
                                                             }
                                                         </p>
-                                                        <p className="truncate text-sm text-gray-500 dark:text-gray-400">
+                                                        <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
                                                             {
                                                                 matchedBook.authorName
                                                             }

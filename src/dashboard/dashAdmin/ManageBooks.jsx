@@ -99,14 +99,14 @@ const ManageBooks = () => {
                             <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                                 {index + 1}
                             </Table.Cell>
-                            <Table.Cell className="font-medium text-gray-900 dark:text-white w-1/5">
+                            <Table.Cell className="font-medium text-gray-900 dark:text-white w-1/6">
                                 {book.bookTitle}
                             </Table.Cell>
-                            <Table.Cell className="">
+                            <Table.Cell className="shrink-0">
                                 <img
                                     src={book.imageUrl}
                                     alt=""
-                                    className="h-14 w-10 rounded-sm shrink-0"
+                                    className="h-14 w-10 rounded-sm object-cover shrink-0"
                                 />
                             </Table.Cell>
                             <Table.Cell>{book.authorName}</Table.Cell>

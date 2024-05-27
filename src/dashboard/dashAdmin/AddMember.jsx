@@ -159,7 +159,7 @@ const AddMember = () => {
                             />
                             {memberIDError && (
                                 <p className="text-red-700 font-semibold">
-                                    Member ID must be 9 characters long!!!.
+                                    Member ID must be 11 characters long!!!.
                                 </p>
                             )}
                         </div>
