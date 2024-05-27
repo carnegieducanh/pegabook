@@ -100,14 +100,18 @@ const ManageBooks = () => {
                                 {index + 1}
                             </Table.Cell>
                             <Table.Cell className="font-medium text-gray-900 dark:text-white w-1/6">
-                                {book.bookTitle}
+                                <div className="line-clamp-2">
+                                    {book.bookTitle}
+                                </div>
                             </Table.Cell>
-                            <Table.Cell className="shrink-0">
-                                <img
-                                    src={book.imageUrl}
-                                    alt=""
-                                    className="h-14 w-10 rounded-sm object-cover shrink-0"
-                                />
+                            <Table.Cell>
+                                <div className="h-14 w-10 rounded-sm object-cover shrink-0">
+                                    <img
+                                        src={book.imageUrl}
+                                        alt=""
+                                        className="h-14 w-10 rounded-sm object-cover shrink-0"
+                                    />
+                                </div>
                             </Table.Cell>
                             <Table.Cell>{book.authorName}</Table.Cell>
                             <Table.Cell>{book.category}</Table.Cell>

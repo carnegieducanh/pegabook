@@ -14,11 +14,21 @@ const YourEditBooks = () => {
         setBookImage(imgUrl);
     };
 
-    const { bookTitle, authorName, imageUrl, bookDescription, sharedBy_id } =
-        useLoaderData();
+    const {
+        bookTitle,
+        authorName,
+        imageUrl,
+        bookDescription,
+        sharedBy_id,
+        category,
+    } = useLoaderData();
+
+    // const [selectedBookCategory, setSelectedBookCategory] = useState(
+    //     bookCategories[0]
+    // );
 
     const [selectedBookCategory, setSelectedBookCategory] = useState(
-        bookCategories[0]
+        category || bookCategories[0]
     );
 
     const handleChangeSelectedValue = (event) => {
@@ -127,6 +137,18 @@ const YourEditBooks = () => {
                                     </option>
                                 ))}
                             </select>
+
+                            <div className="my-2 hidden">
+                                <TextInput
+                                    id="Category"
+                                    name="Category"
+                                    type="text"
+                                    placeholder="Category"
+                                    value={selectedBookCategory || category}
+                                    required
+                                    readOnly
+                                />
+                            </div>
                         </div>
                     </div>
 
