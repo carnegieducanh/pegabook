@@ -57,7 +57,7 @@ const Gratitude = () => {
                     Lời cảm ơn
                 </h2>
 
-                <div className="my-12 text-lg">
+                <div className="my-10 text-lg">
                     <p className="mb-3 text-gray-700 dark:text-gray-400">
                         Team Pegabook xin bày tỏ sự trân trọng biết ơn đến tất
                         cả các thành viên vì những đóng góp to lớn trong việc
@@ -70,6 +70,7 @@ const Gratitude = () => {
                         <p className="mb-3 text-gray-700 dark:text-gray-400">
                             Xin cảm ơn những thành viên tuyệt vời trong team
                             Pegabook. <br />
+                            <br />
                             Cảm ơn Nga Nguyễn đã giúp các thành viên trong team
                             được kết nối, chia sẻ mọi ý tưởng tuyệt vời cùng
                             nhau. Sự có mặt của em đối với dự án thư viện sách
@@ -78,17 +79,18 @@ const Gratitude = () => {
                             đất của trí tuệ, sự thông thái, tình yêu và những
                             giá trị của cuộc sống. Em là nguồn cổ vũ tinh thần
                             và sự hỗ trợ tuyệt vời của Pegabook.
-                            <br /> <br />
-                            Cảm ơn Hà Vũ là người đã truyền cảm hứng cho team
-                            Pegabook - nơi giúp cho rất nhiều bạn trẻ ở công ty
-                            tiếp cận tri thức từ những cuốn sách hay. Vì "Tri
-                            thức thay đổi vận mệnh, giáo dục quyết định nhân
-                            sinh". Không chỉ vậy, Hà còn là thành viên hoạt động
-                            tích cực trong mảng giáo dục của công ty, nguồn năng
-                            lượng tích cực từ Hà chính là động lực to lớn trên
-                            hành trình tạo nên dự án Pegabook như ngày hôm nay.
-                            Biết ơn sự hiện diện, nguồn năng lượng, sự động viên
-                            và quan tâm sâu sắc của Hà dành cho dự án.
+                            <br />
+                            <br />
+                            Cảm ơn Vũ Hồng Hà là người đã truyền cảm hứng cho
+                            team Pegabook - nơi giúp cho rất nhiều bạn trẻ ở
+                            công ty tiếp cận tri thức từ những cuốn sách hay. Vì
+                            "Tri thức thay đổi vận mệnh, giáo dục quyết định
+                            nhân sinh". Không chỉ vậy, Hà còn là thành viên hoạt
+                            động tích cực trong mảng giáo dục của công ty, nguồn
+                            năng lượng tích cực từ Hà chính là động lực to lớn
+                            trên hành trình tạo nên dự án Pegabook như ngày hôm
+                            nay. Biết ơn sự hiện diện, nguồn năng lượng, sự động
+                            viên và quan tâm sâu sắc của Hà dành cho dự án.
                         </p>
 
                         <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-gray-800">
@@ -132,12 +134,19 @@ const Gratitude = () => {
                         Pegabook tạo nên một thư viện sách như ngày hôm nay.
                         Thay mặt team Pegabook xin được bày tỏ lòng biết ơn sâu
                         sắc đến anh. <br /> <br />
-                        Và cuối cùng, xin được cảm ơn các bạn trẻ trong team
-                        Việt Nam: Hoàng, Trâm, Duy, Ánh.... Nhờ tình yêu và sự
-                        ham đọc sách, ham học hỏi của các bạn đã hình thành nên
-                        ý tưởng tạo nên thư viện sách này. Các bạn chính là
-                        nguồn năng lượng trẻ trung tươi mới mang đến nhiều ý
-                        tưởng sáng tạo trong công việc và cuộc sống.
+                        Xin được cảm ơn các bạn trẻ trong team Việt Nam: Hoàng,
+                        Trâm, Duy, Ánh.... Nhờ tình yêu và sự ham đọc sách, ham
+                        học hỏi của các bạn đã hình thành nên ý tưởng tạo nên
+                        thư viện sách này. Các bạn chính là nguồn năng lượng trẻ
+                        trung tươi mới mang đến nhiều ý tưởng sáng tạo trong
+                        công việc và cuộc sống.
+                        <br />
+                        <br />
+                        Một lần nữa, đội ngũ Pegabook xin cảm ơn tất cả các bạn
+                        vì những đóng góp to lớn và quý báu này. Chính nhờ sự
+                        chung tay và nhiệt huyết của các bạn mà thư viện sách đã
+                        trở thành một biểu tượng của tri thức và sự chia sẻ
+                        trong cộng đồng.
                     </p>
                 </div>
                 <figcaption className="flex space-x-3 text-lg">

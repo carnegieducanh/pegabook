@@ -224,7 +224,7 @@ const DashSharer = () => {
                                                             <p className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2">
                                                                 {book.bookTitle}
                                                             </p>
-                                                            <p className="truncate text-sm text-gray-500 dark:text-gray-400">
+                                                            <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
                                                                 {
                                                                     book.authorName
                                                                 }

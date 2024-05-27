@@ -84,6 +84,10 @@ const YourBooks = () => {
                                                 {book.authorName}
                                             </p>
 
+                                            <p className="text-sm font-normal text-gray-700 dark:text-gray-400 line-clamp-2 underline">
+                                                {book.category}
+                                            </p>
+
                                             <hr className="my-2" />
 
                                             <p className="text-sm line-clamp-2">
