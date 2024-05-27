@@ -98,7 +98,7 @@ const ManageBorrower = () => {
                                                     <img
                                                         src={book.imageUrl}
                                                         alt=""
-                                                        className="h-20 w-14 rounded-sm"
+                                                        className="h-20 w-14 rounded-sm object-cover shrink-0"
                                                     />
                                                 </Link>
                                             )

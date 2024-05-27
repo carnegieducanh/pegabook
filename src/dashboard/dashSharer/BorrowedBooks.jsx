@@ -57,11 +57,11 @@ const BorrowedBooks = () => {
                                 key={book._id}
                             >
                                 <div className="flex flex-col justify-between gap-4 py-6">
-                                    <div className="flex h-full gap-4">
+                                    <div className="flex h-full gap-4 ">
                                         <img
                                             src={book.imageUrl}
                                             alt=""
-                                            className="h-full w-36 border border-solid border-opacity-10 transform hover:scale-105 duration-300 object-cover shadow-md hover:shadow-lg focus:shadow-xl shrink-0 rounded-tr-lg rounded-br-lg"
+                                            className="h-52 w-36 border border-solid border-opacity-10 transform hover:scale-105 duration-300 object-cover shadow-md hover:shadow-lg focus:shadow-xl shrink-0 rounded-tr-lg rounded-br-lg"
                                         />
                                         <div className="my-auto">
                                             <h2 className="text-sm font-bold tracking-tight text-gray-900 dark:text-white">

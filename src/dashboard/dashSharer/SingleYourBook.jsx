@@ -144,12 +144,12 @@ const SingleYourBook = () => {
                     <img
                         src={imageUrl}
                         alt=""
-                        className="h-72 w-48 transform hover:scale-105 duration-300 shadow-xl rounded-tr-xl rounded-br-xl object-cover shrink-0"
+                        className="w-48 h-72 transform hover:scale-105 duration-300 shadow-xl rounded-tr-xl rounded-br-xl object-cover shrink-0"
                     />
 
                     {/* Status */}
                     <div className="text-left flex flex-col gap-2 mt-5l">
-                        <div className="font-medium text-gray-900 underline hover:no-underline dark:text-white">
+                        <div className="font-medium text-gray-900 underline hover:no-underline dark:text-white mt-2">
                             <h3 className="text-leftfont-medium ">Status</h3>
                         </div>
 
