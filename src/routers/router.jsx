@@ -33,6 +33,7 @@ import ManageBorrower from "../dashboard/dashSharer/ManageBorrower";
 import ReturnBook from "../dashboard/dashSharer/ReturnBook";
 import Gratitude from "../components/Gratitude";
 import ManageBorrowers from "../dashboard/dashAdmin/ManageBorrowers";
+import YourBooksRead from "../dashboard/dashSharer/YourBooksRead";
 
 const router = createBrowserRouter([
     {
@@ -178,6 +179,15 @@ const router = createBrowserRouter([
             {
                 path: "/member/dashboard/borrowed-book/:id",
                 element: <BorrowedBooks />,
+                loader: ({ params }) =>
+                    fetch(
+                        `https://pega-book-server.onrender.com/member/${params.id}`
+                    ),
+            },
+
+            {
+                path: "/member/dashboard/read-book/:id",
+                element: <YourBooksRead />,
                 loader: ({ params }) =>
                     fetch(
                         `https://pega-book-server.onrender.com/member/${params.id}`

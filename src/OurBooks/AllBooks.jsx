@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
 import ViewsBook from "../OurBooks/ViewsBook";
+import SearchBooks from "../components/SearchBooks";
 
 const AllBooks = () => {
     const [booksData, setBooksData] = useState([]);
@@ -63,9 +64,13 @@ const AllBooks = () => {
             <ViewsBook headline="Xem nhiều nhất" />
 
             <div className="my-10 px-4 lg:px-24 bg-[#fffffff2]">
+                <div className="mb-12">
+                    <SearchBooks />
+                </div>
                 <h2 className="text-4xl font-bold font-title text-left">
                     All books are here
                 </h2>
+
                 {currentBooks.length > 0 ? (
                     <div className="grid justify-between gap-x-8 my-12 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
                         {currentBooks.map((book) => (

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import PaginationButtons from "../components/PaginationBtns";
 import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
+import NewMember from "./NewMember";
 
 const Members = () => {
     const [allMembers, setAllMembers] = useState([]);
     const [allBooks, setAllBooks] = useState([]);
+    const [allBooksRead, setAllBooksRead] = useState([]);
 
     const [currentPage, setCurrentPage] = useState(1);
     const membersPerPage = 12;
@@ -31,28 +33,59 @@ const Members = () => {
                     .then((books) => {
                         setAllBooks(books);
 
-                        const matchedMembersData = [];
+                        fetch(
+                            "https://pega-book-server.onrender.com/all-booksRead"
+                        )
+                            .then((res) => res.json())
+                            .then((data) => {
+                                setAllBooksRead(data);
 
-                        // Duyệt qua từng thành viên
-                        members.forEach((member) => {
-                            // Tìm các cuốn sách của thành viên hiện tại
-                            const matchedBooks = books.filter(
-                                (book) => book.sharerID === member.memberID
-                            );
+                                const matchedMembersData = [];
 
-                            // Thêm thông tin của thành viên và số lượng sách đã chia sẻ vào mảng matchedMembersData
-                            matchedMembersData.push({
-                                memberID: member.memberID,
-                                memberName: member.memberName,
-                                memberAvatar: member.memberAvatar,
-                                workPlace: member.workPlace,
-                                comment: member.comment,
-                                sharedBooksCount: matchedBooks.length,
+                                // Duyệt qua từng thành viên
+                                members.forEach((member) => {
+                                    // Tìm các cuốn sách của thành viên hiện tại
+                                    const matchedBooks = books.filter(
+                                        (book) =>
+                                            book.sharerID === member.memberID
+                                    );
+
+                                    // Tìm các cuốn sách đang mượn
+                                    const borrowingBooks = books.filter(
+                                        (book) =>
+                                            book.borrowerID === member.memberID
+                                    );
+
+                                    // Tìm các cuốn sách đã đọc
+                                    const readBooks = data.filter(
+                                        (readBook) =>
+                                            readBook.borrowerID ===
+                                            member.memberID
+                                    );
+
+                                    // Thêm thông tin của thành viên và số lượng sách đã chia sẻ vào mảng matchedMembersData
+                                    matchedMembersData.push({
+                                        memberID: member.memberID,
+                                        memberName: member.memberName,
+                                        memberAvatar: member.memberAvatar,
+                                        workPlace: member.workPlace,
+                                        comment: member.comment,
+                                        sharedBooksCount: matchedBooks.length,
+                                        borrowingBooksCount:
+                                            borrowingBooks.length,
+                                        readBooksCount: readBooks.length,
+                                    });
+                                });
+
+                                // Sắp xếp matchedMembersData theo readBooksCount từ cao đến thấp
+                                matchedMembersData.sort(
+                                    (a, b) =>
+                                        b.readBooksCount - a.readBooksCount
+                                );
+
+                                // Cập nhật state matchedMembers với mảng matchedMembersData
+                                setMatchedMembers(matchedMembersData);
                             });
-                        });
-
-                        // Cập nhật state matchedMembers với mảng matchedMembersData
-                        setMatchedMembers(matchedMembersData);
                     });
             });
     }, []);
@@ -70,8 +103,12 @@ const Members = () => {
             <ImageBanner />
 
             <div className="py-10 px-4 lg:px-36 bg-[#fffffff2]">
-                <h2 className="text-3xl text-left">Về thành viên</h2>
-                <p className="text-sm text-left pl-2 pt-4">FEATURED MEMBERS</p>
+                <h2 className="text-3xl text-left font-title">Về thành viên</h2>
+
+                <NewMember />
+                <p className="text-md text-left text-[#99154b] font-medium pl-2 pt-4 underline">
+                    Thành viên hiện tại
+                </p>
                 {currentMembers.length > 0 ? (
                     <div className="grid justify-between gap-x-8 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
                         {currentMembers &&
@@ -93,6 +130,18 @@ const Members = () => {
                                             </h2>
                                             <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
                                                 {member.workPlace}
+                                            </p>
+                                            <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
+                                                Đang mượn: {""}
+                                                {
+                                                    member.borrowingBooksCount
+                                                }{" "}
+                                                cuốn sách
+                                            </p>
+                                            <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
+                                                Đã đọc: {""}
+                                                {member.readBooksCount} cuốn
+                                                sách
                                             </p>
                                         </div>
                                     </div>

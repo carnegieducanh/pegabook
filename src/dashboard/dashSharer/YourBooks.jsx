@@ -14,7 +14,7 @@ const YourBooks = () => {
     const { id } = useParams();
 
     const { memberID } = useLoaderData();
-    // console.log(memberID);
+    console.log(memberID);
 
     useEffect(() => {
         fetch(`https://pega-book-server.onrender.com/member/${id}`)

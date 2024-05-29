@@ -11,6 +11,7 @@ import {
     HiChartPie,
     HiOutlineCloudUpload,
 } from "react-icons/hi";
+import { GiSpellBook } from "react-icons/gi";
 
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -126,6 +127,18 @@ const DashMemberSidebar = () => {
                         </Sidebar.Item>
                     </Link>
 
+                    <Link to={`/member/dashboard/read-book/${member._id}`}>
+                        <Sidebar.Item
+                            icon={GiSpellBook}
+                            className={
+                                selectedItem === "read-book" ? "selected" : ""
+                            }
+                            onClick={() => handleItemClick("read-book")}
+                        >
+                            Sách đã đọc
+                        </Sidebar.Item>
+                    </Link>
+
                     <Link to={`/member/dashboard/borrowed-book/${member._id}`}>
                         <Sidebar.Item
                             icon={FaBook}
@@ -209,6 +222,12 @@ const DashMemberSidebar = () => {
                         >
                             <Sidebar.Item icon={FaBookReader}>
                                 Sách cho mượn
+                            </Sidebar.Item>
+                        </Link>
+
+                        <Link to={`/member/dashboard/read-book/${member._id}`}>
+                            <Sidebar.Item icon={GiSpellBook}>
+                                Sách đã đọc
                             </Sidebar.Item>
                         </Link>
 

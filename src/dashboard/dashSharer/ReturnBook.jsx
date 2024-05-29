@@ -133,6 +133,29 @@ const ReturnBook = () => {
             views: updatedViews,
         };
 
+        const updateBookRead = {
+            bookTitle,
+            imageUrl,
+            authorName,
+            category,
+            sharedBy: sharerName,
+            borrowerID,
+            returnDate,
+        };
+
+        // send data to database
+        fetch("https://pega-book-server.onrender.com/upload-bookRead", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updateBookRead),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                // alert("Book uploaded successfully!!!");
+            });
+
         fetch(`https://pega-book-server.onrender.com/book/${_id}`, {
             method: "PATCH",
             headers: {
@@ -148,12 +171,12 @@ const ReturnBook = () => {
 
                 if (isConfirmed) {
                     emailjs
-                        .sendForm(
-                            "service_fsg25n8",
-                            "template_aawv0y3",
-                            event.target, // Sử dụng event.target để truyền form vào hàm sendForm
-                            "NbXcMWTgvO9EetTrb"
-                        )
+                        .sendForm
+                        // "service_fsg25n8",
+                        // "template_aawv0y3",
+                        // event.target, // Sử dụng event.target để truyền form vào hàm sendForm
+                        // "NbXcMWTgvO9EetTrb"
+                        ()
                         .then(
                             (result) => {
                                 alert("Message sent successfully.");
