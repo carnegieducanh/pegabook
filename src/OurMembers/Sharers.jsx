@@ -76,7 +76,9 @@ const Sharers = () => {
             <ImageBanner />
 
             <div className="py-10 px-4 lg:px-36 bg-[#fffffff2]">
-                <h2 className="text-3xl text-left">Về người chia sẻ</h2>
+                <h2 className="text-3xl text-left font-title">
+                    Về người chia sẻ
+                </h2>
                 <p className="text-sm text-left pl-2 pt-4">FEATURED SHARERS</p>
                 {currentMembers.length > 0 ? (
                     <div className="grid justify-between gap-x-8 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">

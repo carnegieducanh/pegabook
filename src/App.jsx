@@ -6,11 +6,11 @@ import Footer from "./home/Footer";
 
 function App() {
     return (
-        <>
+        <div>
             <Navbar />
             <Outlet />
             <Footer />
-        </>
+        </div>
     );
 }
 

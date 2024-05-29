@@ -107,7 +107,7 @@ const Members = () => {
 
                 <NewMember />
                 <p className="text-md text-left text-[#99154b] font-medium pl-2 pt-4 underline">
-                    Thành viên hiện tại
+                    Tất cả thành viên
                 </p>
                 {currentMembers.length > 0 ? (
                     <div className="grid justify-between gap-x-8 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
