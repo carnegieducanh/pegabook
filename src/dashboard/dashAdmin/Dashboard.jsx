@@ -6,6 +6,7 @@ import { FaBookReader } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { MdPeopleAlt } from "react-icons/md";
 import { Link } from "react-router-dom";
+import SpinnerLoading from "../../components/SpinnerLoading";
 
 const Dashboard = () => {
     const [allMembers, setAllMembers] = useState([]);
@@ -145,45 +146,51 @@ const Dashboard = () => {
                                 WORK PLACE
                             </p>
                         </div>
-                        <div>
-                            {latestMembers &&
-                                latestMembers.map((member, index) => (
-                                    <div key={index}>
-                                        <div className="flow-root">
-                                            <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-                                                <li className="py-3 sm:py-4">
-                                                    <div className="flex items-center space-x-4">
-                                                        <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-16 h-16 rounded-full shrink-0">
-                                                            <img
-                                                                src={
-                                                                    member.memberAvatar
-                                                                }
-                                                                alt=""
-                                                                className="block w-16 h-16 rounded-full object-cover shrink-0"
-                                                            />
-                                                        </div>
-                                                        <div className="flex-1">
-                                                            <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
+                        {latestMembers.length > 0 ? (
+                            <div>
+                                {latestMembers &&
+                                    latestMembers.map((member, index) => (
+                                        <div key={index}>
+                                            <div className="flow-root">
+                                                <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+                                                    <li className="py-3 sm:py-4">
+                                                        <div className="flex items-center space-x-4">
+                                                            <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-16 h-16 rounded-full shrink-0">
+                                                                <img
+                                                                    src={
+                                                                        member.memberAvatar
+                                                                    }
+                                                                    alt=""
+                                                                    className="block w-16 h-16 rounded-full object-cover shrink-0"
+                                                                />
+                                                            </div>
+                                                            <div className="flex-1">
+                                                                <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
+                                                                    {
+                                                                        member.memberName
+                                                                    }
+                                                                </p>
+                                                                <p className="truncate text-sm text-gray-500 dark:text-gray-400">
+                                                                    {
+                                                                        member.memberID
+                                                                    }
+                                                                </p>
+                                                            </div>
+                                                            <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                                                                 {
-                                                                    member.memberName
+                                                                    member.workPlace
                                                                 }
-                                                            </p>
-                                                            <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                                                                {
-                                                                    member.memberID
-                                                                }
-                                                            </p>
+                                                            </div>
                                                         </div>
-                                                        <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                                            {member.workPlace}
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
-                        </div>
+                                    ))}
+                            </div>
+                        ) : (
+                            <SpinnerLoading />
+                        )}
                     </Card>
                 </div>
 
@@ -212,48 +219,52 @@ const Dashboard = () => {
                                 SHARED BY
                             </p>
                         </div>
-                        <div>
-                            {matchedBooks.map((matchedBook, index) => (
-                                <div key={index}>
-                                    <div className="flow-root">
-                                        <div className="divide-y divide-gray-200 dark:divide-gray-700">
-                                            <div className="py-3 sm:py-4 flex items-center justify-between">
-                                                <div className="flex space-x-4 w-2/3 md:w-2/4 items-center">
-                                                    <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-12 h-16 shrink-0">
-                                                        <img
-                                                            src={
-                                                                matchedBook.imageUrl
-                                                            }
-                                                            alt=""
-                                                            className="block w-12 h-16 object-cover rounded-sm "
-                                                        />
+                        {matchedBooks.length > 0 ? (
+                            <div>
+                                {matchedBooks.map((matchedBook, index) => (
+                                    <div key={index}>
+                                        <div className="flow-root">
+                                            <div className="divide-y divide-gray-200 dark:divide-gray-700">
+                                                <div className="py-3 sm:py-4 flex items-center justify-between">
+                                                    <div className="flex space-x-4 w-2/3 md:w-2/4 items-center">
+                                                        <div className="border border-solid border-opacity-10 shadow-md hover:shadow-lg w-12 h-16 shrink-0">
+                                                            <img
+                                                                src={
+                                                                    matchedBook.imageUrl
+                                                                }
+                                                                alt=""
+                                                                className="block w-12 h-16 object-cover rounded-sm "
+                                                            />
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <p className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2">
+                                                                {
+                                                                    matchedBook.bookTitle
+                                                                }
+                                                            </p>
+                                                            <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
+                                                                {
+                                                                    matchedBook.authorName
+                                                                }
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div className="flex-1">
-                                                        <p className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2">
-                                                            {
-                                                                matchedBook.bookTitle
-                                                            }
-                                                        </p>
-                                                        <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
-                                                            {
-                                                                matchedBook.authorName
-                                                            }
-                                                        </p>
+                                                    <div className="w-1/4 text-base font-semibold text-gray-900 dark:text-white hidden md:block">
+                                                        {matchedBook.category}
                                                     </div>
-                                                </div>
-                                                <div className="w-1/4 text-base font-semibold text-gray-900 dark:text-white hidden md:block">
-                                                    {matchedBook.category}
-                                                </div>
 
-                                                <div className="md:w-1/4 text-base text-right font-semibold text-gray-900 dark:text-white">
-                                                    {matchedBook.memberName}
+                                                    <div className="md:w-1/4 text-base text-right font-semibold text-gray-900 dark:text-white">
+                                                        {matchedBook.memberName}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <SpinnerLoading />
+                        )}
                     </Card>
                 </div>
             </div>

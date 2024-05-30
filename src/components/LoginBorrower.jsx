@@ -61,7 +61,7 @@ const LoginBorrower = ({ _id }) => {
                 size="sm"
                 onClose={onCloseModal}
                 popup
-                className="bg-[#ccc] pt-60 md:pt-10"
+                className="bg-[#ccc] pt-60 md:pt-10 bg-opacity-95"
             >
                 <div className="bg-[#F4F1EA] rounded-md my-auto">
                     <Modal.Header onClick={() => window.location.reload()} />
@@ -83,6 +83,7 @@ const LoginBorrower = ({ _id }) => {
                                         />
                                     </div>
                                     <input
+                                        className="rounded-md"
                                         id="userName"
                                         name="userName"
                                         type="text"

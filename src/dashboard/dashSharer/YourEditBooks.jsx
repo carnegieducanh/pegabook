@@ -14,14 +14,8 @@ const YourEditBooks = () => {
         setBookImage(imgUrl);
     };
 
-    const {
-        bookTitle,
-        authorName,
-        imageUrl,
-        bookDescription,
-        sharedBy_id,
-        category,
-    } = useLoaderData();
+    const { bookTitle, authorName, imageUrl, bookDescription, category } =
+        useLoaderData();
 
     // const [selectedBookCategory, setSelectedBookCategory] = useState(
     //     bookCategories[0]
@@ -71,7 +65,7 @@ const YourEditBooks = () => {
                 alert("Book updated successfully!!!");
 
                 // Chuyển đến trang khác
-                navigate(`/member/dashboard/manage/${sharedBy_id}`);
+                navigate(`/member/dashboard/book/${id}`);
             });
     };
     return (

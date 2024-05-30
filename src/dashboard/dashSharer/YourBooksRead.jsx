@@ -98,24 +98,19 @@ const YourBooksRead = () => {
                                         <hr className="my-2" />
 
                                         <p className="text-sm line-clamp-2">
-                                            chia sẻ bởi
+                                            Chia sẻ bởi
                                         </p>
                                         <p className="text-sm font-semibold text-pink-800 line-clamp-1">
                                             {book.sharedBy}
                                         </p>
-
-                                        <div className="mx-auto my-auto flex ">
-                                            <button
-                                                onClick={() =>
-                                                    handleDelete(book._id)
-                                                }
-                                                className="bg-red-600 px-4 py-1 font-semibold text-white rounded-sm"
-                                            >
-                                                <RiDeleteBinLine />
-                                            </button>
-                                        </div>
                                     </div>
                                 </div>
+                                <a
+                                    onClick={() => handleDelete(book._id)}
+                                    className="cursor-pointer hover:underline w-1/2 flex items-center gap-2"
+                                >
+                                    <RiDeleteBinLine /> Xóa sách
+                                </a>
                             </div>
                         ))}
                 </div>

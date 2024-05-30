@@ -10,6 +10,7 @@ import ToggleShowMore from "../components/ToggleShowMore";
 import ImageBanner from "../components/ImageBanner";
 import { RiMailSendLine } from "react-icons/ri";
 import { RiMessage3Line } from "react-icons/ri";
+import { ImProfile } from "react-icons/im";
 
 const SingleBook = () => {
     const [memberData, setMemberData] = useState(null);
@@ -473,6 +474,12 @@ const SingleBook = () => {
                                     <span>Đã chia sẻ:</span>
                                     {count} cuốn sách
                                 </p>
+                                <div className="flex gap-1 items-center">
+                                    <ImProfile />
+                                    <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
+                                        Xem profile
+                                    </p>
+                                </div>
                             </div>
                         </Link>
                         <div>

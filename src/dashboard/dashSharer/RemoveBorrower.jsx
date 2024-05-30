@@ -88,7 +88,7 @@ function RemoveBorrower() {
                 alert("Book updated successfully!!!");
 
                 // Chuyển đến trang khác
-                navigate(`/member/dashboard/manage/${sharedBy_id}`);
+                navigate(`/member/dashboard/book/${id}`);
             });
     };
     return (

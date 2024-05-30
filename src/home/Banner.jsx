@@ -3,8 +3,8 @@ import SearchBooks from "../components/SearchBooks";
 
 const Banner = () => {
     return (
-        <div className="px-8 lg:px-24 bg-gray-200 shadow-md flex items-center">
-            <div className="flex w-full flex-col md:flex-row justify-between items-center gap-12 py-28 md:py-40">
+        <div className="px-4 lg:px-24 bg-gray-200 shadow-md">
+            <div className="flex flex-col md:flex-row md:justify-between justify-center gap-12 py-28 md:py-40">
                 {/* left side */}
                 <div className="md:w-1/2 space-y-8 h-full">
                     <h2 className="text-4xl font-bold font-title leading-snug text-black">
@@ -24,7 +24,7 @@ const Banner = () => {
                         và phong phú để nâng cao kiến thức và tận hưởng niềm đam
                         mê đọc sách của mình.
                     </p>
-                    <div>
+                    <div className="md:w-2/3">
                         <SearchBooks />
                     </div>
                 </div>

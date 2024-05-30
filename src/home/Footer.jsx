@@ -84,16 +84,25 @@ const Footer = () => {
                                     </span>{" "}
                                 </h1>
                                 {/* Social Handle */}
-                                <div className="flex items-center gap-3 mt-6">
-                                    <a href="#">
-                                        <FaInstagram className="text-3xl" />
-                                    </a>
-                                    <a href="#">
-                                        <FaFacebook className="text-3xl" />
-                                    </a>
-                                    <a href="#">
-                                        <FaLinkedin className="text-3xl" />
-                                    </a>
+                                <div className="flex items-center gap-3 mt-6 ">
+                                    <div className="group">
+                                        <FaInstagram
+                                            data-aos="zoom-in"
+                                            className="text-3xl transform group-hover:scale-105 duration-300"
+                                        />
+                                    </div>
+                                    <div className="group">
+                                        <FaFacebook
+                                            data-aos="zoom-in"
+                                            className="text-3xl transform group-hover:scale-105 duration-300"
+                                        />
+                                    </div>
+                                    <div className="group">
+                                        <FaLinkedin
+                                            data-aos="zoom-in"
+                                            className="text-3xl transform group-hover:scale-105 duration-300"
+                                        />
+                                    </div>
                                 </div>
                                 <br />
                                 <div className="flex items-center gap-3 text-sm">
@@ -114,15 +123,24 @@ const Footer = () => {
                             </h1>
                             {/* Social Handle */}
                             <div className="flex items-center gap-3 mt-6">
-                                <a href="#">
-                                    <FaInstagram className="text-3xl" />
-                                </a>
-                                <a href="#">
-                                    <FaFacebook className="text-3xl" />
-                                </a>
-                                <a href="#">
-                                    <FaLinkedin className="text-3xl" />
-                                </a>
+                                <div className="group">
+                                    <FaInstagram
+                                        data-aos="zoom-in"
+                                        className="text-3xl transform group-hover:scale-105 duration-300"
+                                    />
+                                </div>
+                                <div className="group">
+                                    <FaFacebook
+                                        data-aos="zoom-in"
+                                        className="text-3xl transform group-hover:scale-1v05 duration-300"
+                                    />
+                                </div>
+                                <div className="group">
+                                    <FaLinkedin
+                                        data-aos="zoom-in"
+                                        className="text-3xl transform group-hover:scale-105 duration-300"
+                                    />
+                                </div>
                             </div>
                             <br />
                             <div className="flex items-center gap-3 text-sm">

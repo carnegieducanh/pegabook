@@ -59,7 +59,7 @@ const SearchBooks = () => {
     };
 
     return (
-        <div className="w-96">
+        <div className="w-full">
             <div className="flex justify-start border border-solid bg-[#f9fafb] rounded-s-sm outline-none relative">
                 <IoIosSearch className="absolute left-2 top-2 w-6 h-6 my-auto" />
 
