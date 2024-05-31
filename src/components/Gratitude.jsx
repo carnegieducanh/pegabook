@@ -78,7 +78,7 @@ const Gratitude = () => {
                             cầu giúp mọi thành viên team Việt Nam đến với mảnh
                             đất của trí tuệ, sự thông thái, tình yêu và những
                             giá trị của cuộc sống. Em là nguồn cổ vũ tinh thần
-                            và sự hỗ trợ tuyệt vời của Pegabook.
+                            to lớn và sự hỗ trợ tuyệt vời của cả team Pegabook.
                             <br />
                             <br />
                             Cảm ơn Vũ Hồng Hà là người đã truyền cảm hứng cho

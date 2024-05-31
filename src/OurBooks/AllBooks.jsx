@@ -64,7 +64,7 @@ const AllBooks = () => {
             <ViewsBook headline="Xem nhiều nhất" />
 
             <div className="my-10 px-4 lg:px-24 bg-[#fffffff2]">
-                <div className="mb-12">
+                <div className="mb-12 md:w-1/3">
                     <SearchBooks />
                 </div>
                 <h2 className="text-4xl font-bold font-title text-left">

@@ -60,7 +60,7 @@ function YourPassword() {
                 </div>
 
                 {/* Member User */}
-                <h2 className="mx-auto text-xl font-bold">Your account</h2>
+                <h2 className="mx-auto text-xl font-bold">User của bạn</h2>
                 <div className="flex flex-col mx-auto w-full lg:w-1/2 gap-4">
                     <div className="">
                         <div className="mb-2 block">
@@ -81,7 +81,7 @@ function YourPassword() {
                         <div className="mb-2 block">
                             <Label
                                 htmlFor="password"
-                                value="Current password"
+                                value="Mật khẩu hiện tại"
                             />
                         </div>
                         <TextInput
@@ -96,12 +96,13 @@ function YourPassword() {
 
                     <div className="">
                         <div className="mb-2 block">
-                            <Label htmlFor="newPassword" value="New password" />
+                            <Label htmlFor="newPassword" value="Mật khẩu mới" />
                         </div>
                         <TextInput
                             id="newPassword"
                             name="newPassword"
                             type="text"
+                            placeholder="Nhập mật khẩu mới"
                             required
                         />
                     </div>

@@ -454,11 +454,11 @@ const SingleBook = () => {
                             to={`/member/${sharedBy_id}`}
                             className="flex text-center gap-4"
                         >
-                            <div className="my-auto border border-solid border-opacity-10 object-cover shadow-md hover:shadow-lg w-16 h-16 rounded-full">
+                            <div className="my-auto border border-solid border-opacity-10 object-cover shadow-md hover:shadow-lg w-20 h-20 rounded-full">
                                 <img
                                     src={sharerAvatar}
                                     alt=""
-                                    className="w-16 h-16 rounded-full object-cover shrink-0"
+                                    className="w-20 h-20 rounded-full object-cover shrink-0"
                                 />
                             </div>
 
