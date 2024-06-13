@@ -91,14 +91,13 @@ const Gratitude = () => {
                             </span>{" "}
                             là người đã truyền cảm hứng cho team Pegabook - nơi
                             giúp cho rất nhiều bạn trẻ ở công ty tiếp cận tri
-                            thức từ những cuốn sách hay. Vì "Tri thức thay đổi
-                            vận mệnh, giáo dục quyết định nhân sinh". Không chỉ
-                            vậy, Hà còn là thành viên hoạt động tích cực trong
-                            mảng giáo dục của công ty, nguồn năng lượng tích cực
-                            từ Hà chính là động lực to lớn trên hành trình tạo
-                            nên dự án Pegabook như ngày hôm nay. Biết ơn sự hiện
-                            diện, nguồn năng lượng, sự động viên và quan tâm sâu
-                            sắc của Hà dành cho dự án.
+                            thức từ những cuốn sách hay. Không chỉ vậy, Hà còn
+                            là thành viên hoạt động tích cực trong mảng giáo dục
+                            của công ty, nguồn năng lượng tích cực từ Hà chính
+                            là động lực to lớn trên hành trình tạo nên dự án
+                            Pegabook như ngày hôm nay. Biết ơn sự hiện diện,
+                            nguồn năng lượng, sự động viên và quan tâm sâu sắc
+                            của Hà dành cho dự án.
                         </p>
 
                         <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-gray-800">
@@ -144,10 +143,9 @@ const Gratitude = () => {
                         là người đã chia sẻ những kiến thức chuyên môn của mình
                         đến dự án lẫn cả trong công việc. Nhờ có anh luôn ủng hộ
                         và động viên, đã nhen nhóm nên một ngọn lửa khát khao để
-                        cho team Pegabook xây dựng dự án này. Anh chính là người
-                        thầy đã dẫn đường cho team Pegabook tạo nên một thư viện
-                        sách như ngày hôm nay. Thay mặt team Pegabook xin được
-                        bày tỏ lòng biết ơn sâu sắc đến anh. <br /> <br />
+                        cho team Pegabook xây dựng dự án này. Thay mặt team
+                        Pegabook xin được bày tỏ lòng biết ơn sâu sắc đến anh.{" "}
+                        <br /> <br />
                         Xin được cảm ơn các bạn trẻ trong team Việt Nam:{" "}
                         <span className="text-[#02598b] font-bold">
                             Hoàng, Trâm, Duy, Ánh....
