@@ -8,8 +8,8 @@ const Banner = () => {
                 {/* left side */}
                 <div className="md:w-1/2 space-y-8 h-full">
                     <h2 className="text-4xl font-bold font-title leading-snug text-black">
-                        Thư viện Sách Phi lợi nhuận - Nguồn tri thức miễn phí
-                        cho những người đặc biệt, những tâm hồn sáng tạo{" "}
+                        Thư viện Sách Phi lợi nhuận - Nguồn tri thức mở cho
+                        những con người đặc biệt, những tâm hồn sáng tạo{" "}
                         <span className="text-[#a69060]">
                             tại Pegabook Japan!
                         </span>
@@ -29,7 +29,7 @@ const Banner = () => {
                     </div>
                 </div>
 
-                {/* right side */}
+                {/* Right side */}
                 <div>
                     <BannerCard></BannerCard>
                 </div>
