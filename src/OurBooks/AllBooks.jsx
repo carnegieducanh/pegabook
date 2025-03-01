@@ -51,7 +51,7 @@ const AllBooks = () => {
         // Cuộn lên trên khi component được render
         window.scrollTo(0, 0);
         return () => {};
-    });
+    }, []);
 
     const indexOfLastBook = currentPage * booksPerPage;
     const indexOfFirstBook = indexOfLastBook - booksPerPage;
