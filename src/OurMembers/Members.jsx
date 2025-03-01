@@ -63,6 +63,22 @@ const Members = () => {
                                             member.memberID
                                     );
 
+                                    // Loại bỏ sách trùng tiêu đề bằng cách dùng Map
+                                    const uniqueBooksMap = new Map();
+                                    readBooks.forEach((book) => {
+                                        if (
+                                            !uniqueBooksMap.has(book.bookTitle)
+                                        ) {
+                                            uniqueBooksMap.set(
+                                                book.bookTitle,
+                                                book
+                                            );
+                                        }
+                                    });
+                                    const readBooksOnly = Array.from(
+                                        uniqueBooksMap.values()
+                                    );
+
                                     // Thêm thông tin của thành viên và số lượng sách đã chia sẻ vào mảng matchedMembersData
                                     matchedMembersData.push({
                                         memberID: member.memberID,
@@ -73,7 +89,7 @@ const Members = () => {
                                         sharedBooksCount: matchedBooks.length,
                                         borrowingBooksCount:
                                             borrowingBooks.length,
-                                        readBooksCount: readBooks.length,
+                                        readBooksCount: readBooksOnly.length,
                                     });
                                 });
 

@@ -98,7 +98,7 @@ const Navbar = () => {
                             <Link
                                 key={path}
                                 to={path}
-                                className="block text-lg text-black cursor-pointer hover:text-[#a69060]"
+                                className="block text-lg text-black cursor-pointer hover:text-[#a69060] "
                             >
                                 {link}
                             </Link>
@@ -217,7 +217,7 @@ const Navbar = () => {
                         <Link
                             key={path}
                             to={path}
-                            className="block text-base text-black uppercase cursor-pointe"
+                            className="text-base text-black uppercase cursor-point block w-1/2"
                         >
                             {link}
                         </Link>

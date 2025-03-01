@@ -6,6 +6,7 @@ import { Datepicker } from "flowbite-react";
 import emailjs from "@emailjs/browser";
 import ToggleShowMore from "../../components/ToggleShowMore";
 import { BsFillSendFill } from "react-icons/bs";
+import { TiArrowBackOutline } from "react-icons/ti";
 
 const ReturnBook = () => {
     const [memberData, setMemberData] = useState(null);
@@ -22,6 +23,7 @@ const ReturnBook = () => {
     const [borrowedBy_id, setBorrowedBy_id] = useState();
     const [borrowerWorkPlace, setBorrowerWorkPlace] = useState();
     const [currentViews, setCurrentViews] = useState(0); // Thêm state cho views
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false); //vô hiệu hóa button "Send" khi hoaàn tất form
 
     const {
         _id,
@@ -181,6 +183,7 @@ const ReturnBook = () => {
                             (result) => {
                                 alert("Message sent successfully.");
                                 // navigate(`/member/dashboard/${borrowedBy_id}`);
+                                setIsButtonDisabled(true);
                             },
                             (error) => {
                                 alert(
@@ -385,10 +388,26 @@ const ReturnBook = () => {
                                 </div>
                             </div>
 
-                            <Button type="submit" className="mb-5 bg-[#a69060]">
+                            <Button
+                                type="submit"
+                                className="mb-5 bg-[#a69060]"
+                                disabled={isButtonDisabled}
+                            >
                                 <div className="flex items-center gap-2 ">
                                     <p>Đăng ký trả sách</p>
                                     <BsFillSendFill />
+                                </div>
+                            </Button>
+
+                            <Button
+                                className="mb-5 bg-[#354d75]"
+                                onClick={() => {
+                                    window.location.href = `/member/dashboard/borrowed-book/${borrowedBy_id}`;
+                                }}
+                            >
+                                <div className="flex items-center gap-2 ">
+                                    <p>Quay lại mục trả sách</p>
+                                    <TiArrowBackOutline size={24} />
                                 </div>
                             </Button>
                         </form>

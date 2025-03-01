@@ -10,6 +10,7 @@ import ToggleShowMore from "../components/ToggleShowMore";
 import ImageBanner from "../components/ImageBanner";
 import { RiMailSendLine } from "react-icons/ri";
 import { RiMessage3Line } from "react-icons/ri";
+import { TiArrowBackOutline } from "react-icons/ti";
 import { ImProfile } from "react-icons/im";
 
 const SingleBook = () => {
@@ -27,6 +28,8 @@ const SingleBook = () => {
     const [borrowerWorkPlace, setBorrowerWorkPlace] = useState();
 
     const [showMemberInfo, setShowMemberInfo] = useState(false);
+
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false); //vô hiệu hóa button "Send" khi hoaàn tất form
 
     const handleLoginClick = () => {
         setShowMemberInfo(true);
@@ -149,6 +152,7 @@ const SingleBook = () => {
             alert("Message sent successfully.");
             // window.location.reload();
             // location.reload();
+            setIsButtonDisabled(true);
         }
     };
 
@@ -393,11 +397,25 @@ const SingleBook = () => {
 
                                 <Button
                                     type="submit"
-                                    className="mb-5 bg-[#a69060]"
+                                    className="mb-2 bg-[#a69060]"
+                                    onClick={handleLoginClick}
+                                    disabled={isButtonDisabled}
                                 >
                                     <div className="flex items-center gap-2 ">
                                         <p>Đăng ký mượn sách</p>
                                         <BsFillSendFill />
+                                    </div>
+                                </Button>
+
+                                <Button
+                                    className="mb-5 bg-[#354d75]"
+                                    onClick={() => {
+                                        window.location.href = "/all-books";
+                                    }}
+                                >
+                                    <div className="flex items-center gap-2 ">
+                                        <p>Quay lại thư viện</p>
+                                        <TiArrowBackOutline size={24} />
                                     </div>
                                 </Button>
                             </form>
