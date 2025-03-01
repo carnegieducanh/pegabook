@@ -23,9 +23,9 @@ function ToggleShowMore({ text }) {
                 </div>
             ) : (
                 <div>
-                    {text.length > 300 ? (
+                    {text.length > 200 ? (
                         <div>
-                            {text.slice(0, 300)}...
+                            {text.slice(0, 200)}...
                             <a
                                 className="flex items-center gap-1 cursor-pointer font-semibold text-[#02598b] hover:underline mt-2"
                                 onClick={toggleShowFullText}
