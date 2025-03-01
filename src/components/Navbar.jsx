@@ -194,7 +194,7 @@ const Navbar = () => {
                     <div className="md:hidden">
                         <button
                             onClick={toggleMenu}
-                            className="text-black focus:outline-none"
+                            className="text-black focus:outline-none p-5"
                         >
                             {isMenuOpen ? (
                                 <FaXmark className="h-5 w-5 text-black" />

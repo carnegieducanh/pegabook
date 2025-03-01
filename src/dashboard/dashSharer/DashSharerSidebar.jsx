@@ -1,5 +1,4 @@
 import { Sidebar } from "flowbite-react";
-import { BiBuoy } from "react-icons/bi";
 
 import { FaBook } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
@@ -24,6 +23,7 @@ const DashMemberSidebar = () => {
     // Function để cập nhật phần tử được chọn khi một Link được click
     const handleItemClick = (item) => {
         setSelectedItem(item);
+        setIsMenuOpen(false); // Đóng menu sau khi nhấn vào một mục
     };
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,7 +63,7 @@ const DashMemberSidebar = () => {
                 <div className="lg:hidden">
                     <button
                         onClick={toggleMenu}
-                        className="text-black focus:outline-none"
+                        className="text-black focus:outline-none p-5"
                     >
                         {isMenuOpen ? (
                             <FaXmark className="h-5 w-5 text-black" />
