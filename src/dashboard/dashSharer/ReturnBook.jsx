@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { HiMiniCheckBadge } from "react-icons/hi2";
 import { Button, Label, Rating, TextInput, Textarea } from "flowbite-react";
 import { Datepicker } from "flowbite-react";

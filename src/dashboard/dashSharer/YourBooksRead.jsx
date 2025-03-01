@@ -20,8 +20,14 @@ const YourBooksRead = () => {
         fetch("https://pega-book-server.onrender.com/all-booksRead")
             .then((res) => res.json())
             .then((data) => {
-                setAllBooksRead(data);
-                // console.log("All Books:", data);
+                // Sử dụng Map để loại bỏ sách trùng tiêu đề
+                const uniqueBooksMap = new Map();
+                data.forEach((book) => {
+                    if (!uniqueBooksMap.has(book.bookTitle)) {
+                        uniqueBooksMap.set(book.bookTitle, book);
+                    }
+                });
+                setAllBooksRead(Array.from(uniqueBooksMap.values()));
             });
     }, []);
 
@@ -52,6 +58,7 @@ const YourBooksRead = () => {
 
     const indexOfLastBook = currentPage * booksPerPage;
     const indexOfFirstBook = indexOfLastBook - booksPerPage;
+
     const currentBooks = memberBooks
         ? memberBooks.slice(indexOfFirstBook, indexOfLastBook)
         : [];

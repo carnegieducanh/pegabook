@@ -67,7 +67,7 @@ const Gratitude = () => {
                         nên một thư viện sách như ngày hôm nay.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
-                        <p className="mb-3 text-gray-700 dark:text-gray-400">
+                        {/* <p className="mb-3 text-gray-700 dark:text-gray-400">
                             Xin cảm ơn những thành viên tuyệt vời trong team
                             Pegabook. <br />
                             <br />
@@ -98,7 +98,7 @@ const Gratitude = () => {
                             Pegabook như ngày hôm nay. Biết ơn sự hiện diện,
                             nguồn năng lượng, sự động viên và quan tâm sâu sắc
                             của Hà dành cho dự án.
-                        </p>
+                        </p> */}
 
                         <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-gray-800">
                             <p className="text-lg">
@@ -124,7 +124,7 @@ const Gratitude = () => {
                             )}
                         </Blockquote>
                     </div>
-                    <p className="mb-3 text-gray-700 dark:text-gray-400">
+                    {/* <p className="mb-3 text-gray-700 dark:text-gray-400">
                         Cảm ơn em út{" "}
                         <span className="text-[#02598b] font-bold">
                             Trang Nguyễn{" "}
@@ -161,7 +161,7 @@ const Gratitude = () => {
                         chung tay và nhiệt huyết của các bạn mà thư viện sách đã
                         trở thành một biểu tượng của tri thức và sự chia sẻ
                         trong cộng đồng.
-                    </p>
+                    </p> */}
                 </div>
                 <figcaption className="flex space-x-3 text-lg">
                     {/* <Avatar

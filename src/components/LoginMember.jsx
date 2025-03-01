@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import bookrow from "../assets/bookrow.jpg";
 import SpinnerLoading from "../components/SpinnerLoading";
 
-const LoginMember = ({}) => {
+const LoginMember = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false); // State to manage loading status
     const navigate = useNavigate();
