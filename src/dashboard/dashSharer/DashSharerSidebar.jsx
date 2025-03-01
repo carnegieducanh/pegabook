@@ -44,15 +44,15 @@ const DashMemberSidebar = () => {
             });
     }, []);
     return (
-        <Sidebar className="w-full lg:w-1/5">
-            <div className="flex w-full justify-between items-center my-3 py-auto">
+        <Sidebar className="w-full lg:w-1/5 ">
+            <div className="flex w-full justify-between items-center my-3">
                 <Link to={`/member/dashboard/${member._id}`}>
                     <Sidebar.Logo className="-pl-3 my-auto">
-                        <div className="flex gap-2 items-center">
+                        <div className="flex gap-5 lg:gap-2 items-center">
                             <img
                                 src={member.memberAvatar}
                                 alt=""
-                                className="w-12 h-12 rounded-full object-cover shrink-0"
+                                className="w-20 h-20 lg:w-12 lg:h-12 rounded-full object-cover shrink-0"
                             />
 
                             <p>{member.memberName}</p>
@@ -192,8 +192,8 @@ const DashMemberSidebar = () => {
                         </Sidebar.Item>
                     </Link>
                     {/* <Sidebar.Item href="#" icon={BiBuoy}>
-                        Help
-                    </Sidebar.Item> */}
+                Help
+            </Sidebar.Item> */}
                 </Sidebar.ItemGroup>
             </Sidebar.Items>
 
@@ -258,8 +258,8 @@ const DashMemberSidebar = () => {
                             </Sidebar.Item>
                         </Link>
                         {/* <Sidebar.Item href="#" icon={BiBuoy}>
-                            Help
-                        </Sidebar.Item> */}
+                    Help
+                </Sidebar.Item> */}
                     </Sidebar.ItemGroup>
                 </Sidebar.Items>
             </div>
