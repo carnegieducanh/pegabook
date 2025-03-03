@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button, Label, TextInput } from "flowbite-react";
 import userAvatar from "../../assets/user avatar.jpg";
+import { TiArrowBackOutline } from "react-icons/ti";
 
 function RemoveBorrower() {
     const [status, setStatus] = useState("Đang mượn bởi");
@@ -195,6 +196,17 @@ function RemoveBorrower() {
 
                     <Button type="submit" className="mt-5">
                         Hủy người mượn này
+                    </Button>
+                    <Button
+                        className="mb-5 bg-[#354d75]"
+                        onClick={() => {
+                            window.location.href = `/member/dashboard/manage/borrower/${sharedBy_id}`;
+                        }}
+                    >
+                        <div className="flex items-center gap-2 ">
+                            <p>Quay lại mục trước</p>
+                            <TiArrowBackOutline size={24} />
+                        </div>
                     </Button>
                 </div>
             </form>
