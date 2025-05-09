@@ -5,9 +5,9 @@ const bookCategories = [
   "Phát triển bản thân",
   "Chữa lành",
   "Hư cấu",
-  "Du lịch",
-  "Nghệ thuật và Thiết kế",
-  "Đầu tư - Kinh doanh",
+  "Giáo dục",
+  "Nghệ thuật - Thiết kế",
+  "Khởi nghiệp - Kinh doanh",
 ];
 
 export default bookCategories;
