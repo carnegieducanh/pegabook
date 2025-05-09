@@ -8,108 +8,97 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 
-import { FaStar } from "react-icons/fa";
 import SpinnerLoading from "./SpinnerLoading";
 
 const OtherBookCards = ({ headline, books }) => {
-    // console.log(books);
-    return (
-        <div className="px-4 lg:px-24 text-center my-16">
-            <h2 className="text-5xl text-center font-bold font-title leading-snug text-black my-2">
-                {headline}
-            </h2>
-            <p className=" text-gray-700 text-lg pt-2">
-                <span className="text-[#a69060] text-xl font-medium">
-                    Pegabook
-                </span>{" "}
-                tổ chức các sự kiện, hội thảo và nhóm đọc sách để tạo cơ hội cho
-                thành viên chia sẻ ý kiến, gặp gỡ những người đam mê sách và tạo
-                ra một cộng đồng đọc sách mạnh mẽ.
-            </p>
+  // console.log(books);
+  return (
+    <div className="my-16 px-4 text-center lg:px-24">
+      <h2 className="my-2 text-center font-title text-5xl font-bold leading-snug text-black">
+        {headline}
+      </h2>
+      <p className="pt-2 text-lg text-gray-700">
+        <span className="text-xl font-medium text-[#a69060]">Pegabook</span> tổ
+        chức các sự kiện, hội thảo và nhóm đọc sách để tạo cơ hội cho thành viên
+        chia sẻ ý kiến, gặp gỡ những người đam mê sách và tạo ra một cộng đồng
+        đọc sách mạnh mẽ.
+      </p>
 
-            {/* {card} */}
-            <div className="mt-12">
-                {books.length > 0 ? (
-                    <Swiper
-                        slidesPerView={1}
-                        spaceBetween={10}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        breakpoints={{
-                            400: {
-                                slidesPerView: 2,
-                                spaceBetween: 20,
-                            },
-                            576: {
-                                slidesPerView: 3,
-                                spaceBetween: 20,
-                            },
-                            768: {
-                                slidesPerView: 3,
-                                spaceBetween: 40,
-                            },
-                            992: {
-                                slidesPerView: 4,
-                                spaceBetween: 50,
-                            },
-                            1200: {
-                                slidesPerView: 5,
-                                spaceBetween: 50,
-                            },
-                            1500: {
-                                slidesPerView: 6,
-                                spaceBetween: 50,
-                            },
-                        }}
-                        modules={[Pagination]}
-                        className="mySwiper w-full h-full"
-                    >
-                        {books.map((book) => (
-                            <SwiperSlide key={book._id}>
-                                <Link to={`/book/${book._id}`}>
-                                    <div
-                                        data-aos="zoom-in"
-                                        className=" bg-white dark:bg-gray-800 group flex flex-col justify-between gap-4 lg:w-52 h-[400px] lg:h-full "
-                                    >
-                                        <div className="mt-1 text-left mx-auto flex flex-col justify-between gap-1 lg:w-52">
-                                            <p className="block text-center text-gray-500 text-sm line-clamp-2">
-                                                {book.category}
-                                            </p>
-                                            <img
-                                                src={book.imageUrl}
-                                                alt=""
-                                                className="w-44 lg:w-52 h-64 lg:h-80 block mx-auto my-1 transform group-hover:scale-105 duration-300 shadow-xl object-cover  rounded-tr-lg rounded-br-lg"
-                                            />
+      {/* {card} */}
+      <div className="mt-12">
+        {books.length > 0 ? (
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            pagination={{
+              clickable: true,
+            }}
+            breakpoints={{
+              400: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              576: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              992: {
+                slidesPerView: 4,
+                spaceBetween: 50,
+              },
+              1200: {
+                slidesPerView: 5,
+                spaceBetween: 50,
+              },
+              1500: {
+                slidesPerView: 6,
+                spaceBetween: 50,
+              },
+            }}
+            modules={[Pagination]}
+            className="mySwiper h-full w-full"
+          >
+            {books.map((book) => (
+              <SwiperSlide key={book._id}>
+                <Link to={`/book/${book._id}`}>
+                  <div
+                    data-aos="zoom-in"
+                    className="group flex h-[400px] flex-col justify-between gap-4 bg-white dark:bg-gray-800 lg:h-full lg:w-52"
+                  >
+                    <div className="mx-auto mt-1 flex flex-col justify-between gap-1 text-left lg:w-52">
+                      <p className="line-clamp-2 block text-center text-sm text-gray-500">
+                        {book.category}
+                      </p>
+                      <img
+                        src={book.imageUrl}
+                        alt=""
+                        className="mx-auto my-2 block h-64 w-44 transform rounded-br-lg rounded-tr-lg object-cover shadow-xl shadow-slate-900/30 duration-300 group-hover:scale-105 dark:shadow-black/30 lg:h-80 lg:w-52"
+                      />
 
-                                            <h3 className="text-sm font-bold line-clamp-1 ">
-                                                {book.bookTitle}
-                                            </h3>
-                                            <p className="text-[#a69060] text-sm text-left line-clamp-1">
-                                                {book.authorName}
-                                            </p>
-                                            <div className="w-36 flex md:mx-0 gap-2">
-                                                <div className="block my-auto">
-                                                    <FaStar className="text-yellow-500 " />
-                                                </div>
-                                                <p className="font-medium">
-                                                    4.5
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                ) : (
-                    <div className="flex justify-center items-center w-full h-full">
-                        <SpinnerLoading />
+                      <h3 className="line-clamp-1 text-sm font-bold">
+                        {book.bookTitle}
+                      </h3>
+                      <p className="line-clamp-1 text-left text-sm font-bold text-[#a69060]">
+                        {book.authorName}
+                      </p>
                     </div>
-                )}
-            </div>
-        </div>
-    );
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center">
+            <SpinnerLoading />
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default OtherBookCards;
