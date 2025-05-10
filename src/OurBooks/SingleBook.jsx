@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import { HiMiniCheckBadge } from "react-icons/hi2";
 import { Button, Label, Rating, TextInput, Textarea } from "flowbite-react";
 import LoginBorrower from "../components/LoginBorrower";

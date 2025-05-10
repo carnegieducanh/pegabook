@@ -18,8 +18,8 @@ export function SpinnerLoading({ initialCountdown = 20 }) {
   return (
     <div className="flex flex-row gap-3">
       <div color="gray">
-        <Spinner aria-label="Alternate spinner button example" size="xxl" />
-        <span className="pl-3">Loading...</span>
+        <Spinner aria-label="Alternate spinner button example" size="xl" />
+        {/* <span className="pl-3">Loading...</span> */}
         <p className="mt-4 text-lg font-semibold text-gray-700">
           Vui lòng đợi...{" "}
           <span className="text-2xl text-[#c23f69]">{countdown}s</span>
