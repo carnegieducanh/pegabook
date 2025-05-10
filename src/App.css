@@ -1,15 +1,15 @@
 header,
 navbar {
-    z-index: 9999 !important;
+  z-index: 9999 !important;
 }
 
 body {
-    touch-action: pan-x pan-y;
-    overflow-x: hidden;
+  touch-action: pan-x pan-y;
+  overflow-x: hidden;
 }
 
 html,
 body {
-    -webkit-user-select: none;
-    -webkit-text-size-adjust: 100%;
+  /* -webkit-user-select: none; */
+  -webkit-text-size-adjust: 100%;
 }

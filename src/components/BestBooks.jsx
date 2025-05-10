@@ -22,7 +22,7 @@ const BestBooks = () => {
       <TrendingBooks
         booksData={booksData}
         membersData={membersData}
-        headline="Mượn Sách Miễn Phí"
+        headline="📖 Đăng ký siêu nhanh – Mượn sách siêu dễ!"
       />
     </div>
   );

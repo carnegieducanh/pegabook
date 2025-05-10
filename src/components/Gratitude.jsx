@@ -4,70 +4,67 @@ import { useEffect, useState } from "react";
 import SpinnerLoading from "./SpinnerLoading";
 
 const Gratitude = () => {
-    const [allMembers, setAllMembers] = useState([]);
-    const [allBooks, setAllBooks] = useState([]);
-    const [matchedMembers, setMatchedMembers] = useState([]);
-    const filteredMembers = matchedMembers.filter(
-        (member) => member.sharedBooksCount > 0
-    );
+  const [allMembers, setAllMembers] = useState([]);
+  const [allBooks, setAllBooks] = useState([]);
+  const [matchedMembers, setMatchedMembers] = useState([]);
+  const filteredMembers = matchedMembers.filter(
+    (member) => member.sharedBooksCount > 0,
+  );
 
-    useEffect(() => {
-        // Cuộn lên trên khi component được render
-        window.scrollTo(0, 0);
+  useEffect(() => {
+    // Cuộn lên trên khi component được render
+    window.scrollTo(0, 0);
 
-        return () => {};
-    });
+    return () => {};
+  });
 
-    useEffect(() => {
-        fetch("https://pega-book-server.onrender.com/all-members")
-            .then((res) => res.json())
-            .then((members) => {
-                setAllMembers(members);
+  useEffect(() => {
+    fetch("https://pega-book-server.onrender.com/all-members")
+      .then((res) => res.json())
+      .then((members) => {
+        setAllMembers(members);
 
-                fetch("https://pega-book-server.onrender.com/all-books")
-                    .then((res) => res.json())
-                    .then((books) => {
-                        setAllBooks(books);
+        fetch("https://pega-book-server.onrender.com/all-books")
+          .then((res) => res.json())
+          .then((books) => {
+            setAllBooks(books);
 
-                        const matchedMembersData = [];
+            const matchedMembersData = [];
 
-                        // Duyệt qua từng thành viên
-                        members.forEach((member) => {
-                            // Tìm các cuốn sách của thành viên hiện tại
-                            const matchedBooks = books.filter(
-                                (book) => book.sharerID === member.memberID
-                            );
+            // Duyệt qua từng thành viên
+            members.forEach((member) => {
+              // Tìm các cuốn sách của thành viên hiện tại
+              const matchedBooks = books.filter(
+                (book) => book.sharerID === member.memberID,
+              );
 
-                            matchedMembersData.push({
-                                memberName: member.memberName,
-                                sharedBooksCount: matchedBooks.length,
-                            });
-                        });
-
-                        setMatchedMembers(matchedMembersData);
-                    });
+              matchedMembersData.push({
+                memberName: member.memberName,
+                sharedBooksCount: matchedBooks.length,
+              });
             });
-    }, []);
-    return (
-        <div className="min-h-screen">
-            <ImageBanner />
 
-            <div className="py-10 px-4 lg:px-36 bg-[#fffffff2]">
-                <h2 className="text-4xl font-bold text-left font-title">
-                    Lời cảm ơn
-                </h2>
+            setMatchedMembers(matchedMembersData);
+          });
+      });
+  }, []);
+  return (
+    <div className="min-h-screen">
+      <ImageBanner />
 
-                <div className="my-10 text-lg">
-                    <p className="mb-3 text-gray-700 dark:text-gray-400">
-                        Team Pegabook xin bày tỏ sự trân trọng biết ơn đến tất
-                        cả các thành viên vì những đóng góp to lớn trong việc
-                        xây dựng và phát triển thư viện sách chia sẻ kiến thức
-                        này. Sự nhiệt tình và sáng tạo của các bạn đã biến
-                        Pegabook từ những ý tưởng mơ hồ trở thành hiện thực, tạo
-                        nên một thư viện sách như ngày hôm nay.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
-                        {/* <p className="mb-3 text-gray-700 dark:text-gray-400">
+      <div className="bg-[#fffffff2] px-4 py-10 lg:px-36">
+        <h2 className="text-left font-title text-4xl font-bold">Lời cảm ơn</h2>
+
+        <div className="my-10 text-lg">
+          <p className="mb-3 text-gray-700 dark:text-gray-400">
+            Team Pegabook xin bày tỏ sự trân trọng biết ơn đến tất cả các thành
+            viên vì những đóng góp to lớn trong việc xây dựng và phát triển thư
+            viện sách chia sẻ kiến thức này. Sự nhiệt tình và sáng tạo của các
+            bạn đã biến Pegabook từ những ý tưởng mơ hồ trở thành hiện thực, tạo
+            nên một thư viện sách như ngày hôm nay.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
+            {/* <p className="mb-3 text-gray-700 dark:text-gray-400">
                             Xin cảm ơn những thành viên tuyệt vời trong team
                             Pegabook. <br />
                             <br />
@@ -100,31 +97,28 @@ const Gratitude = () => {
                             của Hà dành cho dự án.
                         </p> */}
 
-                        <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-gray-800">
-                            <p className="text-lg">
-                                Xin chân thành cảm ơn tất cả những thành viên đã
-                                và đang chia sẻ những cuốn sách hay tới
-                                Pegabook:
-                            </p>{" "}
-                            {filteredMembers.length > 0 ? (
-                                <div className="text-xl py-2 font-semibold italic text-[#99154b] dark:text-white">
-                                    "
-                                    {filteredMembers &&
-                                        filteredMembers.map((member, index) => (
-                                            <span key={index}>
-                                                {member.memberName},{" "}
-                                            </span>
-                                        ))}
-                                    ..."
-                                </div>
-                            ) : (
-                                <div className="flex justify-center items-center w-full h-full">
-                                    <SpinnerLoading />
-                                </div>
-                            )}
-                        </Blockquote>
-                    </div>
-                    {/* <p className="mb-3 text-gray-700 dark:text-gray-400">
+            <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-gray-800">
+              <p className="text-lg">
+                🙏 Gửi lời cảm ơn chân thành đến tất cả những thành viên đã và
+                đang chia sẻ những cuốn sách hay tới Pegabook:
+              </p>{" "}
+              {filteredMembers.length > 0 ? (
+                <div className="py-2 text-xl font-semibold italic text-[#99154b] dark:text-white">
+                  "
+                  {filteredMembers &&
+                    filteredMembers.map((member, index) => (
+                      <span key={index}>{member.memberName}, </span>
+                    ))}
+                  ..."
+                </div>
+              ) : (
+                <div className="flex h-full w-full items-center justify-center">
+                  <SpinnerLoading />
+                </div>
+              )}
+            </Blockquote>
+          </div>
+          {/* <p className="mb-3 text-gray-700 dark:text-gray-400">
                         Cảm ơn em út{" "}
                         <span className="text-[#02598b] font-bold">
                             Trang Nguyễn{" "}
@@ -162,26 +156,26 @@ const Gratitude = () => {
                         trở thành một biểu tượng của tri thức và sự chia sẻ
                         trong cộng đồng.
                     </p> */}
-                </div>
-                <figcaption className="flex space-x-3 text-lg">
-                    {/* <Avatar
+        </div>
+        <figcaption className="flex space-x-3 text-lg">
+          {/* <Avatar
                         rounded
                         size="xs"
                         img="/images/people/profile-picture-3.jpg"
                         alt="profile picture"
                     /> */}
-                    <div className="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-                        <cite className="pr-3 font-medium text-gray-900 dark:text-white">
-                            Người đại diện
-                        </cite>
-                        <cite className="pl-3 text-gray-700 dark:text-gray-400">
-                            thành viên team Pegabook
-                        </cite>
-                    </div>
-                </figcaption>
-            </div>
-        </div>
-    );
+          <div className="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
+            <cite className="pr-3 font-medium text-gray-900 dark:text-white">
+              Người đại diện
+            </cite>
+            <cite className="pl-3 text-gray-700 dark:text-gray-400">
+              thành viên team Pegabook
+            </cite>
+          </div>
+        </figcaption>
+      </div>
+    </div>
+  );
 };
 
 export default Gratitude;

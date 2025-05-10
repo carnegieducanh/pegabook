@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 
-import SpinnerLoading from "./SpinnerLoading";
+import SpinnerLoading from "../components/SpinnerLoading";
 
 const OtherBookCards = ({ headline, books }) => {
   // console.log(books);
@@ -18,10 +18,14 @@ const OtherBookCards = ({ headline, books }) => {
         {headline}
       </h2>
       <p className="pt-2 text-lg text-gray-700">
-        <span className="text-xl font-medium text-[#a69060]">Pegabook</span> tổ
-        chức các sự kiện, hội thảo và nhóm đọc sách để tạo cơ hội cho thành viên
-        chia sẻ ý kiến, gặp gỡ những người đam mê sách và tạo ra một cộng đồng
-        đọc sách mạnh mẽ.
+        Tại <span className="text-xl font-medium text-[#a69060]">Pegabook</span>
+        , chúng tôi không chỉ chia sẻ sách – mà còn chia sẻ con người. Thông qua
+        các sự kiện, hội thảo, và nhóm đọc sách (vâng, đôi khi có cả bánh trà),
+        bạn sẽ có cơ hội gặp gỡ những tâm hồn đồng điệu, thảo luận sôi nổi về
+        những trang sách yêu thích, và biết đâu… tìm được bạn tâm giao qua một
+        đoạn văn hay! Cộng đồng đọc sách{" "}
+        <span className="text-xl font-medium text-[#a69060]">Pegabook</span> –
+        nơi “mọt sách” không còn phải đọc một mình.
       </p>
 
       {/* {card} */}

@@ -1,24 +1,23 @@
-import React from "react";
 import FavoriteBook from "./FavoriteBook";
 import PromoBanner from "./PromoBanner";
-import OtherBooks from "./OtherBooks";
 import Review from "./Review";
 import Hero from "./Hero";
 import BestBooks from "../components/BestBooks";
 import Banner from "./Banner";
+import OtherBooks from "../components/OtherBooks";
 
 const Home = () => {
-    return (
-        <div>
-            <Banner />
-            <Hero />
-            <BestBooks />
-            <FavoriteBook />
-            <PromoBanner />
-            <OtherBooks />
-            <Review />
-        </div>
-    );
+  return (
+    <div>
+      <Banner />
+      <Hero />
+      <BestBooks />
+      <FavoriteBook />
+      <PromoBanner />
+      <OtherBooks />
+      <Review />
+    </div>
+  );
 };
 
 export default Home;

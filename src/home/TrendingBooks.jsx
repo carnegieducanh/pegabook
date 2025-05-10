@@ -52,10 +52,13 @@ const TrendingBooks = ({ headline }) => {
         {headline}
       </h2>
       <p className="text-lg text-gray-700">
-        Với hệ thống đăng ký đơn giản, các bạn có thể mượn sách miễn phí trong
-        thời gian xác định. Từ các tiểu thuyết nổi tiếng đến sách chuyên ngành,{" "}
-        <span className="text-xl font-medium text-[#a69060]">Pegabook</span> đảm
-        bảo có một bộ sưu tập đa dạng để đáp ứng nhu cầu đọc sách của mọi người.
+        Chỉ với vài cú click (và một chút thiện chí), bạn đã có thể gia nhập hội
+        những người “nghiện” sách chính thống. Từ những tiểu thuyết đình đám đến
+        sách chuyên ngành “khó nhằn”,{" "}
+        <span className="text-xl font-medium text-[#a69060]">Pegabook</span>{" "}
+        luôn có sẵn một kho sách đủ thể loại để chiều lòng cả mọt sách lẫn người
+        đọc “hứng lên là đọc”. Lưu ý nhỏ: sách mượn miễn phí nhưng kiến thức
+        mang về thì vô giá đấy nhé!
       </p>
 
       {/* {card} */}
