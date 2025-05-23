@@ -2,7 +2,7 @@ import { Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-export function SpinnerLoading({ initialCountdown = 20 }) {
+export function SpinnerLoading({ initialCountdown = 10 }) {
   const [countdown, setCountdown] = useState(initialCountdown); // Sử dụng prop để khởi tạo giá trị đếm ngược
 
   useEffect(() => {

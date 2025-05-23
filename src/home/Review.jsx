@@ -82,7 +82,10 @@ const Review = () => {
                 {membersData &&
                   membersData.map((member) => {
                     return (
-                      <div className="my-6 w-96" key={member._id}>
+                      <div
+                        className="mx-auto my-6 w-full max-w-xs"
+                        key={member._id}
+                      >
                         <div className="relative mx-4 flex h-56 flex-col gap-4 rounded-xl bg-gray-100 px-6 py-8 shadow-lg dark:bg-gray-800">
                           <div>
                             <img
