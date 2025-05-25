@@ -9,7 +9,11 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Suspense>
+      <Suspense
+        fallback={
+          <div className="flex h-screen items-center justify-center"></div>
+        }
+      >
         <Outlet />
       </Suspense>
       <Footer />

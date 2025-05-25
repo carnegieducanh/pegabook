@@ -46,7 +46,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 0) {
+        // Nếu người dùng cuộn xuống hơn 0px, đặt isSticky thành true
         setIsSticky(true);
       } else {
         setIsSticky(false);
