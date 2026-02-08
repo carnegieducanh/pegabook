@@ -1,165 +1,164 @@
-import React, { useState } from "react";
 import {
-    FaFacebook,
-    FaInstagram,
-    FaLinkedin,
-    FaLocationArrow,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaLocationArrow,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const FooterLinks = [
-    {
-        link: "Thành viên",
-        path: "/Members",
-    },
-    {
-        link: "Người chia sẻ",
-        path: "/Sharers",
-    },
-    {
-        link: "Lời cảm ơn",
-        path: "/gratitude",
-    },
+  {
+    link: "Thành viên",
+    path: "/Members",
+  },
+  {
+    link: "Người chia sẻ",
+    path: "/Sharers",
+  },
+  {
+    link: "Lời cảm ơn",
+    path: "/gratitude",
+  },
 ];
 const Footer = () => {
-    return (
-        <div className="px-4 lg:px-24 bg-[#F4F1EA] dark:bg-gray-950">
-            <section className="container">
-                <div className="flex flex-col md:flex-row py-5">
-                    {/* company Details */}
-                    <div className="py-6">
-                        <h1 className="text-[#a69060] text-4xl font-medium mb-5">
-                            PEGABOOK
-                        </h1>
-                        <p>
-                            Tận Hưởng Niềm Đam Mê Đọc Sách
-                            {/* Cùng{" "}
+  return (
+    <div className="bg-[#F4F1EA] px-4 dark:bg-gray-950 lg:px-24">
+      <section className="container">
+        <div className="flex flex-col justify-between py-5 md:flex-row">
+          {/* company Details */}
+          <div className="py-6">
+            <h1 className="mb-5 text-4xl font-medium text-[#a69060]">
+              PEGABOOK
+            </h1>
+            <p>
+              Tận Hưởng Niềm Đam Mê Đọc Sách
+              {/* Cùng{" "}
                             <span className="text-[#a69060] text-xl font-medium">
                                 Pegabook
                             </span>{" "} */}
-                        </p>
-                    </div>
-                    {/* Links */}
+            </p>
+          </div>
+          {/* Links */}
 
-                    <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 col-span-3 md:px-10 ">
-                        <div className="">
-                            <div className="py-8 px-4 ">
-                                <h1 className="sm:text-xl sm:text-left text-justify mb-3">
-                                    Trang chủ
-                                </h1>
-                            </div>
-                        </div>
-                        <div className="">
-                            <div className="py-8 px-4 ">
-                                <h1 className="sm:text-xl sm:text-left text-justify mb-3">
-                                    Thư viện sách
-                                </h1>
-                            </div>
-                        </div>
-                        <div className="">
-                            <div className="py-8 px-4 ">
-                                <h1 className="sm:text-xl sm:text-left text-justify mb-3">
-                                    Cộng đồng
-                                </h1>
-                                <ul className="flex flex-col gap-3 ">
-                                    {FooterLinks.map(({ link, path }) => (
-                                        <Link
-                                            key={path}
-                                            to={path}
-                                            className="cursor-pointer hover:translate-x-1 duration-300 hover:text-primary space-x-1"
-                                        >
-                                            <span>&#11162;</span>
-                                            <span>{link}</span>
-                                        </Link>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="hidden lg:block">
-                            <div className="py-8 px-4 ">
-                                <h1 className="sm:text-xl sm:text-left text-justify mb-3">
-                                    Kết nối{" "}
-                                    <span className="text-[#a69060] text-xl font-medium">
-                                        Pegabook
-                                    </span>{" "}
-                                </h1>
-                                {/* Social Handle */}
-                                <div className="flex items-center gap-3 mt-6 ">
-                                    <div className="group">
-                                        <FaInstagram
-                                            data-aos="zoom-in"
-                                            className="text-3xl transform group-hover:scale-105 duration-300"
-                                        />
-                                    </div>
-                                    <div className="group">
-                                        <FaFacebook
-                                            data-aos="zoom-in"
-                                            className="text-3xl transform group-hover:scale-105 duration-300"
-                                        />
-                                    </div>
-                                    <div className="group">
-                                        <FaLinkedin
-                                            data-aos="zoom-in"
-                                            className="text-3xl transform group-hover:scale-105 duration-300"
-                                        />
-                                    </div>
-                                </div>
-                                <br />
-                                <div className="flex items-center gap-3 text-sm">
-                                    <FaLocationArrow />
-                                    <p>PEGABOOK JAPAN INC.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="md:hidden">
-                        <div className="py-8">
-                            <h1 className="sm:text-xl sm:text-left text-justify mb-3">
-                                Kết nối{" "}
-                                <span className="text-[#a69060] text-xl font-medium">
-                                    Pegabook
-                                </span>{" "}
-                            </h1>
-                            {/* Social Handle */}
-                            <div className="flex items-center gap-3 mt-6">
-                                <div className="group">
-                                    <FaInstagram
-                                        data-aos="zoom-in"
-                                        className="text-3xl transform group-hover:scale-105 duration-300"
-                                    />
-                                </div>
-                                <div className="group">
-                                    <FaFacebook
-                                        data-aos="zoom-in"
-                                        className="text-3xl transform group-hover:scale-1v05 duration-300"
-                                    />
-                                </div>
-                                <div className="group">
-                                    <FaLinkedin
-                                        data-aos="zoom-in"
-                                        className="text-3xl transform group-hover:scale-105 duration-300"
-                                    />
-                                </div>
-                            </div>
-                            <br />
-                            <div className="flex items-center gap-3 text-sm">
-                                <FaLocationArrow />
-                                <p>PEGABOOK JAPAN INC.</p>
-                            </div>
-                        </div>
-                    </div>
+          <div className="col-span-3 hidden md:grid md:grid-cols-3 md:px-10 lg:grid-cols-4">
+            <div className="">
+              <div className="px-4 py-8">
+                <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
+                  Trang chủ
+                </h1>
+              </div>
+            </div>
+            <div className="">
+              <div className="px-4 py-8">
+                <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
+                  Thư viện sách
+                </h1>
+              </div>
+            </div>
+            <div className="">
+              <div className="px-4 py-8">
+                <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
+                  Cộng đồng
+                </h1>
+                <ul className="flex flex-col gap-3">
+                  {FooterLinks.map(({ link, path }) => (
+                    <Link
+                      key={path}
+                      to={path}
+                      className="hover:text-primary cursor-pointer space-x-1 duration-300 hover:translate-x-1"
+                    >
+                      <span>&#11162;</span>
+                      <span>{link}</span>
+                    </Link>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="hidden lg:block">
+              <div className="px-4 py-8">
+                <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
+                  Kết nối{" "}
+                  <span className="text-xl font-medium text-[#a69060]">
+                    Pegabook
+                  </span>{" "}
+                </h1>
+                {/* Social Handle */}
+                <div className="mt-6 flex items-center gap-3">
+                  <div className="group">
+                    <FaInstagram
+                      data-aos="zoom-in"
+                      className="transform text-3xl duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="group">
+                    <FaFacebook
+                      data-aos="zoom-in"
+                      className="transform text-3xl duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="group">
+                    <FaLinkedin
+                      data-aos="zoom-in"
+                      className="transform text-3xl duration-300 group-hover:scale-105"
+                    />
+                  </div>
                 </div>
-
-                <div>
-                    <div className="text-center py-10 border-t-2 border-gray-300/50">
-                        @Copyright 2024 All rights reserved || Made with ❤️ by
-                        Viet Nam Team of Pegabook Japan
-                    </div>
+                <br />
+                <div className="flex items-center gap-3 text-sm">
+                  <FaLocationArrow />
+                  <p>PEGABOOK JAPAN INC.</p>
                 </div>
-            </section>
+              </div>
+            </div>
+          </div>
+
+          <div className="md:hidden">
+            <div className="py-8">
+              <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
+                Kết nối{" "}
+                <span className="text-xl font-medium text-[#a69060]">
+                  Pegabook
+                </span>{" "}
+              </h1>
+              {/* Social Handle */}
+              <div className="mt-6 flex items-center gap-3">
+                <div className="group">
+                  <FaInstagram
+                    data-aos="zoom-in"
+                    className="transform text-3xl duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="group">
+                  <FaFacebook
+                    data-aos="zoom-in"
+                    className="group-hover:scale-1v05 transform text-3xl duration-300"
+                  />
+                </div>
+                <div className="group">
+                  <FaLinkedin
+                    data-aos="zoom-in"
+                    className="transform text-3xl duration-300 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+              <br />
+              <div className="flex items-center gap-3 text-sm">
+                <FaLocationArrow />
+                <p>PEGABOOK JAPAN INC.</p>
+              </div>
+            </div>
+          </div>
         </div>
-    );
+
+        <div>
+          <div className="border-t-2 border-gray-300/50 py-10 text-center">
+            @Copyright 2024 All rights reserved || Made with ❤️ by Viet Nam Team
+            of Pegabook Japan
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Footer;
