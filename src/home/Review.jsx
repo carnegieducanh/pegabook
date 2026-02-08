@@ -56,20 +56,17 @@ const Review = () => {
           <div className="mx-auto mb-20 max-w-[600px] text-center">
             <p className="text-lg text-[#a69060]">❤️ Gia nhập hội mê sách</p>
             <h1 className="font-title text-3xl font-bold">
-              Nơi đam mê là chuyện nghiêm túc!
+              Nuôi dưỡng đam mê đọc sách cùng Pegabook!
             </h1>
             <p className="text-lg text-gray-700">
-              Tại{" "}
               <span className="text-xl font-medium text-[#a69060]">
                 Pegabook
               </span>{" "}
-              , chúng tôi tin rằng đam mê đọc sách không chỉ để “cho vui”, mà
-              còn là cách lịch sự để trốn deadline, mở rộng thế giới quan, và
-              thỉnh thoảng… sống chậm lại một chút. Hãy đăng ký (miễn phí hoàn
-              toàn, hứa luôn!) để bước vào hành trình khám phá tri thức – cùng
-              cộng đồng những con người “yêu sách một cách mãnh liệt nhưng vẫn
-              vui tính”. Và đừng quên để lại vài dòng review – chúng tôi thích
-              lắng nghe hơn là nói một mình!
+              tin rằng đọc sách không chỉ mang tính giải trí mà còn góp phần mở
+              rộng tri thức, rèn luyện tư duy và cân bằng nhịp sống. Thư viện
+              khuyến khích người đọc đăng ký và tham gia cộng đồng để cùng khám
+              phá, chia sẻ giá trị từ sách và đóng góp ý kiến nhằm nâng cao chất
+              lượng dịch vụ.
             </p>
           </div>
           <div

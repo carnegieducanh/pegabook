@@ -8,20 +8,14 @@ const Banner = () => {
         {/* left side */}
         <div className="h-full space-y-8 md:w-1/2">
           <h2 className="font-title text-4xl font-bold leading-snug text-black">
-            📚 Thư viện Sách Phi lợi nhuận – nơi tri thức không cần ví tiền, chỉ
-            cần <span className="text-[#a69060]">ĐAM MÊ!</span>
+            Thư viện Sách Phi lợi nhuận{" "}
+            <span className="text-[#a69060]">Pegabook Japan</span>
           </h2>
           <p className="text-lg md:w-4/5">
-            Chào mừng các bạn, những người tò mò (và có gu đọc sách tuyệt vời)!
-            đến với{" "}
-            <span className="text-xl font-medium text-[#a69060]">
-              Thư viện Sách Phi lợi nhuận
-            </span>{" "}
-            của Pegabook Japan – nơi mà những cuốn sách hay đang chờ được “giải
-            cứu” khỏi bụi thời gian và đến tay những tâm hồn sáng tạo như bạn.
-            Hãy tự nhiên khám phá kho tàng tri thức này – không cần thẻ thành
-            viên, không cần ví dày, chỉ cần một trái tim yêu sách và một chút
-            thời gian rảnh rỗi!
+            Là không gian chia sẻ tri thức, nơi bạn có thể tiếp cận những cuốn
+            sách giá trị hoàn toàn miễn phí. Thư viện được xây dựng với mong
+            muốn kết nối sách với người đọc, gìn giữ và lan tỏa tri thức đến
+            cộng đồng những người yêu sách và học hỏi.
           </p>
           <div className="md:w-2/3">
             <SearchBooks />

@@ -12,7 +12,7 @@ const OtherBooks = () => {
     <div>
       <OtherBookCards
         books={books}
-        headline="🤝 Sách là cái cớ, kết nối mới là mục tiêu!"
+        headline="Kết nối cộng đồng yêu sách – Chia sẻ đam mê đọc"
       />
     </div>
   );

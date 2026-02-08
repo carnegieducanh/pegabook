@@ -18,14 +18,9 @@ const OtherBookCards = ({ headline, books }) => {
         {headline}
       </h2>
       <p className="pt-2 text-lg text-gray-700">
-        Tại <span className="text-xl font-medium text-[#a69060]">Pegabook</span>
-        , chúng tôi không chỉ chia sẻ sách – mà còn chia sẻ con người. Thông qua
-        các sự kiện, hội thảo, và nhóm đọc sách (vâng, đôi khi có cả bánh trà),
-        bạn sẽ có cơ hội gặp gỡ những tâm hồn đồng điệu, thảo luận sôi nổi về
-        những trang sách yêu thích, và biết đâu… tìm được bạn tâm giao qua một
-        đoạn văn hay! Cộng đồng đọc sách{" "}
-        <span className="text-xl font-medium text-[#a69060]">Pegabook</span> –
-        nơi “mọt sách” không còn phải đọc một mình.
+        <span className="text-xl font-medium text-[#a69060]">Pegabook</span> xây
+        dựng cộng đồng những người yêu sách thông qua các hoạt động đọc và thảo
+        luận, góp phần tạo nên môi trường học tập, trao đổi và kết nối bền vững.
       </p>
 
       {/* {card} */}

@@ -45,19 +45,14 @@ const FavoriteBook = () => {
 
       <div className="flex-2 space-y-6 lg:w-1/2">
         <h2 className="my-5 font-title text-5xl font-bold leading-snug md:w-3/4">
-          🌈 Sách gì cũng có – Trừ sách nấu món ngoài hành tinh!
+          Kho sách phong phú – Vô vàn tri thức!
         </h2>
         <p className="mb-10 text-lg md:w-5/6">
           Tại{" "}
           <span className="text-xl font-medium text-[#a69060]">Pegabook</span> ,
-          chúng tôi tự hào sở hữu một bộ sưu tập sách “đa vũ trụ” – từ văn hóa,
-          nghệ thuật, đến khoa học, kỹ thuật và những lĩnh vực mà bạn có thể
-          chưa từng nghĩ tới. Dù bạn là người mê lịch sử, đam mê vẽ vời, hay tò
-          mò về cách vũ trụ vận hành (hoặc đơn giản chỉ muốn biết cách pha trà
-          chuẩn Nhật), thì{" "}
-          <span className="text-xl font-medium text-[#a69060]">Pegabook</span>{" "}
-          luôn có thứ gì đó để bạn "mê như điếu đổ". Đọc một cuốn sách là mở ra
-          một thế giới – mà ở đây, thế giới đó hơi... quá nhiều!
+          người đọc có thể tiếp cận đa dạng các đầu sách thuộc nhiều lĩnh vực
+          khác nhau, từ kiến thức nền tảng đến chuyên môn. Mỗi cuốn sách là một
+          cánh cửa mở ra những góc nhìn mới và giá trị tri thức thiết thực.
         </p>
         {/* stats */}
         <div className="my-14 flex flex-row justify-between gap-6 md:w-3/4">
