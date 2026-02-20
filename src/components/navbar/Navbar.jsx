@@ -37,6 +37,14 @@ const DesktopDropdown = ({ trigger, items }) => (
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [memberSession, setMemberSession] = useState(() => {
+    try {
+      const saved = localStorage.getItem("memberSession");
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
 
   const { user } = useContext(AuthContext);
   const { t } = useLanguage();
@@ -67,6 +75,14 @@ const Navbar = () => {
     { link: user?.email ?? "", path: "/admin/dashboard" },
     { link: t("nav.dashboard"), path: "/admin/dashboard" },
     { link: t("nav.logout"), path: "logout" },
+  ];
+
+  const navMember = [
+    {
+      link: "Vào Dashboard",
+      path: `/member/dashboard/${memberSession?._id}`,
+    },
+    { link: t("nav.logout"), path: "/logout" },
   ];
 
   return (
@@ -106,7 +122,7 @@ const Navbar = () => {
           <div className="hidden items-center gap-3 md:flex">
             <DarkModeToggle />
             <LanguageSwitcher />
-            {!user && (
+            {!user && !memberSession && (
               <DesktopDropdown
                 trigger={
                   <>
@@ -114,6 +130,18 @@ const Navbar = () => {
                   </>
                 }
                 items={navSignIn}
+              />
+            )}
+            {!user && memberSession && (
+              <DesktopDropdown
+                trigger={
+                  <img
+                    src={memberSession.memberAvatar}
+                    alt={memberSession.memberName}
+                    className="h-10 w-10 rounded-full object-cover"
+                  />
+                }
+                items={navMember}
               />
             )}
             {user && (
@@ -144,6 +172,8 @@ const Navbar = () => {
           navItems={navItems}
           communityLinks={communityLinks}
           navSignIn={navSignIn}
+          navMember={navMember}
+          memberSession={memberSession}
           t={t}
         />
       </nav>

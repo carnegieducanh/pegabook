@@ -67,14 +67,14 @@ const YourBooksRead = () => {
   return (
     <div className="my-12 w-full px-4">
       <div className="flex flex-col justify-between lg:flex-row">
-        <h2 className="mb-4 text-3xl font-bold">
+        <h2 className="dark:text-linen mb-4 text-3xl font-bold">
           Sách bạn đã đọc: {""} {memberBooks.length} cuốn sách
         </h2>
       </div>
       {/* <p className="px-4 my-4 underline">
                 Chọn 1 cuốn sách để khám phá thêm
             </p> */}
-      <div className="bg-veil">
+      <div className="bg-veil dark:bg-obsidian">
         <div className="grid justify-between gap-x-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {currentBooks &&
             currentBooks.map((book, index) => (
@@ -104,15 +104,17 @@ const YourBooksRead = () => {
 
                     <hr className="my-2" />
 
-                    <p className="line-clamp-2 text-sm">Chia sẻ bởi</p>
-                    <p className="line-clamp-1 text-sm font-semibold text-pink-800">
+                    <p className="dark:text-linen line-clamp-2 text-sm">
+                      Chia sẻ bởi
+                    </p>
+                    <p className="dark:text-blush line-clamp-1 text-sm font-semibold text-pink-800">
                       {book.sharedBy}
                     </p>
                   </div>
                 </div>
                 <a
                   onClick={() => handleDelete(book._id)}
-                  className="flex w-1/2 cursor-pointer items-center gap-2 hover:underline"
+                  className="flex w-1/2 cursor-pointer items-center gap-2 hover:underline dark:text-white"
                 >
                   <RiDeleteBinLine /> Xóa sách
                 </a>

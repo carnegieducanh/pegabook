@@ -9,6 +9,9 @@ import {
   HiArrowSmRight,
   HiChartPie,
   HiOutlineCloudUpload,
+  HiHome,
+  HiMoon,
+  HiSun,
 } from "react-icons/hi";
 import { GiSpellBook } from "react-icons/gi";
 
@@ -21,6 +24,14 @@ const DashMemberSidebar = () => {
   const [selectedItem, setSelectedItem] = useState(null); // State để lưu trạng thái của Sidebar.Item được chọn
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(
+    document.documentElement.classList.contains("dark")
+  );
+
+  const toggleDarkMode = () => {
+    document.documentElement.classList.toggle("dark");
+    setIsDarkMode(!isDarkMode);
+  };
 
   const { id } = useParams();
   const [member, setMember] = useState({});
@@ -162,6 +173,33 @@ const DashMemberSidebar = () => {
             </Sidebar.Item>
           </Link>
 
+          <Sidebar.Item
+            icon={isDarkMode ? HiSun : HiMoon}
+            className="cursor-pointer"
+            onClick={toggleDarkMode}
+          >
+            <div className="flex w-full items-center justify-between">
+              <span>{isDarkMode ? "Chế độ sáng" : "Chế độ tối"}</span>
+              <div
+                className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${isDarkMode ? "bg-blue-600" : "bg-gray-300"}`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${isDarkMode ? "translate-x-4" : "translate-x-1"}`}
+                />
+              </div>
+            </div>
+          </Sidebar.Item>
+
+          <Link to={"/"}>
+            <Sidebar.Item
+              icon={HiHome}
+              className={selectedItem === "home" ? "selected" : ""}
+              onClick={() => handleItemClick("home")}
+            >
+              Quay lại trang chủ
+            </Sidebar.Item>
+          </Link>
+
           <Link to={"/logout"}>
             <Sidebar.Item
               icon={HiArrowSmRight}
@@ -236,6 +274,27 @@ const DashMemberSidebar = () => {
               onClick={closeDropdowns}
             >
               <Sidebar.Item icon={TbPasswordUser}>Đổi mật khẩu</Sidebar.Item>
+            </Link>
+
+            <Sidebar.Item
+              icon={isDarkMode ? HiSun : HiMoon}
+              className="cursor-pointer"
+              onClick={toggleDarkMode}
+            >
+              <div className="flex w-full items-center justify-between">
+                <span>{isDarkMode ? "Chế độ sáng" : "Chế độ tối"}</span>
+                <div
+                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${isDarkMode ? "bg-blue-600" : "bg-gray-300"}`}
+                >
+                  <span
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${isDarkMode ? "translate-x-4" : "translate-x-1"}`}
+                  />
+                </div>
+              </div>
+            </Sidebar.Item>
+
+            <Link to={"/"} onClick={closeDropdowns}>
+              <Sidebar.Item icon={HiHome}>Quay lại trang chủ</Sidebar.Item>
             </Link>
 
             <Link to={"/logout"}>

@@ -44,7 +44,7 @@ const MobileDropdown = ({ label, items, icon }) => {
   );
 };
 
-const NavMobileMenu = ({ isOpen, onClose, navItems, communityLinks, navSignIn, t }) => {
+const NavMobileMenu = ({ isOpen, onClose, navItems, communityLinks, navSignIn, navMember, memberSession, t }) => {
   if (!isOpen) return null;
 
   return (
@@ -67,8 +67,16 @@ const NavMobileMenu = ({ isOpen, onClose, navItems, communityLinks, navSignIn, t
       {/* Dropdown Cộng đồng */}
       <MobileDropdown label={t("nav.community")} items={communityLinks} />
 
-      {/* Dropdown Join */}
-      <MobileDropdown label={t("nav.join")} items={navSignIn} icon={<FaUser />} />
+      {/* Dropdown Join hoặc Member Dashboard */}
+      {memberSession ? (
+        <MobileDropdown
+          label={memberSession.memberName}
+          items={navMember}
+          icon={<FaUser />}
+        />
+      ) : (
+        <MobileDropdown label={t("nav.join")} items={navSignIn} icon={<FaUser />} />
+      )}
 
       {/* Chọn ngôn ngữ */}
       <div className="mt-4 border-t border-gray-200 pt-4">

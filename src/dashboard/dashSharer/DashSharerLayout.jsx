@@ -4,7 +4,7 @@ import { Suspense } from "react";
 
 const DashSharerLayout = () => {
   return (
-    <div className="flex flex-col lg:flex-row lg:gap-4">
+    <div className="dark:bg-obsidian flex min-h-screen flex-col lg:flex-row lg:gap-4">
       <DashSharerSidebar />
       <Suspense>
         <Outlet />

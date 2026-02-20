@@ -25,6 +25,14 @@ const LoginMember = () => {
           (user) => user.userName === userName && user.password === password,
         );
         if (userMember) {
+          localStorage.setItem(
+            "memberSession",
+            JSON.stringify({
+              _id: userMember._id,
+              memberName: userMember.memberName,
+              memberAvatar: userMember.memberAvatar,
+            }),
+          );
           alert("Bạn đã đăng nhập thành công");
           navigate(`/member/dashboard/${userMember._id}`);
         } else {

@@ -48,12 +48,16 @@ const YourBooks = () => {
   return (
     <div className="my-12 w-full px-4">
       <div className="flex flex-col justify-between lg:flex-row">
-        <h2 className="mb-4 text-3xl font-bold">Sách của bạn</h2>
+        <h2 className="dark:text-pebble mb-4 text-3xl font-bold">
+          Sách của bạn
+        </h2>
 
         <DashSearchBook memberBooks={memberBooks} />
       </div>
-      <p className="my-4 px-4 underline">Chọn 1 cuốn sách để khám phá thêm</p>
-      <div className="bg-veil">
+      <p className="dark:text-pebble my-4 px-4 underline">
+        Chọn 1 cuốn sách để khám phá thêm
+      </p>
+      <div className="bg-veil dark:bg-obsidian">
         <div className="grid justify-between gap-x-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {currentBooks &&
             currentBooks.map((book) => (
@@ -81,8 +85,10 @@ const YourBooks = () => {
 
                       <hr className="my-2" />
 
-                      <p className="line-clamp-2 text-sm">{book.status}</p>
-                      <p className="line-clamp-1 text-sm font-semibold text-pink-800">
+                      <p className="dark:text-linen line-clamp-2 text-sm">
+                        {book.status}
+                      </p>
+                      <p className="dark:text-blush line-clamp-1 text-sm font-semibold text-pink-800">
                         {book.borrowedBy}
                       </p>
                     </div>
