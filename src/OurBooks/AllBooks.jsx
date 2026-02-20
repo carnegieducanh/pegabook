@@ -5,8 +5,6 @@ import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
 import ViewsBook from "../OurBooks/ViewsBook";
 import SearchBooks from "../components/SearchBooks";
-
-import SearchForm from "../components/genrecategory/CategoryForm";
 import CategoryForm from "../components/genrecategory/CategoryForm";
 import API_BASE_URL from "../config/api";
 
@@ -70,20 +68,20 @@ const AllBooks = () => {
   const currentBooks = matchedBooks.slice(indexOfFirstBook, indexOfLastBook);
 
   return (
-    <div className="dark:bg-void flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col dark:bg-void">
       <ImageBanner />
 
       <ViewsBook headline="Xem nhiều nhất" />
 
-      <div className="bg-veil dark:bg-void my-10 px-4 lg:px-24">
-        <div className="dark:text-linen mb-12 md:w-1/3">
+      <div className="my-10 bg-veil px-4 dark:bg-void lg:px-24">
+        <div className="mb-12 dark:text-linen md:w-1/3">
           <SearchBooks />
         </div>
 
         <h3 className="text-left font-title text-2xl font-bold">Categories:</h3>
         <CategoryForm setSearchFormValues={setSearchFormValues} />
 
-        <h2 className="dark:text-pebble text-left font-title text-4xl font-bold">
+        <h2 className="text-left font-title text-4xl font-bold dark:text-pebble">
           Our Book List
         </h2>
 
@@ -108,12 +106,12 @@ const AllBooks = () => {
                     </p>
                     <p className="mt-2 text-sm">
                       Chia sẻ bởi:{" "}
-                      <span className="text-sienna dark:text-sienna-soft line-clamp-1 cursor-pointer font-semibold hover:underline">
+                      <span className="line-clamp-1 cursor-pointer font-semibold text-sienna hover:underline dark:text-sienna-soft">
                         {book.memberName}
                       </span>
                     </p>
                     <hr className="my-2 text-sm" />
-                    <p className="dark:text-blush font-semibold text-pink-800 underline">
+                    <p className="font-semibold text-pink-800 underline dark:text-blush">
                       {book.status}
                     </p>
                     <p className="line-clamp-1 text-sm font-semibold text-gray-700">
