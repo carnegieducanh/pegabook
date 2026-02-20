@@ -366,7 +366,7 @@ const SingleBook = () => {
 
                 <Button
                   type="submit"
-                  className="mb-2 bg-[#a69060]"
+                  className="mb-2 bg-brand"
                   onClick={handleLoginClick}
                   disabled={isButtonDisabled}
                 >
@@ -377,7 +377,7 @@ const SingleBook = () => {
                 </Button>
 
                 <Button
-                  className="mb-5 bg-[#354d75]"
+                  className="mb-5 bg-cobalt"
                   onClick={() => {
                     window.location.href = "/all-books";
                   }}
@@ -395,7 +395,7 @@ const SingleBook = () => {
           <h2 className="font-title text-4xl font-medium">{bookTitle}</h2>
           <div className="flex gap-2 text-center">
             <p className="text-xl">{authorName}</p>
-            <HiMiniCheckBadge className="my-auto text-2xl text-[#825445]" />
+            <HiMiniCheckBadge className="my-auto text-2xl text-sienna" />
           </div>
           <div>
             <Rating>
@@ -420,7 +420,7 @@ const SingleBook = () => {
           <ToggleShowMore text={bookDescription} />
 
           <div className="flex gap-4">
-            <span className="text-[#825445]">Thể loại</span>
+            <span className="text-sienna">Thể loại</span>
 
             <a
               href="#"
@@ -448,7 +448,7 @@ const SingleBook = () => {
               <div className="flex flex-col text-left">
                 <div className="flex gap-1 text-center">
                   <p className="text-xl">{sharerName}</p>
-                  <HiMiniCheckBadge className="mt-1 text-xl text-[#825445]" />
+                  <HiMiniCheckBadge className="mt-1 text-xl text-sienna" />
                 </div>
                 <p className="text-gray-500">{sharerWorkPlace}</p>
                 <p className="flex gap-2 text-gray-500">

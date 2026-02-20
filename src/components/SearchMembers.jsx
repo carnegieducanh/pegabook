@@ -71,12 +71,12 @@ const SearchMembers = () => {
 
     return (
         <div>
-            <div className="relative border border-solid bg-[#f9fafb] rounded-lg flex justify-start">
+            <div className="relative border border-solid bg-ghost rounded-lg flex justify-start">
                 <IoIosSearch className="absolute left-2 top-2 w-6 h-6 my-auto" />
                 <input
                     id="searchInput" // Thêm id cho input để có thể truy cập nó
                     type="text"
-                    className="bg-[#f9fafb] w-full pl-10 font-medium border-none outline-none"
+                    className="bg-ghost w-full pl-10 font-medium border-none outline-none"
                     onChange={filterMembers}
                     placeholder="Search name"
                     autoComplete="off"
@@ -87,7 +87,7 @@ const SearchMembers = () => {
             {showResults && inputEntered && (
                 <div
                     id="searchResultsDiv"
-                    className="bg-[#f9fafb] rounded-lg w-80 max-h-40 overflow-hidden shadow hover:shadow-md text-center px-5"
+                    className="bg-ghost rounded-lg w-80 max-h-40 overflow-hidden shadow hover:shadow-md text-center px-5"
                 >
                     {loading ? (
                         <h3 className="font-bold">Loading...</h3>
@@ -97,7 +97,7 @@ const SearchMembers = () => {
                                 key={member._id}
                                 onClick={() => handleMemberSelect(member)}
                             >
-                                <div className="flex gap-4 h-20 py-2 px-5 hover:bg-[#dadada] cursor-pointer z-10">
+                                <div className="flex gap-4 h-20 py-2 px-5 hover:bg-ash cursor-pointer z-10">
                                     <img
                                         src={member.memberAvatar}
                                         alt=""

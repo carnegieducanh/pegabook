@@ -13,7 +13,7 @@ const PaginationButtons = ({ booksPerPage, totalBooks, paginate }) => {
       <ReactPaginate
         breakLabel={<span className="mr-2 sm:mr-4">...</span>}
         nextLabel={
-          <span className="flex h-8 w-16 items-center justify-center gap-1 rounded-md bg-[#a69060] text-xs text-white hover:bg-gray-500 sm:h-10 sm:w-24 sm:text-base">
+          <span className="flex h-8 w-16 items-center justify-center gap-1 rounded-md bg-brand text-xs text-white hover:bg-gray-500 sm:h-10 sm:w-24 sm:text-base">
             Next
             <BsChevronRight />
           </span>
@@ -23,7 +23,7 @@ const PaginationButtons = ({ booksPerPage, totalBooks, paginate }) => {
         marginPagesDisplayed={2}
         pageCount={Math.ceil(totalBooks / booksPerPage)}
         previousLabel={
-          <span className="mr-2 flex h-8 w-16 items-center justify-center gap-1 rounded-md bg-[#a69060] text-xs text-white hover:bg-gray-500 sm:mr-4 sm:h-10 sm:w-24 sm:text-base">
+          <span className="mr-2 flex h-8 w-16 items-center justify-center gap-1 rounded-md bg-brand text-xs text-white hover:bg-gray-500 sm:mr-4 sm:h-10 sm:w-24 sm:text-base">
             Prev <BsChevronLeft />
           </span>
         }
@@ -36,7 +36,7 @@ const PaginationButtons = ({ booksPerPage, totalBooks, paginate }) => {
         breakClassName="page-item"
         breakLinkClassName="page-link"
         containerClassName="flex flex-wrap items-center justify-center mt-8 gap-2"
-        activeClassName=" text-white bg-[#a69060]"
+        activeClassName=" text-white bg-brand"
       />
     </div>
   );

@@ -59,10 +59,10 @@ const SingleMember = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="min-h-screen dark:bg-[#181a1b]">
+    <div className="min-h-screen dark:bg-void">
       <ImageBanner />
 
-      <div className="bg-[#fffffff2] px-4 py-10 dark:bg-[#181a1b] lg:px-24">
+      <div className="bg-veil px-4 py-10 dark:bg-void lg:px-24">
         <h2 className="text-4xl font-semibold">Về người chia sẻ</h2>
 
         <div className="mt-10 flex items-center gap-4">
@@ -74,15 +74,15 @@ const SingleMember = () => {
             />
           </div>
           <div className="text-lg">
-            <h2 className="font-bold tracking-tight text-gray-900 dark:text-[#ea6391]">
+            <h2 className="font-bold tracking-tight text-gray-900 dark:text-blush">
               <div className="line-clamp-2">
                 <p>{memberName}</p>
               </div>
             </h2>
-            <p className="font-normal text-gray-700 dark:text-[#aca49a]">
+            <p className="font-normal text-gray-700 dark:text-pebble">
               {workPlace}
             </p>
-            <p className="font-normal text-gray-700 dark:text-[#aca49a]">
+            <p className="font-normal text-gray-700 dark:text-pebble">
               Đã chia sẻ: {memberBooks.length} cuốn sách
             </p>
           </div>
@@ -105,7 +105,7 @@ const SingleMember = () => {
       </div>
       <div className="px-4 lg:px-24">
         <h2 className="mb-4 text-3xl font-semibold">Sách đã chia sẻ</h2>
-        <div className="bg-[#fffffff2] dark:bg-[#181a1b]">
+        <div className="bg-veil dark:bg-void">
           <div className="grid grid-cols-1 justify-between gap-x-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {currentBooks &&
               currentBooks.map((book) => (

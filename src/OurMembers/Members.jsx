@@ -103,11 +103,11 @@ const Members = () => {
     <div className="flex min-h-screen flex-col">
       <ImageBanner />
 
-      <div className="bg-[#fffffff2] px-4 py-10 dark:bg-[#181a1b] lg:px-36">
+      <div className="bg-veil px-4 py-10 dark:bg-void lg:px-36">
         <h2 className="text-left font-title text-3xl">Về thành viên</h2>
 
         <NewMember />
-        <p className="text-md pl-2 pt-4 text-left font-medium text-[#99154b] underline dark:text-[#ea6391]">
+        <p className="text-md pl-2 pt-4 text-left font-medium text-maroon underline dark:text-blush">
           Tất cả thành viên
         </p>
         {currentMembers.length > 0 ? (

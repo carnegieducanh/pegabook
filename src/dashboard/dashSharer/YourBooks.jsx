@@ -53,7 +53,7 @@ const YourBooks = () => {
         <DashSearchBook memberBooks={memberBooks} />
       </div>
       <p className="my-4 px-4 underline">Chọn 1 cuốn sách để khám phá thêm</p>
-      <div className="bg-[#fffffff2]">
+      <div className="bg-veil">
         <div className="grid justify-between gap-x-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {currentBooks &&
             currentBooks.map((book) => (

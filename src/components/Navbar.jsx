@@ -119,12 +119,12 @@ const Navbar = () => {
       onClick={toggleTheme}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       title={isDark ? "Light mode" : "Dark mode"}
-      className="flex items-center justify-center rounded-full border border-[#a69060] p-2 transition-all hover:bg-[#a69060]/10"
+      className="flex items-center justify-center rounded-full border border-brand p-2 transition-all hover:bg-brand/10"
     >
       {isDark ? (
-        <BsSunFill className="h-5 w-5 text-[#a69060]" />
+        <BsSunFill className="h-5 w-5 text-brand" />
       ) : (
-        <BsMoonFill className="h-5 w-5 text-[#a69060]" />
+        <BsMoonFill className="h-5 w-5 text-brand" />
       )}
     </button>
   );
@@ -145,7 +145,7 @@ const Navbar = () => {
         {/* Nút hiển thị ngôn ngữ hiện tại */}
         <button
           onClick={toggle}
-          className={`flex items-center gap-1.5 rounded-full border border-[#a69060] px-3 py-1.5 text-sm font-medium text-[#a69060] transition-all hover:bg-[#a69060] hover:text-white ${
+          className={`flex items-center gap-1.5 rounded-full border border-brand px-3 py-1.5 text-sm font-medium text-brand transition-all hover:bg-brand hover:text-white ${
             mobile ? "w-full justify-between text-base" : ""
           }`}
           aria-label="Select language"
@@ -160,7 +160,7 @@ const Navbar = () => {
         {/* Dropdown danh sách ngôn ngữ */}
         {isOpen && (
           <div
-            className={`absolute z-[9999] mt-2 min-w-[160px] rounded-md border border-gray-100 bg-white py-1 shadow-lg dark:border-[#3c4043] dark:bg-[#292a2d] ${
+            className={`absolute z-[9999] mt-2 min-w-[160px] rounded-md border border-gray-100 bg-white py-1 shadow-lg dark:border-iron dark:bg-onyx ${
               mobile ? "left-0" : "right-0"
             }`}
           >
@@ -171,17 +171,17 @@ const Navbar = () => {
                   changeLanguage(lang.code);
                   toggle();
                 }}
-                className={`flex w-full items-center gap-2 px-4 py-2 text-left text-sm transition-colors hover:bg-[#f4f1ea] dark:hover:bg-[#35363a] ${
+                className={`flex w-full items-center gap-2 px-4 py-2 text-left text-sm transition-colors hover:bg-cream dark:hover:bg-flint ${
                   language === lang.code
-                    ? "font-semibold text-[#a69060]"
-                    : "text-gray-700 dark:text-[#e8eaed]"
+                    ? "font-semibold text-brand"
+                    : "text-gray-700 dark:text-fog"
                 }`}
               >
                 <span className="text-base">{lang.flag}</span>
                 <span>{lang.label}</span>
                 {/* Dấu check cho ngôn ngữ đang chọn */}
                 {language === lang.code && (
-                  <span className="ml-auto text-[#a69060]">✓</span>
+                  <span className="ml-auto text-brand">✓</span>
                 )}
               </button>
             ))}
@@ -192,19 +192,19 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-all duration-300 ease-in dark:bg-[#202124]">
+    <header className="fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-all duration-300 ease-in dark:bg-obsidian">
       <nav
         className={`py-4 pl-4 pr-4 transition-all duration-300 ease-in-out md:px-4 lg:px-24 ${
           isSticky
-            ? "sticky left-0 right-0 top-0 bg-[#F4F1EA]/90 shadow-md backdrop-blur-md dark:bg-[#383323]"
+            ? "sticky left-0 right-0 top-0 bg-cream/90 shadow-md backdrop-blur-md dark:bg-ember"
             : ""
         }`}
       >
         <div className="flex items-center justify-between text-base">
           {/* logo */}
           <Link to="/">
-            <h2 className="text-4xl font-medium text-[#a69060]">PEGABOOK</h2>
-            <p className="pt-2 text-[#5a5a5a] dark:text-[#9aa0a6]">
+            <h2 className="text-4xl font-medium text-brand">PEGABOOK</h2>
+            <p className="pt-2 text-dusk dark:text-dust">
               {t("nav.tagline")}
             </p>
           </Link>
@@ -215,7 +215,7 @@ const Navbar = () => {
               <Link
                 key={path}
                 to={path}
-                className="block cursor-pointer text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                className="block cursor-pointer text-lg text-black hover:text-brand dark:text-fog dark:hover:text-brand"
               >
                 {link}
               </Link>
@@ -223,19 +223,19 @@ const Navbar = () => {
 
             {/* Dropdown Cộng đồng */}
             <div className="group relative cursor-pointer">
-              <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]">
+              <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-brand dark:text-fog dark:hover:text-brand">
                 {t("nav.community")}{" "}
                 <span>
                   <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
                 </span>
               </div>
-              <div className="shadow-mdv absolute z-[9999] hidden w-[160px] rounded-md bg-white p-2 text-black group-hover:block dark:bg-[#292a2d]">
+              <div className="shadow-mdv absolute z-[9999] hidden w-[160px] rounded-md bg-white p-2 text-black group-hover:block dark:bg-onyx">
                 <ul className="space-y-3">
                   {DropdownLinks.map(({ link, path }) => (
                     <Link
                       key={path}
                       to={path}
-                      className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                      className="block cursor-pointer text-lg text-black hover:text-brand hover:underline dark:text-fog dark:hover:text-brand"
                     >
                       {link}
                     </Link>
@@ -255,20 +255,20 @@ const Navbar = () => {
             {/* Nút Join (khi chưa đăng nhập) */}
             {isUserLoggedIn && (
               <div className="group relative cursor-pointer">
-                <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]">
+                <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-brand dark:text-fog dark:hover:text-brand">
                   <FaUser />
                   {t("nav.join")}{" "}
                   <span>
                     <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
                   </span>
                 </div>
-                <div className="shadow-mdv absolute -right-4 z-[9999] hidden w-[160px] rounded-md bg-white p-2 text-black group-hover:block dark:bg-[#292a2d] lg:left-0">
+                <div className="shadow-mdv absolute -right-4 z-[9999] hidden w-[160px] rounded-md bg-white p-2 text-black group-hover:block dark:bg-onyx lg:left-0">
                   <ul className="space-y-3">
                     {navSignIn.map(({ link, path }) => (
                       <Link
                         key={path}
                         to={path}
-                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                        className="block cursor-pointer text-lg text-black hover:text-brand hover:underline dark:text-fog dark:hover:text-brand"
                       >
                         {link}
                       </Link>
@@ -281,19 +281,19 @@ const Navbar = () => {
             {/* Avatar user (khi đã đăng nhập) */}
             {!isUserLoggedIn && (
               <div className="group relative cursor-pointer">
-                <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]">
+                <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-brand dark:text-fog dark:hover:text-brand">
                   <img src={userImg} alt="" className="h-10 w-10" />
                   <span>
                     <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
                   </span>
                 </div>
-                <div className="shadow-mdv absolute right-0 z-[9999] hidden rounded-md bg-white p-2 text-black group-hover:block dark:bg-[#292a2d]">
+                <div className="shadow-mdv absolute right-0 z-[9999] hidden rounded-md bg-white p-2 text-black group-hover:block dark:bg-onyx">
                   <ul className="space-y-3">
                     {navUser.map(({ link, path }) => (
                       <Link
                         key={path}
                         to={path}
-                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                        className="block cursor-pointer text-lg text-black hover:text-brand hover:underline dark:text-fog dark:hover:text-brand"
                       >
                         {link}
                       </Link>
@@ -308,7 +308,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="rounded-full border bg-[#a69060] p-3 focus:outline-none"
+              className="rounded-full border bg-brand p-3 focus:outline-none"
             >
               {isMenuOpen ? (
                 <FaXmark className="h-5 w-5 text-white" />
@@ -321,7 +321,7 @@ const Navbar = () => {
 
         {/* ===== Menu mobile ===== */}
         <div
-          className={`mt-[95px] space-y-4 bg-[#f4f1ea] px-4 py-7 dark:bg-[#202124] ${
+          className={`mt-[95px] space-y-4 bg-cream px-4 py-7 dark:bg-obsidian ${
             isMenuOpen ? "fixed left-0 right-0 top-0 block" : "hidden"
           }`}
         >
@@ -329,12 +329,12 @@ const Navbar = () => {
             <Link
               key={path}
               to={path}
-              className="cursor-point text-lg text-black dark:text-[#e8eaed]"
+              className="cursor-point text-lg text-black dark:text-fog"
               onClick={closeDropdowns}
             >
               <div className="mb-4 flex items-center justify-between">
                 {link}
-                <IoIosArrowForward className="text-[#a69060]" />
+                <IoIosArrowForward className="text-brand" />
               </div>
             </Link>
           ))}
@@ -343,14 +343,14 @@ const Navbar = () => {
           <div className="">
             <div className="relative mb-4 cursor-pointer">
               <div
-                className="flex items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                className="flex items-center justify-between gap-2 text-lg text-black hover:text-brand dark:text-fog dark:hover:text-brand"
                 onClick={toggleDropdownLinks}
               >
                 {t("nav.community")}{" "}
                 <FaCaretDown
                   className={`transition-all duration-200 ${
                     isDropdownLinksOpen ? "rotate-180" : ""
-                  } text-[#a69060]`}
+                  } text-brand`}
                 />
               </div>
               {isDropdownLinksOpen && (
@@ -360,11 +360,11 @@ const Navbar = () => {
                       <Link
                         key={path}
                         to={path}
-                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                        className="block cursor-pointer text-lg text-black hover:text-brand hover:underline dark:text-fog dark:hover:text-brand"
                         onClick={closeDropdowns}
                       >
                         <div className="flex items-center gap-2">
-                          <IoIosArrowForward className="text-[#a69060]" />
+                          <IoIosArrowForward className="text-brand" />
                           {link}
                         </div>
                       </Link>
@@ -377,7 +377,7 @@ const Navbar = () => {
             {/* Dropdown Join (mobile) */}
             <div className="relative cursor-pointer">
               <div
-                className="flex items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                className="flex items-center justify-between gap-2 text-lg text-black hover:text-brand dark:text-fog dark:hover:text-brand"
                 onClick={toggleNavSignIn}
               >
                 <div className="flex items-center gap-2">
@@ -387,7 +387,7 @@ const Navbar = () => {
                 <FaCaretDown
                   className={`transition-all duration-200 ${
                     isNavSignInOpen ? "rotate-180" : ""
-                  } text-[#a69060]`}
+                  } text-brand`}
                 />
               </div>
               {isNavSignInOpen && (
@@ -397,11 +397,11 @@ const Navbar = () => {
                       <Link
                         key={path}
                         to={path}
-                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                        className="block cursor-pointer text-lg text-black hover:text-brand hover:underline dark:text-fog dark:hover:text-brand"
                         onClick={closeDropdowns}
                       >
                         <div className="flex items-center gap-2">
-                          <IoIosArrowForward className="text-[#a69060]" />
+                          <IoIosArrowForward className="text-brand" />
                           {link}
                         </div>
                       </Link>
@@ -414,7 +414,7 @@ const Navbar = () => {
             {/* ===== NÚT CHUYỂN NGÔN NGỮ (Mobile) ===== */}
             <div className="mt-4 border-t border-gray-200 pt-4">
               <div
-                className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-brand dark:text-fog dark:hover:text-brand"
                 onClick={() => setIsMobileLangOpen(!isMobileLangOpen)}
               >
                 <div className="flex items-center gap-2">
@@ -424,7 +424,7 @@ const Navbar = () => {
                 <FaCaretDown
                   className={`transition-all duration-200 ${
                     isMobileLangOpen ? "rotate-180" : ""
-                  } text-[#a69060]`}
+                  } text-brand`}
                 />
               </div>
               {isMobileLangOpen && (
@@ -439,15 +439,15 @@ const Navbar = () => {
                           }}
                           className={`flex w-full items-center gap-2 text-left text-lg ${
                             language === lang.code
-                              ? "font-semibold text-[#a69060]"
-                              : "text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                              ? "font-semibold text-brand"
+                              : "text-black hover:text-brand dark:text-fog dark:hover:text-brand"
                           }`}
                         >
-                          <IoIosArrowForward className="text-[#a69060]" />
+                          <IoIosArrowForward className="text-brand" />
                           <span>{lang.flag}</span>
                           <span>{lang.label}</span>
                           {language === lang.code && (
-                            <span className="ml-auto text-[#a69060]">✓</span>
+                            <span className="ml-auto text-brand">✓</span>
                           )}
                         </button>
                       </li>
@@ -459,7 +459,7 @@ const Navbar = () => {
 
             {/* ===== NÚT TOGGLE DARK MODE (Mobile) ===== */}
             <div className="mt-4 border-t border-gray-200 pt-4">
-              <p className="mb-2 text-sm text-gray-500 dark:text-[#9aa0a6]">
+              <p className="mb-2 text-sm text-gray-500 dark:text-dust">
                 {t("nav.themeLabel")}
               </p>
               <DarkModeToggle />

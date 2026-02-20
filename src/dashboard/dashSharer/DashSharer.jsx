@@ -59,7 +59,7 @@ const DashSharer = () => {
             <div className="px-4 my-12 grid grid-cols-2 lg:grid-cols-4 gap-4 h-40">
                 {/* <Card href="#" className="invisible"></Card> */}
                 <Card href={`/member/dashboard/manage/${_id}`} className="">
-                    <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+                    <div className="flex h-12 w-12 rounded-full bg-cream">
                         <ImBooks className="h-7 w-7 m-auto" />
                     </div>
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -74,7 +74,7 @@ const DashSharer = () => {
                     href={`/member/dashboard/borrowed-book/${_id}`}
                     className=""
                 >
-                    <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+                    <div className="flex h-12 w-12 rounded-full bg-cream">
                         <FaBookReader className="h-7 w-7 m-auto" />
                     </div>
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -89,7 +89,7 @@ const DashSharer = () => {
                     href={`/member/dashboard/manage/borrower/${_id}`}
                     className=""
                 >
-                    <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+                    <div className="flex h-12 w-12 rounded-full bg-cream">
                         <BiSolidBookHeart className="h-7 w-7 m-auto" />
                     </div>
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -104,7 +104,7 @@ const DashSharer = () => {
                     href={`/member/dashboard/manage/borrower/${_id}`}
                     className=""
                 >
-                    <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+                    <div className="flex h-12 w-12 rounded-full bg-cream">
                         <MdPeopleAlt className="h-7 w-7 m-auto" />
                     </div>
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

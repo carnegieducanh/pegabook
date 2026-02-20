@@ -52,7 +52,7 @@ const Hero = ({}) => {
   return (
     <>
       <div
-        className="flex min-h-[550px] items-center justify-center bg-gray-100 px-4 py-4 duration-200 dark:bg-[#1e2022] dark:text-white sm:min-h-[650px] lg:px-24"
+        className="flex min-h-[550px] items-center justify-center bg-gray-100 px-4 py-4 duration-200 dark:bg-void dark:text-white sm:min-h-[650px] lg:px-24"
         style={bgImage}
       >
         <div className="container pb-8 sm:pb-0">
@@ -70,7 +70,7 @@ const Hero = ({}) => {
               >
                 {title}
                 <div>
-                  <p className="my-4 text-right text-sm text-[#a69060]">
+                  <p className="my-4 text-right text-sm text-brand">
                     {t("hero.by")} {author}
                   </p>
                 </div>
@@ -85,7 +85,7 @@ const Hero = ({}) => {
               </p>
               <div>
                 <Link to="/all-books" className="block">
-                  <button className="mt-12 block rounded bg-[#a69060] px-5 py-2 text-lg text-white transition-all duration-300 hover:bg-black sm:mx-0">
+                  <button className="mt-12 block rounded bg-brand px-5 py-2 text-lg text-white transition-all duration-300 hover:bg-black sm:mx-0">
                     {t("hero.exploreBtn")}
                   </button>
                 </Link>

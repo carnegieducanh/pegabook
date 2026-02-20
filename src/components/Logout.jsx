@@ -24,18 +24,18 @@ const Logout = () => {
 
     return (
         <div>
-            <div className="py-4 px-4 lg:px-24 bg-[#F4F1EA] flex justify-between items-center text-base gap-8">
+            <div className="py-4 px-4 lg:px-24 bg-cream flex justify-between items-center text-base gap-8">
                 {/* logo */}
                 <Link to="/">
                     {/* <img src={navLogo} alt="" /> */}
-                    <h2 className="text-[#a69060] text-4xl font-medium">
+                    <h2 className="text-brand text-4xl font-medium">
                         PEGABOOK
                     </h2>
 
-                    <p className="pt-2 text-[#5a5a5a]">Viet Nam Team with ❤️</p>
+                    <p className="pt-2 text-dusk">Viet Nam Team with ❤️</p>
                 </Link>
             </div>
-            <div className="h-screen bg-[#F4F1EA] flex items-center justify-center">
+            <div className="h-screen bg-cream flex items-center justify-center">
                 <button
                     className="bg-cyan-700 px-8 py-2 text-white rounded"
                     onClick={handleLogout}

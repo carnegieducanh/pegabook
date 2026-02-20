@@ -247,7 +247,7 @@ function RemoveBorrower() {
             Hủy người mượn này
           </Button>
           <Button
-            className="mb-5 bg-[#354d75]"
+            className="mb-5 bg-cobalt"
             onClick={() => {
               window.location.href = `/member/dashboard/manage/borrower/${sharedBy_id}`;
             }}

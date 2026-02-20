@@ -60,14 +60,14 @@ const SearchBooks = () => {
 
   return (
     <div className="w-full">
-      <div className="relative flex justify-start rounded-s-sm border border-solid bg-[#f9fafb] outline-none">
+      <div className="bg-ghost relative flex justify-start rounded-s-sm border border-solid outline-none">
         <IoIosSearch className="absolute left-2 top-2 my-auto h-6 w-6" />
 
         <input
           id="search"
           type="search"
           name="search"
-          className="w-full border-none bg-[#f9fafb] pl-10 font-normal outline-none dark:bg-[#1b1d1e] dark:text-[#cdc4b7]"
+          className="bg-ghost dark:bg-void dark:text-linen w-full border-none pl-10 font-normal outline-none"
           placeholder="Search a book"
           onChange={filterBooks}
           autoComplete="off"
@@ -77,7 +77,7 @@ const SearchBooks = () => {
       {showResults && inputEntered && (
         <div
           id="searchResultsDiv"
-          className="max-h-40 overflow-y-scroll rounded-lg bg-[#F4F1EA] px-5 py-5 text-center shadow hover:shadow-md"
+          className="bg-cream dark:bg-ember max-h-40 overflow-y-scroll rounded-lg px-5 py-5 text-center shadow hover:shadow-md"
         >
           {loading ? (
             <h3 className="font-bold">Loading...</h3>
@@ -85,7 +85,7 @@ const SearchBooks = () => {
             search.map((book, index) => (
               <div key={book._id} onClick={() => handleBookSelect(book)}>
                 <Link to={`/book/${book._id}`}>
-                  <div className="flex h-20 cursor-pointer gap-7 px-5 py-2 hover:bg-[#dadada]">
+                  <div className="hover:bg-ash dark:hover:bg-obsidian flex h-20 cursor-pointer gap-7 px-5 py-2">
                     <img
                       src={book.imageUrl}
                       alt=""

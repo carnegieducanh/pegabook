@@ -74,12 +74,12 @@ const SearchYourBook = () => {
 
     return (
         <div>
-            <div className="border border-solid bg-[#f9fafb] rounded-lg flex justify-start py-1 px-2">
+            <div className="border border-solid bg-ghost rounded-lg flex justify-start py-1 px-2">
                 <IoIosSearch className="w-6 h-6 my-auto" />
                 <input
                     id="searchInputSharer" // Thêm id cho input để có thể truy cập nó
                     type="text"
-                    className="bg-[#f9fafb] w-full h-8 font-medium border-none outline-none"
+                    className="bg-ghost w-full h-8 font-medium border-none outline-none"
                     onChange={filterMembers}
                     placeholder="Search name"
                     autoComplete="off"
@@ -91,7 +91,7 @@ const SearchYourBook = () => {
             {showResults && inputEntered && (
                 <div
                     id="searchResultsDiv"
-                    className="bg-[#f9fafb] rounded-lg w-80 max-h-40 overflow-y-scroll shadow hover:shadow-md text-center px-5"
+                    className="bg-ghost rounded-lg w-80 max-h-40 overflow-y-scroll shadow hover:shadow-md text-center px-5"
                 >
                     {loading ? (
                         <h3 className="font-bold">Loading...</h3>
@@ -101,7 +101,7 @@ const SearchYourBook = () => {
                                 key={member._id}
                                 onClick={() => handleMemberSelect(member)}
                             >
-                                <div className="flex gap-4 h-20 py-2 px-5 hover:bg-[#dadada] cursor-pointer">
+                                <div className="flex gap-4 h-20 py-2 px-5 hover:bg-ash cursor-pointer">
                                     <img
                                         src={`https://pega-book-server.onrender.com/${member.memberAvatar}`}
                                         alt=""

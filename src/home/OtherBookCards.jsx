@@ -14,11 +14,11 @@ const OtherBookCards = ({ headline, books }) => {
   // console.log(books);
   return (
     <div className="text-centerlg:px-24 my-16 px-4">
-      <h2 className="my-2 text-center font-title text-5xl font-bold leading-snug text-black dark:text-[#cdc4b7]">
+      <h2 className="my-2 text-center font-title text-5xl font-bold leading-snug text-black dark:text-linen">
         {headline}
       </h2>
-      <p className="pt-2 text-lg text-gray-700 dark:text-[#aca49a]">
-        <span className="text-xl font-medium text-[#a69060]">Pegabook</span> xây
+      <p className="pt-2 text-lg text-gray-700 dark:text-pebble">
+        <span className="text-xl font-medium text-brand">Pegabook</span> xây
         dựng cộng đồng những người yêu sách thông qua các hoạt động đọc và thảo
         luận, góp phần tạo nên môi trường học tập, trao đổi và kết nối bền vững.
       </p>
@@ -66,7 +66,7 @@ const OtherBookCards = ({ headline, books }) => {
                 <Link to={`/book/${book._id}`}>
                   <div
                     data-aos="zoom-in"
-                    className="group flex h-[400px] flex-col justify-between gap-4 bg-white dark:bg-[#202124] lg:h-full lg:w-52"
+                    className="group flex h-[400px] flex-col justify-between gap-4 bg-white dark:bg-obsidian lg:h-full lg:w-52"
                   >
                     <div className="mx-auto mt-1 flex flex-col justify-between gap-1 text-left lg:w-52">
                       <p className="line-clamp-2 block text-center text-sm text-gray-500">
@@ -81,7 +81,7 @@ const OtherBookCards = ({ headline, books }) => {
                       <h3 className="line-clamp-1 text-sm font-bold">
                         {book.bookTitle}
                       </h3>
-                      <p className="line-clamp-1 text-left text-sm font-bold text-[#a69060]">
+                      <p className="line-clamp-1 text-left text-sm font-bold text-brand">
                         {book.authorName}
                       </p>
                     </div>

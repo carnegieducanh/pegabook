@@ -16,7 +16,7 @@ const NewMember = () => {
 
   return (
     <div>
-      <p className="text-md pl-2 pt-4 text-left font-medium text-[#99154b] underline dark:text-[#ea6391]">
+      <p className="text-md pl-2 pt-4 text-left font-medium text-maroon underline dark:text-blush">
         Thành viên mới
       </p>
       {lastMember ? (

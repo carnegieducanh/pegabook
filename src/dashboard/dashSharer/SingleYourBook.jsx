@@ -173,7 +173,7 @@ const SingleYourBook = () => {
                     <h2 className="text-4xl font-medium">{bookTitle}</h2>
                     <div className="flex text-center gap-2">
                         <p className="text-xl">{authorName}</p>
-                        <HiMiniCheckBadge className="text-[#825445] text-2xl my-auto" />
+                        <HiMiniCheckBadge className="text-sienna text-2xl my-auto" />
                     </div>
                     <div>
                         <Rating>
@@ -198,7 +198,7 @@ const SingleYourBook = () => {
                     <ToggleShowMore text={bookDescription} />
 
                     <div className="flex gap-4">
-                        <span className="text-[#825445]">Thể loại</span>
+                        <span className="text-sienna">Thể loại</span>
 
                         <div className="font-medium text-gray-900 underline hover:no-underline dark:text-white">
                             {category}
@@ -213,7 +213,7 @@ const SingleYourBook = () => {
                                 className="font-semibold my-auto flex items-center"
                                 to={`/member/dashboard/add-borrower/${_id}`}
                             >
-                                <Button className="w-48 bg-[#F4F1EA] text-black hover:text-white">
+                                <Button className="w-48 bg-cream text-black hover:text-white">
                                     <IoPersonAdd />
                                     <div className="px-2">Thêm người mượn</div>
                                 </Button>
@@ -223,7 +223,7 @@ const SingleYourBook = () => {
                                 className="font-semibold my-auto flex items-center"
                                 to={`/member/dashboard/edit-books/${_id}`}
                             >
-                                <Button className="w-48 bg-[#F4F1EA] text-black hover:text-white">
+                                <Button className="w-48 bg-cream text-black hover:text-white">
                                     <GrEdit />
                                     <div className="px-2">
                                         Sửa nội dung sách
@@ -237,7 +237,7 @@ const SingleYourBook = () => {
                                 className="font-semibold my-auto flex items-center"
                                 to={`/member/dashboard/remove-borrower/${_id}`}
                             >
-                                <Button className="bg-[#f0f2f5] hover:text-white text-black w-48">
+                                <Button className="bg-mist hover:text-white text-black w-48">
                                     <IoPersonRemoveOutline />
                                     <div className="px-2">Hủy người mượn</div>
                                 </Button>
@@ -245,7 +245,7 @@ const SingleYourBook = () => {
 
                             <Button
                                 onClick={() => handleDelete(_id)}
-                                className="font-semibold my-auto flex items-center bg-[#f0f2f5] hover:text-white text-black w-48"
+                                className="font-semibold my-auto flex items-center bg-mist hover:text-white text-black w-48"
                             >
                                 <RiDeleteBin6Line />
                                 <div className="px-2">Xóa sách</div>

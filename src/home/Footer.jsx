@@ -17,12 +17,12 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#F4F1EA] px-4 dark:bg-[#383323] dark:text-[#e8eaed] lg:px-24">
+    <div className="bg-cream px-4 dark:bg-ember dark:text-fog lg:px-24">
       <section className="container">
         <div className="flex flex-col justify-between py-5 md:flex-row">
           {/* company Details */}
           <div className="py-6">
-            <h1 className="mb-5 text-4xl font-medium text-[#a69060]">
+            <h1 className="mb-5 text-4xl font-medium text-brand">
               PEGABOOK
             </h1>
             <p>{t("footer.tagline")}</p>
@@ -67,7 +67,7 @@ const Footer = () => {
               <div className="px-4 py-8">
                 <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
                   {t("footer.connect")}{" "}
-                  <span className="text-xl font-medium text-[#a69060]">
+                  <span className="text-xl font-medium text-brand">
                     Pegabook
                   </span>{" "}
                 </h1>
@@ -105,7 +105,7 @@ const Footer = () => {
             <div className="py-8">
               <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
                 {t("footer.connect")}{" "}
-                <span className="text-xl font-medium text-[#a69060]">
+                <span className="text-xl font-medium text-brand">
                   Pegabook
                 </span>{" "}
               </h1>
@@ -140,7 +140,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <div className="border-t-2 border-gray-300/50 py-10 text-center dark:border-[#3c4043]">
+          <div className="border-t-2 border-gray-300/50 py-10 text-center dark:border-iron">
             {t("footer.copyright")}
           </div>
         </div>

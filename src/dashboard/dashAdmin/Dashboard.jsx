@@ -73,7 +73,7 @@ const Dashboard = () => {
       {/* Total Data */}
       <div className="my-12 grid h-40 grid-cols-2 gap-4 px-4 lg:grid-cols-4">
         <Card href="#" className="">
-          <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+          <div className="flex h-12 w-12 rounded-full bg-cream">
             <ImBooks className="m-auto h-7 w-7" />
           </div>
           <h2 className="font-title text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -84,7 +84,7 @@ const Dashboard = () => {
           </p>
         </Card>
         <Card href="#" className="">
-          <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+          <div className="flex h-12 w-12 rounded-full bg-cream">
             <MdPeopleAlt className="m-auto h-7 w-7" />
           </div>
           <h2 className="font-title text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -95,7 +95,7 @@ const Dashboard = () => {
           </p>
         </Card>
         <Card href="#" className="">
-          <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+          <div className="flex h-12 w-12 rounded-full bg-cream">
             <BsFillPersonLinesFill className="m-auto h-7 w-7" />
           </div>
           <h2 className="font-title text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -108,7 +108,7 @@ const Dashboard = () => {
         </Card>
 
         <Card href="#" className="">
-          <div className="flex h-12 w-12 rounded-full bg-[#F4F1EA]">
+          <div className="flex h-12 w-12 rounded-full bg-cream">
             <FaBookReader className="m-auto h-7 w-7" />
           </div>
           <h2 className="font-title text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

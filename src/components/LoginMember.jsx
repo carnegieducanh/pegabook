@@ -43,14 +43,14 @@ const LoginMember = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col justify-between bg-[#e5e7eb]">
+    <div className="dark:bg-onyx flex min-h-screen flex-col justify-between bg-gray-200">
       <div className="flex items-center justify-between gap-8 px-4 py-4 text-base lg:px-24">
         {/* logo */}
         <Link to="/">
           {/* <img src={navLogo} alt="" /> */}
-          <h2 className="text-4xl font-medium text-[#a69060]">PEGABOOK</h2>
+          <h2 className="text-brand text-4xl font-medium">PEGABOOK</h2>
 
-          <p className="pt-2 text-[#5a5a5a]">Viet Nam Team with ❤️</p>
+          <p className="text-dusk pt-2">Viet Nam Team with ❤️</p>
         </Link>
       </div>
       {loading ? ( // Display SpinnerLoading if loading is true
@@ -58,12 +58,12 @@ const LoginMember = () => {
           <SpinnerLoading />
         </div>
       ) : (
-        <div className="mx-auto flex max-w-sm rounded-md border border-gray-300 bg-[#F4F1EA] p-10">
+        <div className="bg-cream dark:bg-obsidian mx-auto flex max-w-sm rounded-md border border-gray-300 p-10">
           <form onSubmit={handleLogin}>
             <div className="space-y-6">
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 Đăng nhập vào nền tảng của{" "}
-                <span className="text-xl font-medium text-[#a69060]">
+                <span className="text-brand text-xl font-medium">
                   Pegabook
                 </span>{" "}
               </h3>

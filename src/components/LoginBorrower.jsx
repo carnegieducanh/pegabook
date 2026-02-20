@@ -45,7 +45,7 @@ const LoginBorrower = ({ _id }) => {
   return (
     <div>
       <button
-        className="mx-auto mt-3 w-48 rounded-full bg-[#a69060] px-6 py-1 text-lg text-white duration-300 hover:scale-105"
+        className="bg-brand mx-auto mt-3 w-48 rounded-full px-6 py-1 text-lg text-white duration-300 hover:scale-105"
         onClick={() => setOpenModal(true)}
       >
         Mượn sách
@@ -56,9 +56,9 @@ const LoginBorrower = ({ _id }) => {
         size="sm"
         onClose={onCloseModal}
         popup
-        className="bg-[#ccc] bg-opacity-95 pt-60 md:pt-10"
+        className="bg-gray-300 bg-opacity-95 pt-60 dark:bg-opacity-95 md:pt-10"
       >
-        <div className="my-auto rounded-md bg-[#F4F1EA]">
+        <div className="bg-cream dark:bg-obsidian my-auto rounded-md">
           <Modal.Header onClick={() => window.location.reload()} />
 
           <Modal.Body>
@@ -66,7 +66,7 @@ const LoginBorrower = ({ _id }) => {
               <div className="space-y-4">
                 <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                   Đăng nhập vào{" "}
-                  <span className="text-xl font-medium text-[#a69060]">
+                  <span className="text-brand text-xl font-medium">
                     Pegabook
                   </span>{" "}
                 </h3>

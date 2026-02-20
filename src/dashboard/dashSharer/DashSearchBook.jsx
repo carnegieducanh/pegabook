@@ -61,14 +61,14 @@ const DashSearchBook = ({ memberBooks }) => {
 
     return (
         <div className="w-96">
-            <div className="flex justify-start border border-solid bg-[#f9fafb] rounded-s-sm outline-none relative">
+            <div className="flex justify-start border border-solid bg-ghost rounded-s-sm outline-none relative">
                 <IoIosSearch className="absolute left-2 top-2 w-6 h-6 my-auto" />
 
                 <input
                     id="search"
                     type="search"
                     name="search"
-                    className=" bg-[#f9fafb] w-full pl-10 font-normal border-none outline-none"
+                    className=" bg-ghost w-full pl-10 font-normal border-none outline-none"
                     placeholder="Search a book"
                     onChange={filterBooks}
                     autoComplete="off"
@@ -78,7 +78,7 @@ const DashSearchBook = ({ memberBooks }) => {
             {showResults && inputEntered && (
                 <div
                     id="searchResultsDiv"
-                    className="bg-[#F4F1EA] rounded-lg max-h-40 overflow-y-scroll shadow hover:shadow-md text-center px-5 py-5"
+                    className="bg-cream rounded-lg max-h-40 overflow-y-scroll shadow hover:shadow-md text-center px-5 py-5"
                 >
                     {loading ? (
                         <h3 className="font-bold">Loading...</h3>
@@ -89,7 +89,7 @@ const DashSearchBook = ({ memberBooks }) => {
                                 onClick={() => handleBookSelect(book)}
                             >
                                 <Link to={`/member/dashboard/book/${book._id}`}>
-                                    <div className="flex gap-7 h-20 py-2 px-5 hover:bg-[#dadada] cursor-pointer">
+                                    <div className="flex gap-7 h-20 py-2 px-5 hover:bg-ash cursor-pointer">
                                         <img
                                             src={book.imageUrl}
                                             alt=""

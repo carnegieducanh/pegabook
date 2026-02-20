@@ -75,7 +75,7 @@ const Sharers = () => {
     <div className="flex min-h-screen flex-col">
       <ImageBanner />
 
-      <div className="bg-[#fffffff2] px-4 py-10 dark:bg-[#181a1b] lg:px-36">
+      <div className="bg-veil px-4 py-10 dark:bg-void lg:px-36">
         <h2 className="text-left font-title text-3xl">Về người chia sẻ</h2>
         <p className="pl-2 pt-4 text-left text-sm">FEATURED SHARERS</p>
         {currentMembers.length > 0 ? (

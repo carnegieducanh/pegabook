@@ -21,7 +21,7 @@ const BestBooks = () => {
   }, []);
 
   return (
-    <div className="dark:bg-[#181a1b]">
+    <div className="dark:bg-void">
       <TrendingBooks
         booksData={booksData}
         membersData={membersData}

@@ -50,11 +50,11 @@ const TrendingBooks = ({ headline }) => {
 
   return (
     <div className="px-4 py-4 text-center lg:px-24">
-      <p className="text-xl text-[#a69060]">{t("trending.label")}</p>
-      <h2 className="my-2 text-center font-title text-5xl font-bold leading-snug text-black dark:text-[#cdc4b7]">
+      <p className="text-xl text-brand">{t("trending.label")}</p>
+      <h2 className="my-2 text-center font-title text-5xl font-bold leading-snug text-black dark:text-linen">
         {headline}
       </h2>
-      <p className="text-lg text-gray-700 dark:text-[#aca49a]">
+      <p className="text-lg text-gray-700 dark:text-pebble">
         {t("trending.description")}
       </p>
 
@@ -101,10 +101,10 @@ const TrendingBooks = ({ headline }) => {
                 <Link to={`/book/${book._id}`}>
                   <div
                     data-aos="zoom-in"
-                    className="group flex h-[440px] flex-col justify-between gap-4 bg-white dark:bg-[#181a1b] lg:h-full lg:w-52"
+                    className="group flex h-[440px] flex-col justify-between gap-4 bg-white dark:bg-void lg:h-full lg:w-52"
                   >
                     <div className="mx-auto mt-1 flex flex-col justify-between gap-1 text-left lg:w-52">
-                      <p className="line-clamp-2 block text-center text-sm text-gray-500 dark:text-[#aca49a]">
+                      <p className="line-clamp-2 block text-center text-sm text-gray-500 dark:text-pebble">
                         {book.category}
                       </p>
                       <img
@@ -117,14 +117,14 @@ const TrendingBooks = ({ headline }) => {
                         <h3 className="line-clamp-1 text-sm font-bold">
                           {book.bookTitle}
                         </h3>
-                        <p className="line-clamp-1 text-sm font-bold text-[#a69060]">
+                        <p className="line-clamp-1 text-sm font-bold text-brand">
                           {book.authorName}
                         </p>
 
                         <p className="line-clamp-1 text-sm">
                           {t("trending.sharedBy")}
                         </p>
-                        <p className="text-md -mt-1 font-semibold text-[#825445]">
+                        <p className="text-md -mt-1 font-semibold text-sienna">
                           {memberName[book.sharerID]}
                         </p>
                       </div>

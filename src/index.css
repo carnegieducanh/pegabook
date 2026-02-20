@@ -3,3 +3,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================================
+   PEGABOOK — Color Palette (nguồn duy nhất cho toàn bộ màu sắc)
+   Chỉnh màu tại đây → tailwind.config.js sẽ tự đồng bộ.
+   ============================================================ */
+:root {
+  /* Brand */
+  --color-brand:     #a69060;  /* Vàng đồng – màu nhận diện chính */
+  --color-cream:     #f4f1ea;  /* Kem ấm – nền light mode           */
+
+  /* Nền dark mode */
+  --color-ember:     #383323;  /* Nâu ấm – navbar / footer          */
+  --color-onyx:      #292a2d;  /* Tối – card / dropdown             */
+  --color-obsidian:  #202124;  /* Tối – nền trang                   */
+  --color-void:      #181a1b;  /* Tối nhất – nền sâu                */
+  --color-flint:     #35363a;  /* Hover – dark mode                 */
+  --color-iron:      #3c4043;  /* Border – dark mode                */
+
+  /* Thang xám ấm */
+  --color-fog:       #e8eaed;  /* Chữ chính trên nền tối            */
+  --color-linen:     #cdc4b7;  /* Tiêu đề trên nền tối              */
+  --color-pebble:    #aca49a;  /* Chữ phụ trên nền tối              */
+  --color-dust:      #9aa0a6;  /* Chữ thứ cấp trên nền tối          */
+  --color-ash:       #dadada;  /* Hover / swiper                    */
+  --color-dusk:      #5a5a5a;  /* Chữ thứ cấp trên nền sáng         */
+
+  /* Form & panel */
+  --color-ghost:     #f9fafb;  /* Nền input                         */
+  --color-mist:      #f0f2f5;  /* Nền input – variant               */
+  --color-veil:      #fffffff2;/* Trắng mờ – content panel          */
+
+  /* Accent */
+  --color-sienna:      #825445;/* Nâu đỏ – tác giả / thể loại      */
+  --color-sienna-soft: #b39183;/* Nâu nhạt – dark mode              */
+  --color-maroon:      #99154b;/* Đỏ thẫm – member (light)          */
+  --color-blush:       #ea6391;/* Hồng – member (dark)              */
+  --color-cobalt:      #354d75;/* Xanh thép – nút hành động         */
+  --color-magenta:     #c23f69;/* Hồng đậm – countdown timer        */
+  --color-ocean:       #02598b;/* Xanh đậm – "xem thêm" (light)    */
+  --color-azure:       #6bc8fd;/* Xanh sáng – "xem thêm" (dark)    */
+}

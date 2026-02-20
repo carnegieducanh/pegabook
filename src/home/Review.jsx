@@ -56,16 +56,16 @@ const Review = () => {
       <div
         data-aos="fade-up"
         data-aos-duration="300"
-        className="py-10 dark:bg-[#181a1b]"
+        className="py-10 dark:bg-void"
       >
         <div className="px-4lg:px-24">
           <div className="mx-auto mb-20 max-w-[600px] text-center">
-            <p className="text-lg text-[#a69060]">{t("review.eyebrow")}</p>
-            <h1 className="font-title text-3xl font-bold dark:text-[#aca49a]">
+            <p className="text-lg text-brand">{t("review.eyebrow")}</p>
+            <h1 className="font-title text-3xl font-bold dark:text-pebble">
               {t("review.title")}
             </h1>
-            <p className="text-lg text-gray-700 dark:text-[#aca49a]">
-              <span className="text-xl font-medium text-[#a69060]">
+            <p className="text-lg text-gray-700 dark:text-pebble">
+              <span className="text-xl font-medium text-brand">
                 Pegabook
               </span>{" "}
               {t("review.description")}
@@ -82,7 +82,7 @@ const Review = () => {
                   membersData.map((member) => {
                     return (
                       <div className="my-6 w-96" key={member._id}>
-                        <div className="relative mx-4 flex h-56 flex-col gap-4 rounded-xl bg-gray-100 px-6 py-8 shadow-lg dark:bg-[#1e2022]">
+                        <div className="relative mx-4 flex h-56 flex-col gap-4 rounded-xl bg-gray-100 px-6 py-8 shadow-lg dark:bg-void">
                           <div>
                             <img
                               className="h-20 w-20 rounded-full object-cover"
@@ -92,16 +92,16 @@ const Review = () => {
                           </div>
                           <div className="flex items-center gap-4">
                             <div>
-                              <p className="line-clamp-2 text-gray-500 dark:text-[#aca49a]">
+                              <p className="line-clamp-2 text-gray-500 dark:text-pebble">
                                 {member.comment}
                               </p>
-                              <h1 className="dark:text-light text-xl font-bold text-black/80 dark:text-[#cdc4b7]">
+                              <h1 className="dark:text-light text-xl font-bold text-black/80 dark:text-linen">
                                 {member.memberName}
                               </h1>
                             </div>
                           </div>
 
-                          <p className="absolute right-0 top-0 font-serif text-9xl text-black/20 dark:text-[#aca49a]">
+                          <p className="absolute right-0 top-0 font-serif text-9xl text-black/20 dark:text-pebble">
                             ,,
                           </p>
                         </div>

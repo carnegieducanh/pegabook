@@ -69,20 +69,20 @@ const AllBooks = () => {
   const currentBooks = matchedBooks.slice(indexOfFirstBook, indexOfLastBook);
 
   return (
-    <div className="flex min-h-screen flex-col dark:bg-[#181a1b]">
+    <div className="flex min-h-screen flex-col dark:bg-void">
       <ImageBanner />
 
       <ViewsBook headline="Xem nhiều nhất" />
 
-      <div className="my-10 bg-[#fffffff2] px-4 dark:bg-[#181a1b] lg:px-24">
-        <div className="mb-12 dark:text-[#cdc4b7] md:w-1/3">
+      <div className="my-10 bg-veil px-4 dark:bg-void lg:px-24">
+        <div className="mb-12 dark:text-linen md:w-1/3">
           <SearchBooks />
         </div>
 
         <h3 className="text-left font-title text-2xl font-bold">Categories:</h3>
         <CategoryForm setSearchFormValues={setSearchFormValues} />
 
-        <h2 className="text-left font-title text-4xl font-bold dark:text-[#aca49a]">
+        <h2 className="text-left font-title text-4xl font-bold dark:text-pebble">
           Our Book List
         </h2>
 
@@ -107,12 +107,12 @@ const AllBooks = () => {
                     </p>
                     <p className="mt-2 text-sm">
                       Chia sẻ bởi:{" "}
-                      <span className="line-clamp-1 cursor-pointer font-semibold text-[#825445] hover:underline dark:text-[#b39183]">
+                      <span className="line-clamp-1 cursor-pointer font-semibold text-sienna hover:underline dark:text-sienna-soft">
                         {book.memberName}
                       </span>
                     </p>
                     <hr className="my-2 text-sm" />
-                    <p className="font-semibold text-pink-800 underline dark:text-[#ea6391]">
+                    <p className="font-semibold text-pink-800 underline dark:text-blush">
                       {book.status}
                     </p>
                     <p className="line-clamp-1 text-sm font-semibold text-gray-700">

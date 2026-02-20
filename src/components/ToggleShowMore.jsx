@@ -14,7 +14,7 @@ function ToggleShowMore({ text }) {
         <div>
           {text}
           <a
-            className="mt-2 flex cursor-pointer items-center gap-1 font-semibold text-[#02598b] hover:underline dark:text-[#6bc8fd]"
+            className="mt-2 flex cursor-pointer items-center gap-1 font-semibold text-ocean hover:underline dark:text-azure"
             onClick={toggleShowFullText}
           >
             Thu gọn
@@ -27,7 +27,7 @@ function ToggleShowMore({ text }) {
             <div>
               {text.slice(0, 200)}...
               <a
-                className="mt-2 flex cursor-pointer items-center gap-1 font-semibold text-[#02598b] hover:underline dark:text-[#6bc8fd]"
+                className="mt-2 flex cursor-pointer items-center gap-1 font-semibold text-ocean hover:underline dark:text-azure"
                 onClick={toggleShowFullText}
               >
                 Xem thêm
@@ -40,7 +40,7 @@ function ToggleShowMore({ text }) {
         </div>
       )}
       {!showFullText && (
-        <div className="absolute bottom-8 w-full bg-gradient-to-b from-transparent to-white pt-10 dark:to-[#181a1b]"></div>
+        <div className="absolute bottom-8 w-full bg-gradient-to-b from-transparent to-white pt-10 dark:to-void"></div>
       )}
     </div>
   );

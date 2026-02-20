@@ -23,7 +23,7 @@ const GenresCategory = ({ onChange, value = [] }) => {
           key={category}
           className={`cursor-pointer rounded-lg border px-2 py-1 ${
             items.every((item) => value.some((v) => v._id === item._id))
-              ? "bg-[#a69060] text-white"
+              ? "bg-brand text-white"
               : ""
           }`}
           onClick={() => {

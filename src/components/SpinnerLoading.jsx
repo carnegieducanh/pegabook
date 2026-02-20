@@ -22,7 +22,7 @@ export function SpinnerLoading({ initialCountdown = 10 }) {
         {/* <span className="pl-3">Loading...</span> */}
         <p className="mt-4 text-lg font-semibold text-gray-700">
           Vui lòng đợi...{" "}
-          <span className="text-2xl text-[#c23f69]">{countdown}s</span>
+          <span className="text-2xl text-magenta">{countdown}s</span>
         </p>
       </div>
     </div>
