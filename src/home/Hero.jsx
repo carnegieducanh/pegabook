@@ -3,6 +3,7 @@ import Book1 from "../assets/books/book1.jpg";
 import Book2 from "../assets/books/book2.jpg";
 import Book3 from "../assets/books/book3.jpg";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../contects/LanguageProvider";
 
 const ImageList = [
   {
@@ -27,11 +28,13 @@ const ImageList = [
     title: "Why We Sleep",
     author: "Matthew Walker",
     description:
-      "“Why We Sleep is an important and fascinating book…Walker taught me a lot about this basic activity that every person on Earth needs. I suspect his book will do the same for you.” —Bill Gates",
+      "\u201cWhy We Sleep is an important and fascinating book\u2026Walker taught me a lot about this basic activity that every person on Earth needs. I suspect his book will do the same for you.\u201d \u2014Bill Gates",
   },
 ];
 
 const Hero = ({}) => {
+  const { t } = useLanguage();
+
   const [imageId, setImageId] = React.useState(Book1);
   const [title, setTitle] = React.useState("Young Mungo");
   const [author, setAuthor] = React.useState("Douglas Stuart");
@@ -40,18 +43,16 @@ const Hero = ({}) => {
   );
 
   const bgImage = {
-    // backgroundImage: `url(${Vector})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    // height: "100%",
     width: "100%",
   };
 
   return (
     <>
       <div
-        className="flex min-h-[550px] items-center justify-center bg-gray-100 px-4 py-4 duration-200 dark:bg-gray-950 dark:text-white sm:min-h-[650px] lg:px-24"
+        className="flex min-h-[550px] items-center justify-center bg-gray-100 px-4 py-4 duration-200 dark:bg-[#1e2022] dark:text-white sm:min-h-[650px] lg:px-24"
         style={bgImage}
       >
         <div className="container pb-8 sm:pb-0">
@@ -70,7 +71,7 @@ const Hero = ({}) => {
                 {title}
                 <div>
                   <p className="my-4 text-right text-sm text-[#a69060]">
-                    by {author}
+                    {t("hero.by")} {author}
                   </p>
                 </div>
               </h1>
@@ -85,7 +86,7 @@ const Hero = ({}) => {
               <div>
                 <Link to="/all-books" className="block">
                   <button className="mt-12 block rounded bg-[#a69060] px-5 py-2 text-lg text-white transition-all duration-300 hover:bg-black sm:mx-0">
-                    Khám phá thêm
+                    {t("hero.exploreBtn")}
                   </button>
                 </Link>
               </div>

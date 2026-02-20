@@ -49,14 +49,14 @@ const Gratitude = () => {
       });
   }, []);
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen dark:bg-[#181a1b]">
       <ImageBanner />
 
-      <div className="bg-[#fffffff2] px-4 py-10 lg:px-36">
+      <div className="bg-[#fffffff2] px-4 py-10 dark:bg-[#181a1b] lg:px-36">
         <h2 className="text-left font-title text-4xl font-bold">Lời cảm ơn</h2>
 
         <div className="my-10 text-lg">
-          <p className="mb-3 text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-gray-700 dark:text-[#aca49a]">
             Team Pegabook xin bày tỏ sự trân trọng biết ơn đến tất cả các thành
             viên vì những đóng góp to lớn trong việc xây dựng và phát triển thư
             viện sách chia sẻ kiến thức này. Sự nhiệt tình và sáng tạo của các
@@ -64,46 +64,13 @@ const Gratitude = () => {
             nên một thư viện sách như ngày hôm nay.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
-            {/* <p className="mb-3 text-gray-700 dark:text-gray-400">
-                            Xin cảm ơn những thành viên tuyệt vời trong team
-                            Pegabook. <br />
-                            <br />
-                            Cảm ơn{" "}
-                            <span className="text-[#02598b] font-bold">
-                                Nga Nguyễn
-                            </span>{" "}
-                            đã giúp các thành viên trong team được kết nối, chia
-                            sẻ mọi ý tưởng tuyệt vời cùng nhau. Sự có mặt của em
-                            đối với dự án thư viện sách này là một điều không
-                            thể thay thế, giống như cây cầu giúp mọi thành viên
-                            team Việt Nam đến với mảnh đất của trí tuệ, sự thông
-                            thái, tình yêu và những giá trị của cuộc sống. Em là
-                            nguồn cổ vũ tinh thần to lớn và sự hỗ trợ tuyệt vời
-                            của cả team Pegabook.
-                            <br />
-                            <br />
-                            Cảm ơn{" "}
-                            <span className="text-[#02598b] font-bold">
-                                Vũ Hồng Hà
-                            </span>{" "}
-                            là người đã truyền cảm hứng cho team Pegabook - nơi
-                            giúp cho rất nhiều bạn trẻ ở công ty tiếp cận tri
-                            thức từ những cuốn sách hay. Không chỉ vậy, Hà còn
-                            là thành viên hoạt động tích cực trong mảng giáo dục
-                            của công ty, nguồn năng lượng tích cực từ Hà chính
-                            là động lực to lớn trên hành trình tạo nên dự án
-                            Pegabook như ngày hôm nay. Biết ơn sự hiện diện,
-                            nguồn năng lượng, sự động viên và quan tâm sâu sắc
-                            của Hà dành cho dự án.
-                        </p> */}
-
-            <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-gray-800">
+            <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-[#1b1d1e]">
               <p className="text-lg">
                 🙏 Gửi lời cảm ơn chân thành đến tất cả những thành viên đã và
                 đang chia sẻ những cuốn sách hay tới Pegabook:
               </p>{" "}
               {filteredMembers.length > 0 ? (
-                <div className="py-2 text-xl font-semibold italic text-[#99154b] dark:text-white">
+                <div className="py-2 text-xl font-semibold italic text-[#99154b] dark:text-[#ea6391]">
                   "
                   {filteredMembers &&
                     filteredMembers.map((member, index) => (
@@ -118,57 +85,13 @@ const Gratitude = () => {
               )}
             </Blockquote>
           </div>
-          {/* <p className="mb-3 text-gray-700 dark:text-gray-400">
-                        Cảm ơn em út{" "}
-                        <span className="text-[#02598b] font-bold">
-                            Trang Nguyễn{" "}
-                        </span>{" "}
-                        trong team Pegabook. Nhờ sự thông minh và khả năng phán
-                        đoán, đặt câu hỏi, nhìn nhận chi tiết mọi khía cạnh, em
-                        chính là người đã giúp dự án Pegabook cải thiện được rất
-                        nhiều điều tuyệt vời. Biết ơn những ý tưởng thật xuất
-                        sắc từ em. Mong em tiếp tục đồng hành cùng team Pegabook
-                        với những dự án vì cộng đồng và các bạn Việt Nam làm
-                        việc ở công ty. <br /> <br />
-                        Cảm ơn{" "}
-                        <span className="text-[#02598b] font-bold">
-                            anh Đan
-                        </span>{" "}
-                        là người đã chia sẻ những kiến thức chuyên môn của mình
-                        đến dự án lẫn cả trong công việc. Nhờ có anh luôn ủng hộ
-                        và động viên, đã nhen nhóm nên một ngọn lửa khát khao để
-                        cho team Pegabook xây dựng dự án này. Thay mặt team
-                        Pegabook xin được bày tỏ lòng biết ơn sâu sắc đến anh.{" "}
-                        <br /> <br />
-                        Xin được cảm ơn các bạn trẻ trong team Việt Nam:{" "}
-                        <span className="text-[#02598b] font-bold">
-                            Hoàng, Trâm, Duy, Ánh....
-                        </span>{" "}
-                        Nhờ tình yêu và sự ham đọc sách, ham học hỏi của các bạn
-                        đã hình thành nên ý tưởng tạo nên thư viện sách này. Các
-                        bạn chính là nguồn năng lượng trẻ trung tươi mới mang
-                        đến nhiều ý tưởng sáng tạo trong công việc và cuộc sống.
-                        <br />
-                        <br />
-                        Một lần nữa, đội ngũ Pegabook xin cảm ơn tất cả các bạn
-                        vì những đóng góp to lớn và quý báu này. Chính nhờ sự
-                        chung tay và nhiệt huyết của các bạn mà thư viện sách đã
-                        trở thành một biểu tượng của tri thức và sự chia sẻ
-                        trong cộng đồng.
-                    </p> */}
         </div>
         <figcaption className="flex space-x-3 text-lg">
-          {/* <Avatar
-                        rounded
-                        size="xs"
-                        img="/images/people/profile-picture-3.jpg"
-                        alt="profile picture"
-                    /> */}
-          <div className="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-            <cite className="pr-3 font-medium text-gray-900 dark:text-white">
+          <div className="flex items-center divide-x-2 divide-gray-300">
+            <cite className="pr-3 font-medium text-gray-900 dark:text-[#cdc4b7]">
               Người đại diện
             </cite>
-            <cite className="pl-3 text-gray-700 dark:text-gray-400">
+            <cite className="pl-3 text-gray-700 dark:text-[#aca49a]">
               thành viên team Pegabook
             </cite>
           </div>

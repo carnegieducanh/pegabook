@@ -10,8 +10,11 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 import SpinnerLoading from "../components/SpinnerLoading";
+import { useLanguage } from "../contects/LanguageProvider";
 
 const TrendingBooks = ({ headline }) => {
+  const { t } = useLanguage();
+
   const [membersData, setMembersData] = useState(null);
   const [booksData, setBooksData] = useState([]);
   const [memberName, setMemberName] = useState({});
@@ -41,24 +44,18 @@ const TrendingBooks = ({ headline }) => {
           }
         });
       });
-      setMemberName(memberNamesMap); // Cập nhật memberName
+      setMemberName(memberNamesMap);
     }
   }, [membersData, booksData]);
 
   return (
     <div className="px-4 py-4 text-center lg:px-24">
-      <p className="text-xl text-[#a69060]">Trending Books</p>
-      <h2 className="my-2 text-center font-title text-5xl font-bold leading-snug text-black">
+      <p className="text-xl text-[#a69060]">{t("trending.label")}</p>
+      <h2 className="my-2 text-center font-title text-5xl font-bold leading-snug text-black dark:text-[#cdc4b7]">
         {headline}
       </h2>
-      <p className="text-lg text-gray-700">
-        Chỉ với vài thao tác đơn giản, bạn có thể đăng ký và bắt đầu sử dụng thư
-        viện.{" "}
-        <span className="text-xl font-medium text-[#a69060]">Pegabook</span>{" "}
-        cung cấp đa dạng các đầu sách, từ văn học đến tài liệu chuyên ngành, đáp
-        ứng nhu cầu đọc và học tập của nhiều đối tượng. Dịch vụ mượn sách hoàn
-        toàn miễn phí, hướng tới việc lan tỏa tri thức và khuyến khích văn hóa
-        đọc.
+      <p className="text-lg text-gray-700 dark:text-[#aca49a]">
+        {t("trending.description")}
       </p>
 
       {/* {card} */}
@@ -104,10 +101,10 @@ const TrendingBooks = ({ headline }) => {
                 <Link to={`/book/${book._id}`}>
                   <div
                     data-aos="zoom-in"
-                    className="group flex h-[440px] flex-col justify-between gap-4 bg-white dark:bg-gray-800 lg:h-full lg:w-52"
+                    className="group flex h-[440px] flex-col justify-between gap-4 bg-white dark:bg-[#181a1b] lg:h-full lg:w-52"
                   >
                     <div className="mx-auto mt-1 flex flex-col justify-between gap-1 text-left lg:w-52">
-                      <p className="line-clamp-2 block text-center text-sm text-gray-500">
+                      <p className="line-clamp-2 block text-center text-sm text-gray-500 dark:text-[#aca49a]">
                         {book.category}
                       </p>
                       <img
@@ -124,7 +121,9 @@ const TrendingBooks = ({ headline }) => {
                           {book.authorName}
                         </p>
 
-                        <p className="line-clamp-1 text-sm">Chia sẻ bởi</p>
+                        <p className="line-clamp-1 text-sm">
+                          {t("trending.sharedBy")}
+                        </p>
                         <p className="text-md -mt-1 font-semibold text-[#825445]">
                           {memberName[book.sharerID]}
                         </p>

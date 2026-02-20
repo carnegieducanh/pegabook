@@ -3,19 +3,20 @@ import FavoriteBookImg from "../assets/favoritebook.jpg";
 import { Link } from "react-router-dom";
 import { Avatar } from "flowbite-react";
 import SpinnerLoading from "../components/SpinnerLoading";
+import { useLanguage } from "../contects/LanguageProvider";
 
 const FavoriteBook = () => {
-  const [allMembers, setAllMembers] = useState([]);
+  const { t } = useLanguage();
+
   const [latestMembers, setLatestMembers] = useState([]);
   const [totalMembers, setTotalMembers] = useState(0);
-  const [totalBooks, setTotalBooks] = useState(0); // State to hold total number of books
-  const [totalViews, setTotalViews] = useState(0); // State to hold total number of views
+  const [totalBooks, setTotalBooks] = useState(0);
+  const [totalViews, setTotalViews] = useState(0);
 
   useEffect(() => {
     fetch("https://pega-book-server.onrender.com/all-members")
       .then((res) => res.json())
       .then((members) => {
-        setAllMembers(members);
         setTotalMembers(members.length);
         const lastFiveMembers = members.slice(-7).reverse();
         setLatestMembers(lastFiveMembers);
@@ -23,10 +24,8 @@ const FavoriteBook = () => {
         fetch("https://pega-book-server.onrender.com/all-books")
           .then((res) => res.json())
           .then((books) => {
-            // setAllBooks(books);
             setTotalBooks(books.length);
 
-            // Ensure views are numbers and calculate total views
             const totalBookViews = books.reduce((sum, book) => {
               const views = parseInt(book.views, 10);
               return sum + (isNaN(views) ? 0 : views);
@@ -45,30 +44,26 @@ const FavoriteBook = () => {
 
       <div className="flex-2 space-y-6 lg:w-1/2">
         <h2 className="my-5 font-title text-5xl font-bold leading-snug md:w-3/4">
-          Kho sách phong phú – Vô vàn tri thức!
+          {t("favorite.title")}
         </h2>
         <p className="mb-10 text-lg md:w-5/6">
-          Tại{" "}
-          <span className="text-xl font-medium text-[#a69060]">Pegabook</span> ,
-          người đọc có thể tiếp cận đa dạng các đầu sách thuộc nhiều lĩnh vực
-          khác nhau, từ kiến thức nền tảng đến chuyên môn. Mỗi cuốn sách là một
-          cánh cửa mở ra những góc nhìn mới và giá trị tri thức thiết thực.
+          {t("favorite.description")}
         </p>
         {/* stats */}
         <div className="my-14 flex flex-row justify-between gap-6 md:w-3/4">
           <div>
             <h3 className="text-3xl font-bold">{totalMembers}+</h3>
-            <p className="text-base">Thành viên</p>
+            <p className="text-base">{t("favorite.members")}</p>
           </div>
 
           <div>
             <h3 className="text-3xl font-bold">{totalBooks}+</h3>
-            <p className="text-base">Cuốn sách</p>
+            <p className="text-base">{t("favorite.books")}</p>
           </div>
 
           <div>
             <h3 className="text-3xl font-bold">{totalViews}+</h3>
-            <p className="text-base">Lượt xem</p>
+            <p className="text-base">{t("favorite.views")}</p>
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -90,7 +85,7 @@ const FavoriteBook = () => {
 
         <Link to="/Members">
           <button className="mt-12 block rounded bg-[#a69060] px-5 py-2 text-lg text-white transition-all duration-300 hover:bg-black">
-            Khám phá thêm
+            {t("favorite.exploreBtn")}
           </button>
         </Link>
       </div>

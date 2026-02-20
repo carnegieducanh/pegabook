@@ -9,7 +9,7 @@ const PaginationButtons = ({ booksPerPage, totalBooks, paginate }) => {
   };
 
   return (
-    <div className="my-10 px-2">
+    <div className="px-2 py-10">
       <ReactPaginate
         breakLabel={<span className="mr-2 sm:mr-4">...</span>}
         nextLabel={

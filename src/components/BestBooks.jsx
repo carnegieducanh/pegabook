@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import TrendingBooks from "../home/TrendingBooks";
-// import TrendingBooks from "../home/TrendingBooks";
+import { useLanguage } from "../contects/LanguageProvider";
 
 const BestBooks = () => {
+  const { t } = useLanguage();
+
   const [membersData, setMembersData] = useState(null);
   const [booksData, setBooksData] = useState([]);
 
@@ -17,12 +19,13 @@ const BestBooks = () => {
       .then((res) => res.json())
       .then((data) => setBooksData(data.slice(0, 8)));
   }, []);
+
   return (
-    <div>
+    <div className="dark:bg-[#181a1b]">
       <TrendingBooks
         booksData={booksData}
         membersData={membersData}
-        headline="Đăng ký siêu nhanh – Mượn sách siêu dễ!"
+        headline={t("trending.headline")}
       />
     </div>
   );

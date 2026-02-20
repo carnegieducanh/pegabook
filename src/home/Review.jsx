@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import SpinnerLoading from "../components/SpinnerLoading";
+import { useLanguage } from "../contects/LanguageProvider";
 
 const Review = () => {
+  const { t } = useLanguage();
   const [membersData, setMembersData] = useState([]);
 
   useEffect(() => {
@@ -16,7 +18,6 @@ const Review = () => {
     arrows: false,
     infinite: true,
     speed: 500,
-    // slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -49,24 +50,25 @@ const Review = () => {
       },
     ],
   };
+
   return (
     <>
-      <div data-aos="fade-up" data-aos-duration="300" className="py-10">
-        <div className="px-4 lg:px-24">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="300"
+        className="py-10 dark:bg-[#181a1b]"
+      >
+        <div className="px-4lg:px-24">
           <div className="mx-auto mb-20 max-w-[600px] text-center">
-            <p className="text-lg text-[#a69060]">❤️ Gia nhập hội mê sách</p>
-            <h1 className="font-title text-3xl font-bold">
-              Nuôi dưỡng đam mê đọc sách cùng Pegabook!
+            <p className="text-lg text-[#a69060]">{t("review.eyebrow")}</p>
+            <h1 className="font-title text-3xl font-bold dark:text-[#aca49a]">
+              {t("review.title")}
             </h1>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-700 dark:text-[#aca49a]">
               <span className="text-xl font-medium text-[#a69060]">
                 Pegabook
               </span>{" "}
-              tin rằng đọc sách không chỉ mang tính giải trí mà còn góp phần mở
-              rộng tri thức, rèn luyện tư duy và cân bằng nhịp sống. Thư viện
-              khuyến khích người đọc đăng ký và tham gia cộng đồng để cùng khám
-              phá, chia sẻ giá trị từ sách và đóng góp ý kiến nhằm nâng cao chất
-              lượng dịch vụ.
+              {t("review.description")}
             </p>
           </div>
           <div
@@ -80,7 +82,7 @@ const Review = () => {
                   membersData.map((member) => {
                     return (
                       <div className="my-6 w-96" key={member._id}>
-                        <div className="relative mx-4 flex h-56 flex-col gap-4 rounded-xl bg-gray-100 px-6 py-8 shadow-lg dark:bg-gray-800">
+                        <div className="relative mx-4 flex h-56 flex-col gap-4 rounded-xl bg-gray-100 px-6 py-8 shadow-lg dark:bg-[#1e2022]">
                           <div>
                             <img
                               className="h-20 w-20 rounded-full object-cover"
@@ -90,16 +92,16 @@ const Review = () => {
                           </div>
                           <div className="flex items-center gap-4">
                             <div>
-                              <p className="line-clamp-2 text-gray-500">
+                              <p className="line-clamp-2 text-gray-500 dark:text-[#aca49a]">
                                 {member.comment}
                               </p>
-                              <h1 className="dark:text-light text-xl font-bold text-black/80">
+                              <h1 className="dark:text-light text-xl font-bold text-black/80 dark:text-[#cdc4b7]">
                                 {member.memberName}
                               </h1>
                             </div>
                           </div>
 
-                          <p className="absolute right-0 top-0 font-serif text-9xl text-black/20">
+                          <p className="absolute right-0 top-0 font-serif text-9xl text-black/20 dark:text-[#aca49a]">
                             ,,
                           </p>
                         </div>

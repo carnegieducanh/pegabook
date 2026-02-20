@@ -5,24 +5,19 @@ import {
   FaLocationArrow,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../contects/LanguageProvider";
 
-const FooterLinks = [
-  {
-    link: "Thành viên",
-    path: "/Members",
-  },
-  {
-    link: "Người chia sẻ",
-    path: "/Sharers",
-  },
-  {
-    link: "Lời cảm ơn",
-    path: "/gratitude",
-  },
-];
 const Footer = () => {
+  const { t } = useLanguage();
+
+  const FooterLinks = [
+    { link: t("footer.members"), path: "/Members" },
+    { link: t("footer.sharers"), path: "/Sharers" },
+    { link: t("footer.gratitude"), path: "/gratitude" },
+  ];
+
   return (
-    <div className="bg-[#F4F1EA] px-4 dark:bg-gray-950 lg:px-24">
+    <div className="bg-[#F4F1EA] px-4 dark:bg-[#383323] dark:text-[#e8eaed] lg:px-24">
       <section className="container">
         <div className="flex flex-col justify-between py-5 md:flex-row">
           {/* company Details */}
@@ -30,35 +25,29 @@ const Footer = () => {
             <h1 className="mb-5 text-4xl font-medium text-[#a69060]">
               PEGABOOK
             </h1>
-            <p>
-              Tận Hưởng Niềm Đam Mê Đọc Sách
-              {/* Cùng{" "}
-                            <span className="text-[#a69060] text-xl font-medium">
-                                Pegabook
-                            </span>{" "} */}
-            </p>
+            <p>{t("footer.tagline")}</p>
           </div>
-          {/* Links */}
 
+          {/* Links */}
           <div className="col-span-3 hidden md:grid md:grid-cols-3 md:px-10 lg:grid-cols-4">
             <div className="">
               <div className="px-4 py-8">
                 <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
-                  Trang chủ
+                  {t("footer.home")}
                 </h1>
               </div>
             </div>
             <div className="">
               <div className="px-4 py-8">
                 <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
-                  Thư viện sách
+                  {t("footer.library")}
                 </h1>
               </div>
             </div>
             <div className="">
               <div className="px-4 py-8">
                 <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
-                  Cộng đồng
+                  {t("footer.community")}
                 </h1>
                 <ul className="flex flex-col gap-3">
                   {FooterLinks.map(({ link, path }) => (
@@ -77,7 +66,7 @@ const Footer = () => {
             <div className="hidden lg:block">
               <div className="px-4 py-8">
                 <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
-                  Kết nối{" "}
+                  {t("footer.connect")}{" "}
                   <span className="text-xl font-medium text-[#a69060]">
                     Pegabook
                   </span>{" "}
@@ -115,7 +104,7 @@ const Footer = () => {
           <div className="md:hidden">
             <div className="py-8">
               <h1 className="mb-3 text-justify sm:text-left sm:text-xl">
-                Kết nối{" "}
+                {t("footer.connect")}{" "}
                 <span className="text-xl font-medium text-[#a69060]">
                   Pegabook
                 </span>{" "}
@@ -151,9 +140,8 @@ const Footer = () => {
         </div>
 
         <div>
-          <div className="border-t-2 border-gray-300/50 py-10 text-center">
-            @Copyright 2024 All rights reserved || Made with ❤️ by Viet Nam Team
-            of Pegabook Japan
+          <div className="border-t-2 border-gray-300/50 py-10 text-center dark:border-[#3c4043]">
+            {t("footer.copyright")}
           </div>
         </div>
       </section>

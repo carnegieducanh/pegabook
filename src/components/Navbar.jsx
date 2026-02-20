@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
 
@@ -10,13 +10,33 @@ import { FaUser } from "react-icons/fa6";
 import userImg from "../assets/awardbooks.png";
 import { IoIosArrowForward } from "react-icons/io";
 
+// Language context
+import { useLanguage, SUPPORTED_LANGUAGES } from "../contects/LanguageProvider";
+
+// Theme context
+import { useTheme } from "../contects/ThemeProvider";
+import { BsMoonFill, BsSunFill } from "react-icons/bs";
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
-  //Thêm hai state mới để quản lý trạng thái hiển thị của navSignIn và DropdownLinks:
+  // Trạng thái hiển thị dropdown cộng đồng và join
   const [isDropdownLinksOpen, setIsDropdownLinksOpen] = useState(false);
   const [isNavSignInOpen, setIsNavSignInOpen] = useState(false);
+
+  // Trạng thái dropdown chọn ngôn ngữ (desktop và mobile riêng biệt)
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
+
+  // Ref để đóng dropdown ngôn ngữ khi click ra ngoài
+  const langDropdownRef = useRef(null);
+
+  // Lấy hàm dịch và hàm đổi ngôn ngữ từ context
+  const { language, changeLanguage, t } = useLanguage();
+
+  // Lấy trạng thái và hàm toggle dark mode
+  const { isDark, toggleTheme } = useTheme();
 
   // Toggle DropdownLinks
   const toggleDropdownLinks = () => {
@@ -31,9 +51,8 @@ const Navbar = () => {
   // Khai báo user và kiểm tra xem người dùng đã đăng nhập hay không
   const { user } = useContext(AuthContext);
   const isUserLoggedIn = !user;
-  // console.log(user);
 
-  // toggle menu
+  // toggle menu mobile
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -42,103 +61,181 @@ const Navbar = () => {
     setIsMenuOpen(false);
     setIsDropdownLinksOpen(false);
     setIsNavSignInOpen(false);
+    setIsLangOpen(false);
+    setIsMobileLangOpen(false);
   };
+
+  // Đóng dropdown ngôn ngữ khi click ra ngoài vùng dropdown
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        langDropdownRef.current &&
+        !langDropdownRef.current.contains(e.target)
+      ) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        // Nếu người dùng cuộn xuống hơn 0px, đặt isSticky thành true
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      setIsSticky(window.scrollY > 0);
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // navItems here
+  // Tìm thông tin ngôn ngữ hiện tại (flag + label) để hiển thị trên nút
+  const currentLang = SUPPORTED_LANGUAGES.find((l) => l.code === language);
+
+  // navItems — dùng t() để lấy bản dịch theo ngôn ngữ hiện tại
   const navItems = [
-    { link: "Trang chủ", path: "/" },
-    { link: "Thư viện sách", path: "/all-books" },
+    { link: t("nav.home"), path: "/" },
+    { link: t("nav.library"), path: "/all-books" },
   ];
 
   const navSignIn = [
-    { link: "Thành viên", path: "/login-member" },
-    // { link: "Trả sách ", path: "/login-borrower" },
-    { link: "Admin", path: "/admin/dashboard" },
+    { link: t("nav.member"), path: "/login-member" },
+    { link: t("nav.admin"), path: "/admin/dashboard" },
   ];
 
   const DropdownLinks = [
-    {
-      link: "Thành viên",
-      path: "/Members",
-    },
-    {
-      link: "Người chia sẻ",
-      path: "/Sharers",
-    },
-    {
-      link: "Lời cảm ơn",
-      path: "/gratitude",
-    },
+    { link: t("nav.members"), path: "/Members" },
+    { link: t("nav.sharers"), path: "/Sharers" },
+    { link: t("nav.gratitude"), path: "/gratitude" },
   ];
 
   const navUser = [
     { link: user ? user.email : "", path: "/admin/dashboard" },
-    { link: "Dashboard", path: "/admin/dashboard" },
-    { link: "Log out", path: "logout" },
+    { link: t("nav.dashboard"), path: "/admin/dashboard" },
+    { link: t("nav.logout"), path: "logout" },
   ];
 
+  // ---- Component con: nút toggle dark/light mode ----
+  const DarkModeToggle = () => (
+    <button
+      onClick={toggleTheme}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      title={isDark ? "Light mode" : "Dark mode"}
+      className="flex items-center justify-center rounded-full border border-[#a69060] p-2 transition-all hover:bg-[#a69060]/10"
+    >
+      {isDark ? (
+        <BsSunFill className="h-5 w-5 text-[#a69060]" />
+      ) : (
+        <BsMoonFill className="h-5 w-5 text-[#a69060]" />
+      )}
+    </button>
+  );
+
+  // ---- Component con: nút chọn ngôn ngữ (dùng lại ở desktop và mobile) ----
+  const LanguageSwitcher = ({ mobile = false }) => {
+    const isOpen = mobile ? isMobileLangOpen : isLangOpen;
+    const toggle = () =>
+      mobile
+        ? setIsMobileLangOpen(!isMobileLangOpen)
+        : setIsLangOpen(!isLangOpen);
+
+    return (
+      <div
+        className={`relative ${mobile ? "w-full" : ""}`}
+        ref={mobile ? null : langDropdownRef}
+      >
+        {/* Nút hiển thị ngôn ngữ hiện tại */}
+        <button
+          onClick={toggle}
+          className={`flex items-center gap-1.5 rounded-full border border-[#a69060] px-3 py-1.5 text-sm font-medium text-[#a69060] transition-all hover:bg-[#a69060] hover:text-white ${
+            mobile ? "w-full justify-between text-base" : ""
+          }`}
+          aria-label="Select language"
+        >
+          <span>{currentLang?.flag}</span>
+          <span>{currentLang?.label}</span>
+          <FaCaretDown
+            className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+          />
+        </button>
+
+        {/* Dropdown danh sách ngôn ngữ */}
+        {isOpen && (
+          <div
+            className={`absolute z-[9999] mt-2 min-w-[160px] rounded-md border border-gray-100 bg-white py-1 shadow-lg dark:border-[#3c4043] dark:bg-[#292a2d] ${
+              mobile ? "left-0" : "right-0"
+            }`}
+          >
+            {SUPPORTED_LANGUAGES.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => {
+                  changeLanguage(lang.code);
+                  toggle();
+                }}
+                className={`flex w-full items-center gap-2 px-4 py-2 text-left text-sm transition-colors hover:bg-[#f4f1ea] dark:hover:bg-[#35363a] ${
+                  language === lang.code
+                    ? "font-semibold text-[#a69060]"
+                    : "text-gray-700 dark:text-[#e8eaed]"
+                }`}
+              >
+                <span className="text-base">{lang.flag}</span>
+                <span>{lang.label}</span>
+                {/* Dấu check cho ngôn ngữ đang chọn */}
+                {language === lang.code && (
+                  <span className="ml-auto text-[#a69060]">✓</span>
+                )}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-all duration-300 ease-in">
+    <header className="fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-all duration-300 ease-in dark:bg-[#202124]">
       <nav
         className={`py-4 pl-4 pr-4 transition-all duration-300 ease-in-out md:px-4 lg:px-24 ${
           isSticky
-            ? "sticky left-0 right-0 top-0 bg-[#F4F1EA]/90 shadow-md backdrop-blur-md"
+            ? "sticky left-0 right-0 top-0 bg-[#F4F1EA]/90 shadow-md backdrop-blur-md dark:bg-[#383323]"
             : ""
         }`}
       >
         <div className="flex items-center justify-between text-base">
           {/* logo */}
           <Link to="/">
-            {/* <img src={navLogo} alt="" /> */}
             <h2 className="text-4xl font-medium text-[#a69060]">PEGABOOK</h2>
-            {/* <FaBlog className="inline-block" /> */}
-            <p className="pt-2 text-[#5a5a5a]">Viet Nam Team with ❤️</p>
+            <p className="pt-2 text-[#5a5a5a] dark:text-[#9aa0a6]">
+              {t("nav.tagline")}
+            </p>
           </Link>
 
-          {/* nav item for large device */}
+          {/* nav items cho màn hình lớn */}
           <ul className="hidden space-x-12 md:flex">
             {navItems.map(({ link, path }) => (
               <Link
                 key={path}
                 to={path}
-                className="block cursor-pointer text-lg text-black hover:text-[#a69060]"
+                className="block cursor-pointer text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
               >
                 {link}
               </Link>
             ))}
 
-            {/* Simple Dropdown and Links */}
+            {/* Dropdown Cộng đồng */}
             <div className="group relative cursor-pointer">
-              <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060]">
-                Cộng đồng{" "}
+              <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]">
+                {t("nav.community")}{" "}
                 <span>
                   <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
                 </span>
               </div>
-              <div className="shadow-mdv absolute z-[9999] hidden w-[150px] rounded-md bg-white p-2 text-black group-hover:block">
+              <div className="shadow-mdv absolute z-[9999] hidden w-[160px] rounded-md bg-white p-2 text-black group-hover:block dark:bg-[#292a2d]">
                 <ul className="space-y-3">
                   {DropdownLinks.map(({ link, path }) => (
                     <Link
                       key={path}
                       to={path}
-                      className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline"
+                      className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
                     >
                       {link}
                     </Link>
@@ -148,25 +245,30 @@ const Navbar = () => {
             </div>
           </ul>
 
-          {/* btn for large devices */}
-          {isUserLoggedIn && (
-            <>
-              <div className="group relative hidden cursor-pointer md:block">
-                <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060]">
+          {/* Phần bên phải: nút ngôn ngữ + Join/User avatar */}
+          <div className="hidden items-center gap-3 md:flex">
+            {/* ===== NÚT TOGGLE DARK MODE (Desktop) ===== */}
+            <DarkModeToggle />
+            {/* ===== NÚT CHUYỂN NGÔN NGỮ (Desktop) ===== */}
+            <LanguageSwitcher />
+
+            {/* Nút Join (khi chưa đăng nhập) */}
+            {isUserLoggedIn && (
+              <div className="group relative cursor-pointer">
+                <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]">
                   <FaUser />
-                  Join{" "}
+                  {t("nav.join")}{" "}
                   <span>
                     <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
                   </span>
                 </div>
-                <div className="shadow-mdv absolute -right-4 z-[9999] hidden w-[150px] rounded-md bg-white p-2 text-black group-hover:block lg:left-0">
-                  {/* Sign in / Join */}
+                <div className="shadow-mdv absolute -right-4 z-[9999] hidden w-[160px] rounded-md bg-white p-2 text-black group-hover:block dark:bg-[#292a2d] lg:left-0">
                   <ul className="space-y-3">
                     {navSignIn.map(({ link, path }) => (
                       <Link
                         key={path}
                         to={path}
-                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline"
+                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
                       >
                         {link}
                       </Link>
@@ -174,35 +276,35 @@ const Navbar = () => {
                   </ul>
                 </div>
               </div>
-            </>
-          )}
+            )}
 
-          {!isUserLoggedIn && (
-            <div className="group relative cursor-pointer">
-              <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060]">
-                <img src={userImg} alt="" className="h-10 w-10" />
-                <span>
-                  <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
-                </span>
+            {/* Avatar user (khi đã đăng nhập) */}
+            {!isUserLoggedIn && (
+              <div className="group relative cursor-pointer">
+                <div className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]">
+                  <img src={userImg} alt="" className="h-10 w-10" />
+                  <span>
+                    <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
+                  </span>
+                </div>
+                <div className="shadow-mdv absolute right-0 z-[9999] hidden rounded-md bg-white p-2 text-black group-hover:block dark:bg-[#292a2d]">
+                  <ul className="space-y-3">
+                    {navUser.map(({ link, path }) => (
+                      <Link
+                        key={path}
+                        to={path}
+                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                      >
+                        {link}
+                      </Link>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div className="shadow-mdv absolute right-0 z-[9999] hidden rounded-md bg-white p-2 text-black group-hover:block">
-                {/* Sign in / Join */}
-                <ul className="space-y-3">
-                  {navUser.map(({ link, path }) => (
-                    <Link
-                      key={path}
-                      to={path}
-                      className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline"
-                    >
-                      {link}
-                    </Link>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
 
-          {/* =========== MENU BTN FOR THE MOBILE DEVICES ============= */}
+          {/* ===== NÚT HAMBURGER - MOBILE ===== */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -217,9 +319,9 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* ===== navItems for sm devices ====== */}
+        {/* ===== Menu mobile ===== */}
         <div
-          className={`mt-[95px] space-y-4 bg-[#f4f1ea] px-4 py-7 ${
+          className={`mt-[95px] space-y-4 bg-[#f4f1ea] px-4 py-7 dark:bg-[#202124] ${
             isMenuOpen ? "fixed left-0 right-0 top-0 block" : "hidden"
           }`}
         >
@@ -227,8 +329,8 @@ const Navbar = () => {
             <Link
               key={path}
               to={path}
-              className="cursor-point text-lg text-black"
-              onClick={closeDropdowns} // Đóng dropdown khi click vào link
+              className="cursor-point text-lg text-black dark:text-[#e8eaed]"
+              onClick={closeDropdowns}
             >
               <div className="mb-4 flex items-center justify-between">
                 {link}
@@ -236,13 +338,15 @@ const Navbar = () => {
               </div>
             </Link>
           ))}
+
+          {/* Dropdown Cộng đồng (mobile) */}
           <div className="">
             <div className="relative mb-4 cursor-pointer">
               <div
-                className="flex items-center justify-between gap-2 text-lg text-black hover:text-[#a69060]"
+                className="flex items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
                 onClick={toggleDropdownLinks}
               >
-                Cộng đồng{" "}
+                {t("nav.community")}{" "}
                 <FaCaretDown
                   className={`transition-all duration-200 ${
                     isDropdownLinksOpen ? "rotate-180" : ""
@@ -256,8 +360,8 @@ const Navbar = () => {
                       <Link
                         key={path}
                         to={path}
-                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline"
-                        onClick={closeDropdowns} // Đóng dropdown khi click vào link
+                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                        onClick={closeDropdowns}
                       >
                         <div className="flex items-center gap-2">
                           <IoIosArrowForward className="text-[#a69060]" />
@@ -270,15 +374,15 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* Dropdown for Join */}
+            {/* Dropdown Join (mobile) */}
             <div className="relative cursor-pointer">
               <div
-                className="flex items-center justify-between gap-2 text-lg text-black hover:text-[#a69060]"
+                className="flex items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
                 onClick={toggleNavSignIn}
               >
-                <div className="justify-between> flex items-center gap-2">
+                <div className="flex items-center gap-2">
                   <FaUser />
-                  Join{" "}
+                  {t("nav.join")}{" "}
                 </div>
                 <FaCaretDown
                   className={`transition-all duration-200 ${
@@ -293,8 +397,8 @@ const Navbar = () => {
                       <Link
                         key={path}
                         to={path}
-                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline"
-                        onClick={closeDropdowns} // Đóng dropdown khi click vào link
+                        className="block cursor-pointer text-lg text-black hover:text-[#a69060] hover:underline dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                        onClick={closeDropdowns}
                       >
                         <div className="flex items-center gap-2">
                           <IoIosArrowForward className="text-[#a69060]" />
@@ -305,6 +409,22 @@ const Navbar = () => {
                   </ul>
                 </div>
               )}
+            </div>
+
+            {/* ===== NÚT CHUYỂN NGÔN NGỮ (Mobile) ===== */}
+            <div className="mt-4 border-t border-gray-200 pt-4">
+              <p className="mb-2 text-sm text-gray-500 dark:text-[#9aa0a6]">
+                {t("nav.langLabel")}
+              </p>
+              <LanguageSwitcher mobile={true} />
+            </div>
+
+            {/* ===== NÚT TOGGLE DARK MODE (Mobile) ===== */}
+            <div className="mt-4 border-t border-gray-200 pt-4">
+              <p className="mb-2 text-sm text-gray-500 dark:text-[#9aa0a6]">
+                {t("nav.themeLabel")}
+              </p>
+              <DarkModeToggle />
             </div>
           </div>
         </div>

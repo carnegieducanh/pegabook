@@ -7,7 +7,7 @@ import { Suspense } from "react";
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen bg-white dark:bg-[#202124] dark:text-[#e8eaed]">
       <Navbar />
       <Suspense
         fallback={

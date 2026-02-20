@@ -54,7 +54,7 @@ const ViewsBook = ({ headline }) => {
   return (
     <div className="px-4 py-8 text-center lg:px-24">
       <p className="text-xl text-[#a69060]"></p>
-      <h2 className="my-2 text-left font-title text-4xl font-bold text-black">
+      <h2 className="my-2 text-left font-title text-4xl font-bold text-black dark:text-[#cdc4b7]">
         {headline}
       </h2>
 
@@ -101,10 +101,10 @@ const ViewsBook = ({ headline }) => {
                 <Link to={`/book/${book._id}`}>
                   <div
                     data-aos="zoom-in"
-                    className="group flex h-[440px] flex-col justify-between gap-4 bg-white dark:bg-gray-800 lg:h-full lg:w-52"
+                    className="group flex h-[440px] flex-col justify-between gap-4 bg-white dark:bg-[#181a1b] lg:h-full lg:w-52"
                   >
                     <div className="mx-auto mt-1 flex flex-col justify-between gap-1 text-left lg:w-52">
-                      <p className="line-clamp-2 block text-center text-sm text-gray-500">
+                      <p className="line-clamp-2 block text-center text-sm text-gray-500 dark:text-[#aca49a]">
                         {book.category}
                       </p>
                       <img
@@ -121,15 +121,8 @@ const ViewsBook = ({ headline }) => {
                           {book.authorName}
                         </p>
 
-                        {/* <div className="flex gap-1">
-                          <FaStar className="text-yellow-500" />
-                          <FaStar className="text-yellow-500" />
-                          <FaStar className="text-yellow-500" />
-                          <FaStar className="text-yellow-500" />
-                          <FaStar className="text-yellow-500" />
-                        </div> */}
                         <p className="line-clamp-1 text-sm">Chia sẻ bởi</p>
-                        <p className="-mt-1 text-sm font-semibold text-[#825445]">
+                        <p className="-mt-1 text-sm font-semibold text-[#825445] dark:text-[#bd9183]">
                           {memberName[book.sharerID]}
                         </p>
                         <p className="text-sm text-gray-500">
