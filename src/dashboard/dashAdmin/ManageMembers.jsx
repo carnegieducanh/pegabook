@@ -64,7 +64,7 @@ const ManageMembers = () => {
             ).then(() => {
                 // Sau khi xóa các sách liên quan, xóa thành viên
                 fetch(`${API_BASE_URL}/member/${id}`, {
-                    method: `DELETE",
+                    method: "DELETE",
                 })
                     .then((res) => res.json())
                     .then(() => {

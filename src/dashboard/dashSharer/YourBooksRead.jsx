@@ -42,7 +42,7 @@ const YourBooksRead = () => {
     // Kiểm tra xem người dùng đã xác nhận hay không
     if (isConfirmed) {
       fetch(`${API_BASE_URL}/bookRead/${id}`, {
-        method: `DELETE",
+        method: "DELETE",
       })
         .then((res) => res.json())
         .then(() => {
