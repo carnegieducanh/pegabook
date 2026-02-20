@@ -3,6 +3,7 @@ import { Checkbox, Label } from "flowbite-react";
 import { Link, useNavigate } from "react-router-dom";
 import bookrow from "../../assets/bookrow.jpg";
 import SpinnerLoading from "../SpinnerLoading";
+import API_BASE_URL from "../../config/api";
 
 const LoginMember = () => {
   const [error, setError] = useState("");
@@ -17,7 +18,7 @@ const LoginMember = () => {
 
     setLoading(true); // Set loading to true when starting to fetch data
 
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false); // Set loading to false after data is fetched

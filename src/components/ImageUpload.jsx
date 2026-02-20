@@ -7,6 +7,7 @@ import {
 } from "firebase/storage";
 import app from "../firebase/firebase.config";
 import userAvatar from "../assets/user avatar.jpg";
+import API_BASE_URL from "../config/api";
 
 const ImageUpload = ({ onAvatarChange, memberAvatar }) => {
     const fileRef = useRef(null);
@@ -69,7 +70,7 @@ const ImageUpload = ({ onAvatarChange, memberAvatar }) => {
                 request.resource.size < 2 * 1024 * 1024 &&
                 request.resource.contentType.matches('image/.*') */}
                     <img
-                        // src={`https://pega-book-server.onrender.com/${memberAvatar}`}
+                        // src={`${API_BASE_URL}/${memberAvatar}`}
                         src={
                             formData.profilePicture ||
                             memberAvatar ||

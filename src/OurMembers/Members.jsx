@@ -3,6 +3,7 @@ import PaginationButtons from "../components/PaginationBtns";
 import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
 import NewMember from "./NewMember";
+import API_BASE_URL from "../config/api";
 
 const Members = () => {
   const [allMembers, setAllMembers] = useState([]);
@@ -23,17 +24,17 @@ const Members = () => {
   const [matchedMembers, setMatchedMembers] = useState([]);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((members) => {
         setAllMembers(members);
 
-        fetch("https://pega-book-server.onrender.com/all-books")
+        fetch(`${API_BASE_URL}/all-books`)
           .then((res) => res.json())
           .then((books) => {
             setAllBooks(books);
 
-            fetch("https://pega-book-server.onrender.com/all-booksRead")
+            fetch(`${API_BASE_URL}/all-booksRead`)
               .then((res) => res.json())
               .then((data) => {
                 setAllBooksRead(data);

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import ImageUpload from "../../components/ImageUpload";
+import API_BASE_URL from "../../config/api";
 
 const YourProfile = () => {
     const [avatar, setAvatar] = useState(""); // State để lưu trữ URL của hình ảnh
@@ -45,7 +46,7 @@ const YourProfile = () => {
         };
 
         // update data to database
-        fetch(`https://pega-book-server.onrender.com/member/${id}`, {
+        fetch(`${API_BASE_URL}/member/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

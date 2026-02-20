@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
+import API_BASE_URL from "../../config/api";
 
 const SearchYourBook = () => {
     const [data, setData] = useState([]);
@@ -11,7 +12,7 @@ const SearchYourBook = () => {
     const [selectedMember, setSelectedMember] = useState(null);
 
     useEffect(() => {
-        fetch("https://pega-book-server.onrender.com/all-members")
+        fetch(`${API_BASE_URL}/all-members`)
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -68,13 +69,13 @@ const SearchYourBook = () => {
 
         // Cập nhật giá trị của Avatar
         document.getElementById(
-            "searchAvatar"
-        ).src = `https://pega-book-server.onrender.com/${member.memberAvatar}`;
+            "searchAvatar`
+        ).src = `${API_BASE_URL}/${member.memberAvatar}`;
     };
 
     return (
         <div>
-            <div className="border border-solid bg-ghost rounded-lg flex justify-start py-1 px-2">
+            <div className=`border border-solid bg-ghost rounded-lg flex justify-start py-1 px-2">
                 <IoIosSearch className="w-6 h-6 my-auto" />
                 <input
                     id="searchInputSharer" // Thêm id cho input để có thể truy cập nó
@@ -101,10 +102,10 @@ const SearchYourBook = () => {
                                 key={member._id}
                                 onClick={() => handleMemberSelect(member)}
                             >
-                                <div className="flex gap-4 h-20 py-2 px-5 hover:bg-ash cursor-pointer">
+                                <div className="flex gap-4 h-20 py-2 px-5 hover:bg-ash cursor-pointer`>
                                     <img
-                                        src={`https://pega-book-server.onrender.com/${member.memberAvatar}`}
-                                        alt=""
+                                        src={`${API_BASE_URL}/${member.memberAvatar}`}
+                                        alt=`"
                                         className="w-16 h-16 rounded-full object-cover mr-2"
                                     />
                                     <div className="h-full  flex flex-col justify-center text-left">

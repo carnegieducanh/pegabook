@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import SpinnerLoading from "../components/SpinnerLoading";
+import API_BASE_URL from "../config/api";
 
 const NewMember = () => {
   const [lastMember, setLastMember] = useState(null);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((members) => {
         if (members.length > 0) {

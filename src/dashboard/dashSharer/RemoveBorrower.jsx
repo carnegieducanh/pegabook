@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button, Label, TextInput } from "flowbite-react";
 import userAvatar from "../../assets/user avatar.jpg";
 import { TiArrowBackOutline } from "react-icons/ti";
+import API_BASE_URL from "../../config/api";
 
 function RemoveBorrower() {
   const [bookedTime, setBookedTime] = useState("Thời gian mượn");
@@ -40,7 +41,7 @@ function RemoveBorrower() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((data) => {
         setMemberData(data);
@@ -48,7 +49,7 @@ function RemoveBorrower() {
   }, []);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-books")
+    fetch(`${API_BASE_URL}/all-books`)
       .then((res) => res.json())
       .then((data) => {
         setAllBooksData(data);
@@ -87,7 +88,7 @@ function RemoveBorrower() {
       setSharerName(sharedByCurrent);
       // setBorrowerWorkPlace(borrowerWorkPlace);
     }
-  }, [memberData, allBookData]);
+  }, [memberData, allBookData, borrowerID, sharerID]);
 
   // handle book update
   const handleUpdate = (event) => {
@@ -111,7 +112,7 @@ function RemoveBorrower() {
     };
 
     // send data to database
-    fetch("https://pega-book-server.onrender.com/upload-bookRead", {
+    fetch(`${API_BASE_URL}/upload-bookRead`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -137,7 +138,7 @@ function RemoveBorrower() {
     };
 
     // update book data
-    fetch(`https://pega-book-server.onrender.com/book/${id}`, {
+    fetch(`${API_BASE_URL}/book/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -247,7 +248,7 @@ function RemoveBorrower() {
             Hủy người mượn này
           </Button>
           <Button
-            className="mb-5 bg-cobalt"
+            className="bg-cobalt mb-5"
             onClick={() => {
               window.location.href = `/member/dashboard/manage/borrower/${sharedBy_id}`;
             }}

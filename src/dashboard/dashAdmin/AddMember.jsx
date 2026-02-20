@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import ImageUpload from "../../components/ImageUpload";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../../config/api";
 
 const AddMember = () => {
   const [memberID, setMemberID] = useState("");
@@ -44,7 +45,7 @@ const AddMember = () => {
   };
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((data) => {
         setMemberData(data);
@@ -96,7 +97,7 @@ const AddMember = () => {
       review,
     };
 
-    fetch("https://pega-book-server.onrender.com/add-member", {
+    fetch(`${API_BASE_URL}/add-member`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

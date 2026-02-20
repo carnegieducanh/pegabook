@@ -4,6 +4,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import PaginationButtons from "../../components/PaginationBtns";
 
 import { RiDeleteBinLine } from "react-icons/ri";
+import API_BASE_URL from "../../config/api";
 
 const YourBooksRead = () => {
   const [allBooksRead, setAllBooksRead] = useState([]);
@@ -17,7 +18,7 @@ const YourBooksRead = () => {
   // console.log(memberID);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-booksRead")
+    fetch(`${API_BASE_URL}/all-booksRead`)
       .then((res) => res.json())
       .then((data) => {
         // Sử dụng Map để loại bỏ sách trùng tiêu đề
@@ -35,13 +36,13 @@ const YourBooksRead = () => {
   const handleDelete = (id) => {
     // Sử dụng window.confirm để hiển thị thông báo
     const isConfirmed = window.confirm(
-      "Are you sure you want to delete this book?",
+      "Are you sure you want to delete this book?`,
     );
 
     // Kiểm tra xem người dùng đã xác nhận hay không
     if (isConfirmed) {
-      fetch(`https://pega-book-server.onrender.com/bookRead/${id}`, {
-        method: "DELETE",
+      fetch(`${API_BASE_URL}/bookRead/${id}`, {
+        method: `DELETE",
       })
         .then((res) => res.json())
         .then(() => {

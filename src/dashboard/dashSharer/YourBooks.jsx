@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import PaginationButtons from "../../components/PaginationBtns";
 import DashSearchBook from "./DashSearchBook";
+import API_BASE_URL from "../../config/api`;
 
 const YourBooks = () => {
   const [member, setMember] = useState([]);
@@ -16,24 +17,24 @@ const YourBooks = () => {
   const { memberID } = useLoaderData();
 
   useEffect(() => {
-    fetch(`https://pega-book-server.onrender.com/member/${id}`)
+    fetch(`${API_BASE_URL}/member/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setMember(data);
-        // console.log("book shared by:", data);
+        // console.log(`book shared by:", data);
       });
   }, []);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-books")
+    fetch(`${API_BASE_URL}/all-books`)
       .then((res) => res.json())
       .then((data) => {
         setAllBooks(data);
-        // console.log("All Books:", data);
+        // console.log("All Books:`, data);
       });
   }, []);
 
-  // Lọc ra các cuốn sách có memberID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
+  // Lọc ra các cuốn sách có memberID trùng với memberID từ API `${API_BASE_URL}/member/${id}`
 
   const memberBooks = allBooks.filter((book) => book.sharerID === memberID);
   // console.log(memberBooks);
@@ -46,7 +47,7 @@ const YourBooks = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="my-12 w-full px-4">
+    <div className=`my-12 w-full px-4">
       <div className="flex flex-col justify-between lg:flex-row">
         <h2 className="dark:text-pebble mb-4 text-3xl font-bold">
           Sách của bạn

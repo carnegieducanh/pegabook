@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Avatar } from "flowbite-react";
 import SpinnerLoading from "../components/SpinnerLoading";
 import { useLanguage } from "../contects/LanguageProvider";
+import API_BASE_URL from "../config/api";
 
 const FavoriteBook = () => {
   const { t } = useLanguage();
@@ -14,14 +15,14 @@ const FavoriteBook = () => {
   const [totalViews, setTotalViews] = useState(0);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((members) => {
         setTotalMembers(members.length);
         const lastFiveMembers = members.slice(-7).reverse();
         setLatestMembers(lastFiveMembers);
 
-        fetch("https://pega-book-server.onrender.com/all-books")
+        fetch(`${API_BASE_URL}/all-books`)
           .then((res) => res.json())
           .then((books) => {
             setTotalBooks(books.length);

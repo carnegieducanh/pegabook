@@ -55,6 +55,20 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleSessionUpdate = () => {
+      try {
+        const saved = localStorage.getItem("memberSession");
+        setMemberSession(saved ? JSON.parse(saved) : null);
+      } catch {
+        setMemberSession(null);
+      }
+    };
+    window.addEventListener("memberSessionUpdated", handleSessionUpdate);
+    return () =>
+      window.removeEventListener("memberSessionUpdated", handleSessionUpdate);
+  }, []);
+
   const navItems = [
     { link: t("nav.home"), path: "/" },
     { link: t("nav.library"), path: "/all-books" },

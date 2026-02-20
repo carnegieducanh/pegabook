@@ -3,6 +3,7 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 import PaginationButtons from "../components/PaginationBtns";
 import ToggleShowMore from "../components/ToggleShowMore";
 import ImageBanner from "../components/ImageBanner";
+import API_BASE_URL from "../config/api";
 
 const SingleMember = () => {
   const {
@@ -29,24 +30,24 @@ const SingleMember = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    fetch(`https://pega-book-server.onrender.com/member/${id}`)
+    fetch(`${API_BASE_URL}/member/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setMember(data);
-        // console.log("book shared by:", data);
+        // console.log(`book shared by:", data);
       });
   }, []);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-books")
+    fetch(`${API_BASE_URL}/all-books`)
       .then((res) => res.json())
       .then((data) => {
         setAllBooks(data);
-        // console.log("All Books:", data);
+        // console.log("All Books:`, data);
       });
   }, []);
 
-  // Lọc ra các cuốn sách có memberID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
+  // Lọc ra các cuốn sách có memberID trùng với memberID từ API `${API_BASE_URL}/member/${id}`
 
   const memberBooks = allBooks.filter((book) => book.sharerID === memberID);
   // console.log(memberBooks);
@@ -59,10 +60,10 @@ const SingleMember = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="min-h-screen dark:bg-void">
+    <div className="dark:bg-obsidian min-h-screen">
       <ImageBanner />
 
-      <div className="bg-veil px-4 py-10 dark:bg-void lg:px-24">
+      <div className="bg-veil dark:bg-obsidian px-4 py-10 lg:px-24">
         <h2 className="text-4xl font-semibold">Về người chia sẻ</h2>
 
         <div className="mt-10 flex items-center gap-4">
@@ -74,15 +75,15 @@ const SingleMember = () => {
             />
           </div>
           <div className="text-lg">
-            <h2 className="font-bold tracking-tight text-gray-900 dark:text-blush">
+            <h2 className="dark:text-blush font-bold tracking-tight text-gray-900">
               <div className="line-clamp-2">
                 <p>{memberName}</p>
               </div>
             </h2>
-            <p className="font-normal text-gray-700 dark:text-pebble">
+            <p className="dark:text-pebble font-normal text-gray-700">
               {workPlace}
             </p>
-            <p className="font-normal text-gray-700 dark:text-pebble">
+            <p className="dark:text-pebble font-normal text-gray-700">
               Đã chia sẻ: {memberBooks.length} cuốn sách
             </p>
           </div>
@@ -105,7 +106,7 @@ const SingleMember = () => {
       </div>
       <div className="px-4 lg:px-24">
         <h2 className="mb-4 text-3xl font-semibold">Sách đã chia sẻ</h2>
-        <div className="bg-veil dark:bg-void">
+        <div className="bg-veil dark:bg-obsidian">
           <div className="grid grid-cols-1 justify-between gap-x-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {currentBooks &&
               currentBooks.map((book) => (
@@ -130,7 +131,7 @@ const SingleMember = () => {
                         <hr className="my-2" />
 
                         <p className="line-clamp-2 text-sm">{book.status}</p>
-                        <p className="line-clamp-1 text-sm font-semibold text-pink-700">
+                        <p className="dark:text-blush line-clamp-1 text-sm font-semibold text-pink-700">
                           {book.borrowedBy}
                         </p>
                       </div>

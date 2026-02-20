@@ -4,6 +4,7 @@ import { Button, Label, TextInput } from "flowbite-react";
 import userAvatar from "../../assets/user avatar.jpg";
 import SearchMembers from "../../components/SearchMembers";
 import { Datepicker } from "flowbite-react";
+import API_BASE_URL from "../../config/api";
 
 function AddBorrower() {
     const [status, setStatus] = useState("Đang mượn bởi");
@@ -49,7 +50,7 @@ function AddBorrower() {
         };
 
         // update book data
-        fetch(`https://pega-book-server.onrender.com/book/${id}`, {
+        fetch(`${API_BASE_URL}/book/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

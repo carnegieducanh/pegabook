@@ -2,6 +2,7 @@ import { Avatar, Blockquote } from "flowbite-react";
 import ImageBanner from "../components/ImageBanner";
 import { useEffect, useState } from "react";
 import SpinnerLoading from "./SpinnerLoading";
+import API_BASE_URL from "../config/api";
 
 const Gratitude = () => {
   const [allMembers, setAllMembers] = useState([]);
@@ -19,12 +20,12 @@ const Gratitude = () => {
   });
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((members) => {
         setAllMembers(members);
 
-        fetch("https://pega-book-server.onrender.com/all-books")
+        fetch(`${API_BASE_URL}/all-books`)
           .then((res) => res.json())
           .then((books) => {
             setAllBooks(books);

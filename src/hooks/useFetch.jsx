@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API_BASE_URL from "../config/api";
 
 const DEFAULT_HEADERS = {
   accept: "application/json",
@@ -15,7 +16,7 @@ export default function useFetch(
   useEffect(() => {
     if (enabled) {
       setIsLoading(true);
-      fetch(`https://pega-book-server.onrender.com${url}`, {
+      fetch(`${API_BASE_URL}${url}`, {
         method,
         headers: {
           ...DEFAULT_HEADERS,

@@ -11,6 +11,7 @@ import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 import SpinnerLoading from "../components/SpinnerLoading";
 import { useLanguage } from "../contects/LanguageProvider";
+import API_BASE_URL from "../config/api";
 
 const TrendingBooks = ({ headline }) => {
   const { t } = useLanguage();
@@ -20,13 +21,13 @@ const TrendingBooks = ({ headline }) => {
   const [memberName, setMemberName] = useState({});
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((data) => setMembersData(data));
   }, []);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-books")
+    fetch(`${API_BASE_URL}/all-books`)
       .then((res) => res.json())
       .then((data) => setBooksData(data.slice(-9).reverse()));
   }, []);

@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button, Label, TextInput } from "flowbite-react";
+import API_BASE_URL from "../../config/api";
 
 function YourPassword() {
     const { id } = useParams();
@@ -24,7 +25,7 @@ function YourPassword() {
         };
 
         // update data to database
-        fetch(`https://pega-book-server.onrender.com/member/${id}`, {
+        fetch(`${API_BASE_URL}/member/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

@@ -8,9 +8,30 @@ import ToggleShowMore from "../components/ToggleShowMore";
 import ImageBanner from "../components/ImageBanner";
 import BorrowForm from "./BorrowForm";
 import useBookData from "../hooks/useBookData";
+import API_BASE_URL from "../config/api";
 
 const SingleBook = () => {
   const [showBorrowForm, setShowBorrowForm] = useState(false);
+  const [loggedInMember, setLoggedInMember] = useState(null);
+
+  useEffect(() => {
+    const session = localStorage.getItem("memberSession");
+    if (!session) return;
+    const { _id } = JSON.parse(session);
+    fetch(`${API_BASE_URL}/all-members`)
+      .then((res) => res.json())
+      .then((data) => {
+        const member = data.find((m) => m._id === _id);
+        if (member) {
+          setLoggedInMember({
+            memberName: member.memberName,
+            memberID: member.memberID,
+            workPlace: member.workPlace,
+          });
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const {
     _id,
@@ -47,8 +68,22 @@ const SingleBook = () => {
               alt=""
               className="h-72 w-48 shrink-0 transform rounded-br-xl rounded-tr-xl object-cover shadow-xl shadow-slate-900/30 duration-300 hover:scale-105"
             />
-            <div onClick={() => setShowBorrowForm(true)} className="my-2 w-48">
-              <LoginBorrower _id={_id} />
+            <div className="my-2 w-48">
+              {loggedInMember ? (
+                <button
+                  className="bg-brand mx-auto mt-3 w-48 rounded-full px-6 py-1 text-lg text-white duration-300 hover:scale-105"
+                  onClick={() => setShowBorrowForm(true)}
+                >
+                  Mượn sách
+                </button>
+              ) : (
+                <LoginBorrower
+                  onLoginSuccess={(memberData) => {
+                    setLoggedInMember(memberData);
+                    setShowBorrowForm(true);
+                  }}
+                />
+              )}
             </div>
           </div>
 
@@ -82,6 +117,7 @@ const SingleBook = () => {
               bookTitle={bookTitle}
               authorName={authorName}
               sharerEmail={sharer.email}
+              memberData={loggedInMember}
             />
           )}
 
@@ -113,7 +149,7 @@ const SingleBook = () => {
           <ToggleShowMore text={bookDescription} />
 
           <div className="flex gap-4">
-            <span className="text-sienna">Thể loại</span>
+            <span className="text-sienna dark:text-blush">Thể loại</span>
             <a
               href="#"
               className="font-medium text-gray-900 underline hover:no-underline dark:text-white"

@@ -7,6 +7,7 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 import { MdPeopleAlt } from "react-icons/md";
 import { Link } from "react-router-dom";
 import SpinnerLoading from "../../components/SpinnerLoading";
+import API_BASE_URL from "../../config/api";
 
 const Dashboard = () => {
   const [allMembers, setAllMembers] = useState([]);
@@ -18,7 +19,7 @@ const Dashboard = () => {
   const [totalBorrower, setTotalBorrower] = useState(0); // State to hold total number of borrower
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((members) => {
         setAllMembers(members);
@@ -26,7 +27,7 @@ const Dashboard = () => {
         const lastFiveMembers = members.slice(-5).reverse();
         setLatestMembers(lastFiveMembers);
 
-        fetch("https://pega-book-server.onrender.com/all-books")
+        fetch(`${API_BASE_URL}/all-books`)
           .then((res) => res.json())
           .then((books) => {
             setAllBooks(books);

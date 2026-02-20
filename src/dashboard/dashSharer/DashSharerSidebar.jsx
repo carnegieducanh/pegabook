@@ -19,13 +19,14 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import "../dashSharer/DashSelected.css";
+import API_BASE_URL from "../../config/api";
 
 const DashMemberSidebar = () => {
   const [selectedItem, setSelectedItem] = useState(null); // State để lưu trạng thái của Sidebar.Item được chọn
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(
-    document.documentElement.classList.contains("dark")
+    document.documentElement.classList.contains("dark"),
   );
 
   const toggleDarkMode = () => {
@@ -52,7 +53,7 @@ const DashMemberSidebar = () => {
   };
 
   useEffect(() => {
-    fetch(`https://pega-book-server.onrender.com/member/${id}`)
+    fetch(`${API_BASE_URL}/member/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setMember(data);
@@ -92,6 +93,16 @@ const DashMemberSidebar = () => {
       {/* === Desktop Menu  === */}
       <Sidebar.Items className="hidden lg:block">
         <Sidebar.ItemGroup>
+          <Link to={"/"}>
+            <Sidebar.Item
+              icon={HiHome}
+              className={selectedItem === "home" ? "selected" : ""}
+              onClick={() => handleItemClick("home")}
+            >
+              Quay lại trang chủ
+            </Sidebar.Item>
+          </Link>
+
           <Link to={`/member/dashboard/${member._id}`}>
             <Sidebar.Item
               icon={HiChartPie} // Kiểm tra nếu phần tử này được chọn thì thêm lớp CSS 'selected'
@@ -189,16 +200,6 @@ const DashMemberSidebar = () => {
               </div>
             </div>
           </Sidebar.Item>
-
-          <Link to={"/"}>
-            <Sidebar.Item
-              icon={HiHome}
-              className={selectedItem === "home" ? "selected" : ""}
-              onClick={() => handleItemClick("home")}
-            >
-              Quay lại trang chủ
-            </Sidebar.Item>
-          </Link>
 
           <Link to={"/logout"}>
             <Sidebar.Item

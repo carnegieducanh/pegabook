@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { Link } from "react-router-dom";
+import API_BASE_URL from "../../config/api";
 
 const DashSearchMember = () => {
     const [data, setData] = useState([]);
@@ -14,7 +15,7 @@ const DashSearchMember = () => {
     // const { sharedBy } = useLoaderData();
 
     useEffect(() => {
-        fetch("https://pega-book-server.onrender.com/all-members")
+        fetch(`${API_BASE_URL}/all-members`)
             .then((res) => res.json())
             .then((data) => {
                 setData(data);

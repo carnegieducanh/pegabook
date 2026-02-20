@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button, Label, TextInput, Textarea } from "flowbite-react";
 import BookUpload from "../../components/BookUpload";
 import bookCategories from "../../components/BookCategories"; // Import bookCategories
+import API_BASE_URL from "../../config/api";
 
 const YourEditBooks = () => {
   const { id } = useParams();
@@ -52,7 +53,7 @@ const YourEditBooks = () => {
     };
 
     // update book data
-    fetch(`https://pega-book-server.onrender.com/book/${id}`, {
+    fetch(`${API_BASE_URL}/book/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

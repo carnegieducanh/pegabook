@@ -12,6 +12,7 @@ import { FaStar } from "react-icons/fa";
 import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 import SpinnerLoading from "../components/SpinnerLoading";
+import API_BASE_URL from "../config/api";
 
 const ViewsBook = ({ headline }) => {
   const [membersData, setMembersData] = useState(null);
@@ -19,13 +20,13 @@ const ViewsBook = ({ headline }) => {
   const [memberName, setMemberName] = useState({});
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((data) => setMembersData(data));
   }, []);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-books")
+    fetch(`${API_BASE_URL}/all-books`)
       .then((res) => res.json())
       // .then((data) => setBooksData(data.slice(-7).reverse()));
       .then((data) => {

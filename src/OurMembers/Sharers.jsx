@@ -4,6 +4,7 @@ import { ImProfile } from "react-icons/im";
 import { Link } from "react-router-dom";
 import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
+import API_BASE_URL from "../config/api";
 
 const Sharers = () => {
   const [allMembers, setAllMembers] = useState([]);
@@ -26,12 +27,12 @@ const Sharers = () => {
   );
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((members) => {
         setAllMembers(members);
 
-        fetch("https://pega-book-server.onrender.com/all-books")
+        fetch(`${API_BASE_URL}/all-books`)
           .then((res) => res.json())
           .then((books) => {
             setAllBooks(books);

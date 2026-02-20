@@ -8,6 +8,7 @@ import Login from "../components/auth/Login";
 import LoginSharer from "../components/auth/LoginMember";
 import LoginBorrower from "../components/auth/LoginBorrower";
 import Logout from "../components/auth/Logout";
+import API_BASE_URL from "../config/api";
 
 const Home = lazy(() => import("../home/Home"));
 const SingleBook = lazy(() => import("../OurBooks/SingleBook"));
@@ -85,13 +86,13 @@ const router = createBrowserRouter([
         path: "/book/:id",
         element: <SingleBook />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/book/${params.id}`),
+          fetch(`${API_BASE_URL}/book/${params.id}`),
       },
       {
         path: "/member/:id",
         element: <SingleMember />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
     ],
   },
@@ -135,7 +136,7 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-members/:id",
         element: <EditMember />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
     ],
   },
@@ -147,83 +148,83 @@ const router = createBrowserRouter([
         path: "/member/dashboard/:id",
         element: <DashSharer />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/add-borrower/:id",
         element: <AddBorrower />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/book/${params.id}`),
+          fetch(`${API_BASE_URL}/book/${params.id}`),
       },
       {
         path: "/member/dashboard/remove-borrower/:id",
         element: <RemoveBorrower />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/book/${params.id}`),
+          fetch(`${API_BASE_URL}/book/${params.id}`),
       },
       {
         path: "/member/dashboard/upload/:id",
         element: <UploadBook />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/manage/:id",
         element: <YourBooks />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/manage/borrower/:id",
         element: <ManageBorrower />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/borrowed-book/:id",
         element: <BorrowedBooks />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
 
       {
         path: "/member/dashboard/read-book/:id",
         element: <YourBooksRead />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
 
       {
         path: "/member/dashboard/return-book/:id",
         element: <ReturnBook />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/book/${params.id}`),
+          fetch(`${API_BASE_URL}/book/${params.id}`),
       },
 
       {
         path: "/member/dashboard/profile/:id",
         element: <YourProfile />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/changePassword/:id",
         element: <YourPassword />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/member/${params.id}`),
+          fetch(`${API_BASE_URL}/member/${params.id}`),
       },
 
       {
         path: "/member/dashboard/book/:id",
         element: <SingleYourBook />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/book/${params.id}`),
+          fetch(`${API_BASE_URL}/book/${params.id}`),
       },
       {
         path: "/member/dashboard/edit-books/:id",
         element: <YourEditBooks />,
         loader: ({ params }) =>
-          fetch(`https://pega-book-server.onrender.com/book/${params.id}`),
+          fetch(`${API_BASE_URL}/book/${params.id}`),
       },
     ],
   },

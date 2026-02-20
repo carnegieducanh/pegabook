@@ -6,6 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { FaBookReader } from "react-icons/fa";
 import { MdPeopleAlt } from "react-icons/md";
 import { BiSolidBookHeart } from "react-icons/bi";
+import API_BASE_URL from "../../config/api";
 
 const DashSharer = () => {
   const [borrower, setBorrower] = useState([]);
@@ -17,7 +18,7 @@ const DashSharer = () => {
   // console.log(memberID);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((data) => {
         setBorrower(data);
@@ -25,7 +26,7 @@ const DashSharer = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-books")
+    fetch(`${API_BASE_URL}/all-books`)
       .then((res) => res.json())
       .then((data) => {
         setShowBooks(data);
@@ -47,7 +48,7 @@ const DashSharer = () => {
 
   const lastFiveMembers = matchedMembers.slice(-5).reverse();
 
-  // Lọc ra các cuốn sách có borrowerID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
+  // Lọc ra các cuốn sách có borrowerID trùng với memberID từ API `${API_BASE_URL}/member/${id}`
 
   const yourBorrowedBooks = allBooks.filter(
     (book) => book.borrowerID === memberID,
@@ -213,7 +214,7 @@ const DashSharer = () => {
                             </div>
                           </div>
                           <div className="w-1/3">
-                            <p className="hidden text-center md:block">
+                            <p className="dark:text-linen hidden text-center md:block">
                               {book.category}
                             </p>
                           </div>

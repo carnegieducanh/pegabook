@@ -6,8 +6,8 @@ import { TiArrowBackOutline } from "react-icons/ti";
 import { Button, Datepicker, Label, Rating, TextInput, Textarea } from "flowbite-react";
 import emailjs from "@emailjs/browser";
 import ToggleShowMore from "../../components/ToggleShowMore";
+import API_BASE_URL from "../../config/api";
 
-const API_BASE = "https://pega-book-server.onrender.com";
 
 const FormField = ({ label, id, ...props }) => (
   <div>
@@ -37,8 +37,8 @@ const ReturnBook = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch(`${API_BASE}/all-members`).then((r) => r.json()),
-      fetch(`${API_BASE}/all-books`).then((r) => r.json()),
+      fetch(`${API_BASE_URL}/all-members`).then((r) => r.json()),
+      fetch(`${API_BASE_URL}/all-books`).then((r) => r.json()),
     ]).then(([members, books]) => {
       setCount(books.filter((b) => b.sharerID === sharerID).length);
       setSharer(members.find((m) => m.memberID === sharerID) ?? {});

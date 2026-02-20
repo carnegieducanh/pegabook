@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import SpinnerLoading from "../components/SpinnerLoading";
 import { useLanguage } from "../contects/LanguageProvider";
+import API_BASE_URL from "../config/api";
 
 const Review = () => {
   const { t } = useLanguage();
   const [membersData, setMembersData] = useState([]);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
+    fetch(`${API_BASE_URL}/all-members`)
       .then((res) => res.json())
       .then((data) => setMembersData(data));
   }, []);

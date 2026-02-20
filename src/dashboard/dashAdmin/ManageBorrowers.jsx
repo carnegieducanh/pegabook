@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Link, useLoaderData } from "react-router-dom";
+import API_BASE_URL from "../../config/api";
 
 const ManageBorrowers = () => {
     const [borrower, setBorrower] = useState([]);
@@ -10,12 +11,12 @@ const ManageBorrowers = () => {
     // const { memberID } = useLoaderData();
 
     useEffect(() => {
-        fetch("https://pega-book-server.onrender.com/all-members")
+        fetch(`${API_BASE_URL}/all-members`)
             .then((res) => res.json())
             .then((borrowers) => {
                 setBorrower(borrowers);
 
-                fetch("https://pega-book-server.onrender.com/all-books")
+                fetch(`${API_BASE_URL}/all-books`)
                     .then((res) => res.json())
                     .then((books) => {
                         setAllBooksData(books);

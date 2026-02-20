@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import API_BASE_URL from "../config/api";
 
-const API_BASE = "https://pega-book-server.onrender.com";
 
 const defaultSharer = { name: "", id: "", avatar: "", comment: "", workPlace: "", email: "" };
 const defaultBorrower = { name: "", workPlace: "" };
@@ -13,8 +13,8 @@ export default function useBookData(sharerID, borrowerID) {
   useEffect(() => {
     const fetchData = async () => {
       const [membersRes, booksRes] = await Promise.all([
-        fetch(`${API_BASE}/all-members`),
-        fetch(`${API_BASE}/all-books`),
+        fetch(`${API_BASE_URL}/all-members`),
+        fetch(`${API_BASE_URL}/all-books`),
       ]);
       const members = await membersRes.json();
       const books = await booksRes.json();

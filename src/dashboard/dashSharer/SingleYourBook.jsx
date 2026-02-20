@@ -6,6 +6,7 @@ import ToggleShowMore from "../../components/ToggleShowMore";
 import { IoPersonAdd, IoPersonRemoveOutline } from "react-icons/io5";
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import API_BASE_URL from "../../config/api";
 
 const SingleYourBook = () => {
     const [memberData, setMemberData] = useState(null);
@@ -43,7 +44,7 @@ const SingleYourBook = () => {
     }, [_id]); // Thay đổi _id để trigger useEffect khi có sự thay đổi
 
     useEffect(() => {
-        fetch("https://pega-book-server.onrender.com/all-members")
+        fetch(`${API_BASE_URL}/all-members`)
             .then((res) => res.json())
             .then((data) => {
                 setMemberData(data);
@@ -51,7 +52,7 @@ const SingleYourBook = () => {
     }, []);
 
     useEffect(() => {
-        fetch("https://pega-book-server.onrender.com/all-books")
+        fetch(`${API_BASE_URL}/all-books`)
             .then((res) => res.json())
             .then((data) => {
                 setAllBooksData(data);
@@ -118,13 +119,13 @@ const SingleYourBook = () => {
     const handleDelete = (id) => {
         // Sử dụng window.confirm để hiển thị thông báo
         const isConfirmed = window.confirm(
-            "Are you sure you want to delete this book?"
+            "Are you sure you want to delete this book?`
         );
 
         // Kiểm tra xem người dùng đã xác nhận hay không
         if (isConfirmed) {
-            fetch(`https://pega-book-server.onrender.com/book/${id}`, {
-                method: "DELETE",
+            fetch(`${API_BASE_URL}/book/${id}`, {
+                method: `DELETE",
             })
                 .then((res) => res.json())
                 .then((data) => {

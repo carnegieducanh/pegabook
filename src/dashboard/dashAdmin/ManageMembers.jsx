@@ -5,6 +5,7 @@ import PaginationButtons from "../../components/PaginationBtns";
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBinLine } from "react-icons/ri";
 import DashSearchMember from "./DashSearchMember";
+import API_BASE_URL from "../../config/api";
 
 const ManageMembers = () => {
     const [allMembers, setAllMembers] = useState([]);
@@ -16,7 +17,7 @@ const ManageMembers = () => {
     };
 
     useEffect(() => {
-        fetch("https://pega-book-server.onrender.com/all-members")
+        fetch(`${API_BASE_URL}/all-members`)
             .then((res) => res.json())
             .then((data) => {
                 setAllMembers(data.reverse());
@@ -24,7 +25,7 @@ const ManageMembers = () => {
     }, []);
 
     useEffect(() => {
-        fetch("https://pega-book-server.onrender.com/all-books")
+        fetch(`${API_BASE_URL}/all-books`)
             .then((res) => res.json())
             .then((books) => {
                 setAllBooks(books);
@@ -41,7 +42,7 @@ const ManageMembers = () => {
     // delete a member
     const handleDelete = (id, memberID) => {
         const isConfirmed = window.confirm(
-            "Are you sure you want to delete this Member?"
+            "Are you sure you want to delete this Member?`
         );
 
         if (isConfirmed) {
@@ -54,16 +55,16 @@ const ManageMembers = () => {
             Promise.all(
                 matchedBooks.map((book) =>
                     fetch(
-                        `https://pega-book-server.onrender.com/book/${book._id}`,
+                        `${API_BASE_URL}/book/${book._id}`,
                         {
-                            method: "DELETE",
+                            method: `DELETE`,
                         }
                     ).then((res) => res.json())
                 )
             ).then(() => {
                 // Sau khi xóa các sách liên quan, xóa thành viên
-                fetch(`https://pega-book-server.onrender.com/member/${id}`, {
-                    method: "DELETE",
+                fetch(`${API_BASE_URL}/member/${id}`, {
+                    method: `DELETE",
                 })
                     .then((res) => res.json())
                     .then(() => {

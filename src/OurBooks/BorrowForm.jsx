@@ -46,7 +46,7 @@ const FormField = ({ id, label, placeholder, defaultValue, half }) => (
 
 // ---- Main component ----
 
-const BorrowForm = ({ bookTitle, authorName, sharerEmail }) => {
+const BorrowForm = ({ bookTitle, authorName, sharerEmail, memberData }) => {
   const [isSent, setIsSent] = useState(false);
 
   const handleSubmit = (e) => {
@@ -69,7 +69,7 @@ const BorrowForm = ({ bookTitle, authorName, sharerEmail }) => {
       <div className="mb-5 flex flex-col gap-2">
         <div className="flex gap-2">
           <RiMailSendLine />
-          <h2 className="font-title text-2xl font-medium text-pink-800">
+          <h2 className="dark:text-blush font-title text-2xl font-medium text-pink-800">
             Bạn có tin nhắn từ đội ngũ Pegabook!
           </h2>
         </div>
@@ -124,18 +124,21 @@ const BorrowForm = ({ bookTitle, authorName, sharerEmail }) => {
           id="memberName"
           label="Tên của bạn"
           placeholder="Member name"
+          defaultValue={memberData?.memberName}
         />
         <div className="flex gap-8">
           <FormField
             id="memberID"
             label="Mã thành viên"
             placeholder="Member ID"
+            defaultValue={memberData?.memberID}
             half
           />
           <FormField
             id="workPlace"
             label="Nơi làm việc"
             placeholder="Work Place"
+            defaultValue={memberData?.workPlace}
             half
           />
         </div>

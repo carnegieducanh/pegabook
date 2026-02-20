@@ -4,6 +4,7 @@ import { Table } from "flowbite-react";
 import PaginationButtons from "../../components/PaginationBtns";
 
 import { RiDeleteBinLine } from "react-icons/ri";
+import API_BASE_URL from "../../config/api";
 
 const ManageBooks = () => {
     const [allBooks, setAllBooks] = useState([]);
@@ -15,14 +16,14 @@ const ManageBooks = () => {
     };
 
     useEffect(() => {
-        fetch("https://pega-book-server.onrender.com/all-books")
+        fetch(`${API_BASE_URL}/all-books`)
             .then((res) => res.json())
             .then((books) => {
                 setAllBooks(books);
                 // console.log("All Books:", books);
             });
 
-        fetch("https://pega-book-server.onrender.com/all-members")
+        fetch(`${API_BASE_URL}/all-members`)
             .then((res) => res.json())
             .then((members) => {
                 setAllMembers(members);
@@ -57,13 +58,13 @@ const ManageBooks = () => {
     const handleDelete = (id) => {
         // Sử dụng window.confirm để hiển thị thông báo
         const isConfirmed = window.confirm(
-            "Are you sure you want to delete this book?"
+            "Are you sure you want to delete this book?`
         );
 
         // Kiểm tra xem người dùng đã xác nhận hay không
         if (isConfirmed) {
-            fetch(`https://pega-book-server.onrender.com/book/${id}`, {
-                method: "DELETE",
+            fetch(`${API_BASE_URL}/book/${id}`, {
+                method: `DELETE",
             })
                 .then((res) => res.json())
                 .then(() => {

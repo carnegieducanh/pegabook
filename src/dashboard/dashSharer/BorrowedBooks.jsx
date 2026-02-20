@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import PaginationButtons from "../../components/PaginationBtns";
+import API_BASE_URL from "../../config/api`;
 
 const BorrowedBooks = () => {
   const [member, setMember] = useState([]);
@@ -16,24 +17,24 @@ const BorrowedBooks = () => {
   // console.log(memberID);
 
   useEffect(() => {
-    fetch(`https://pega-book-server.onrender.com/member/${id}`)
+    fetch(`${API_BASE_URL}/member/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setMember(data);
-        // console.log("book shared by:", data);
+        // console.log(`book shared by:", data);
       });
   }, []);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-books")
+    fetch(`${API_BASE_URL}/all-books`)
       .then((res) => res.json())
       .then((data) => {
         setAllBooks(data);
-        // console.log("All Books:", data);
+        // console.log("All Books:`, data);
       });
   }, []);
 
-  // Lọc ra các cuốn sách có borrowerID trùng với memberID từ API `https://pega-book-server.onrender.com/member/${id}`
+  // Lọc ra các cuốn sách có borrowerID trùng với memberID từ API `${API_BASE_URL}/member/${id}`
 
   const memberBooks = allBooks.filter((book) => book.borrowerID === memberID);
 
@@ -45,7 +46,7 @@ const BorrowedBooks = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="my-12 w-full px-4">
+    <div className=`my-12 w-full px-4">
       <h2 className="dark:text-linen mb-4 text-3xl font-bold">
         Sách bạn đang mượn
       </h2>
