@@ -41,9 +41,11 @@ const LanguageSwitcher = ({ mobile = false }) => {
 
       {isOpen && (
         <div
-          className={`absolute z-[9999] mt-2 min-w-[160px] rounded-md border border-gray-100 bg-white py-1 shadow-lg dark:border-iron dark:bg-onyx ${
-            mobile ? "left-0" : "right-0"
-          }`}
+          className={
+            mobile
+              ? "mt-2 space-y-1 p-2"
+              : "absolute right-0 z-[9999] mt-2 min-w-[160px] rounded-md border border-gray-100 bg-white py-1 shadow-lg dark:border-iron dark:bg-onyx"
+          }
         >
           {SUPPORTED_LANGUAGES.map((lang) => (
             <button
@@ -52,7 +54,9 @@ const LanguageSwitcher = ({ mobile = false }) => {
                 changeLanguage(lang.code);
                 setIsOpen(false);
               }}
-              className={`flex w-full items-center gap-2 px-4 py-2 text-left text-sm transition-colors hover:bg-cream dark:hover:bg-flint ${
+              className={`flex w-full items-center gap-2 px-4 py-2 text-left transition-colors hover:bg-cream dark:hover:bg-flint ${
+                mobile ? "text-base" : "text-sm"
+              } ${
                 language === lang.code
                   ? "font-semibold text-brand"
                   : "text-gray-700 dark:text-fog"
