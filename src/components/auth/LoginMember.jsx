@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Checkbox, Label } from "flowbite-react";
 import { Link, useNavigate } from "react-router-dom";
-import bookrow from "../assets/bookrow.jpg";
-import SpinnerLoading from "../components/SpinnerLoading";
+import bookrow from "../../assets/bookrow.jpg";
+import SpinnerLoading from "../SpinnerLoading";
 
 const LoginMember = () => {
   const [error, setError] = useState("");

@@ -3,11 +3,11 @@ import { lazy } from "react";
 import App from "../App";
 import DashboardLayout from "../dashboard/dashAdmin/DashboardLayout";
 import DashSharerLayout from "../dashboard/dashSharer/DashSharerLayout";
-import Signup from "../components/Signup";
-import Login from "../components/Login";
-import LoginSharer from "../components/LoginMember";
-import LoginBorrower from "../components/LoginBorrower";
-import Logout from "../components/Logout";
+import Signup from "../components/auth/Signup";
+import Login from "../components/auth/Login";
+import LoginSharer from "../components/auth/LoginMember";
+import LoginBorrower from "../components/auth/LoginBorrower";
+import Logout from "../components/auth/Logout";
 
 const Home = lazy(() => import("../home/Home"));
 const SingleBook = lazy(() => import("../OurBooks/SingleBook"));

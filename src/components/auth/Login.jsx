@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../contects/AuthProvider";
-import googleLogo from "../assets/google-logo.svg";
-import bookrow from "../assets/bookrow.jpg";
+import { AuthContext } from "../../contects/AuthProvider";
+import googleLogo from "../../assets/google-logo.svg";
+import bookrow from "../../assets/bookrow.jpg";
 
 const Login = () => {
   const { login } = useContext(AuthContext);

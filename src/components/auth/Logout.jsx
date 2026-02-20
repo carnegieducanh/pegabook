@@ -1,8 +1,8 @@
 import React from "react";
 import { useContext } from "react";
-import { AuthContext } from "../contects/AuthProvider";
+import { AuthContext } from "../../contects/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import bookrow from "../assets/bookrow.jpg";
+import bookrow from "../../assets/bookrow.jpg";
 
 const Logout = () => {
     const { logOut } = useContext(AuthContext);

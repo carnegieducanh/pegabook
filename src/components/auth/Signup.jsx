@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../contects/AuthProvider";
-import googleLogo from "../assets/google-logo.svg";
+import { AuthContext } from "../../contects/AuthProvider";
+import googleLogo from "../../assets/google-logo.svg";
 
 const Signup = () => {
     const { createUser } = useContext(AuthContext);

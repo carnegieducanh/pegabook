@@ -1,178 +1,81 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { HiMiniCheckBadge } from "react-icons/hi2";
-import { Button, Label, Rating, TextInput, Textarea } from "flowbite-react";
-import { Datepicker } from "flowbite-react";
-import emailjs from "@emailjs/browser";
-import ToggleShowMore from "../../components/ToggleShowMore";
 import { BsFillSendFill } from "react-icons/bs";
 import { TiArrowBackOutline } from "react-icons/ti";
+import { Button, Datepicker, Label, Rating, TextInput, Textarea } from "flowbite-react";
+import emailjs from "@emailjs/browser";
+import ToggleShowMore from "../../components/ToggleShowMore";
+
+const API_BASE = "https://pega-book-server.onrender.com";
+
+const FormField = ({ label, id, ...props }) => (
+  <div>
+    <div className="mb-2 block">
+      <Label htmlFor={id} value={label} />
+    </div>
+    <TextInput id={id} name={id} type="text" readOnly required {...props} />
+  </div>
+);
 
 const ReturnBook = () => {
-  const [memberData, setMemberData] = useState(null);
-  const [allBookData, setAllBooksData] = useState();
-  const [count, setCount] = useState(0);
-  const [sharerName, setSharerName] = useState();
-  const [sharedBy_id, setSharedBy_id] = useState();
-  const [sharerAvatar, setSharerAvatar] = useState();
-  const [sharerComment, setSharerComment] = useState();
-  const [sharerWorkPlace, setSharerWorkPlace] = useState();
-  const [sharerEmail, setSharerEmail] = useState();
-  const [borrower, setBorrower] = useState();
-  const [borrowerAvatar, setBorrowerAvatar] = useState();
-  const [borrowedBy_id, setBorrowedBy_id] = useState();
-  const [borrowerWorkPlace, setBorrowerWorkPlace] = useState();
-  const [currentViews, setCurrentViews] = useState(0); // Thêm state cho views
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false); //vô hiệu hóa button "Send" khi hoaàn tất form
-
+  const navigate = useNavigate();
   const {
-    _id,
-    bookTitle,
-    imageUrl,
-    authorName,
-    bookDescription,
-    category,
-    sharerID,
-    status,
-    borrowerID,
-    bookedTime,
-    borrowedDate,
-    returnDate,
-    views,
+    _id, bookTitle, imageUrl, authorName, bookDescription,
+    category, sharerID, status, borrowerID,
+    bookedTime, borrowedDate, returnDate, views,
   } = useLoaderData();
+
+  const [count, setCount] = useState(0);
+  const [sharer, setSharer] = useState({});
+  const [borrower, setBorrower] = useState({});
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setCurrentViews(views); // Khởi tạo giá trị views từ dữ liệu tải về
-    return () => {};
-  }, [_id]); // Thay đổi _id để trigger useEffect khi có sự thay đổi
+  }, [_id]);
 
   useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-members")
-      .then((res) => res.json())
-      .then((data) => {
-        setMemberData(data);
-      });
-  }, []);
+    Promise.all([
+      fetch(`${API_BASE}/all-members`).then((r) => r.json()),
+      fetch(`${API_BASE}/all-books`).then((r) => r.json()),
+    ]).then(([members, books]) => {
+      setCount(books.filter((b) => b.sharerID === sharerID).length);
+      setSharer(members.find((m) => m.memberID === sharerID) ?? {});
+      setBorrower(members.find((m) => m.memberID === borrowerID) ?? {});
+    });
+  }, [sharerID, borrowerID]);
 
-  useEffect(() => {
-    fetch("https://pega-book-server.onrender.com/all-books")
-      .then((res) => res.json())
-      .then((data) => {
-        setAllBooksData(data);
-      });
-  }, []);
+  const sendEmail = (e) => {
+    e.preventDefault();
+    if (!window.confirm("Are you sure you want to send this mail?")) return;
 
-  useEffect(() => {
-    if (memberData && allBookData) {
-      let totalCount = 0;
-      let sharedByCurrent = [];
-      let sharedBy_id = [];
-      let sharerAvatar = [];
-      let sharerComment = [];
-      let sharerWorkPlace = [];
-      let sharerEmail = [];
-      let borrowerName = [];
-      let borrowerAvatar = [];
-      let borrowedBy_id = [];
-      let borrowerWorkPlace = [];
-
-      allBookData.forEach((book) => {
-        if (sharerID === book.sharerID) {
-          totalCount++;
-        }
-      });
-
-      memberData.forEach((member) => {
-        if (sharerID === member.memberID) {
-          sharedByCurrent = member.memberName;
-          sharedBy_id = member._id;
-          sharerAvatar = member.memberAvatar;
-          sharerComment = member.comment;
-          sharerWorkPlace = member.workPlace;
-          sharerEmail = member.email;
-          return; // Thêm break để dừng vòng lặp sau khi tìm thấy
-        }
-      });
-
-      memberData.forEach((borrower) => {
-        if (borrowerID === borrower.memberID) {
-          borrowerName = borrower.memberName;
-          borrowerAvatar = borrower.memberAvatar;
-          borrowerWorkPlace = borrower.workPlace;
-          borrowedBy_id = borrower._id;
-          return; // Thêm break để dừng vòng lặp sau khi tìm thấy
-        }
-      });
-
-      // Cập nhật state cho biến đếm
-      setCount(totalCount);
-      setSharedBy_id(sharedBy_id);
-      setSharerName(sharedByCurrent);
-      setSharerAvatar(sharerAvatar);
-      setSharerComment(sharerComment);
-      setSharerWorkPlace(sharerWorkPlace);
-      setSharerEmail(sharerEmail);
-      setBorrower(borrowerName);
-      setBorrowerAvatar(borrowerAvatar);
-      setBorrowerWorkPlace(borrowerWorkPlace);
-      setBorrowedBy_id(borrowedBy_id);
-    }
-  }, [memberData, allBookData]);
-
-  // ********** Send Email **********
-  const sendEmail = (event) => {
-    event.preventDefault();
-
-    const isConfirmed = window.confirm(
-      "Are you sure you want to send this mail?",
-    );
-
-    if (isConfirmed) {
-      emailjs
-        .sendForm(
-          "service_fsg25n8",
-          "template_aawv0y3",
-          event.target, // Sử dụng event.target để truyền form vào hàm sendForm
-          "NbXcMWTgvO9EetTrb",
-        )
-        .then(
-          (result) => {
-            alert("Message sent successfully.");
-            // navigate(`/member/dashboard/${borrowedBy_id}`);
-            setIsButtonDisabled(true);
-          },
-          (error) => {
-            alert("Failed to send message, please try again.");
-          },
-        );
-    }
+    emailjs
+      .sendForm("service_fsg25n8", "template_aawv0y3", e.target, "NbXcMWTgvO9EetTrb")
+      .then(
+        () => { alert("Message sent successfully."); setIsButtonDisabled(true); },
+        () => alert("Failed to send message, please try again."),
+      );
   };
 
   return (
     <div className="my-12 w-full px-4">
       <h2 className="mb-8 text-3xl font-bold">Đăng ký trả sách</h2>
+
       <div className="my-12 flex h-full flex-col gap-10 lg:flex-row">
+        {/* Left: Book cover + status */}
         <div className="flex w-full flex-row gap-3 text-left lg:w-[20%] lg:flex-col">
           <img
             src={imageUrl}
             alt=""
             className="h-72 w-48 shrink-0 transform rounded-br-xl rounded-tr-xl object-cover shadow-xl duration-300 hover:scale-105"
           />
-
-          {/* Status */}
           <div className="mt-5 flex flex-col gap-2 text-left">
-            <a
-              href="#"
-              className="font-medium text-gray-900 underline hover:no-underline dark:text-white"
-            >
-              <h3 className="text-left font-medium">Status</h3>
-            </a>
-
+            <h3 className="font-medium">Status</h3>
             <div className="text-left">
               <p className="text-lg">{status}</p>
-              <p className="text-xl text-pink-800">{borrower}</p>
-              <p className="text-gray-500">{borrowerWorkPlace}</p>
+              <p className="text-xl text-pink-800">{borrower.memberName}</p>
+              <p className="text-gray-500">{borrower.workPlace}</p>
             </div>
             <div className="text-left text-gray-500">
               <p className="text-lg text-black">{bookedTime}</p>
@@ -184,229 +87,127 @@ const ReturnBook = () => {
             </div>
           </div>
         </div>
+
+        {/* Right: Form + book info */}
         <div className="flex w-full flex-col gap-2 lg:w-[80%]">
-          <div>
-            {/* FORM Begin */}
-            <form
-              onSubmit={sendEmail}
-              className="flex flex-col flex-wrap gap-4"
+          <form onSubmit={sendEmail} className="flex flex-col flex-wrap gap-4">
+            <div className="flex gap-8">
+              <div className="w-1/2">
+                <div className="mb-2 block">
+                  <Label htmlFor="returnDate" value="Chọn ngày bạn dự định trả" />
+                </div>
+                <Datepicker id="returnDate" name="returnDate" />
+              </div>
+              <div className="w-1/2" />
+            </div>
+
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="comment" value="Lời nhắn của bạn" />
+              </div>
+              <Textarea
+                id="comment"
+                name="comment"
+                placeholder="Viết lời nhắn của bạn đến Pega Book hoặc người chia sẻ sách..."
+                required
+                className="w-full"
+                rows={2}
+              />
+            </div>
+
+            <div className="hidden">
+              <TextInput id="email" name="email" type="text" defaultValue={sharer.email} readOnly required />
+            </div>
+
+            <h2 className="text-xl font-medium">Thông tin về bạn</h2>
+
+            <FormField label="Tên của bạn" id="memberName" defaultValue={borrower.memberName} />
+
+            <div className="flex gap-8">
+              <div className="w-1/2">
+                <FormField label="Mã thành viên" id="memberID" defaultValue={borrowerID} />
+              </div>
+              <div className="w-1/2">
+                <FormField label="Nơi làm việc" id="workPlace" defaultValue={borrower.workPlace} />
+              </div>
+            </div>
+
+            <div className="flex gap-8">
+              <div className="w-1/2">
+                <FormField label="Tên sách mượn" id="bookTitle" defaultValue={bookTitle} />
+              </div>
+              <div className="w-1/2">
+                <FormField label="Tên tác giả" id="authorName" defaultValue={authorName} />
+              </div>
+            </div>
+
+            <Button type="submit" className="mb-2 bg-brand" disabled={isButtonDisabled}>
+              <div className="flex items-center gap-2">
+                <p>Đăng ký trả sách</p>
+                <BsFillSendFill />
+              </div>
+            </Button>
+
+            <Button
+              className="mb-5 bg-cobalt"
+              onClick={() => navigate(`/member/dashboard/borrowed-book/${borrower._id}`)}
             >
-              <div className="flex gap-8">
-                {/* Datepicker 2 */}
-                <div className="w-1/2">
-                  <div className="mb-2 block">
-                    <Label
-                      htmlFor="returnDate"
-                      value="Chọn ngày bạn dự định trả"
-                    />
-                  </div>
-                  <Datepicker id="returnDate" name="returnDate" />
-                </div>
-                {/* Datepicker 1 */}
-                <div className="w-1/2"></div>
+              <div className="flex items-center gap-2">
+                <p>Quay lại mục trả sách</p>
+                <TiArrowBackOutline size={24} />
               </div>
+            </Button>
+          </form>
 
-              {/* Lờì nhắn đến người chia sẻ */}
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="comment" value="Lời nhắn của bạn" />
-                </div>
-                <Textarea
-                  id="comment"
-                  name="comment"
-                  placeholder="Viết lời nhắn của bạn đến Pega Book hoặc người chia sẻ sách..."
-                  required
-                  className="w-full"
-                  rows={2}
-                />
-              </div>
-              {/* Email người nhận */}
-              <div className="hidden">
-                <div className="-my-10 block">
-                  <Label htmlFor="email" value="Email người chia sẻ" />
-                </div>
-                <TextInput
-                  id="email"
-                  name="email"
-                  type="text"
-                  placeholder="Email"
-                  defaultValue={sharerEmail}
-                  readOnly
-                  required
-                />
-              </div>
-              <h2 className="text-xl font-medium">Thông tin về bạn</h2>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="memberName" value="Tên của bạn" />
-                </div>
-                <TextInput
-                  id="memberName"
-                  name="memberName"
-                  type="text"
-                  placeholder="Member name"
-                  defaultValue={borrower}
-                  readOnly
-                  required
-                />
-              </div>
-
-              <div className="flex gap-8">
-                <div className="w-1/2">
-                  <div className="mb-2 block">
-                    <Label htmlFor="memberID" value="Mã thành viên" />
-                  </div>
-                  <TextInput
-                    id="memberID"
-                    name="memberID"
-                    type="text"
-                    placeholder="Member ID"
-                    defaultValue={borrowerID}
-                    required
-                    readOnly
-                  />
-                </div>
-
-                <div className="w-1/2">
-                  <div className="mb-2 block">
-                    <Label htmlFor="workPlace" value="Nơi làm việc" />
-                  </div>
-                  <TextInput
-                    id="workPlace"
-                    name="workPlace"
-                    type="text"
-                    placeholder="Work Place"
-                    defaultValue={borrowerWorkPlace}
-                    required
-                    readOnly
-                  />
-                </div>
-              </div>
-
-              {/* Book info */}
-              <div className="flex gap-8">
-                <div className="w-1/2">
-                  <div className="mb-2 block">
-                    <Label htmlFor="bookTitle" value="Tên sách mượn" />
-                  </div>
-                  <TextInput
-                    id="bookTitle"
-                    name="bookTitle"
-                    type="text"
-                    placeholder="Tên sách"
-                    defaultValue={bookTitle}
-                    required
-                    readOnly
-                  />
-                </div>
-
-                <div className="w-1/2">
-                  <div className="mb-2 block">
-                    <Label htmlFor="authorName" value="Tên tác giả" />
-                  </div>
-                  <TextInput
-                    id="authorName"
-                    name="authorName"
-                    type="text"
-                    placeholder="Tên tác giả"
-                    defaultValue={authorName}
-                    required
-                    readOnly
-                  />
-                </div>
-              </div>
-
-              <Button
-                type="submit"
-                className="mb-2 bg-brand"
-                disabled={isButtonDisabled}
-              >
-                <div className="flex items-center gap-2">
-                  <p>Đăng ký trả sách</p>
-                  <BsFillSendFill />
-                </div>
-              </Button>
-
-              <Button
-                className="mb-5 bg-cobalt"
-                onClick={() => {
-                  window.location.href = `/member/dashboard/borrowed-book/${borrowedBy_id}`;
-                }}
-              >
-                <div className="flex items-center gap-2">
-                  <p>Quay lại mục trả sách</p>
-                  <TiArrowBackOutline size={24} />
-                </div>
-              </Button>
-            </form>
-          </div>
-
-          {/* about Author */}
           <h2 className="text-4xl font-medium">{bookTitle}</h2>
           <div className="flex gap-2 text-center">
             <p className="text-xl">{authorName}</p>
             <HiMiniCheckBadge className="my-auto text-2xl text-sienna" />
           </div>
-          <div>
-            <Rating>
-              <Rating.Star />
-              <Rating.Star />
-              <Rating.Star />
-              <Rating.Star />
-              <Rating.Star filled={false} />
-              <p className="text-md ml-2 font-medium text-gray-500 dark:text-gray-400">
-                4.95 out of 5
-              </p>
-              <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
-              <a
-                href="#"
-                className="text-md font-medium text-gray-900 underline hover:no-underline dark:text-white"
-              >
-                {views}+ lượt xem
-              </a>
-            </Rating>
-          </div>
+
+          <Rating>
+            <Rating.Star />
+            <Rating.Star />
+            <Rating.Star />
+            <Rating.Star />
+            <Rating.Star filled={false} />
+            <p className="text-md ml-2 font-medium text-gray-500 dark:text-gray-400">4.95 out of 5</p>
+            <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
+            <a href="#" className="text-md font-medium text-gray-900 underline hover:no-underline dark:text-white">
+              {views}+ lượt xem
+            </a>
+          </Rating>
 
           <ToggleShowMore text={bookDescription} />
 
           <div className="flex gap-4">
             <span className="text-sienna">Thể loại</span>
-
-            <a
-              href="#"
-              className="font-medium text-gray-900 underline hover:no-underline dark:text-white"
-            >
+            <a href="#" className="font-medium text-gray-900 underline hover:no-underline dark:text-white">
               {category}
             </a>
           </div>
+
           <hr />
+
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl font-medium">Về người chia sẻ</h2>
-
             <div className="flex gap-4 text-center">
               <div className="h-16 w-16 rounded-full border border-solid border-opacity-10 object-cover shadow-md hover:shadow-lg">
-                <img
-                  src={sharerAvatar}
-                  alt=""
-                  className="h-16 w-16 shrink-0 rounded-full object-cover"
-                />
+                <img src={sharer.memberAvatar} alt="" className="h-16 w-16 shrink-0 rounded-full object-cover" />
               </div>
-
               <div className="flex flex-col text-left">
                 <div className="flex gap-1 text-center">
-                  <p className="text-xl">{sharerName}</p>
+                  <p className="text-xl">{sharer.memberName}</p>
                   <HiMiniCheckBadge className="mt-1 text-xl text-sienna" />
                 </div>
-                <p className="text-gray-500">{sharerWorkPlace}</p>
+                <p className="text-gray-500">{sharer.workPlace}</p>
                 <p className="flex gap-2 text-gray-500">
                   <span>Đã chia sẻ:</span>
                   {count} books
                 </p>
               </div>
             </div>
-            <div>
-              <p className="">{sharerComment}</p>
-            </div>
+            <p>{sharer.comment}</p>
           </div>
         </div>
       </div>
