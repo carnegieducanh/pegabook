@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthContext } from "../../contects/AuthProvider";
+import { AuthContext } from "../../contexts/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import bookrow from "../../assets/bookrow.jpg";
 

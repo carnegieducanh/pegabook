@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Label, TextInput, Textarea } from "flowbite-react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import BookUpload from "../../components/BookUpload";
-import bookCategories from "../../components/BookCategories"; // Import bookCategories
+import bookCategories from "../../data/BookCategories";
 import API_BASE_URL from "../../config/api";
 
 const UploadBook = () => {
@@ -78,7 +78,7 @@ const UploadBook = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                alert("Book uploaded successfully!!!`);
+                alert("Book uploaded successfully!!!");
                 // Chuyển đến trang khác
                 navigate(`/member/dashboard/manage/${id}`);
             });
@@ -91,7 +91,7 @@ const UploadBook = () => {
 
         // update data to database
         fetch(`${API_BASE_URL}/member/${id}`, {
-            method: `PATCH",
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },

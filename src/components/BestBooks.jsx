@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import TrendingBooks from "../home/TrendingBooks";
-import { useLanguage } from "../contects/LanguageProvider";
+import { useLanguage } from "../contexts/LanguageProvider";
 import API_BASE_URL from "../config/api";
 
 const BestBooks = () => {

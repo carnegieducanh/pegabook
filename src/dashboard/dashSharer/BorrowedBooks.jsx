@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import PaginationButtons from "../../components/PaginationBtns";
-import API_BASE_URL from "../../config/api`;
+import API_BASE_URL from "../../config/api";
 
 const BorrowedBooks = () => {
   const [member, setMember] = useState([]);
@@ -46,7 +46,7 @@ const BorrowedBooks = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className=`my-12 w-full px-4">
+    <div className="my-12 w-full px-4">
       <h2 className="dark:text-linen mb-4 text-3xl font-bold">
         Sách bạn đang mượn
       </h2>

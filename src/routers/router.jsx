@@ -16,7 +16,7 @@ const AllBooks = lazy(() => import("../OurBooks/AllBooks"));
 const Members = lazy(() => import("../OurMembers/Members"));
 const Sharers = lazy(() => import("../OurMembers/Sharers"));
 const SingleMember = lazy(() => import("../OurMembers/SingleMember"));
-const PrivateRoute = lazy(() => import("../PrivateRoute/PrivateRoute"));
+const PrivateRoute = lazy(() => import("../components/auth/PrivateRoute"));
 const Dashboard = lazy(() => import("../dashboard/dashAdmin/Dashboard"));
 
 const ManageBooks = lazy(() => import("../dashboard/dashAdmin/ManageBooks"));

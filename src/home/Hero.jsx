@@ -3,7 +3,7 @@ import Book1 from "../assets/books/book1.jpg";
 import Book2 from "../assets/books/book2.jpg";
 import Book3 from "../assets/books/book3.jpg";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../contects/LanguageProvider";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const ImageList = [
   {

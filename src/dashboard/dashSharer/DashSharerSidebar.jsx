@@ -18,7 +18,7 @@ import { GiSpellBook } from "react-icons/gi";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
-import "../dashSharer/DashSelected.css";
+import "../../styles/DashSelected.css";
 import API_BASE_URL from "../../config/api";
 
 const DashMemberSidebar = () => {

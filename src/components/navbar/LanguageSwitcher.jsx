@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
-import { SUPPORTED_LANGUAGES, useLanguage } from "../../contects/LanguageProvider";
+import { SUPPORTED_LANGUAGES, useLanguage } from "../../contexts/LanguageProvider";
 
 const LanguageSwitcher = ({ mobile = false }) => {
   const [isOpen, setIsOpen] = useState(false);

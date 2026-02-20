@@ -10,7 +10,7 @@ import userImg from "../../assets/awardbooks.png";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "../dashSharer/DashSelected.css";
+import "../../styles/DashSelected.css";
 
 const DashSidebar = () => {
     const [selectedItem, setSelectedItem] = useState(null); // State để lưu trạng thái của Sidebar.Item được chọn

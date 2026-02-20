@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button, Label, TextInput, Textarea } from "flowbite-react";
 import BookUpload from "../../components/BookUpload";
-import bookCategories from "../../components/BookCategories"; // Import bookCategories
+import bookCategories from "../../data/BookCategories";
 import API_BASE_URL from "../../config/api";
 
 const YourEditBooks = () => {

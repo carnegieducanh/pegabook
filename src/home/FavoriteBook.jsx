@@ -3,7 +3,7 @@ import FavoriteBookImg from "../assets/favoritebook.jpg";
 import { Link } from "react-router-dom";
 import { Avatar } from "flowbite-react";
 import SpinnerLoading from "../components/SpinnerLoading";
-import { useLanguage } from "../contects/LanguageProvider";
+import { useLanguage } from "../contexts/LanguageProvider";
 import API_BASE_URL from "../config/api";
 
 const FavoriteBook = () => {

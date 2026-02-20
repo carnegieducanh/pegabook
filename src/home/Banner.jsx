@@ -1,6 +1,6 @@
 import BannerCard from "./BannerCard";
 import SearchBooks from "../components/SearchBooks";
-import { useLanguage } from "../contects/LanguageProvider";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const Banner = () => {
   const { t } = useLanguage();

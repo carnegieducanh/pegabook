@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import promoBannerPic from "../assets/Promo Banner Pic.jpg";
-import { useLanguage } from "../contects/LanguageProvider";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const PromoBanner = () => {
   const { t } = useLanguage();

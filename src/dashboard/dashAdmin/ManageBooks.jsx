@@ -58,7 +58,7 @@ const ManageBooks = () => {
     const handleDelete = (id) => {
         // Sử dụng window.confirm để hiển thị thông báo
         const isConfirmed = window.confirm(
-            "Are you sure you want to delete this book?`
+            "Are you sure you want to delete this book?"
         );
 
         // Kiểm tra xem người dùng đã xác nhận hay không

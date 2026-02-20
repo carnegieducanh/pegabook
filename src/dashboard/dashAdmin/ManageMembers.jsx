@@ -42,7 +42,7 @@ const ManageMembers = () => {
     // delete a member
     const handleDelete = (id, memberID) => {
         const isConfirmed = window.confirm(
-            "Are you sure you want to delete this Member?`
+            "Are you sure you want to delete this Member?"
         );
 
         if (isConfirmed) {

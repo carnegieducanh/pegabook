@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 import SpinnerLoading from "../components/SpinnerLoading";
-import { useLanguage } from "../contects/LanguageProvider";
+import { useLanguage } from "../contexts/LanguageProvider";
 import API_BASE_URL from "../config/api";
 
 const TrendingBooks = ({ headline }) => {

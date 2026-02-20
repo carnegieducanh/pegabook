@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import PaginationButtons from "../../components/PaginationBtns";
 import DashSearchBook from "./DashSearchBook";
-import API_BASE_URL from "../../config/api`;
+import API_BASE_URL from "../../config/api";
 
 const YourBooks = () => {
   const [member, setMember] = useState([]);
@@ -47,7 +47,7 @@ const YourBooks = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className=`my-12 w-full px-4">
+    <div className="my-12 w-full px-4">
       <div className="flex flex-col justify-between lg:flex-row">
         <h2 className="dark:text-pebble mb-4 text-3xl font-bold">
           Sách của bạn

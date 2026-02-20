@@ -5,7 +5,7 @@ import {
   FaLocationArrow,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../contects/LanguageProvider";
+import { useLanguage } from "../../contexts/LanguageProvider";
 
 const Footer = () => {
   const { t } = useLanguage();

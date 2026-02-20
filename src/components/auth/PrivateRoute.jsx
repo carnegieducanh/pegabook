@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../contects/AuthProvider";
+import { AuthContext } from "../../contexts/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 import { Spinner } from "flowbite-react";
 

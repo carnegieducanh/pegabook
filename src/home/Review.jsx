@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import SpinnerLoading from "../components/SpinnerLoading";
-import { useLanguage } from "../contects/LanguageProvider";
+import { useLanguage } from "../contexts/LanguageProvider";
 import API_BASE_URL from "../config/api";
 
 const Review = () => {
