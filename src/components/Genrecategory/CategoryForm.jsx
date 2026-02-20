@@ -25,7 +25,7 @@ const CategoryForm = ({ setSearchFormValues }) => {
       ...formValues,
       genres: idsToSearch || [], // Đảm bảo genres luôn là một mảng
     });
-  }, [JSON.stringify(formValues), data, setSearchFormValues]);
+  }, [data, formValues, setSearchFormValues]);
 
   const onSubmit = (data) => {
     console.log("dataform", JSON.stringify(data));

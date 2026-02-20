@@ -5,8 +5,8 @@ import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
 import ViewsBook from "../OurBooks/ViewsBook";
 import SearchBooks from "../components/SearchBooks";
-import CategoryForm from "../components/genrecategory/CategoryForm";
 import API_BASE_URL from "../config/api";
+import CategoryForm from "../components/genrecategory/CategoryForm";
 
 const AllBooks = () => {
   const [booksData, setBooksData] = useState([]);
@@ -79,6 +79,7 @@ const AllBooks = () => {
         </div>
 
         <h3 className="text-left font-title text-2xl font-bold">Categories:</h3>
+        {/* <CategoryForm setSearchFormValues={setSearchFormValues} /> */}
         <CategoryForm setSearchFormValues={setSearchFormValues} />
 
         <h2 className="text-left font-title text-4xl font-bold dark:text-pebble">
