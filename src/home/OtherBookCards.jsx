@@ -66,7 +66,7 @@ const OtherBookCards = ({ headline, books }) => {
                 <Link to={`/book/${book._id}`}>
                   <div
                     data-aos="zoom-in"
-                    className="group flex h-[400px] flex-col justify-between gap-4 bg-white dark:bg-obsidian lg:h-full lg:w-52"
+                    className="group flex flex-col gap-4 bg-white pb-2 dark:bg-obsidian lg:w-52"
                   >
                     <div className="mx-auto mt-1 flex flex-col justify-between gap-1 text-left lg:w-52">
                       <p className="line-clamp-2 block text-center text-sm text-gray-500">
