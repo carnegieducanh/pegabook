@@ -413,10 +413,48 @@ const Navbar = () => {
 
             {/* ===== NÚT CHUYỂN NGÔN NGỮ (Mobile) ===== */}
             <div className="mt-4 border-t border-gray-200 pt-4">
-              <p className="mb-2 text-sm text-gray-500 dark:text-[#9aa0a6]">
-                {t("nav.langLabel")}
-              </p>
-              <LanguageSwitcher mobile={true} />
+              <div
+                className="flex cursor-pointer items-center justify-between gap-2 text-lg text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                onClick={() => setIsMobileLangOpen(!isMobileLangOpen)}
+              >
+                <div className="flex items-center gap-2">
+                  <span>{currentLang?.flag}</span>
+                  <span>{currentLang?.label}</span>
+                </div>
+                <FaCaretDown
+                  className={`transition-all duration-200 ${
+                    isMobileLangOpen ? "rotate-180" : ""
+                  } text-[#a69060]`}
+                />
+              </div>
+              {isMobileLangOpen && (
+                <div className="mt-2 p-2">
+                  <ul className="space-y-3">
+                    {SUPPORTED_LANGUAGES.map((lang) => (
+                      <li key={lang.code}>
+                        <button
+                          onClick={() => {
+                            changeLanguage(lang.code);
+                            setIsMobileLangOpen(false);
+                          }}
+                          className={`flex w-full items-center gap-2 text-left text-lg ${
+                            language === lang.code
+                              ? "font-semibold text-[#a69060]"
+                              : "text-black hover:text-[#a69060] dark:text-[#e8eaed] dark:hover:text-[#a69060]"
+                          }`}
+                        >
+                          <IoIosArrowForward className="text-[#a69060]" />
+                          <span>{lang.flag}</span>
+                          <span>{lang.label}</span>
+                          {language === lang.code && (
+                            <span className="ml-auto text-[#a69060]">✓</span>
+                          )}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* ===== NÚT TOGGLE DARK MODE (Mobile) ===== */}
