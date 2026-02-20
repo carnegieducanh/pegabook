@@ -52,14 +52,14 @@ const LoginMember = () => {
   };
 
   return (
-    <div className="dark:bg-onyx flex min-h-screen flex-col justify-between bg-gray-200">
+    <div className="flex min-h-screen flex-col justify-between bg-gray-200 dark:bg-onyx">
       <div className="flex items-center justify-between gap-8 px-4 py-4 text-base lg:px-24">
         {/* logo */}
         <Link to="/">
           {/* <img src={navLogo} alt="" /> */}
-          <h2 className="text-brand text-4xl font-medium">PEGABOOK</h2>
+          <h2 className="text-4xl font-medium text-brand">PEGABOOK</h2>
 
-          <p className="text-dusk pt-2">Viet Nam Team with ❤️</p>
+          <p className="pt-2 text-dusk">Viet Nam Team with ❤️</p>
         </Link>
       </div>
       {loading ? ( // Display SpinnerLoading if loading is true
@@ -67,12 +67,12 @@ const LoginMember = () => {
           <SpinnerLoading />
         </div>
       ) : (
-        <div className="bg-cream dark:bg-obsidian mx-auto flex max-w-sm rounded-md border border-gray-300 p-10">
+        <div className="mx-auto flex max-w-sm rounded-md border border-gray-300 bg-cream p-10 dark:bg-obsidian">
           <form onSubmit={handleLogin}>
             <div className="space-y-6">
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 Đăng nhập vào nền tảng của{" "}
-                <span className="text-brand text-xl font-medium">
+                <span className="text-xl font-medium text-brand">
                   Pegabook
                 </span>{" "}
               </h3>
@@ -119,16 +119,24 @@ const LoginMember = () => {
                 <button className="rounded-md bg-cyan-700 px-6 py-2 text-white">
                   Đăng nhập vào tài khoản của bạn
                 </button>
+                <div className="mt-3 text-center">
+                  <Link
+                    to="/login"
+                    className="text-sm text-cyan-700 hover:text-gray-600 hover:underline dark:text-cyan-500 dark:hover:text-gray-300"
+                  >
+                    Hoặc đăng nhập với tư cách admin
+                  </Link>
+                </div>
               </div>
               {/* <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
-                                Chưa đăng ký?&nbsp;
-                                <a
-                                    href="#"
-                                    className="text-cyan-700 hover:underline dark:text-cyan-500"
-                                >
-                                    Tạo tài khoản
-                                </a>
-                            </div> */}
+                Chưa đăng ký?&nbsp;
+                <a
+                  href="#"
+                  className="text-cyan-700 hover:underline dark:text-cyan-500"
+                >
+                  Tạo tài khoản
+                </a>
+              </div> */}
             </div>
           </form>
         </div>

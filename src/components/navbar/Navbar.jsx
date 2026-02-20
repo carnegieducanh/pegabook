@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCaretDown, FaUser } from "react-icons/fa";
+import { FaBook, FaCaretDown, FaHome, FaUser, FaUsers } from "react-icons/fa";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { useLanguage } from "../../contexts/LanguageProvider";
@@ -70,8 +70,8 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { link: t("nav.home"), path: "/" },
-    { link: t("nav.library"), path: "/all-books" },
+    { link: t("nav.home"), path: "/", icon: <FaHome /> },
+    { link: t("nav.library"), path: "/all-books", icon: <FaBook /> },
   ];
 
   const communityLinks = [
@@ -80,10 +80,7 @@ const Navbar = () => {
     { link: t("nav.gratitude"), path: "/gratitude" },
   ];
 
-  const navSignIn = [
-    { link: t("nav.member"), path: "/login-member" },
-    { link: t("nav.admin"), path: "/admin/dashboard" },
-  ];
+  const communityIcon = <FaUsers />;
 
   const navUser = [
     { link: user?.email ?? "", path: "/admin/dashboard" },
@@ -137,14 +134,12 @@ const Navbar = () => {
             <DarkModeToggle />
             <LanguageSwitcher />
             {!user && !memberSession && (
-              <DesktopDropdown
-                trigger={
-                  <>
-                    <FaUser /> {t("nav.join")}
-                  </>
-                }
-                items={navSignIn}
-              />
+              <Link
+                to="/login-member"
+                className={TRIGGER_CLS}
+              >
+                <FaUser /> {t("nav.join")}
+              </Link>
             )}
             {!user && memberSession && (
               <DesktopDropdown
@@ -185,7 +180,7 @@ const Navbar = () => {
           onClose={() => setIsMenuOpen(false)}
           navItems={navItems}
           communityLinks={communityLinks}
-          navSignIn={navSignIn}
+          communityIcon={communityIcon}
           navMember={navMember}
           memberSession={memberSession}
           t={t}

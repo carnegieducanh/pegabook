@@ -43,10 +43,10 @@ const Login = () => {
           <p className="text-dusk pt-2">Viet Nam Team with ❤️</p>
         </Link>
       </div>
-      <div className="bg-cream dark:bg-onyx flex h-screen flex-col justify-center py-6 sm:py-12">
-        <div className="relative py-3 sm:mx-auto md:max-w-xl">
+      <div className="bg-cream dark:bg-onyx flex min-h-screen flex-col justify-center overflow-hidden px-4 py-6 sm:px-0 sm:py-12">
+        <div className="relative w-full py-3 sm:mx-auto sm:max-w-xl">
           <div className="absolute inset-0 -skew-y-6 transform bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg sm:-rotate-6 sm:skew-y-0 sm:rounded-3xl"></div>
-          <div className="relative bg-white px-4 py-10 shadow-lg sm:rounded-3xl sm:p-20">
+          <div className="relative bg-white px-6 py-10 shadow-lg sm:rounded-3xl sm:p-20">
             <div className="mx-auto max-w-md">
               <div>
                 <h1 className="text-2xl font-semibold">

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCaretDown } from "react-icons/fa";
-import { FaUser } from "react-icons/fa6";
+import { FaCaretDown, FaUser } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import DarkModeToggle from "./DarkModeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -44,30 +43,46 @@ const MobileDropdown = ({ label, items, icon }) => {
   );
 };
 
-const NavMobileMenu = ({ isOpen, onClose, navItems, communityLinks, navSignIn, navMember, memberSession, t }) => {
+const NavMobileMenu = ({
+  isOpen,
+  onClose,
+  navItems,
+  communityLinks,
+  communityIcon,
+  navMember,
+  memberSession,
+  t,
+}) => {
   if (!isOpen) return null;
 
   return (
     <div className="fixed left-0 right-0 top-0 mt-[95px] space-y-4 bg-cream px-4 py-7 dark:bg-obsidian">
       {/* Nav items chính */}
-      {navItems.map(({ link, path }) => (
+      {navItems.map(({ link, path, icon }) => (
         <Link
           key={path}
           to={path}
-          className="cursor-point text-lg text-black dark:text-fog"
+          className="cursor-pointer text-lg text-black dark:text-fog hover:text-brand dark:hover:text-brand"
           onClick={onClose}
         >
           <div className="mb-4 flex items-center justify-between">
-            {link}
+            <div className="flex items-center gap-2">
+              {icon}
+              {link}
+            </div>
             <IoIosArrowForward className="text-brand" />
           </div>
         </Link>
       ))}
 
       {/* Dropdown Cộng đồng */}
-      <MobileDropdown label={t("nav.community")} items={communityLinks} />
+      <MobileDropdown
+        label={t("nav.community")}
+        items={communityLinks}
+        icon={communityIcon}
+      />
 
-      {/* Dropdown Join hoặc Member Dashboard */}
+      {/* Tham gia hoặc Member Dashboard */}
       {memberSession ? (
         <MobileDropdown
           label={memberSession.memberName}
@@ -75,7 +90,17 @@ const NavMobileMenu = ({ isOpen, onClose, navItems, communityLinks, navSignIn, n
           icon={<FaUser />}
         />
       ) : (
-        <MobileDropdown label={t("nav.join")} items={navSignIn} icon={<FaUser />} />
+        <Link
+          to="/login-member"
+          className="flex items-center justify-between text-lg text-black hover:text-brand dark:text-fog dark:hover:text-brand"
+          onClick={onClose}
+        >
+          <div className="flex items-center gap-2">
+            <FaUser />
+            {t("nav.join")}
+          </div>
+          <IoIosArrowForward className="text-brand" />
+        </Link>
       )}
 
       {/* Chọn ngôn ngữ */}
