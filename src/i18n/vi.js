@@ -35,7 +35,7 @@ const vi = {
     gratitude: "Lời cảm ơn",
     connect: "Kết nối",
     copyright:
-      "@Copyright 2024 All rights reserved || Made with ❤️ by Viet Nam Team of Pegabook Japan",
+      "@Copyright 2024 All rights reserved || Made with ❤️ by Viet Nam Team of Pegabook",
   },
   banner: {
     title: "Thư viện Sách Phi lợi nhuận",

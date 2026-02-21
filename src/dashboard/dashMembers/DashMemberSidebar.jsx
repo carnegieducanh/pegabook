@@ -93,16 +93,6 @@ const DashMemberSidebar = () => {
       {/* === Desktop Menu  === */}
       <Sidebar.Items className="hidden lg:block">
         <Sidebar.ItemGroup>
-          <Link to={"/"}>
-            <Sidebar.Item
-              icon={HiHome}
-              className={selectedItem === "home" ? "selected" : ""}
-              onClick={() => handleItemClick("home")}
-            >
-              Quay lại trang chủ
-            </Sidebar.Item>
-          </Link>
-
           <Link to={`/member/dashboard/${member._id}`}>
             <Sidebar.Item
               icon={HiChartPie} // Kiểm tra nếu phần tử này được chọn thì thêm lớp CSS 'selected'
@@ -200,6 +190,16 @@ const DashMemberSidebar = () => {
               </div>
             </div>
           </Sidebar.Item>
+
+          <Link to={"/"}>
+            <Sidebar.Item
+              icon={HiHome}
+              className={selectedItem === "home" ? "selected" : ""}
+              onClick={() => handleItemClick("home")}
+            >
+              Quay lại trang chủ
+            </Sidebar.Item>
+          </Link>
 
           <Link to={"/logout"}>
             <Sidebar.Item

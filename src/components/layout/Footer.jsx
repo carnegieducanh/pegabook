@@ -22,9 +22,7 @@ const Footer = () => {
         <div className="flex flex-col justify-between py-5 md:flex-row">
           {/* company Details */}
           <div className="py-6">
-            <h1 className="mb-5 text-4xl font-medium text-brand">
-              PEGABOOK
-            </h1>
+            <h1 className="mb-5 text-4xl font-medium text-brand">PEGABOOK</h1>
             <p>{t("footer.tagline")}</p>
           </div>
 
@@ -95,7 +93,7 @@ const Footer = () => {
                 <br />
                 <div className="flex items-center gap-3 text-sm">
                   <FaLocationArrow />
-                  <p>PEGABOOK JAPAN INC.</p>
+                  <p>PEGABOOK INC.</p>
                 </div>
               </div>
             </div>

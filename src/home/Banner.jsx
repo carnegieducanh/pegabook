@@ -11,8 +11,7 @@ const Banner = () => {
         {/* left side */}
         <div className="h-full space-y-8 md:w-1/2">
           <h2 className="font-title text-4xl font-bold leading-snug text-black dark:text-white">
-            {t("banner.title")}{" "}
-            <span className="text-brand">Pegabook Japan</span>
+            {t("banner.title")} <span className="text-brand">Pegabook</span>
           </h2>
           <p className="text-lg md:w-4/5">{t("banner.description")}</p>
           <div className="md:w-2/3">

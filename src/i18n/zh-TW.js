@@ -34,8 +34,7 @@ const zhTW = {
     sharers: "分享者",
     gratitude: "感謝詞",
     connect: "聯繫",
-    copyright:
-      "@Copyright 2024 版權所有 || 由越南團隊以 ❤️ 製作 — Pegabook Japan",
+    copyright: "@Copyright 2024 版權所有 || 由越南團隊以 ❤️ 製作 — Pegabook",
   },
   banner: {
     title: "非營利圖書館",

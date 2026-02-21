@@ -35,7 +35,7 @@ const ja = {
     gratitude: "感謝の言葉",
     connect: "つながる",
     copyright:
-      "@Copyright 2024 全著作権所有 || ベトナムチームが ❤️ で制作 — Pegabook Japan",
+      "@Copyright 2024 全著作権所有 || ベトナムチームが ❤️ で制作 — Pegabook",
   },
   banner: {
     title: "非営利の図書館",
