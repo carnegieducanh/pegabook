@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import PaginationButtons from "../../components/PaginationBtns";
-import DashSearchBook from "./DashSearchBook";
+import DashMemberBook from "./DashMemberBook";
 import API_BASE_URL from "../../config/api";
 
 const YourBooks = () => {
@@ -49,13 +49,13 @@ const YourBooks = () => {
   return (
     <div className="my-12 w-full px-4">
       <div className="flex flex-col justify-between lg:flex-row">
-        <h2 className="dark:text-pebble mb-4 text-3xl font-bold">
+        <h2 className="mb-4 text-3xl font-bold dark:text-pebble">
           Sách của bạn
         </h2>
 
-        <DashSearchBook memberBooks={memberBooks} />
+        <DashMemberBook memberBooks={memberBooks} />
       </div>
-      <p className="dark:text-pebble my-4 px-4 underline">
+      <p className="my-4 px-4 underline dark:text-pebble">
         Chọn 1 cuốn sách để khám phá thêm
       </p>
       <div className="bg-veil dark:bg-obsidian">
@@ -86,10 +86,10 @@ const YourBooks = () => {
 
                       <hr className="my-2" />
 
-                      <p className="dark:text-linen line-clamp-2 text-sm">
+                      <p className="line-clamp-2 text-sm dark:text-linen">
                         {book.status}
                       </p>
-                      <p className="dark:text-blush line-clamp-1 text-sm font-semibold text-pink-800">
+                      <p className="line-clamp-1 text-sm font-semibold text-pink-800 dark:text-blush">
                         {book.borrowedBy}
                       </p>
                     </div>

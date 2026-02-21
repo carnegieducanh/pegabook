@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import App from "../App";
 import DashboardLayout from "../dashboard/dashAdmin/DashboardLayout";
-import DashSharerLayout from "../dashboard/dashSharer/DashSharerLayout";
+import DashMemberLayout from "../dashboard/dashMembers/DashMemberLayout";
 import Signup from "../components/auth/Signup";
 import Login from "../components/auth/Login";
 import LoginSharer from "../components/auth/LoginMember";
@@ -18,7 +18,9 @@ const Sharers = lazy(() => import("../OurMembers/Sharers"));
 const SingleMember = lazy(() => import("../OurMembers/SingleMember"));
 const PrivateRoute = lazy(() => import("../components/auth/PrivateRoute"));
 const Dashboard = lazy(() => import("../dashboard/dashAdmin/Dashboard"));
-
+const ManageBorrowers = lazy(
+  () => import("../dashboard/dashAdmin/ManageBorrowers"),
+);
 const ManageBooks = lazy(() => import("../dashboard/dashAdmin/ManageBooks"));
 const AddMember = lazy(() => import("../dashboard/dashAdmin/AddMember"));
 const EditMember = lazy(() => import("../dashboard/dashAdmin/EditMember"));
@@ -26,36 +28,38 @@ const ManageMembers = lazy(
   () => import("../dashboard/dashAdmin/ManageMembers"),
 );
 
-const DashSharer = lazy(() => import("../dashboard/dashSharer/DashSharer"));
-const YourBooks = lazy(() => import("../dashboard/dashSharer/YourBooks"));
-const UploadBook = lazy(() => import("../dashboard/dashSharer/UploadBook"));
-const YourProfile = lazy(() => import("../dashboard/dashSharer/YourProfile"));
-const YourPassword = lazy(() => import("../dashboard/dashSharer/YourPassword"));
+// import DashMember from "../dashboard/dashMembers/DashMember";
+const DashMember = lazy(() => import("../dashboard/dashMembers/DashMember"));
+const YourBooks = lazy(() => import("../dashboard/dashMembers/YourBooks"));
+const UploadBook = lazy(() => import("../dashboard/dashMembers/UploadBook"));
+const YourProfile = lazy(() => import("../dashboard/dashMembers/YourProfile"));
+const YourPassword = lazy(
+  () => import("../dashboard/dashMembers/YourPassword"),
+);
 const YourEditBooks = lazy(
-  () => import("../dashboard/dashSharer/YourEditBooks"),
+  () => import("../dashboard/dashMembers/YourEditBooks"),
 );
 
 const BorrowedBooks = lazy(
-  () => import("../dashboard/dashSharer/BorrowedBooks"),
+  () => import("../dashboard/dashMembers/BorrowedBooks"),
 );
-const AddBorrower = lazy(() => import("../dashboard/dashSharer/AddBorrower"));
+const AddBorrower = lazy(() => import("../dashboard/dashMembers/AddBorrower"));
 const SingleYourBook = lazy(
-  () => import("../dashboard/dashSharer/SingleYourBook"),
+  () => import("../dashboard/dashMembers/SingleYourBook"),
 );
 const RemoveBorrower = lazy(
-  () => import("../dashboard/dashSharer/RemoveBorrower"),
+  () => import("../dashboard/dashMembers/RemoveBorrower"),
 );
 const ManageBorrower = lazy(
-  () => import("../dashboard/dashSharer/ManageBorrower"),
+  () => import("../dashboard/dashMembers/ManageBorrower"),
 );
-const ReturnBook = lazy(() => import("../dashboard/dashSharer/ReturnBook"));
-const Gratitude = lazy(() => import("../components/Gratitude"));
-const ManageBorrowers = lazy(
-  () => import("../dashboard/dashAdmin/ManageBorrowers"),
-);
+const ReturnBook = lazy(() => import("../dashboard/dashMembers/ReturnBook"));
+
 const YourBooksRead = lazy(
-  () => import("../dashboard/dashSharer/YourBooksRead"),
+  () => import("../dashboard/dashMembers/YourBooksRead"),
 );
+
+const Gratitude = lazy(() => import("../components/Gratitude"));
 
 const router = createBrowserRouter([
   {
@@ -85,14 +89,12 @@ const router = createBrowserRouter([
       {
         path: "/book/:id",
         element: <SingleBook />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/book/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/book/${params.id}`),
       },
       {
         path: "/member/:id",
         element: <SingleMember />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
     ],
   },
@@ -135,96 +137,82 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/edit-members/:id",
         element: <EditMember />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
     ],
   },
   {
     path: "/member/dashboard",
-    element: <DashSharerLayout />,
+    element: <DashMemberLayout />,
     children: [
       {
         path: "/member/dashboard/:id",
-        element: <DashSharer />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        element: <DashMember />,
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/add-borrower/:id",
         element: <AddBorrower />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/book/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/book/${params.id}`),
       },
       {
         path: "/member/dashboard/remove-borrower/:id",
         element: <RemoveBorrower />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/book/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/book/${params.id}`),
       },
       {
         path: "/member/dashboard/upload/:id",
         element: <UploadBook />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/manage/:id",
         element: <YourBooks />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/manage/borrower/:id",
         element: <ManageBorrower />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/borrowed-book/:id",
         element: <BorrowedBooks />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
 
       {
         path: "/member/dashboard/read-book/:id",
         element: <YourBooksRead />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
 
       {
         path: "/member/dashboard/return-book/:id",
         element: <ReturnBook />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/book/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/book/${params.id}`),
       },
 
       {
         path: "/member/dashboard/profile/:id",
         element: <YourProfile />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
       {
         path: "/member/dashboard/changePassword/:id",
         element: <YourPassword />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/member/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
 
       {
         path: "/member/dashboard/book/:id",
         element: <SingleYourBook />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/book/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/book/${params.id}`),
       },
       {
         path: "/member/dashboard/edit-books/:id",
         element: <YourEditBooks />,
-        loader: ({ params }) =>
-          fetch(`${API_BASE_URL}/book/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/book/${params.id}`),
       },
     ],
   },

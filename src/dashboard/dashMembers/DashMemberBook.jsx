@@ -3,7 +3,7 @@ import { IoIosSearch } from "react-icons/io";
 import { Link, useParams } from "react-router-dom";
 import API_BASE_URL from "../../config/api";
 
-const DashSearchBook = ({ memberBooks }) => {
+const DashMemberBook = ({ memberBooks }) => {
   const [data, setData] = useState([]);
 
   const [search, setSearch] = useState([]);
@@ -60,14 +60,14 @@ const DashSearchBook = ({ memberBooks }) => {
 
   return (
     <div className="w-96">
-      <div className="bg-ghost dark:bg-void relative flex justify-start rounded-s-sm border border-solid outline-none">
-        <IoIosSearch className="dark:text-linen absolute left-2 top-2 my-auto h-6 w-6" />
+      <div className="relative flex justify-start rounded-s-sm border border-solid bg-ghost outline-none dark:bg-void">
+        <IoIosSearch className="absolute left-2 top-2 my-auto h-6 w-6 dark:text-linen" />
 
         <input
           id="search"
           type="search"
           name="search"
-          className="bg-ghost dark:bg-void dark:text-linen w-full border-none pl-10 font-normal outline-none"
+          className="w-full border-none bg-ghost pl-10 font-normal outline-none dark:bg-void dark:text-linen"
           placeholder="Search a book"
           onChange={filterBooks}
           autoComplete="off"
@@ -77,7 +77,7 @@ const DashSearchBook = ({ memberBooks }) => {
       {showResults && inputEntered && (
         <div
           id="searchResultsDiv"
-          className="bg-cream max-h-40 overflow-y-scroll rounded-lg px-5 py-5 text-center shadow hover:shadow-md"
+          className="max-h-40 overflow-y-scroll rounded-lg bg-cream px-5 py-5 text-center shadow hover:shadow-md"
         >
           {loading ? (
             <h3 className="font-bold">Loading...</h3>
@@ -85,7 +85,7 @@ const DashSearchBook = ({ memberBooks }) => {
             search.map((book, index) => (
               <div key={book._id} onClick={() => handleBookSelect(book)}>
                 <Link to={`/member/dashboard/book/${book._id}`}>
-                  <div className="hover:bg-ash flex h-20 cursor-pointer gap-7 px-5 py-2">
+                  <div className="flex h-20 cursor-pointer gap-7 px-5 py-2 hover:bg-ash">
                     <img
                       src={book.imageUrl}
                       alt=""
@@ -112,4 +112,4 @@ const DashSearchBook = ({ memberBooks }) => {
   );
 };
 
-export default DashSearchBook;
+export default DashMemberBook;

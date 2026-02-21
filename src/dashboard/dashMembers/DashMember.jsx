@@ -8,7 +8,7 @@ import { MdPeopleAlt } from "react-icons/md";
 import { BiSolidBookHeart } from "react-icons/bi";
 import API_BASE_URL from "../../config/api";
 
-const DashSharer = () => {
+const DashMember = () => {
   const [borrower, setBorrower] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
 
@@ -60,7 +60,7 @@ const DashSharer = () => {
       <div className="my-12 grid h-40 grid-cols-2 gap-4 px-4 lg:grid-cols-4">
         {/* <Card href="#" className="invisible"></Card> */}
         <Card href={`/member/dashboard/manage/${_id}`} className="">
-          <div className="bg-cream flex h-12 w-12 rounded-full">
+          <div className="flex h-12 w-12 rounded-full bg-cream">
             <ImBooks className="m-auto h-7 w-7" />
           </div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -72,7 +72,7 @@ const DashSharer = () => {
         </Card>
 
         <Card href={`/member/dashboard/borrowed-book/${_id}`} className="">
-          <div className="bg-cream flex h-12 w-12 rounded-full">
+          <div className="flex h-12 w-12 rounded-full bg-cream">
             <FaBookReader className="m-auto h-7 w-7" />
           </div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -84,7 +84,7 @@ const DashSharer = () => {
         </Card>
 
         <Card href={`/member/dashboard/manage/borrower/${_id}`} className="">
-          <div className="bg-cream flex h-12 w-12 rounded-full">
+          <div className="flex h-12 w-12 rounded-full bg-cream">
             <BiSolidBookHeart className="m-auto h-7 w-7" />
           </div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -96,7 +96,7 @@ const DashSharer = () => {
         </Card>
 
         <Card href={`/member/dashboard/manage/borrower/${_id}`} className="">
-          <div className="bg-cream flex h-12 w-12 rounded-full">
+          <div className="flex h-12 w-12 rounded-full bg-cream">
             <MdPeopleAlt className="m-auto h-7 w-7" />
           </div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -214,7 +214,7 @@ const DashSharer = () => {
                             </div>
                           </div>
                           <div className="w-1/3">
-                            <p className="dark:text-linen hidden text-center md:block">
+                            <p className="hidden text-center dark:text-linen md:block">
                               {book.category}
                             </p>
                           </div>
@@ -243,4 +243,4 @@ const DashSharer = () => {
   );
 };
 
-export default DashSharer;
+export default DashMember;
