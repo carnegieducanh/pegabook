@@ -11,24 +11,21 @@ const ImageList = [
     img: Book1,
     title: "Young Mungo",
     author: "Douglas Stuart",
-    description:
-      "Growing up in a housing estate in Glasgow, Mungo and James are born under different stars--Mungo a Protestant and James a Catholic--and they should be sworn enemies if they're to be seen as men at all. Yet against all odds, they become best friends as they find a sanctuary in the pigeon dovecote that James has built for his prize racing birds.",
+    descKey: "hero.descBook1",
   },
   {
     id: 2,
     img: Book2,
     title: "An Immense World",
     author: "Ed Yong",
-    description:
-      "The Earth teems with sights and textures, sounds and vibrations, smells and tastes, electric and magnetic fields. But every animal is enclosed within its own unique sensory bubble, perceiving but a tiny sliver of an immense world. This book welcomes us into a previously unfathomable dimension--the world as it is truly perceived by other animals.",
+    descKey: "hero.descBook2",
   },
   {
     id: 3,
     img: Book3,
     title: "Why We Sleep",
     author: "Matthew Walker",
-    description:
-      "\u201cWhy We Sleep is an important and fascinating book\u2026Walker taught me a lot about this basic activity that every person on Earth needs. I suspect his book will do the same for you.\u201d \u2014Bill Gates",
+    descKey: "hero.descBook3",
   },
 ];
 
@@ -38,9 +35,7 @@ const Hero = ({}) => {
   const [imageId, setImageId] = React.useState(Book1);
   const [title, setTitle] = React.useState("Young Mungo");
   const [author, setAuthor] = React.useState("Douglas Stuart");
-  const [description, setDescription] = React.useState(
-    "Growing up in a housing estate in Glasgow, Mungo and James are born under different stars--Mungo a Protestant and James a Catholic--and they should be sworn enemies if they're to be seen as men at all. Yet against all odds, they become best friends as they find a sanctuary in the pigeon dovecote that James has built for his prize racing birds.",
-  );
+  const [descKey, setDescKey] = React.useState("hero.descBook1");
 
   const bgImage = {
     backgroundPosition: "center",
@@ -81,7 +76,7 @@ const Hero = ({}) => {
                 data-aos-delay="100"
                 className="text-md"
               >
-                {description}
+                {t(descKey)}
               </p>
               <div>
                 <Link to="/all-books" className="block">
@@ -115,7 +110,7 @@ const Hero = ({}) => {
                       );
                       setTitle(item.title);
                       setAuthor(item.author);
-                      setDescription(item.description);
+                      setDescKey(item.descKey);
                     }}
                     alt=""
                     className="inline-block h-[100px] max-w-[100px] rounded-sm rounded-br-lg rounded-tr-lg object-contain shadow-xl duration-200 hover:scale-110"
