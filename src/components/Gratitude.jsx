@@ -66,7 +66,7 @@ const Gratitude = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
             <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-void">
-              <p className="text-lg">🙏 {t("gratitude.blockquote")}:</p>{" "}
+              <p className="text-lg">🙏 {t("gratitude.blockquote")}</p>{" "}
               {filteredMembers.length > 0 ? (
                 <div className="py-2 text-xl font-semibold italic text-maroon dark:text-blush">
                   "
