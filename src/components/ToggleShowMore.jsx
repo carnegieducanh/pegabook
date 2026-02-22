@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 function ToggleShowMore({ text }) {
+  const { t } = useLanguage();
   const [showFullText, setShowFullText] = useState(false);
 
   const toggleShowFullText = () => {
@@ -14,10 +16,10 @@ function ToggleShowMore({ text }) {
         <div>
           {text}
           <a
-            className="text-ocean dark:text-azure mt-2 flex cursor-pointer items-center gap-1 font-semibold hover:underline"
+            className="mt-2 flex cursor-pointer items-center gap-1 font-semibold text-ocean hover:underline dark:text-azure"
             onClick={toggleShowFullText}
           >
-            Thu gọn
+            {t("seeMoreBtn.collapse")}
             <IoIosArrowUp />
           </a>
         </div>
@@ -27,10 +29,10 @@ function ToggleShowMore({ text }) {
             <div>
               {text.slice(0, 200)}...
               <a
-                className="text-ocean dark:text-azure mt-2 flex cursor-pointer items-center gap-1 font-semibold hover:underline"
+                className="mt-2 flex cursor-pointer items-center gap-1 font-semibold text-ocean hover:underline dark:text-azure"
                 onClick={toggleShowFullText}
               >
-                Xem thêm
+                {t("seeMoreBtn.seeMore")}
                 <IoIosArrowDown />
               </a>
             </div>
@@ -40,7 +42,7 @@ function ToggleShowMore({ text }) {
         </div>
       )}
       {!showFullText && (
-        <div className="dark:to-obsidian absolute bottom-8 w-full bg-gradient-to-b from-transparent to-white pt-10"></div>
+        <div className="absolute bottom-8 w-full bg-gradient-to-b from-transparent to-white pt-10 dark:to-obsidian"></div>
       )}
     </div>
   );

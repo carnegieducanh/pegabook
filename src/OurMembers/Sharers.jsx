@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
 import API_BASE_URL from "../config/api";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const Sharers = () => {
+  const { t } = useLanguage();
   const [allMembers, setAllMembers] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
 
@@ -77,8 +79,12 @@ const Sharers = () => {
       <ImageBanner />
 
       <div className="bg-veil px-4 py-10 dark:bg-void lg:px-36">
-        <h2 className="text-left font-title text-3xl">Về người chia sẻ</h2>
-        <p className="pl-2 pt-4 text-left text-sm">FEATURED SHARERS</p>
+        <h2 className="text-left font-title text-3xl">
+          {t("profileMember.title")}
+        </h2>
+        <p className="pl-2 pt-4 text-left text-sm">
+          {t("profileMember.featured")}
+        </p>
         {currentMembers.length > 0 ? (
           <div className="grid grid-cols-1 justify-between gap-x-8 sm:grid-cols-2 md:grid-cols-3">
             {currentMembers &&
@@ -105,12 +111,14 @@ const Sharers = () => {
                         {member.workPlace}
                       </p>
                       <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
-                        Đã chia sẻ: {member.sharedBooksCount} cuốn sách
+                        {t("profileMember.bookShared.shared")}:{" "}
+                        {member.sharedBooksCount}{" "}
+                        {t("profileMember.bookShared.bookLength")}
                       </p>
                       <div className="flex items-center gap-1">
                         <ImProfile />
                         <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
-                          Xem profile
+                          {t("profileMember.bookShared.profile")}
                         </p>
                       </div>
                     </div>

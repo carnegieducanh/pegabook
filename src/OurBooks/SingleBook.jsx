@@ -9,8 +9,10 @@ import ImageBanner from "../components/ImageBanner";
 import BorrowForm from "./BorrowForm";
 import useBookData from "../hooks/useBookData";
 import API_BASE_URL from "../config/api";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const SingleBook = () => {
+  const { t } = useLanguage();
   const [showBorrowForm, setShowBorrowForm] = useState(false);
   const [loggedInMember, setLoggedInMember] = useState(null);
 
@@ -71,10 +73,10 @@ const SingleBook = () => {
             <div className="my-2 w-48">
               {loggedInMember ? (
                 <button
-                  className="bg-brand mx-auto mt-3 w-48 rounded-full px-6 py-1 text-lg text-white duration-300 hover:scale-105"
+                  className="mx-auto mt-3 w-48 rounded-full bg-brand px-6 py-1 text-lg text-white duration-300 hover:scale-105"
                   onClick={() => setShowBorrowForm(true)}
                 >
-                  Mượn sách
+                  {t("singleBook.button")}
                 </button>
               ) : (
                 <LoginBorrower
@@ -89,16 +91,16 @@ const SingleBook = () => {
 
           {/* Trạng thái sách */}
           <div className="flex flex-col gap-2 text-left">
-            <h3 className="font-medium">Status</h3>
+            <h3 className="font-medium">{t("singleBook.status")}</h3>
             <div>
               <p className="text-lg">{status}</p>
-              <p className="dark:text-blush text-xl text-pink-800">
+              <p className="text-xl text-pink-800 dark:text-blush">
                 {borrowerInfo.name}
               </p>
               <p className="text-gray-500">{borrowerInfo.workPlace}</p>
             </div>
             <div className="text-gray-500">
-              <p className="dark:text-sienna-soft text-lg text-black">
+              <p className="text-lg text-black dark:text-sienna-soft">
                 {bookedTime}
               </p>
               <div className="flex flex-col md:flex-row md:gap-2 md:whitespace-nowrap">
@@ -125,7 +127,7 @@ const SingleBook = () => {
 
           <div className="flex gap-2 text-center">
             <p className="text-xl">{authorName}</p>
-            <HiMiniCheckBadge className="text-sienna my-auto text-2xl" />
+            <HiMiniCheckBadge className="my-auto text-2xl text-sienna" />
           </div>
 
           <Rating>
@@ -142,14 +144,16 @@ const SingleBook = () => {
               href="#"
               className="text-md font-medium text-gray-900 underline hover:no-underline dark:text-white"
             >
-              {views}+ lượt xem
+              {views}+ {t("singleBook.views")}
             </a>
           </Rating>
 
           <ToggleShowMore text={bookDescription} />
 
           <div className="flex gap-4">
-            <span className="text-sienna dark:text-blush">Thể loại</span>
+            <span className="text-sienna dark:text-blush">
+              {t("singleBook.categorie")}
+            </span>
             <a
               href="#"
               className="font-medium text-gray-900 underline hover:no-underline dark:text-white"
@@ -162,7 +166,7 @@ const SingleBook = () => {
 
           {/* Thông tin người chia sẻ */}
           <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-medium">Về người chia sẻ</h2>
+            <h2 className="text-2xl font-medium">{t("profileMember.title")}</h2>
             <Link
               to={`/member/${sharer.id}`}
               className="flex gap-4 text-center"
@@ -177,16 +181,17 @@ const SingleBook = () => {
               <div className="flex flex-col text-left">
                 <div className="flex gap-1 text-center">
                   <p className="text-xl">{sharer.name}</p>
-                  <HiMiniCheckBadge className="text-sienna mt-1 text-xl" />
+                  <HiMiniCheckBadge className="mt-1 text-xl text-sienna" />
                 </div>
                 <p className="text-gray-500">{sharer.workPlace}</p>
                 <p className="flex gap-2 text-gray-500">
-                  <span>Đã chia sẻ:</span> {count} cuốn sách
+                  <span>{t("profileMember.bookShared.shared")}:</span> {count}{" "}
+                  {t("profileMember.bookShared.bookLength")}
                 </p>
                 <div className="flex items-center gap-1">
                   <ImProfile />
                   <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
-                    Xem profile
+                    {t("profileMember.bookShared.profile")}
                   </p>
                 </div>
               </div>

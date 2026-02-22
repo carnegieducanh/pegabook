@@ -6,9 +6,12 @@ import SpinnerLoading from "../components/SpinnerLoading";
 import ViewsBook from "../OurBooks/ViewsBook";
 import SearchBooks from "../components/SearchBooks";
 import CategoryForm from "../components/category/CategoryForm";
+import { useLanguage } from "../contexts/LanguageProvider";
 import API_BASE_URL from "../config/api";
 
 const AllBooks = () => {
+  const { t } = useLanguage();
+
   const [booksData, setBooksData] = useState([]);
   const [membersData, setMembersData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,18 +74,20 @@ const AllBooks = () => {
     <div className="flex min-h-screen flex-col dark:bg-void">
       <ImageBanner />
 
-      <ViewsBook headline="Xem nhiều nhất" />
+      <ViewsBook headline={t("allBooks.title")} />
 
       <div className="my-10 bg-veil px-4 dark:bg-void lg:px-24">
         <div className="mb-12 dark:text-linen md:w-1/3">
           <SearchBooks />
         </div>
 
-        <h3 className="text-left font-title text-2xl font-bold">Categories:</h3>
+        <h3 className="text-left font-title text-2xl font-bold">
+          {t("allBooks.categories")}:
+        </h3>
         <CategoryForm setSearchFormValues={setSearchFormValues} />
 
         <h2 className="text-left font-title text-4xl font-bold dark:text-pebble">
-          Our Book List
+          {t("allBooks.booklist")}
         </h2>
 
         {currentBooks.length > 0 ? (
@@ -105,7 +110,7 @@ const AllBooks = () => {
                       {book.authorName}
                     </p>
                     <p className="mt-2 text-sm">
-                      Chia sẻ bởi:{" "}
+                      {t("allBooks.sharedBy")}:{" "}
                       <span className="line-clamp-1 cursor-pointer font-semibold text-sienna hover:underline dark:text-sienna-soft">
                         {book.memberName}
                       </span>

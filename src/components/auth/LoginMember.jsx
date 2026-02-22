@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import bookrow from "../../assets/bookrow.jpg";
 import SpinnerLoading from "../SpinnerLoading";
 import API_BASE_URL from "../../config/api";
+import { useLanguage } from "../../contexts/LanguageProvider";
 
 const LoginMember = () => {
+  const { t } = useLanguage();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false); // State to manage loading status
   const navigate = useNavigate();
@@ -34,10 +36,10 @@ const LoginMember = () => {
               memberAvatar: userMember.memberAvatar,
             }),
           );
-          alert("Bạn đã đăng nhập thành công");
+          alert(t("loginMember.alert"));
           navigate(`/member/dashboard/${userMember._id}`);
         } else {
-          setError("Email hoặc mật khẩu không chính xác");
+          setError(t("loginMember.setError"));
         }
       })
       .catch((error) => {
@@ -67,18 +69,18 @@ const LoginMember = () => {
           <SpinnerLoading />
         </div>
       ) : (
-        <div className="mx-auto flex max-w-sm rounded-md border border-gray-300 bg-cream p-10 dark:bg-obsidian">
+        <div className="mx-auto flex min-w-80 rounded-md border border-gray-300 bg-cream p-10 dark:bg-obsidian">
           <form onSubmit={handleLogin}>
             <div className="space-y-6">
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                Đăng nhập vào nền tảng của{" "}
+                {t("loginMember.title")}{" "}
                 <span className="text-xl font-medium text-brand">
                   Pegabook
                 </span>{" "}
               </h3>
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="userName" value="User của bạn" />
+                  <Label htmlFor="userName" value={t("loginMember.labelUse")} />
                 </div>
                 <input
                   id="userName"
@@ -91,7 +93,10 @@ const LoginMember = () => {
               </div>
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="password" value="Mật khẩu của bạn" />
+                  <Label
+                    htmlFor="password"
+                    value={t("loginMember.labelPass")}
+                  />
                 </div>
                 <input
                   id="password"
@@ -106,37 +111,24 @@ const LoginMember = () => {
               <div className="flex justify-between">
                 <div className="flex items-center gap-2">
                   <Checkbox id="remember" />
-                  <Label htmlFor="remember">Ghi nhớ đăng nhập</Label>
+                  <Label htmlFor="remember">
+                    {t("loginMember.labelRemember")}
+                  </Label>
                 </div>
-                {/* <a
-                  href="#"
-                  className="text-sm text-cyan-700 hover:underline dark:text-cyan-500"
-                >
-                  Quên mật khẩu?
-                </a> */}
               </div>
               <div className="w-full">
                 <button className="rounded-md bg-cyan-700 px-6 py-2 text-white">
-                  Đăng nhập vào tài khoản của bạn
+                  {t("loginMember.loginBtn")}
                 </button>
                 <div className="mt-3 text-center">
                   <Link
                     to="/login"
                     className="text-sm text-cyan-700 hover:text-gray-600 hover:underline dark:text-cyan-500 dark:hover:text-gray-300"
                   >
-                    Hoặc đăng nhập với tư cách admin
+                    {t("loginMember.loginAdminBtn")}
                   </Link>
                 </div>
               </div>
-              {/* <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
-                Chưa đăng ký?&nbsp;
-                <a
-                  href="#"
-                  className="text-cyan-700 hover:underline dark:text-cyan-500"
-                >
-                  Tạo tài khoản
-                </a>
-              </div> */}
             </div>
           </form>
         </div>

@@ -90,26 +90,26 @@ const Navbar = () => {
 
   const navMember = [
     {
-      link: "Vào Dashboard",
+      link: "Dashboard",
       path: `/member/dashboard/${memberSession?._id}`,
     },
     { link: t("nav.logout"), path: "/logout" },
   ];
 
   return (
-    <header className="dark:bg-obsidian fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-all duration-300 ease-in">
+    <header className="fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-all duration-300 ease-in dark:bg-obsidian">
       <nav
         className={`py-4 pl-4 pr-4 transition-all duration-300 ease-in-out md:px-4 lg:px-24 ${
           isSticky
-            ? "bg-cream/90 dark:bg-ember sticky left-0 right-0 top-0 shadow-md backdrop-blur-md"
+            ? "sticky left-0 right-0 top-0 bg-cream/90 shadow-md backdrop-blur-md dark:bg-ember"
             : ""
         }`}
       >
         <div className="flex items-center justify-between text-base">
           {/* Logo */}
           <Link to="/">
-            <h2 className="text-brand text-4xl font-medium">PEGABOOK</h2>
-            <p className="text-dusk dark:text-dust pt-2">{t("nav.tagline")}</p>
+            <h2 className="text-4xl font-medium text-brand">PEGABOOK</h2>
+            <p className="pt-2 text-dusk dark:text-dust">{t("nav.tagline")}</p>
           </Link>
 
           {/* Desktop nav */}
@@ -118,7 +118,7 @@ const Navbar = () => {
               <Link
                 key={path}
                 to={path}
-                className="hover:text-brand dark:text-fog dark:hover:text-brand block cursor-pointer text-lg text-black"
+                className="block cursor-pointer text-lg text-black hover:text-brand dark:text-fog dark:hover:text-brand"
               >
                 {link}
               </Link>
@@ -134,10 +134,7 @@ const Navbar = () => {
             <DarkModeToggle />
             <LanguageSwitcher />
             {!user && !memberSession && (
-              <Link
-                to="/login-member"
-                className={TRIGGER_CLS}
-              >
+              <Link to="/login-member" className={TRIGGER_CLS}>
                 <FaUser /> {t("nav.join")}
               </Link>
             )}
@@ -164,7 +161,7 @@ const Navbar = () => {
           {/* Nút hamburger (mobile) */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="bg-brand rounded-full border p-3 focus:outline-none md:hidden"
+            className="rounded-full border bg-brand p-3 focus:outline-none md:hidden"
           >
             {isMenuOpen ? (
               <FaXmark className="h-5 w-5 text-white" />

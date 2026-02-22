@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Label, Modal } from "flowbite-react";
 import API_BASE_URL from "../../config/api";
+import { useLanguage } from "../../contexts/LanguageProvider";
 
 const LoginBorrower = ({ onLoginSuccess }) => {
+  const { t } = useLanguage();
   const [openModal, setOpenModal] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,7 +34,7 @@ const LoginBorrower = ({ onLoginSuccess }) => {
           localStorage.setItem("memberSession", JSON.stringify(session));
           // Thông báo Navbar cập nhật avatar
           window.dispatchEvent(new Event("memberSessionUpdated"));
-          alert("Bạn đã đăng nhập thành công");
+          alert(t("loginMember.alert"));
           onCloseModal();
           if (onLoginSuccess) {
             onLoginSuccess({
@@ -42,7 +44,7 @@ const LoginBorrower = ({ onLoginSuccess }) => {
             });
           }
         } else {
-          setError("Tên đăng nhập hoặc mật khẩu không chính xác");
+          setError(t("loginMember.setError"));
         }
       })
       .catch((err) => {
@@ -63,10 +65,10 @@ const LoginBorrower = ({ onLoginSuccess }) => {
   return (
     <div>
       <button
-        className="bg-brand mx-auto mt-3 w-48 rounded-full px-6 py-1 text-lg text-white duration-300 hover:scale-105"
+        className="mx-auto mt-3 w-48 rounded-full bg-brand px-6 py-1 text-lg text-white duration-300 hover:scale-105"
         onClick={() => setOpenModal(true)}
       >
-        Mượn sách
+        {t("singleBook.button")}
       </button>
 
       <Modal
@@ -76,15 +78,15 @@ const LoginBorrower = ({ onLoginSuccess }) => {
         popup
         className="bg-gray-300 bg-opacity-95 pt-60 dark:bg-opacity-95 md:pt-10"
       >
-        <div className="bg-cream dark:bg-obsidian my-auto rounded-md">
+        <div className="my-auto rounded-md bg-cream dark:bg-obsidian">
           <Modal.Header />
 
           <Modal.Body>
             <form onSubmit={handleLogin}>
               <div className="space-y-4">
                 <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                  Đăng nhập vào{" "}
-                  <span className="text-brand text-xl font-medium">
+                  {t("loginMember.title")}{" "}
+                  <span className="text-xl font-medium text-brand">
                     Pegabook
                   </span>
                 </h3>
@@ -94,7 +96,7 @@ const LoginBorrower = ({ onLoginSuccess }) => {
                     <Label htmlFor="userName" value="User của bạn" />
                   </div>
                   <input
-                    className="rounded-md w-full"
+                    className="w-full rounded-md"
                     id="userName"
                     name="userName"
                     type="text"
@@ -109,7 +111,7 @@ const LoginBorrower = ({ onLoginSuccess }) => {
                     <Label htmlFor="password" value="Mật khẩu" />
                   </div>
                   <input
-                    className="rounded-md w-full"
+                    className="w-full rounded-md"
                     id="password"
                     name="password"
                     type="password"
@@ -123,9 +125,11 @@ const LoginBorrower = ({ onLoginSuccess }) => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-brand w-full rounded-md px-4 py-2 text-white disabled:opacity-60"
+                  className="w-full rounded-md bg-brand px-4 py-2 text-white disabled:opacity-60"
                 >
-                  {loading ? "Đang đăng nhập..." : "Đăng nhập"}
+                  {loading
+                    ? t("loginMember.loading1")
+                    : t("loginMember.loading2")}
                 </button>
               </div>
             </form>

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import SpinnerLoading from "../components/SpinnerLoading";
 import API_BASE_URL from "../config/api";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const NewMember = () => {
+  const { t } = useLanguage();
   const [lastMember, setLastMember] = useState(null);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const NewMember = () => {
   return (
     <div>
       <p className="text-md pl-2 pt-4 text-left font-medium text-maroon underline dark:text-blush">
-        Thành viên mới
+        {t("members.newMember")}
       </p>
       {lastMember ? (
         <div className="grid grid-cols-1 justify-between gap-x-8 sm:grid-cols-2 md:grid-cols-3">

@@ -3,8 +3,10 @@ import ImageBanner from "../components/ImageBanner";
 import { useEffect, useState } from "react";
 import SpinnerLoading from "./SpinnerLoading";
 import API_BASE_URL from "../config/api";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const Gratitude = () => {
+  const { t } = useLanguage();
   const [allMembers, setAllMembers] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
   const [matchedMembers, setMatchedMembers] = useState([]);
@@ -54,22 +56,17 @@ const Gratitude = () => {
       <ImageBanner />
 
       <div className="bg-veil px-4 py-10 dark:bg-void lg:px-36">
-        <h2 className="text-left font-title text-4xl font-bold">Lời cảm ơn</h2>
+        <h2 className="text-left font-title text-4xl font-bold">
+          {t("gratitude.title")}
+        </h2>
 
         <div className="my-10 text-lg">
           <p className="mb-3 text-gray-700 dark:text-pebble">
-            Team Pegabook xin bày tỏ sự trân trọng biết ơn đến tất cả các thành
-            viên vì những đóng góp to lớn trong việc xây dựng và phát triển thư
-            viện sách chia sẻ kiến thức này. Sự nhiệt tình và sáng tạo của các
-            bạn đã biến Pegabook từ những ý tưởng mơ hồ trở thành hiện thực, tạo
-            nên một thư viện sách như ngày hôm nay.
+            {t("gratitude.description")}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
             <Blockquote className="mb-3 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-void">
-              <p className="text-lg">
-                🙏 Gửi lời cảm ơn chân thành đến tất cả những thành viên đã và
-                đang chia sẻ những cuốn sách hay tới Pegabook:
-              </p>{" "}
+              <p className="text-lg">🙏 {t("gratitude.blockquote")}:</p>{" "}
               {filteredMembers.length > 0 ? (
                 <div className="py-2 text-xl font-semibold italic text-maroon dark:text-blush">
                   "
@@ -90,10 +87,10 @@ const Gratitude = () => {
         <figcaption className="flex space-x-3 text-lg">
           <div className="flex items-center divide-x-2 divide-gray-300">
             <cite className="pr-3 font-medium text-gray-900 dark:text-linen">
-              Người đại diện
+              {t("gratitude.figcaption")}
             </cite>
             <cite className="pl-3 text-gray-700 dark:text-pebble">
-              thành viên team Pegabook
+              {t("gratitude.cite")}
             </cite>
           </div>
         </figcaption>

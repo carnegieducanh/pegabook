@@ -9,18 +9,19 @@ import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 import SpinnerLoading from "../components/SpinnerLoading";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const OtherBookCards = ({ headline, books }) => {
+  const { t } = useLanguage();
   // console.log(books);
   return (
-    <div className="text-centerlg:px-24 my-16 px-4">
+    <div className="text-centerlg:px-24 my-16 px-4 lg:px-24">
       <h2 className="my-2 text-center font-title text-5xl font-bold leading-snug text-black dark:text-linen">
         {headline}
       </h2>
       <p className="pt-2 text-lg text-gray-700 dark:text-pebble">
-        <span className="text-xl font-medium text-brand">Pegabook</span> xây
-        dựng cộng đồng những người yêu sách thông qua các hoạt động đọc và thảo
-        luận, góp phần tạo nên môi trường học tập, trao đổi và kết nối bền vững.
+        <span className="text-xl font-medium text-brand">Pegabook</span>{" "}
+        {t("otherBooks.description")}
       </p>
 
       {/* {card} */}

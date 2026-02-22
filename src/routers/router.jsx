@@ -15,7 +15,7 @@ const SingleBook = lazy(() => import("../OurBooks/SingleBook"));
 const AllBooks = lazy(() => import("../OurBooks/AllBooks"));
 const Members = lazy(() => import("../OurMembers/Members"));
 const Sharers = lazy(() => import("../OurMembers/Sharers"));
-const SingleMember = lazy(() => import("../OurMembers/SingleMember"));
+const ProfileMember = lazy(() => import("../OurMembers/ProfileMember"));
 const PrivateRoute = lazy(() => import("../components/auth/PrivateRoute"));
 const Dashboard = lazy(() => import("../dashboard/dashAdmin/Dashboard"));
 const ManageBorrowers = lazy(
@@ -93,7 +93,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/member/:id",
-        element: <SingleMember />,
+        element: <ProfileMember />,
         loader: ({ params }) => fetch(`${API_BASE_URL}/member/${params.id}`),
       },
     ],

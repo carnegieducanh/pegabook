@@ -1,8 +1,10 @@
 import { Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 // eslint-disable-next-line react/prop-types
 export function SpinnerLoading({ initialCountdown = 10 }) {
+  const { t } = useLanguage();
   const [countdown, setCountdown] = useState(initialCountdown); // Sử dụng prop để khởi tạo giá trị đếm ngược
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export function SpinnerLoading({ initialCountdown = 10 }) {
         <Spinner aria-label="Alternate spinner button example" size="xl" />
         {/* <span className="pl-3">Loading...</span> */}
         <p className="mt-4 text-lg font-semibold text-gray-700">
-          Vui lòng đợi...{" "}
+          {t("loading.title")}{" "}
           <span className="text-2xl text-magenta">{countdown}s</span>
         </p>
       </div>

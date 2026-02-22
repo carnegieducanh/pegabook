@@ -4,8 +4,10 @@ import ImageBanner from "../components/ImageBanner";
 import SpinnerLoading from "../components/SpinnerLoading";
 import NewMember from "./NewMember";
 import API_BASE_URL from "../config/api";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const Members = () => {
+  const { t } = useLanguage();
   const [allMembers, setAllMembers] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
   const [allBooksRead, setAllBooksRead] = useState([]);
@@ -105,11 +107,11 @@ const Members = () => {
       <ImageBanner />
 
       <div className="bg-veil px-4 py-10 dark:bg-void lg:px-36">
-        <h2 className="text-left font-title text-3xl">Về thành viên</h2>
+        <h2 className="text-left font-title text-3xl">{t("members.title")}</h2>
 
         <NewMember />
         <p className="text-md pl-2 pt-4 text-left font-medium text-maroon underline dark:text-blush">
-          Tất cả thành viên
+          {t("members.members")}
         </p>
         {currentMembers.length > 0 ? (
           <div className="grid grid-cols-1 justify-between gap-x-8 sm:grid-cols-2 md:grid-cols-3">
@@ -134,12 +136,12 @@ const Members = () => {
                         {member.workPlace}
                       </p>
                       <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
-                        Đang mượn: {""}
-                        {member.borrowingBooksCount} cuốn sách
+                        {t("members.borrowing")}: {""}
+                        {member.borrowingBooksCount} {t("members.bookLength")}
                       </p>
                       <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
-                        Đã đọc: {""}
-                        {member.readBooksCount} cuốn sách
+                        {t("members.read")}: {""}
+                        {member.readBooksCount} {t("members.bookLength")}
                       </p>
                     </div>
                   </div>

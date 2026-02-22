@@ -13,8 +13,10 @@ import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 import SpinnerLoading from "../components/SpinnerLoading";
 import API_BASE_URL from "../config/api";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const ViewsBook = ({ headline }) => {
+  const { t } = useLanguage();
   const [membersData, setMembersData] = useState(null);
   const [booksData, setBooksData] = useState([]);
   const [memberName, setMemberName] = useState({});
@@ -122,12 +124,14 @@ const ViewsBook = ({ headline }) => {
                           {book.authorName}
                         </p>
 
-                        <p className="line-clamp-1 text-sm">Chia sẻ bởi</p>
+                        <p className="line-clamp-1 text-sm">
+                          {t("allBooks.sharedBy")}
+                        </p>
                         <p className="-mt-1 text-sm font-semibold text-sienna dark:text-sienna-soft">
                           {memberName[book.sharerID]}
                         </p>
                         <p className="text-sm text-gray-500">
-                          {book.views} lượt xem
+                          {book.views} {t("allBooks.views")}
                         </p>
                       </div>
                     </div>

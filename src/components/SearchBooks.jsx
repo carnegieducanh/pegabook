@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { Link } from "react-router-dom";
 import API_BASE_URL from "../config/api";
+import { useLanguage } from "../contexts/LanguageProvider";
 
 const SearchBooks = () => {
   const [data, setData] = useState([]);
+  const { t } = useLanguage();
 
   const [search, setSearch] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -61,15 +63,15 @@ const SearchBooks = () => {
 
   return (
     <div className="w-full">
-      <div className="bg-ghost relative flex justify-start rounded-s-sm border border-solid outline-none">
+      <div className="relative flex justify-start rounded-s-sm border border-solid bg-ghost outline-none">
         <IoIosSearch className="absolute left-2 top-2 my-auto h-6 w-6" />
 
         <input
           id="search"
           type="search"
           name="search"
-          className="bg-ghost dark:bg-void dark:text-linen w-full border-none pl-10 font-normal outline-none"
-          placeholder="Search a book"
+          className="w-full border-none bg-ghost pl-10 font-normal outline-none dark:bg-void dark:text-linen"
+          placeholder={t("searchBooks.placeholder")}
           onChange={filterBooks}
           autoComplete="off"
         />
@@ -78,7 +80,7 @@ const SearchBooks = () => {
       {showResults && inputEntered && (
         <div
           id="searchResultsDiv"
-          className="bg-cream dark:bg-ember max-h-40 overflow-y-scroll rounded-lg px-5 py-5 text-center shadow hover:shadow-md"
+          className="max-h-40 overflow-y-scroll rounded-lg bg-cream px-5 py-5 text-center shadow hover:shadow-md dark:bg-ember"
         >
           {loading ? (
             <h3 className="font-bold">Loading...</h3>
@@ -86,7 +88,7 @@ const SearchBooks = () => {
             search.map((book, index) => (
               <div key={book._id} onClick={() => handleBookSelect(book)}>
                 <Link to={`/book/${book._id}`}>
-                  <div className="hover:bg-ash dark:hover:bg-obsidian flex h-20 cursor-pointer gap-7 px-5 py-2">
+                  <div className="flex h-20 cursor-pointer gap-7 px-5 py-2 hover:bg-ash dark:hover:bg-obsidian">
                     <img
                       src={book.imageUrl}
                       alt=""
