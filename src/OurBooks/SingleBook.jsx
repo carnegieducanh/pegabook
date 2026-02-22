@@ -10,6 +10,8 @@ import BorrowForm from "./BorrowForm";
 import useBookData from "../hooks/useBookData";
 import API_BASE_URL from "../config/api";
 import { useLanguage } from "../contexts/LanguageProvider";
+import { getStatusLabel } from "../utils/getStatusLabel";
+import bookCategories from "../data/BookCategories";
 
 const SingleBook = () => {
   const { t } = useLanguage();
@@ -93,16 +95,18 @@ const SingleBook = () => {
           <div className="flex flex-col gap-2 text-left">
             <h3 className="font-medium">{t("singleBook.status")}</h3>
             <div>
-              <p className="text-lg">{status}</p>
+              <p className="text-lg">{getStatusLabel(status, t)}</p>
               <p className="text-xl text-pink-800 dark:text-blush">
                 {borrowerInfo.name}
               </p>
               <p className="text-gray-500">{borrowerInfo.workPlace}</p>
             </div>
             <div className="text-gray-500">
-              <p className="text-lg text-black dark:text-sienna-soft">
-                {bookedTime}
-              </p>
+              {bookedTime && bookedTime !== "Thời gian mượn" && (
+                <p className="text-lg text-black dark:text-sienna-soft">
+                  {bookedTime}
+                </p>
+              )}
               <div className="flex flex-col md:flex-row md:gap-2 md:whitespace-nowrap">
                 <p>{borrowedDate}</p>
                 {" - "}
@@ -158,7 +162,9 @@ const SingleBook = () => {
               href="#"
               className="font-medium text-gray-900 underline hover:no-underline dark:text-white"
             >
-              {category}
+              {bookCategories.find((c) => c.value === category)
+                ? t(`categories.${bookCategories.find((c) => c.value === category).key}`)
+                : category}
             </a>
           </div>
 

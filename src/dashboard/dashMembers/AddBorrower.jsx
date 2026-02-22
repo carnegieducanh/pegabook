@@ -7,8 +7,8 @@ import { Datepicker } from "flowbite-react";
 import API_BASE_URL from "../../config/api";
 
 function AddBorrower() {
-    const [status, setStatus] = useState("Đang mượn bởi");
-    const [bookedTime, setBookedTime] = useState("Thời gian mượn");
+    const [status, setStatus] = useState("bookStatus.borrowed");
+    const [bookedTime, setBookedTime] = useState("");
 
     const { id } = useParams();
 

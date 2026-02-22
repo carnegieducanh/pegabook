@@ -95,7 +95,7 @@ function RemoveBorrower() {
     event.preventDefault();
 
     // const memberName = form.searchInput.value;
-    const status = "Có thể mượn";
+    const status = "bookStatus.available";
     const borrowedBy = "";
     const borrowerID = "";
     const bookedTime = "";

@@ -12,9 +12,15 @@ import { Link } from "react-router-dom";
 import SpinnerLoading from "../components/SpinnerLoading";
 import { useLanguage } from "../contexts/LanguageProvider";
 import API_BASE_URL from "../config/api";
+import bookCategories from "../data/BookCategories";
 
 const TrendingBooks = ({ headline }) => {
   const { t } = useLanguage();
+
+  const getCategoryLabel = (viValue) => {
+    const cat = bookCategories.find((c) => c.value === viValue);
+    return cat ? t(`categories.${cat.key}`) : viValue;
+  };
 
   const [membersData, setMembersData] = useState(null);
   const [booksData, setBooksData] = useState([]);
@@ -106,7 +112,7 @@ const TrendingBooks = ({ headline }) => {
                   >
                     <div className="mx-auto mt-1 flex flex-col justify-between gap-1 text-left lg:w-52">
                       <p className="line-clamp-2 block text-center text-sm text-gray-500 dark:text-pebble">
-                        {book.category}
+                        {getCategoryLabel(book.category)}
                       </p>
                       <img
                         src={book.imageUrl}

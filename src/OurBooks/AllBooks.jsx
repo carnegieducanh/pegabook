@@ -8,6 +8,7 @@ import SearchBooks from "../components/SearchBooks";
 import CategoryForm from "../components/category/CategoryForm";
 import { useLanguage } from "../contexts/LanguageProvider";
 import API_BASE_URL from "../config/api";
+import { getStatusLabel } from "../utils/getStatusLabel";
 
 const AllBooks = () => {
   const { t } = useLanguage();
@@ -117,7 +118,7 @@ const AllBooks = () => {
                     </p>
                     <hr className="my-2 text-sm" />
                     <p className="font-semibold text-pink-800 underline dark:text-blush">
-                      {book.status}
+                      {getStatusLabel(book.status, t)}
                     </p>
                     <p className="line-clamp-1 text-sm font-semibold text-gray-700">
                       {book.borrowedBy}

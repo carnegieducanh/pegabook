@@ -169,6 +169,10 @@ const zhTW = {
     artDesign: "藝術・設計",
     startup: "創業・商業",
   },
+  bookStatus: {
+    available: "可借閱",
+    borrowed: "借閱中",
+  },
 };
 
 export default zhTW;

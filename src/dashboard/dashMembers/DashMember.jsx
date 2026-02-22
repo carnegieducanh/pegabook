@@ -7,8 +7,11 @@ import { FaBookReader } from "react-icons/fa";
 import { MdPeopleAlt } from "react-icons/md";
 import { BiSolidBookHeart } from "react-icons/bi";
 import API_BASE_URL from "../../config/api";
+import { useLanguage } from "../../contexts/LanguageProvider";
+import { getStatusLabel } from "../../utils/getStatusLabel";
 
 const DashMember = () => {
+  const { t } = useLanguage();
   const [borrower, setBorrower] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
 
@@ -220,7 +223,7 @@ const DashMember = () => {
                           </div>
                           <div className="w-2/3 md:w-1/3">
                             <div className="flex flex-col items-end text-base text-gray-900 dark:text-white">
-                              <p className="text-right">{book.status}</p>
+                              <p className="text-right">{getStatusLabel(book.status, t)}</p>
                               <p className="text-right font-semibold text-pink-800">
                                 {book.borrowedBy}
                               </p>

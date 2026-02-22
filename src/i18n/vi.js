@@ -173,6 +173,10 @@ const vi = {
     artDesign: "Nghệ thuật - Thiết kế",
     startup: "Khởi nghiệp - Kinh doanh",
   },
+  bookStatus: {
+    available: "Có thể mượn",
+    borrowed: "Đang mượn bởi",
+  },
 };
 
 export default vi;

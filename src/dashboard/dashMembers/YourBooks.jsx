@@ -4,8 +4,11 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 import PaginationButtons from "../../components/PaginationBtns";
 import DashMemberBook from "./DashMemberBook";
 import API_BASE_URL from "../../config/api";
+import { useLanguage } from "../../contexts/LanguageProvider";
+import { getStatusLabel } from "../../utils/getStatusLabel";
 
 const YourBooks = () => {
+  const { t } = useLanguage();
   const [member, setMember] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
 
@@ -87,7 +90,7 @@ const YourBooks = () => {
                       <hr className="my-2" />
 
                       <p className="line-clamp-2 text-sm dark:text-linen">
-                        {book.status}
+                        {getStatusLabel(book.status, t)}
                       </p>
                       <p className="line-clamp-1 text-sm font-semibold text-pink-800 dark:text-blush">
                         {book.borrowedBy}

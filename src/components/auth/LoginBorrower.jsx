@@ -93,7 +93,10 @@ const LoginBorrower = ({ onLoginSuccess }) => {
 
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="userName" value="User của bạn" />
+                    <Label
+                      htmlFor="userName"
+                      value={t("loginMember.labelUse")}
+                    />
                   </div>
                   <input
                     className="w-full rounded-md"
@@ -108,7 +111,10 @@ const LoginBorrower = ({ onLoginSuccess }) => {
 
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="password" value="Mật khẩu" />
+                    <Label
+                      htmlFor="password"
+                      value={t("loginMember.labelPass")}
+                    />
                   </div>
                   <input
                     className="w-full rounded-md"

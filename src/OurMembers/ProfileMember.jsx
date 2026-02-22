@@ -5,6 +5,7 @@ import ToggleShowMore from "../components/ToggleShowMore";
 import ImageBanner from "../components/ImageBanner";
 import API_BASE_URL from "../config/api";
 import { useLanguage } from "../contexts/LanguageProvider";
+import { getStatusLabel } from "../utils/getStatusLabel";
 
 const ProfileMember = () => {
   const { t } = useLanguage();
@@ -137,7 +138,7 @@ const ProfileMember = () => {
 
                         <hr className="my-2" />
 
-                        <p className="line-clamp-2 text-sm">{book.status}</p>
+                        <p className="line-clamp-2 text-sm">{getStatusLabel(book.status, t)}</p>
                         <p className="line-clamp-1 text-sm font-semibold text-pink-700 dark:text-blush">
                           {book.borrowedBy}
                         </p>

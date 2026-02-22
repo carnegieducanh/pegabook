@@ -172,6 +172,10 @@ const ja = {
     artDesign: "アート・デザイン",
     startup: "起業・ビジネス",
   },
+  bookStatus: {
+    available: "貸出可能",
+    borrowed: "貸出中",
+  },
 };
 
 export default ja;

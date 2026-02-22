@@ -173,6 +173,10 @@ const en = {
     artDesign: "Art & Design",
     startup: "Startup & Business",
   },
+  bookStatus: {
+    available: "Available",
+    borrowed: "Borrowed by",
+  },
 };
 
 export default en;
