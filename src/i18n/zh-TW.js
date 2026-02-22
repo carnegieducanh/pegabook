@@ -158,6 +158,17 @@ const zhTW = {
   loading: {
     title: "請稍等...",
   },
+  categories: {
+    biography: "傳記・回憶錄",
+    literature: "文學",
+    psychology: "心理學",
+    inspiration: "勵志",
+    healing: "療癒・正念",
+    fiction: "小說",
+    education: "教育",
+    artDesign: "藝術・設計",
+    startup: "創業・商業",
+  },
 };
 
 export default zhTW;

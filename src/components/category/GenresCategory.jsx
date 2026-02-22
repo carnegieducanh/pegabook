@@ -1,7 +1,16 @@
 import useFetch from "../../hooks/useFetch";
+import bookCategories from "../../data/BookCategories";
+import { useLanguage } from "../../contexts/LanguageProvider";
 
 // eslint-disable-next-line react/prop-types
 const GenresCategory = ({ onChange, value = [] }) => {
+  const { t } = useLanguage();
+
+  // Map giá trị DB (tiếng Việt) sang nhãn dịch của ngôn ngữ hiện tại
+  const getCategoryLabel = (viValue) => {
+    const cat = bookCategories.find((c) => c.value === viValue);
+    return cat ? t(`categories.${cat.key}`) : viValue;
+  };
   const { data } = useFetch({ url: `/all-books` }, { enabled: true });
 
   const categoryMap =
@@ -45,7 +54,7 @@ const GenresCategory = ({ onChange, value = [] }) => {
             onChange(newValue);
           }}
         >
-          {category}
+          {getCategoryLabel(category)}
         </p>
       ))}
     </div>

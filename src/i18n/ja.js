@@ -161,6 +161,17 @@ const ja = {
   loading: {
     title: "お待ちください...",
   },
+  categories: {
+    biography: "伝記・回想録",
+    literature: "文学",
+    psychology: "心理学",
+    inspiration: "啓発",
+    healing: "癒し・マインドフルネス",
+    fiction: "フィクション",
+    education: "教育",
+    artDesign: "アート・デザイン",
+    startup: "起業・ビジネス",
+  },
 };
 
 export default ja;

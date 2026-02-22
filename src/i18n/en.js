@@ -162,6 +162,17 @@ const en = {
   loading: {
     title: "Please wait...",
   },
+  categories: {
+    biography: "Biography & Memoir",
+    literature: "Literature",
+    psychology: "Psychology",
+    inspiration: "Inspiration",
+    healing: "Healing & Mindfulness",
+    fiction: "Fiction",
+    education: "Education",
+    artDesign: "Art & Design",
+    startup: "Startup & Business",
+  },
 };
 
 export default en;

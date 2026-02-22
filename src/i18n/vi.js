@@ -60,7 +60,7 @@ const vi = {
     exploreBtn: "Khám phá thêm",
   },
   trending: {
-    label: "Trending Books",
+    label: "Sách được ưa chuộng",
     headline: "Đăng ký siêu nhanh – Mượn sách siêu dễ!",
     description:
       "Chỉ với vài thao tác đơn giản, bạn có thể đăng ký và bắt đầu sử dụng thư viện. Pegabook cung cấp đa dạng các đầu sách, từ văn học đến tài liệu chuyên ngành, đáp ứng nhu cầu đọc và học tập của nhiều đối tượng. Dịch vụ mượn sách hoàn toàn miễn phí, hướng tới việc lan tỏa tri thức và khuyến khích văn hóa đọc.",
@@ -161,6 +161,17 @@ const vi = {
 
   loading: {
     title: "Vui lòng đợi...",
+  },
+  categories: {
+    biography: "Tiểu sử - Hồi ký",
+    literature: "Văn học",
+    psychology: "Tâm lý học",
+    inspiration: "Truyền cảm hứng",
+    healing: "Chữa lành - tỉnh thức",
+    fiction: "Hư cấu",
+    education: "Giáo dục",
+    artDesign: "Nghệ thuật - Thiết kế",
+    startup: "Khởi nghiệp - Kinh doanh",
   },
 };
 

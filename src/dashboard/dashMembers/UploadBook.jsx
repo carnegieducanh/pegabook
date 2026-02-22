@@ -4,9 +4,11 @@ import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import BookUpload from "../../components/BookUpload";
 import bookCategories from "../../data/BookCategories";
 import API_BASE_URL from "../../config/api";
+import { useLanguage } from "../../contexts/LanguageProvider";
 
 const UploadBook = () => {
     const { id } = useParams();
+    const { t } = useLanguage();
 
     const [bookImage, setBookImage] = useState(""); // State để lưu trữ URL của hình ảnh
 
@@ -35,7 +37,7 @@ const UploadBook = () => {
     const [status, setStatus] = useState("Có thể mượn");
 
     const [selectedBookCategory, setSelectedBookCategory] = useState(
-        bookCategories[0]
+        bookCategories[0].value
     );
 
     const handleChangeSelectedValue = (event) => {
@@ -157,8 +159,8 @@ const UploadBook = () => {
                                 onChange={handleChangeSelectedValue}
                             >
                                 {bookCategories.map((option) => (
-                                    <option key={option} value={option}>
-                                        {option}
+                                    <option key={option.key} value={option.value}>
+                                        {t(`categories.${option.key}`)}
                                     </option>
                                 ))}
                             </select>

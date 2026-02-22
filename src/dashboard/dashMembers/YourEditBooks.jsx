@@ -4,9 +4,11 @@ import { Button, Label, TextInput, Textarea } from "flowbite-react";
 import BookUpload from "../../components/BookUpload";
 import bookCategories from "../../data/BookCategories";
 import API_BASE_URL from "../../config/api";
+import { useLanguage } from "../../contexts/LanguageProvider";
 
 const YourEditBooks = () => {
   const { id } = useParams();
+  const { t } = useLanguage();
 
   const [bookImage, setBookImage] = useState(""); // State để lưu trữ URL của hình ảnh
 
@@ -23,7 +25,7 @@ const YourEditBooks = () => {
   // );
 
   const [selectedBookCategory, setSelectedBookCategory] = useState(
-    category || bookCategories[0],
+    category || bookCategories[0].value,
   );
 
   const handleChangeSelectedValue = (event) => {
@@ -119,8 +121,8 @@ const YourEditBooks = () => {
                 onChange={handleChangeSelectedValue}
               >
                 {bookCategories.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
+                  <option key={option.key} value={option.value}>
+                    {t(`categories.${option.key}`)}
                   </option>
                 ))}
               </select>
